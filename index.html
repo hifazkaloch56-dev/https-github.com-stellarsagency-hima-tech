@@ -474,6 +474,41 @@
     }
     .coding-card h3 { font-size: 1.02rem; color: var(--primary); margin-bottom: 0.4rem; }
     .coding-card p { font-size: 0.86rem; color: var(--text-muted); }
+
+    /* ============================================================
+       SMALL ICON COLOR PALETTE - every icon gets its own colour
+       ============================================================ */
+    .service-card:nth-child(1) .s-icon { background: linear-gradient(135deg, #0a4b7a, #00a8b5); box-shadow: 0 8px 20px rgba(0, 168, 181, 0.35); }
+    .service-card:nth-child(2) .s-icon { background: linear-gradient(135deg, #f39c12, #e67e22); box-shadow: 0 8px 20px rgba(243, 156, 18, 0.35); }
+    .service-card:nth-child(3) .s-icon { background: linear-gradient(135deg, #1e8c45, #27ae60); box-shadow: 0 8px 20px rgba(39, 174, 96, 0.35); }
+    .service-card:nth-child(4) .s-icon { background: linear-gradient(135deg, #6c3483, #9b59b6); box-shadow: 0 8px 20px rgba(155, 89, 182, 0.35); }
+    .service-card:nth-child(5) .s-icon { background: linear-gradient(135deg, #c0392b, #e74c3c); box-shadow: 0 8px 20px rgba(231, 76, 60, 0.35); }
+    .service-card:nth-child(6) .s-icon { background: linear-gradient(135deg, #0e8c7f, #1abc9c); box-shadow: 0 8px 20px rgba(26, 188, 156, 0.35); }
+    .service-card:nth-child(7) .s-icon { background: linear-gradient(135deg, #2c3e50, #5d6d7e); box-shadow: 0 8px 20px rgba(93, 109, 126, 0.35); }
+
+    .why-item:nth-child(1) .w-icon { background: linear-gradient(135deg, #f39c12, #e67e22); }
+    .why-item:nth-child(2) .w-icon { background: linear-gradient(135deg, #0a4b7a, #00a8b5); }
+    .why-item:nth-child(3) .w-icon { background: linear-gradient(135deg, #1e8c45, #27ae60); }
+    .why-item:nth-child(4) .w-icon { background: linear-gradient(135deg, #6c3483, #9b59b6); }
+    .why-item:nth-child(5) .w-icon { background: linear-gradient(135deg, #0e8c7f, #1abc9c); }
+
+    .timeline-item:nth-child(1) .t-icon { background: linear-gradient(135deg, #0a4b7a, #00a8b5); }
+    .timeline-item:nth-child(2) .t-icon { background: linear-gradient(135deg, #f39c12, #e67e22); }
+    .timeline-item:nth-child(3) .t-icon { background: linear-gradient(135deg, #1e8c45, #27ae60); }
+    .timeline-item:nth-child(4) .t-icon { background: linear-gradient(135deg, #6c3483, #9b59b6); }
+    .timeline-item:nth-child(5) .t-icon { background: linear-gradient(135deg, #0e8c7f, #1abc9c); }
+    .timeline-item:nth-child(6) .t-icon { background: linear-gradient(135deg, #0a4b7a, #00a8b5); }
+    .timeline-item:nth-child(7) .t-icon { background: linear-gradient(135deg, #f39c12, #e67e22); }
+    .timeline-item:nth-child(8) .t-icon { background: linear-gradient(135deg, #1e8c45, #27ae60); }
+    .timeline-item:nth-child(9) .t-icon { background: linear-gradient(135deg, #6c3483, #9b59b6); }
+    .timeline-item:nth-child(10) .t-icon { background: linear-gradient(135deg, #0e8c7f, #1abc9c); }
+
+    .coding-card:nth-child(1) .c-icon { background: linear-gradient(135deg, #0a4b7a, #00a8b5); box-shadow: 0 10px 24px rgba(0, 168, 181, 0.35); }
+    .coding-card:nth-child(2) .c-icon { background: linear-gradient(135deg, #f39c12, #e67e22); box-shadow: 0 10px 24px rgba(243, 156, 18, 0.35); }
+    .coding-card:nth-child(3) .c-icon { background: linear-gradient(135deg, #1e8c45, #27ae60); box-shadow: 0 10px 24px rgba(39, 174, 96, 0.35); }
+    .coding-card:nth-child(4) .c-icon { background: linear-gradient(135deg, #6c3483, #9b59b6); box-shadow: 0 10px 24px rgba(155, 89, 182, 0.35); }
+    .coding-card:nth-child(5) .c-icon { background: linear-gradient(135deg, #c0392b, #e74c3c); box-shadow: 0 10px 24px rgba(231, 76, 60, 0.35); }
+    .coding-card:nth-child(6) .c-icon { background: linear-gradient(135deg, #0e8c7f, #1abc9c); box-shadow: 0 10px 24px rgba(26, 188, 156, 0.35); }
     .coding-benefits { padding: 2rem 1.8rem; }
     .coding-benefits h3 { color: var(--primary); font-size: 1.3rem; margin-bottom: 0.7rem; }
     .coding-benefits p { color: var(--text-muted); line-height: 1.7; }
@@ -610,6 +645,10 @@
     @media (max-width: 640px) {
       /* 16px inputs prevent iOS Safari from auto-zooming on focus */
       .form-control { font-size: 16px; }
+      /* Compact navbar so brand + hamburger always fit narrow screens */
+      .navbar-inner { padding: 0.7rem 0.9rem; gap: 0.4rem; }
+      .brand { font-size: 0.95rem; gap: 0.45rem; }
+      .brand-logo { width: 32px; height: 32px; }
       /* Hide decorative floating shapes so content stays clean and never overlaps */
       .float-shape, .f-dot { display: none; }
       .hero-visual .scene3d { display: none; }
@@ -1564,12 +1603,6 @@
       closeMobileMenu();
     }
 
-    window.addEventListener('hashchange', renderPage);
-    if (!window.location.hash) {
-      window.history.replaceState(null, '', '#/home');
-    }
-    renderPage();
-
     /* ============================================================
        2. NAVBAR: shadow on scroll
        ============================================================ */
@@ -1818,6 +1851,16 @@
        8. FOOTER YEAR
        ============================================================ */
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    /* ============================================================
+       9. SPA ROUTING (runs last so every listener is registered
+       before the first render)
+       ============================================================ */
+    window.addEventListener('hashchange', renderPage);
+    if (!window.location.hash) {
+      window.history.replaceState(null, '', '#/home');
+    }
+    renderPage();
   </script>
 </body>
 </html>
