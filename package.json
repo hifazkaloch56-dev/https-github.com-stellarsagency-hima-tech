@@ -1,0 +1,21 @@
+{
+  "name": "medibill-pro",
+  "version": "1.0.0",
+  "description": "MediBill Pro - Open-source medical billing web application (Express API + vanilla HTML/CSS/JS frontend)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "medical-billing",
+    "healthcare",
+    "express",
+    "open-source"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
+  }
+}

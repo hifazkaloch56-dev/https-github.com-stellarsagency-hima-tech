@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="faviconTitle">
+  <title id="faviconTitle">MediBill Pro favicon</title>
+  <rect width="64" height="64" rx="14" fill="#0a4b7a"/>
+  <path d="M32 45c-7.5-5.8-15-10.7-15-18C17 21.6 20.4 18.5 24.5 18.5c2.7 0 5.2 1.3 6.8 3.4l.7.9.7-.9c1.6-2.1 4.1-3.4 6.8-3.4C43.6 18.5 47 21.6 47 27c0 7.3-7.5 12.2-15 18z" fill="#ffffff"/>
+  <path d="M23.5 31h5.2l2.1-4.6 3.4 9 2.6-4.4h4.2" fill="none" stroke="#00a8b5" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

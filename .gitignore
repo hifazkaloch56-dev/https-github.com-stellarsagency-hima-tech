@@ -1,0 +1,13 @@
+# Dependencies
+node_modules/
+
+# Environment files (contains secrets - never commit)
+.env
+
+# Local runtime logs
+server.log
+server.err.log
+
+# OS noise
+Thumbs.db
+.DS_Store

@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MediBill Pro - Secure medical billing simplified. Pay your medical bills online quickly and safely.">
+  <meta name="theme-color" content="#0a4b7a">
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <title>MediBill Pro | Secure Medical Billing Simplified</title>
+
+  <!-- Font Awesome icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <style>
+    /* ============================================================
+       MEDIBILL PRO - GLOBAL STYLES (Mobile-First)
+       Palette: Primary #0a4b7a | Secondary #00a8b5 | Background #f4f8fc
+       ============================================================ */
+    :root {
+      --primary: #0a4b7a;          /* Dark blue - primary brand color */
+      --primary-dark: #073a5e;     /* Darker variant for hover states */
+      --secondary: #00a8b5;        /* Teal - accent color */
+      --secondary-dark: #008f9b;   /* Darker teal for hover states */
+      --bg: #f4f8fc;               /* App background */
+      --surface: #ffffff;          /* Card / panel surface */
+      --text: #1c2b3a;             /* Main text color */
+      --text-muted: #5b6b7c;       /* Secondary text color */
+      --border: #dce7f0;           /* Subtle border color */
+      --success: #1fa45b;          /* Success alert color */
+      --error: #d64545;            /* Error alert color */
+      --radius: 12px;              /* Default border radius */
+      --shadow: 0 10px 30px rgba(10, 75, 122, 0.12); /* Soft brand shadow */
+      --shadow-lg: 0 20px 50px rgba(10, 75, 122, 0.18);
+    }
+
+    /* ---------- Reset & Base ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent; /* Removes grey flash on tap for mobile */
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%; /* Prevents iOS auto font inflation on orientation change */
+      text-size-adjust: 100%;
+    }
+
+    body {
+      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden; /* Guards against accidental horizontal scroll on small screens */
+    }
+
+    /* Accessible keyboard focus outline */
+    :focus-visible {
+      outline: 3px solid var(--secondary);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+
+    /* Layout container with responsive max-width */
+    .container {
+      width: 100%;
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    section { padding: 4rem 0; }
+
+    img { max-width: 100%; height: auto; display: block; }
+
+    /* ---------- Buttons ---------- */
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 1.6rem;
+      border-radius: 999px;
+      border: none;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      text-align: center;
+      touch-action: manipulation; /* Removes tap delay / double-tap zoom on mobile */
+      transition: background 0.25s ease, transform 0.15s ease, box-shadow 0.25s ease;
+    }
+    .btn:active { transform: scale(0.97); }
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+      box-shadow: 0 8px 20px rgba(10, 75, 122, 0.35);
+    }
+    .btn-primary:hover { background: var(--primary-dark); }
+    .btn-secondary {
+      background: var(--secondary);
+      color: #fff;
+      box-shadow: 0 8px 20px rgba(0, 168, 181, 0.35);
+    }
+    .btn-secondary:hover { background: var(--secondary-dark); }
+    .btn-outline {
+      background: transparent;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+    }
+    .btn-outline:hover { background: var(--primary); color: #fff; }
+    .btn-small { padding: 0.5rem 1.1rem; font-size: 0.875rem; }
+    .btn-block { width: 100%; }
+
+    /* ============================================================
+       HEADER & NAVIGATION
+       ============================================================ */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      padding-top: env(safe-area-inset-top); /* Accounts for notched phones */
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      padding-top: 0.9rem;
+      padding-bottom: 0.9rem;
+    }
+
+    /* Brand logo */
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--primary);
+      text-decoration: none;
+    }
+    .brand-logo {
+      width: 38px;
+      height: 38px;
+      flex-shrink: 0;
+    }
+    .brand-accent { color: var(--secondary); }
+
+    /* Hamburger toggle (visible only on mobile) */
+    .nav-toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;  /* 44px = recommended minimum touch target size */
+      height: 44px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--surface);
+      color: var(--primary);
+      font-size: 1.2rem;
+      cursor: pointer;
+      touch-action: manipulation;
+    }
+
+    /* Mobile menu - hidden by default, toggled via JS */
+    .nav-menu {
+      display: none;
+      width: 100%;
+      flex-direction: column;
+      gap: 0.5rem;
+      padding: 1rem 0 0.5rem;
+      list-style: none;
+    }
+    .nav-menu.open { display: flex; }
+    .nav-menu a {
+      display: flex;
+      align-items: center;
+      min-height: 44px; /* Comfortable tap target on mobile */
+      padding: 0.7rem 0.9rem;
+      border-radius: 8px;
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+    .nav-menu a:hover { background: var(--bg); color: var(--secondary); }
+
+    /* ============================================================
+       HERO SECTION
+       ============================================================ */
+    .hero {
+      background: linear-gradient(160deg, var(--primary) 0%, #0d5f98 55%, var(--secondary) 130%);
+      color: #fff;
+      padding: 4.5rem 0;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: 2rem;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .hero h1 .accent { color: #7ce7ef; }
+
+    .hero-subtitle {
+      font-size: 1.05rem;
+      color: rgba(255, 255, 255, 0.9);
+      max-width: 540px;
+      margin-bottom: 1.75rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin-bottom: 2rem;
+    }
+
+    /* Security badges row */
+    .security-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.1rem 1.6rem;
+      list-style: none;
+      padding: 0;
+    }
+    .security-badges li {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    .security-badges i { color: #7ce7ef; font-size: 1.05rem; }
+
+    /* Mock statement preview card */
+    .statement-card {
+      background: var(--surface);
+      color: var(--text);
+      border-radius: 16px;
+      box-shadow: var(--shadow-lg);
+      padding: 1.75rem;
+      max-width: 420px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    /* Hero visual column - illustration + overlapping statement card */
+    .hero-visual {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.75rem;
+    }
+    .hero-illustration {
+      width: min(100%, 340px);
+    }
+    .statement-card-header {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px dashed var(--border);
+      margin-bottom: 1.25rem;
+    }
+    .statement-card-header i {
+      color: var(--secondary);
+      font-size: 1.5rem;
+    }
+    .statement-card-header h3 { font-size: 1.1rem; }
+    .statement-card-header p { font-size: 0.85rem; color: var(--text-muted); }
+
+    .statement-rows { display: flex; flex-direction: column; gap: 1rem; }
+    .statement-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .statement-row span { color: var(--text-muted); font-size: 0.9rem; }
+    .statement-row strong { font-size: 1rem; }
+    .statement-row .balance-value { color: var(--secondary); font-size: 1.5rem; }
+
+    .statement-footer {
+      margin-top: 1.5rem;
+      padding: 0.8rem 1rem;
+      background: var(--bg);
+      border-radius: 10px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .statement-footer i { color: var(--success); }
+
+    /* ============================================================
+       SECTION HEADINGS
+       ============================================================ */
+    .section-heading { text-align: center; margin-bottom: 2.75rem; }
+    .section-heading h2 {
+      font-size: 1.75rem;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+    .section-heading p { color: var(--text-muted); max-width: 560px; margin: 0 auto; }
+
+    /* ============================================================
+       QUICK PAY SECTION
+       ============================================================ */
+    .quick-pay { background: var(--surface); }
+
+    .quick-pay-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    /* Lookup form */
+    .pay-form {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
+    }
+    .pay-form label {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--primary);
+      margin-bottom: -0.6rem;
+    }
+    .pay-form input {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      font-size: 1rem;
+      background: var(--surface);
+      color: var(--text);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .pay-form input:focus {
+      outline: none;
+      border-color: var(--secondary);
+      box-shadow: 0 0 0 3px rgba(0, 168, 181, 0.18);
+    }
+    .form-hint { font-size: 0.82rem; color: var(--text-muted); }
+
+    /* Alert boxes (success / error) */
+    .alert {
+      border-radius: 10px;
+      padding: 1rem 1.1rem;
+      font-size: 0.95rem;
+      display: flex;
+      gap: 0.7rem;
+      align-items: flex-start;
+    }
+    .alert-success {
+      background: #e6f7ee;
+      color: var(--success);
+      border: 1px solid #bfe8d0;
+    }
+    .alert-error {
+      background: #fdeaea;
+      color: var(--error);
+      border: 1px solid #f5c6c6;
+    }
+    .hidden { display: none !important; }
+
+    /* Payment panel shown after a successful lookup */
+    .payment-panel {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+    }
+    .payment-panel h3 {
+      color: var(--primary);
+      margin-bottom: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .payment-summary { display: flex; flex-direction: column; gap: 0.8rem; margin-bottom: 1.4rem; }
+    .payment-summary .row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.95rem;
+    }
+    .payment-summary .row span { color: var(--text-muted); }
+    .payment-summary .row .amount { color: var(--primary); font-weight: 800; font-size: 1.25rem; }
+    .payment-methods { font-size: 0.82rem; color: var(--text-muted); margin-top: 0.4rem; }
+
+    /* ============================================================
+       SERVICES SECTION
+       ============================================================ */
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .service-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem 1.6rem;
+      text-align: center;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow);
+    }
+    .service-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 64px;
+      height: 64px;
+      border-radius: 16px;
+      background: rgba(0, 168, 181, 0.12);
+      color: var(--secondary);
+      font-size: 1.6rem;
+      margin-bottom: 1.1rem;
+    }
+    .service-card h3 { color: var(--primary); margin-bottom: 0.6rem; }
+    .service-card p { color: var(--text-muted); font-size: 0.95rem; }
+
+    /* ============================================================
+       SECURITY BANNER
+       ============================================================ */
+    .security-banner {
+      background: linear-gradient(120deg, var(--primary), var(--primary-dark));
+      color: #fff;
+      text-align: center;
+      padding: 3.5rem 1.25rem;
+    }
+    .security-banner i { font-size: 2.2rem; color: #7ce7ef; margin-bottom: 1rem; }
+    .security-banner h2 { font-size: 1.5rem; margin-bottom: 0.75rem; }
+    .security-banner p {
+      max-width: 640px;
+      margin: 0 auto;
+      color: rgba(255, 255, 255, 0.92);
+    }
+
+    /* ============================================================
+       FAQ SECTION
+       ============================================================ */
+    .faq-list {
+      max-width: 760px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .faq-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .faq-question {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.15rem 1.4rem;
+      background: transparent;
+      border: none;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--primary);
+      cursor: pointer;
+      text-align: left;
+      font-family: inherit;
+      touch-action: manipulation;
+    }
+    .faq-question i {
+      color: var(--secondary);
+      transition: transform 0.3s ease;
+      flex-shrink: 0;
+    }
+    .faq-item.open .faq-question i { transform: rotate(180deg); }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease;
+    }
+    .faq-answer p {
+      padding: 0 1.4rem 1.3rem;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* ============================================================
+       FOOTER
+       ============================================================ */
+    .site-footer {
+      background: var(--primary-dark);
+      color: rgba(255, 255, 255, 0.85);
+      padding: 3.5rem 0 calc(2rem + env(safe-area-inset-bottom));
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.25rem;
+      margin-bottom: 2.25rem;
+    }
+    .footer-grid h4 {
+      color: #fff;
+      margin-bottom: 1rem;
+      font-size: 1.05rem;
+    }
+    .footer-grid .brand { color: #fff; margin-bottom: 1rem; }
+    .footer-about p { font-size: 0.9rem; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.85);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s ease;
+    }
+    .footer-links a:hover { color: #7ce7ef; }
+    .footer-contact li {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      font-size: 0.9rem;
+      margin-bottom: 0.7rem;
+    }
+    .footer-contact i { color: #7ce7ef; width: 18px; text-align: center; }
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+      padding-top: 1.5rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    /* ============================================================
+       SCROLL REVEAL ANIMATIONS (Intersection Observer)
+       ============================================================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ============================================================
+       TABLET / DESKTOP LAYOUTS (progressive enhancement)
+       ============================================================ */
+    @media (min-width: 768px) {
+      /* Show the inline nav on tablets+, hide hamburger */
+      .nav-toggle { display: none; }
+      .nav-menu {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 1.4rem;
+        width: auto;
+        padding: 0;
+      }
+      .nav-menu a { padding: 0.5rem 0.2rem; min-height: auto; }
+      .nav-menu a:hover { background: transparent; }
+
+      .hero h1 { font-size: 2.75rem; }
+      .hero-grid { grid-template-columns: 1.1fr 0.9fr; gap: 3rem; }
+      .hero-illustration { width: min(100%, 430px); }
+      .quick-pay-grid { grid-template-columns: 1fr 1fr; align-items: start; }
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    @media (min-width: 1024px) {
+      .hero { padding: 5.5rem 0; }
+      .services-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    /* Very small phones - keep type and spacing comfortable */
+    @media (max-width: 420px) {
+      section { padding: 3rem 0; }
+      .hero h1 { font-size: 1.6rem; }
+      .section-heading h2 { font-size: 1.5rem; }
+      .statement-card { padding: 1.35rem; }
+    }
+
+    /* Respect users who prefer reduced motion - disable reveal animations */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+      * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============================================================
+       HEADER / NAVIGATION
+       ============================================================ -->
+  <header class="site-header" id="top">
+    <nav class="navbar container">
+      <!-- Brand logo -->
+      <a href="#top" class="brand" aria-label="MediBill Pro home">
+        <img src="assets/images/logo.svg" alt="MediBill Pro logo" class="brand-logo" width="38" height="38">
+        MediBill <span class="brand-accent">Pro</span>
+      </a>
+
+      <!-- Hamburger toggle (mobile only) -->
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <!-- Navigation links -->
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#quick-pay">Pay Bill</a></li>
+        <li><a href="#" class="btn btn-outline btn-small">Provider Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ============================================================
+         HERO SECTION
+         ============================================================ -->
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+
+        <!-- Hero copy + CTAs + security badges -->
+        <div class="hero-content reveal">
+          <h1>Secure Medical Billing <span class="accent">Simplified</span> for You</h1>
+          <p class="hero-subtitle">
+            View statements, verify insurance, and pay your medical bills online —
+            all in one safe, easy-to-use place.
+          </p>
+          <div class="hero-actions">
+            <a href="#quick-pay" class="btn btn-secondary">Pay Now</a>
+            <a href="#services" class="btn btn-outline">Learn More</a>
+          </div>
+          <ul class="security-badges">
+            <li><i class="fa-solid fa-shield-halved"></i> HIPAA Compliant</li>
+            <li><i class="fa-solid fa-lock"></i> PCI-DSS Secure</li>
+            <li><i class="fa-solid fa-headset"></i> 24/7 Support</li>
+          </ul>
+        </div>
+
+        <!-- Hero illustration + mock statement preview card -->
+        <div class="hero-visual reveal">
+          <img src="assets/images/hero-illustration.svg"
+               alt="Illustration of a shield protecting a payment card, with a stethoscope and analytics chart"
+               class="hero-illustration">
+          <div class="statement-card">
+            <div class="statement-card-header">
+              <i class="fa-solid fa-file-invoice"></i>
+              <div>
+                <h3>Statement Preview</h3>
+                <p>MediBill Pro · Billing Period 07/2026</p>
+              </div>
+            </div>
+            <div class="statement-rows">
+              <div class="statement-row">
+                <span>Account Number</span>
+                <strong>ACC-4892</strong>
+              </div>
+              <div class="statement-row">
+                <span>Balance Due</span>
+                <strong class="balance-value">$245.75</strong>
+              </div>
+              <div class="statement-row">
+                <span>Due Date</span>
+                <strong>08/15/2026</strong>
+              </div>
+            </div>
+            <div class="statement-footer">
+              <i class="fa-solid fa-circle-check"></i>
+              Auto-pay available — save 5% on every visit
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         QUICK PAY SECTION (Dynamic - calls backend API)
+         ============================================================ -->
+    <section class="quick-pay" id="quick-pay">
+      <div class="container">
+        <div class="section-heading reveal">
+          <h2>Quick Pay</h2>
+          <p>Find your bill with your account number and date of birth, then pay securely.</p>
+        </div>
+
+        <div class="quick-pay-grid">
+          <!-- Lookup form -->
+          <form id="lookupForm" class="pay-form reveal" novalidate>
+            <label for="accountNumber">Account Number</label>
+            <input type="text" id="accountNumber" name="accountNumber"
+                   placeholder="e.g., ACC-4892" autocomplete="off" required>
+            <label for="dob">Date of Birth (MM/DD)</label>
+            <input type="text" id="dob" name="dob"
+                   placeholder="e.g., 05/15" maxlength="5" autocomplete="off" required>
+            <button type="submit" class="btn btn-primary" id="findPayBtn">
+              <i class="fa-solid fa-magnifying-glass"></i> Find &amp; Pay
+            </button>
+            <p class="form-hint">
+              Demo accounts: ACC-4892 (05/15) · ACC-7301 (11/02) · ACC-1124 (03/27)
+            </p>
+          </form>
+
+          <div class="reveal">
+            <!-- Success / error alert (shown via JS) -->
+            <div id="alertBox" class="alert hidden" role="alert"></div>
+
+            <!-- Payment panel (revealed after successful lookup) -->
+            <div id="paymentPanel" class="payment-panel hidden">
+              <h3><i class="fa-solid fa-credit-card"></i> Payment Details</h3>
+              <div class="payment-summary">
+                <div class="row"><span>Patient</span><strong id="payName">—</strong></div>
+                <div class="row"><span>Insurance</span><strong id="payInsurance">—</strong></div>
+                <div class="row"><span>Amount Due</span><span class="amount" id="payAmount">$0.00</span></div>
+              </div>
+              <button class="btn btn-primary btn-block" id="payBtn">
+                <i class="fa-solid fa-lock"></i> Pay Securely
+              </button>
+              <p class="payment-methods">
+                <i class="fa-solid fa-credit-card"></i> Visa · Mastercard · Amex · PayPal
+              </p>
+              <!-- Holds the mock clientSecret returned by the API -->
+              <p id="clientSecretBox" class="hidden" style="margin-top:1rem;font-size:0.85rem;color:var(--text-muted);"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SERVICES SECTION
+         ============================================================ -->
+    <section class="services" id="services">
+      <div class="container">
+        <div class="section-heading reveal">
+          <h2>Our Services</h2>
+          <p>Everything you need to manage healthcare billing — in one place.</p>
+        </div>
+
+        <div class="services-grid">
+          <!-- Service card 1 -->
+          <div class="service-card reveal">
+            <div class="service-icon"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+            <h3>Statement Management</h3>
+            <p>Access itemized statements, track balances, and review billing history anytime.</p>
+          </div>
+
+          <!-- Service card 2 -->
+          <div class="service-card reveal">
+            <div class="service-icon"><i class="fa-solid fa-user-shield"></i></div>
+            <h3>Insurance Verification</h3>
+            <p>Real-time eligibility checks so you know your coverage before treatment.</p>
+          </div>
+
+          <!-- Service card 3 -->
+          <div class="service-card reveal">
+            <div class="service-icon"><i class="fa-solid fa-shield-halved"></i></div>
+            <h3>Secure Payments</h3>
+            <p>PCI-DSS compliant checkout with encrypted transmission and tokenized storage.</p>
+          </div>
+
+          <!-- Service card 4 -->
+          <div class="service-card reveal">
+            <div class="service-icon"><i class="fa-solid fa-chart-line"></i></div>
+            <h3>Claim Analytics</h3>
+            <p>Track claim status, denial rates, and payment trends with clear dashboards.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECURITY BANNER
+         ============================================================ -->
+    <section class="security-banner reveal">
+      <div class="container">
+        <i class="fa-solid fa-shield-halved"></i>
+        <h2>Bank-Grade Security</h2>
+        <p>
+          All data encrypted in transit and at rest. We never store full card numbers.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         FAQ SECTION (Collapsible)
+         ============================================================ -->
+    <section class="faq" id="faq">
+      <div class="container">
+        <div class="section-heading reveal">
+          <h2>Frequently Asked Questions</h2>
+          <p>Quick answers to common billing questions.</p>
+        </div>
+
+        <div class="faq-list reveal">
+
+          <!-- FAQ item 1 -->
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              How do I find my account number?
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>Your account number is printed on the top-right corner of your paper statement and in every email reminder we send. If you still cannot find it, call our support team at 1-800-MEDIBILL.</p>
+            </div>
+          </div>
+
+          <!-- FAQ item 2 -->
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Which payment methods do you accept?
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>We accept Visa, Mastercard, American Express, and PayPal. All payments are processed through a PCI-DSS compliant gateway, and we never store your full card number on our servers.</p>
+            </div>
+          </div>
+
+          <!-- FAQ item 3 -->
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Is my payment information secure?
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>Yes. Your data is encrypted in transit (TLS 1.3) and at rest (AES-256). We are HIPAA compliant for protected health information and PCI-DSS certified for payment data. Full card numbers are never visible to our staff.</p>
+            </div>
+          </div>
+
+          <!-- FAQ item 4 -->
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              What should I do if my bill looks incorrect?
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>Contact our billing department within 30 days of the statement date. We will review the charges and, if verified, adjust the balance. You can reach us at billing@medibillpro.com or 1-800-MEDIBILL.</p>
+            </div>
+          </div>
+
+          <!-- FAQ item 5 -->
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              What happens if my balance shows $0.00?
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>A $0.00 balance means your account is paid in full — your insurance covered the full amount or you have no outstanding charges. You can still sign in to view your statement history.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+
+        <!-- Company info -->
+        <div class="footer-about">
+          <a href="#top" class="brand">
+            <img src="assets/images/logo.svg" alt="MediBill Pro logo" class="brand-logo" width="38" height="38">
+            MediBill <span class="brand-accent">Pro</span>
+          </a>
+          <p>
+            Open-source medical billing made simple. Secure statements, transparent
+            pricing, and 24/7 support for patients and providers.
+          </p>
+        </div>
+
+        <!-- Quick links -->
+        <div>
+          <h4>Company</h4>
+          <ul class="footer-links">
+            <li><a href="#">About</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Terms</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact details -->
+        <div>
+          <h4>Contact</h4>
+          <ul class="footer-links footer-contact">
+            <li><i class="fa-solid fa-phone"></i> 1-800-MEDIBILL</li>
+            <li><i class="fa-solid fa-envelope"></i> support@medibillpro.com</li>
+            <li><i class="fa-solid fa-location-dot"></i> 100 Health Park Drive, Suite 500</li>
+            <li><i class="fa-solid fa-clock"></i> 24/7 Patient Support</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 MediBill Pro. All rights reserved. Demo application — not for real medical payments.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       JAVASCRIPT (Vanilla ES6)
+       ============================================================ -->
+  <script>
+    'use strict';
+
+    /* ------------------------------------------------------------
+       1. MOBILE HAMBURGER MENU TOGGLE
+       ------------------------------------------------------------ */
+    const navToggle = document.getElementById('navToggle');
+    const navMenu = document.getElementById('navMenu');
+
+    navToggle.addEventListener('click', () => {
+      const isOpen = navMenu.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', String(isOpen));
+      // Swap the icon between hamburger and close
+      navToggle.innerHTML = isOpen
+        ? '<i class="fa-solid fa-xmark"></i>'
+        : '<i class="fa-solid fa-bars"></i>';
+    });
+
+    // Close the mobile menu automatically when a link is clicked
+    navMenu.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+        navToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+      });
+    });
+
+    /* ------------------------------------------------------------
+       2. FAQ ACCORDION (Collapsible questions)
+       ------------------------------------------------------------ */
+    document.querySelectorAll('.faq-item').forEach((item) => {
+      const question = item.querySelector('.faq-question');
+      const answer = item.querySelector('.faq-answer');
+
+      question.addEventListener('click', () => {
+        const isOpen = item.classList.toggle('open');
+        question.setAttribute('aria-expanded', String(isOpen));
+        // Animate the answer height for a smooth expand/collapse
+        answer.style.maxHeight = isOpen ? answer.scrollHeight + 'px' : '0px';
+      });
+    });
+
+    /* ------------------------------------------------------------
+       3. SCROLL REVEAL ANIMATIONS (Intersection Observer)
+       ------------------------------------------------------------ */
+    const revealElements = document.querySelectorAll('.reveal');
+
+    const revealObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            // Stop observing once revealed (animate only once)
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 } // Trigger when 15% of the element is visible
+    );
+
+    revealElements.forEach((el) => revealObserver.observe(el));
+
+    /* ------------------------------------------------------------
+       4. QUICK PAY FLOW (Dynamic, calls the Express backend)
+       ------------------------------------------------------------ */
+
+    // Helper: show an alert box with a given type ('success' | 'error')
+    function showAlert(type, message) {
+      const box = document.getElementById('alertBox');
+      box.className = 'alert alert-' + type;
+      box.innerHTML = (type === 'success'
+        ? '<i class="fa-solid fa-circle-check"></i>'
+        : '<i class="fa-solid fa-circle-exclamation"></i>') + '<div>' + message + '</div>';
+      box.classList.remove('hidden');
+    }
+
+    // Helper: hide the alert box
+    function hideAlert() {
+      document.getElementById('alertBox').classList.add('hidden');
+    }
+
+    // Helper: format a number as USD currency
+    function formatCurrency(amount) {
+      return '$' + Number(amount).toFixed(2);
+    }
+
+    // Step 1 - Lookup: POST /api/patient/lookup
+    document.getElementById('lookupForm').addEventListener('submit', async (event) => {
+      event.preventDefault(); // Prevent the native form submission
+
+      const accountNumber = document.getElementById('accountNumber').value.trim();
+      const dob = document.getElementById('dob').value.trim();
+      hideAlert();
+      document.getElementById('paymentPanel').classList.add('hidden');
+
+      // Basic client-side validation
+      if (!accountNumber || !dob) {
+        showAlert('error', 'Please enter both your account number and date of birth.');
+        return;
+      }
+
+      const submitBtn = document.getElementById('findPayBtn');
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Searching…';
+
+      try {
+        const response = await fetch('/api/patient/lookup', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ accountNumber, dob })
+        });
+
+        const data = await response.json();
+
+        if (!response.ok || !data.success) {
+          showAlert('error', data.error || 'We could not find your account. Please check your details.');
+          return;
+        }
+
+        // Success - populate the payment panel with patient data
+        showAlert('success', 'Account found for <strong>' + data.patient.name + '</strong>. Review your bill below.');
+        document.getElementById('payName').textContent = data.patient.name;
+        document.getElementById('payInsurance').textContent = data.patient.insurance || 'Not on file';
+        document.getElementById('payAmount').textContent = formatCurrency(data.patient.balance);
+        document.getElementById('clientSecretBox').classList.add('hidden');
+        document.getElementById('paymentPanel').classList.remove('hidden');
+        document.getElementById('paymentPanel').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      } catch (error) {
+        console.error('Lookup request failed:', error);
+        showAlert('error', 'Network error. Please make sure the server is running and try again.');
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '<i class="fa-solid fa-magnifying-glass"></i> Find &amp; Pay';
+      }
+    });
+
+    // Step 2 - Create payment intent: POST /api/payment/create-intent
+    document.getElementById('payBtn').addEventListener('click', async () => {
+      const accountNumber = document.getElementById('accountNumber').value.trim();
+      const amount = parseFloat(
+        document.getElementById('payAmount').textContent.replace(/[^0-9.-]/g, '')
+      );
+
+      hideAlert();
+
+      try {
+        const response = await fetch('/api/payment/create-intent', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ accountNumber, amount })
+        });
+
+        const data = await response.json();
+
+        if (!response.ok || !data.success) {
+          showAlert('error', data.error || 'Payment could not be initialized. Please try again.');
+          return;
+        }
+
+        // Display the mock clientSecret returned by the API (demo only)
+        showAlert('success', 'Payment intent created successfully!');
+        const secretBox = document.getElementById('clientSecretBox');
+        secretBox.textContent = 'Mock clientSecret: ' + data.clientSecret +
+          ' (In production, this would be used to confirm the payment via your gateway SDK.)';
+        secretBox.classList.remove('hidden');
+      } catch (error) {
+        console.error('Payment intent request failed:', error);
+        showAlert('error', 'Network error. Please make sure the server is running and try again.');
+      }
+    });
+  </script>
+
+</body>
+</html>
