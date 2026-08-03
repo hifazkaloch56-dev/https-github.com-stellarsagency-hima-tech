@@ -1,15 +1,15 @@
 /**
  * ============================================================
- *  MediBill Pro - Backend API Server
- *  Node.js + Express with an in-memory mock patient database.
+ *  Hima Tech Health Solutions - Backend API Server
+ *  Node.js + Express
  *  Open-source. All code, comments, and messages in English.
  * ============================================================
  *
  *  Run with:   node server.js
  *  Health:     GET  /api/health
- *  Lookup:     POST /api/patient/lookup
- *  Payment:    POST /api/payment/create-intent
- *  Webhook:    POST /api/webhooks/payment
+ *  Contact:    POST /api/contact   -> { success: true }
+ *  Audit:      POST /api/audit     -> { success: true }
+ *  Blog:       GET  /api/blog      -> { posts: [...] }
  * ============================================================
  */
 
@@ -38,86 +38,61 @@ app.use(cors());
 app.use(express.static(__dirname));
 
 /* ------------------------------------------------------------
-   MOCK DATABASE
-   In-memory patient records. Replace this array with a real
-   database (e.g. MongoDB, PostgreSQL) in production.
+   MOCK BLOG DATABASE
+   Six dummy posts matching the shape expected by the frontend
+   (title, date, category, icon, thumb, excerpt).
    ------------------------------------------------------------ */
 
-const patients = [
+const posts = [
   {
-    id: 1,
-    accountNumber: 'ACC-4892',
-    dob: '05/15',                 // MM/DD format
-    name: 'Sarah Mitchell',
-    balance: 245.75,
-    insurance: 'BlueCross Shield'
+    title: '5 Denial Management Strategies That Actually Work',
+    date: 'January 12, 2026',
+    category: 'Denial Management',
+    icon: 'fa-ban',
+    thumb: 'thumb-1',
+    excerpt: 'Stop writing off denials. These five root-cause strategies recover revenue most practices leave behind.'
   },
   {
-    id: 2,
-    accountNumber: 'ACC-7301',
-    dob: '11/02',
-    name: 'David Chen',
-    balance: 120.5,
-    insurance: 'Aetna'
+    title: 'CAQH Updates Every Provider Must Know in 2026',
+    date: 'February 3, 2026',
+    category: 'Credentialing',
+    icon: 'fa-id-badge',
+    thumb: 'thumb-2',
+    excerpt: 'New attestation windows and data standards are coming. Stay ahead of credentialing deadlines.'
   },
   {
-    id: 3,
-    accountNumber: 'ACC-1124',
-    dob: '03/27',
-    name: 'Maria Gonzalez',
-    balance: 0,                   // Paid in full
-    insurance: 'Medicare'
+    title: 'ICD-10 Coding Pitfalls: Avoiding Compliance Risk',
+    date: 'February 21, 2026',
+    category: 'Medical Coding',
+    icon: 'fa-book-medical',
+    thumb: 'thumb-3',
+    excerpt: 'Six common coding mistakes that trigger audits — and how certified coders avoid them.'
   },
   {
-    id: 4,
-    accountNumber: 'ACC-9055',
-    dob: '09/18',
-    name: 'James Wilson',
-    balance: 610.3,
-    insurance: 'Cigna'
+    title: 'How RCM Automation Boosts Collections by 30%',
+    date: 'March 10, 2026',
+    category: 'RCM Strategy',
+    icon: 'fa-robot',
+    thumb: 'thumb-4',
+    excerpt: 'From claim scrubbing to AR follow-up, automation accelerates cash flow without losing accuracy.'
   },
   {
-    id: 5,
-    accountNumber: 'ACC-3687',
-    dob: '07/09',
-    name: 'Aisha Patel',
-    balance: 89.2,
-    insurance: 'UnitedHealth'
+    title: 'Telehealth Billing Rules: A 2026 Refresher',
+    date: 'April 2, 2026',
+    category: 'Telehealth Billing',
+    icon: 'fa-video',
+    thumb: 'thumb-5',
+    excerpt: 'Modifiers, place of service and payer quirks — the telehealth billing guide your team needs.'
+  },
+  {
+    title: 'AR Follow-Up: Why Speed Matters for Reimbursement',
+    date: 'April 24, 2026',
+    category: 'Medical Billing Tips',
+    icon: 'fa-clock',
+    thumb: 'thumb-6',
+    excerpt: 'Every day of aging costs you real money. Here is how disciplined follow-up timelines win.'
   }
 ];
-
-/* ------------------------------------------------------------
-   HELPER FUNCTIONS
-   ------------------------------------------------------------ */
-
-/**
- * Normalizes a date of birth string to "MM/DD" format.
- * Accepts "5/15" or "05/15" and returns "05/15", or null if invalid.
- * @param {string} value - Raw DOB value from the request body.
- * @returns {string|null} Normalized "MM/DD" string or null.
- */
-function normalizeDob(value) {
-  if (typeof value !== 'string') return null;
-  const match = value.trim().match(/^(\d{1,2})\/(\d{1,2})$/);
-  if (!match) return null;
-  const month = match[1].padStart(2, '0');
-  const day = match[2].padStart(2, '0');
-  return `${month}/${day}`;
-}
-
-/**
- * Finds a patient by account number and date of birth.
- * @param {string} accountNumber - The patient's account number.
- * @param {string} dob - Normalized DOB in "MM/DD" format.
- * @returns {object|undefined} Matching patient object or undefined.
- */
-function findPatient(accountNumber, dob) {
-  return patients.find(
-    (p) =>
-      p.accountNumber.toLowerCase() === accountNumber.toLowerCase() &&
-      p.dob === dob
-  );
-}
 
 /* ------------------------------------------------------------
    API ROUTES
@@ -135,120 +110,68 @@ app.get('/api/health', (req, res) => {
 });
 
 /**
- * POST /api/patient/lookup
- * Accepts JSON { accountNumber, dob } and looks up the patient
- * in the mock database.
- *
- * Success:  200 { success: true,  patient: { name, balance, insurance } }
- * Failure:  404 { success: false, error: "message" }  (not found)
- * Failure:  400 { success: false, error: "message" }  (invalid input)
+ * POST /api/contact
+ * Accepts JSON { name, email, phone, message } from the Contact
+ * page form, logs the data, and returns success.
  */
-app.post('/api/patient/lookup', (req, res) => {
-  const { accountNumber, dob } = req.body || {};
+app.post('/api/contact', (req, res) => {
+  const { name, email, phone, message } = req.body || {};
 
-  // Validate required fields
-  if (!accountNumber || !dob) {
+  if (!name || !email || !phone || !message) {
     return res.status(400).json({
       success: false,
-      error: 'Both "accountNumber" and "dob" are required.'
+      error: 'All fields (name, email, phone, message) are required.'
     });
   }
 
-  // Normalize the DOB and reject malformed values
-  const normalizedDob = normalizeDob(dob);
-  if (!normalizedDob) {
-    return res.status(400).json({
-      success: false,
-      error: 'Date of birth must be in MM/DD format (e.g. 05/15).'
-    });
-  }
+  console.log('[contact] New message received:');
+  console.log('  Name:    ' + name);
+  console.log('  Email:   ' + email);
+  console.log('  Phone:   ' + phone);
+  console.log('  Message: ' + message);
 
-  // Search the mock database
-  const patient = findPatient(accountNumber, normalizedDob);
-
-  if (!patient) {
-    return res.status(404).json({
-      success: false,
-      error: 'No account found. Please check your account number and date of birth.'
-    });
-  }
-
-  // Return only the safe patient fields (never expose the full record)
-  return res.status(200).json({
-    success: true,
-    patient: {
-      name: patient.name,
-      balance: patient.balance,
-      insurance: patient.insurance
-    }
-  });
+  return res.status(200).json({ success: true });
 });
 
 /**
- * POST /api/payment/create-intent
- * Accepts JSON { accountNumber, amount } and returns a mock
- * clientSecret (in production this would be created by a
- * payment gateway such as Stripe, Braintree, or Adyen).
- *
- * Success:  200 { success: true,  clientSecret: "pi_mock_..." }
- * Failure:  404 { success: false, error: "message" } (unknown account)
- * Failure:  400 { success: false, error: "message" } (invalid amount)
+ * POST /api/audit
+ * Accepts the full Free RCM Audit request payload, logs every
+ * field, and returns success.
  */
-app.post('/api/payment/create-intent', (req, res) => {
-  const { accountNumber, amount } = req.body || {};
+app.post('/api/audit', (req, res) => {
+  const body = req.body || {};
 
-  // Validate required fields
-  if (!accountNumber || amount === undefined || amount === null) {
+  // Basic validation of the required top-level sections
+  if (!body.practice || !body.contact || !body.billing || !body.consent) {
     return res.status(400).json({
       success: false,
-      error: 'Both "accountNumber" and "amount" are required.'
+      error: 'Incomplete audit request. Practice, contact, billing and consent are required.'
     });
   }
 
-  // Validate the amount is a positive finite number
-  const numericAmount = Number(amount);
-  if (!Number.isFinite(numericAmount) || numericAmount <= 0) {
-    return res.status(400).json({
-      success: false,
-      error: 'Amount must be a positive number.'
-    });
-  }
+  console.log('[audit] FREE RCM Audit request received:');
+  console.log('  --- PRACTICE INFORMATION ---');
+  console.log(JSON.stringify(body.practice, null, 2));
+  console.log('  --- CONTACT INFORMATION ---');
+  console.log(JSON.stringify(body.contact, null, 2));
+  console.log('  --- CURRENT BILLING INFORMATION ---');
+  console.log(JSON.stringify(body.billing, null, 2));
+  console.log('  --- CHALLENGES ---');
+  console.log(JSON.stringify(body.challenges || [], null, 2));
+  console.log('  --- COMMENTS ---');
+  console.log(body.comments || '(none)');
+  console.log('  --- CONSENT ---');
+  console.log('Consented: ' + Boolean(body.consent));
 
-  // Ensure the account exists before creating a payment
-  const patient = patients.find(
-    (p) => p.accountNumber.toLowerCase() === accountNumber.toLowerCase()
-  );
-
-  if (!patient) {
-    return res.status(404).json({
-      success: false,
-      error: 'Account not found. Cannot create a payment for an unknown account.'
-    });
-  }
-
-  // Generate a mock payment intent identifier.
-  // In production this would come from the payment gateway.
-  const mockClientSecret = 'pi_mock_' + Math.floor(10000 + Math.random() * 89999);
-
-  console.log(`[payment] Intent created for ${accountNumber}: ${mockClientSecret} (amount $${numericAmount.toFixed(2)})`);
-
-  return res.status(200).json({
-    success: true,
-    clientSecret: mockClientSecret
-  });
+  return res.status(200).json({ success: true });
 });
 
 /**
- * POST /api/webhooks/payment
- * Stub webhook endpoint. In production this receives payment
- * confirmation events from the payment gateway. Here we simply
- * log the request body and acknowledge receipt.
+ * GET /api/blog
+ * Returns the mock array of 6 blog posts.
  */
-app.post('/api/webhooks/payment', (req, res) => {
-  console.log('[webhook] Payment event received:', JSON.stringify(req.body, null, 2));
-  return res.status(200).json({
-    received: true
-  });
+app.get('/api/blog', (req, res) => {
+  res.status(200).json({ posts });
 });
 
 /* ------------------------------------------------------------
@@ -278,7 +201,7 @@ app.use((err, req, res, next) => {
    ------------------------------------------------------------ */
 app.listen(PORT, () => {
   console.log('============================================');
-  console.log(`  MediBill Pro API running on port ${PORT}`);
+  console.log(`  Hima Tech Health Solutions API running on port ${PORT}`);
   console.log(`  Open http://localhost:${PORT} in your browser`);
   console.log('============================================');
 });
