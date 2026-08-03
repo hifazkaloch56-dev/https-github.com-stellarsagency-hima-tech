@@ -4,63 +4,50 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Hima Tech Health Solutions - Trusted medical billing, credentialing, medical coding and revenue cycle management (RCM) services for healthcare providers.">
-  <meta name="theme-color" content="#0a4b7a">
-  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
   <title>Hima Tech Health Solutions | Medical Billing &amp; Credentialing</title>
-
-  <!-- Font Awesome CDN icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <style>
     /* ============================================================
-       HIMA TECH HEALTH SOLUTIONS - 8-PAGE 3D SPA STYLES
-       Primary #0a4b7a | Secondary #00a8b5 | Accent #f39c12 (Gold)
+       HIMA TECH HEALTH SOLUTIONS
+       Vanilla HTML/CSS/JS - single-file 8-page SPA
+       All content is visible by default (no JS-dependent hiding).
        ============================================================ */
+
     :root {
       --primary: #0a4b7a;
-      --primary-dark: #073a5e;
-      --primary-light: #1a6ba8;
+      --primary-light: #0d5f98;
       --secondary: #00a8b5;
-      --secondary-dark: #008f9b;
+      --secondary-dark: #007f8a;
       --gold: #f39c12;
-      --gold-light: #f7c15c;
-      --text: #132b3f;
-      --text-muted: #5b6b7c;
-      --white: #ffffff;
-      --radius: 16px;
-      --shadow: 0 15px 40px rgba(10, 75, 122, 0.14);
-      --shadow-lg: 0 25px 60px rgba(10, 75, 122, 0.22);
-      --navy: #081f33;
+      --dark: #081f33;
+      --text: #22384d;
+      --text-muted: #5b7288;
       --glass-border: rgba(255, 255, 255, 0.55);
+      --shadow: 0 12px 34px rgba(10, 75, 122, 0.12);
+      --radius: 16px;
     }
 
-    /* ---------- Reset & Base ---------- */
-    * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-
-    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
     body {
-      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      font-family: 'Segoe UI', system-ui, -apple-system, Arial, sans-serif;
       color: var(--text);
-      line-height: 1.65;
-      overflow-x: hidden;
-      /* Soft gradient mesh background (radial + linear) */
       background:
         radial-gradient(ellipse 60% 45% at 8% 0%, rgba(0, 168, 181, 0.14), transparent 60%),
-        radial-gradient(ellipse 55% 40% at 92% 8%, rgba(10, 75, 122, 0.14), transparent 60%),
-        radial-gradient(ellipse 65% 50% at 50% 100%, rgba(243, 156, 18, 0.10), transparent 55%),
-        linear-gradient(180deg, #f4f8fc 0%, #e9f2f9 50%, #e2edf6 100%);
-      background-attachment: fixed;
+        radial-gradient(ellipse 50% 40% at 95% 15%, rgba(243, 156, 18, 0.12), transparent 60%),
+        radial-gradient(ellipse 70% 50% at 50% 100%, rgba(10, 75, 122, 0.1), transparent 65%),
+        linear-gradient(160deg, #f2f8fb 0%, #eaf3f8 45%, #eef6f9 100%);
+      min-height: 100vh;
+      overflow-x: hidden;
+      -webkit-tap-highlight-color: transparent;
     }
-
-    img { max-width: 100%; height: auto; display: block; }
+    img { max-width: 100%; display: block; }
     a { text-decoration: none; color: inherit; }
-    :focus-visible { outline: 3px solid var(--secondary); outline-offset: 2px; border-radius: 4px; }
-    ::selection { background: var(--primary); color: #fff; }
-
+    ul { list-style: none; }
+    button { font-family: inherit; }
     .container { width: 100%; max-width: 1180px; margin: 0 auto; padding: 0 1.25rem; }
     .section-pad { padding: 4rem 0; }
-    .hidden { display: none !important; }
 
     /* ---------- Gradient text ---------- */
     .grad-text {
@@ -73,75 +60,51 @@
 
     /* ---------- Glassmorphism ---------- */
     .glass {
-      background: rgba(255, 255, 255, 0.62);
+      background: rgba(255, 255, 255, 0.66);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       border: 1px solid var(--glass-border);
       box-shadow: var(--shadow);
       border-radius: var(--radius);
     }
-    .glass-dark {
-      background: rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
-      border-radius: var(--radius);
-    }
 
     /* ---------- Buttons ---------- */
     .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.55rem;
-      padding: 0.85rem 1.75rem;
-      border-radius: 999px;
-      border: none;
-      font-size: 0.95rem;
-      font-weight: 700;
-      cursor: pointer;
-      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.55rem;
+      padding: 0.85rem 1.75rem; border-radius: 999px; border: none;
+      font-size: 0.95rem; font-weight: 700; cursor: pointer;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
       touch-action: manipulation;
-      transform-style: preserve-3d;
     }
     .btn:active { transform: scale(0.97); }
     .btn-primary { background: linear-gradient(135deg, var(--primary), var(--primary-light)); color: #fff; box-shadow: 0 10px 26px rgba(10, 75, 122, 0.4); }
-    .btn-primary:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 18px 38px rgba(10, 75, 122, 0.5); }
-    .btn-secondary { background: linear-gradient(135deg, var(--secondary), var(--secondary-dark)); color: #fff; box-shadow: 0 10px 26px rgba(0, 168, 181, 0.4); }
-    .btn-secondary:hover { transform: translateY(-3px) scale(1.03); }
-    /* 3D glowing gold CTA */
+    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 18px 38px rgba(10, 75, 122, 0.5); }
     .btn-glow {
       background: linear-gradient(135deg, var(--gold) 0%, #e67e22 100%);
-      color: #fff;
-      box-shadow: 0 0 0 0 rgba(243, 156, 18, 0.55), 0 14px 34px rgba(243, 156, 18, 0.4);
+      color: #fff; box-shadow: 0 14px 34px rgba(243, 156, 18, 0.4);
       animation: glowPulse 2.4s ease-in-out infinite;
-      transform: perspective(700px) translateZ(0);
     }
-    .btn-glow:hover { transform: perspective(700px) translateZ(22px) scale(1.06); }
+    .btn-glow:hover { transform: translateY(-3px) scale(1.04); }
+    .btn-block { width: 100%; }
     @keyframes glowPulse {
       0%, 100% { box-shadow: 0 0 0 0 rgba(243, 156, 18, 0.5), 0 14px 34px rgba(243, 156, 18, 0.4); }
-      50% { box-shadow: 0 0 0 16px rgba(243, 156, 18, 0), 0 20px 44px rgba(243, 156, 18, 0.55); }
+      50% { box-shadow: 0 0 0 14px rgba(243, 156, 18, 0), 0 20px 44px rgba(243, 156, 18, 0.55); }
     }
-    .btn-outline-light { border: 2px solid rgba(255, 255, 255, 0.85); color: #fff; background: transparent; }
-    .btn-outline-light:hover { background: rgba(255, 255, 255, 0.14); transform: translateY(-3px); }
-    .btn-block { width: 100%; }
 
     /* ---------- Section headings ---------- */
     .section-head { text-align: center; margin-bottom: 3rem; }
-    .section-head .kicker {
+    .kicker {
       display: inline-flex; align-items: center; gap: 0.45rem;
       font-size: 0.78rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase;
       color: var(--secondary-dark);
       background: rgba(0, 168, 181, 0.12);
       border: 1px solid rgba(0, 168, 181, 0.25);
-      padding: 0.4rem 1.1rem; border-radius: 999px;
-      margin-bottom: 0.9rem;
+      padding: 0.4rem 1.1rem; border-radius: 999px; margin-bottom: 0.9rem;
     }
     .section-head h2 { font-size: 2rem; line-height: 1.2; color: var(--primary); }
     .section-head p { color: var(--text-muted); max-width: 640px; margin: 0.6rem auto 0; }
 
-    /* ---------- Forms (glowing focus) ---------- */
+    /* ---------- Forms ---------- */
     .form-group { margin-bottom: 1.05rem; }
     .form-group label {
       display: block; font-size: 0.82rem; font-weight: 700;
@@ -149,11 +112,9 @@
     }
     .form-control {
       width: 100%; padding: 0.78rem 1rem;
-      border: 1.5px solid rgba(10, 75, 122, 0.18);
-      border-radius: 12px;
+      border: 1.5px solid rgba(10, 75, 122, 0.18); border-radius: 12px;
       font-size: 0.95rem; font-family: inherit; color: var(--text);
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(8px);
+      background: rgba(255, 255, 255, 0.88);
       transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
     }
     .form-control:focus {
@@ -163,48 +124,52 @@
       box-shadow: 0 0 0 4px rgba(0, 168, 181, 0.22), 0 0 22px rgba(0, 168, 181, 0.25);
     }
     .form-hint { font-size: 0.78rem; color: var(--text-muted); margin-top: 0.3rem; }
-
-    /* Radio & checkbox */
+    .form-row { display: grid; grid-template-columns: 1fr; gap: 0 1.2rem; }
+    .form-section-title {
+      font-size: 0.95rem; color: var(--primary); margin: 1.6rem 0 0.9rem;
+      padding-bottom: 0.5rem; border-bottom: 1px solid rgba(10, 75, 122, 0.15);
+      display: flex; align-items: center; gap: 0.55rem;
+    }
+    .form-section-title i { color: var(--gold); }
     .radio-group, .check-group { display: flex; flex-wrap: wrap; gap: 1.1rem; }
     .radio-group label, .check-group label {
       display: inline-flex; align-items: center; gap: 0.5rem;
       font-size: 0.9rem; font-weight: 500; color: var(--text); cursor: pointer;
     }
     .radio-group input, .check-group input { accent-color: var(--secondary); width: 16px; height: 16px; cursor: pointer; }
+    .consent {
+      display: flex; gap: 0.6rem; align-items: flex-start;
+      font-size: 0.82rem; color: var(--text-muted); margin: 1.2rem 0;
+      cursor: pointer; line-height: 1.45;
+    }
+    .consent input { margin-top: 0.2rem; accent-color: var(--secondary); width: 16px; height: 16px; }
 
-    /* ---------- Alerts ---------- */
-    .alert { border-radius: 12px; padding: 0.9rem 1.1rem; font-size: 0.92rem; margin-top: 1rem; display: flex; gap: 0.65rem; align-items: flex-start; }
+    /* Alerts */
+    .alert { border-radius: 12px; padding: 0.9rem 1.1rem; font-size: 0.92rem; margin-top: 1rem; display: none; gap: 0.65rem; align-items: flex-start; }
+    .alert.show { display: flex; }
     .alert-success { background: rgba(31, 164, 91, 0.12); color: #177a45; border: 1px solid rgba(31, 164, 91, 0.4); }
     .alert-error { background: rgba(214, 69, 69, 0.1); color: #b02e2e; border: 1px solid rgba(214, 69, 69, 0.4); }
 
     /* ============================================================
-       NAVBAR (transparent -> solid glass on scroll)
+       NAVBAR (solid dark glass - always readable)
        ============================================================ */
     .navbar {
       position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-      padding-top: env(safe-area-inset-top);
       background: linear-gradient(135deg, rgba(10, 75, 122, 0.94), rgba(8, 31, 51, 0.97));
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       border-bottom: 1px solid rgba(255, 255, 255, 0.14);
       box-shadow: 0 8px 30px rgba(8, 31, 51, 0.35);
-      transition: box-shadow 0.35s ease, background 0.35s ease, border-color 0.35s ease;
     }
-    .navbar.scrolled {
-      background: linear-gradient(135deg, rgba(10, 75, 122, 0.98), rgba(8, 31, 51, 1));
-      box-shadow: 0 12px 36px rgba(8, 31, 51, 0.5);
-      border-bottom-color: rgba(243, 156, 18, 0.4);
-    }
+    .navbar.scrolled { box-shadow: 0 12px 36px rgba(8, 31, 51, 0.5); border-bottom-color: rgba(243, 156, 18, 0.4); }
     .navbar-inner {
       display: flex; align-items: center; justify-content: space-between;
       flex-wrap: wrap; gap: 0.5rem;
-      max-width: 1280px; margin: 0 auto;
-      padding: 0.85rem 1.25rem;
+      max-width: 1280px; margin: 0 auto; padding: 0.85rem 1.25rem;
     }
     .brand { display: flex; align-items: center; gap: 0.6rem; font-size: 1.22rem; font-weight: 800; color: #fff; }
     .brand-logo { width: 38px; height: 38px; filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.35)); }
     .brand .gold { color: var(--gold); }
-
     .nav-toggle {
       display: inline-flex; align-items: center; justify-content: center;
       width: 44px; height: 44px; border-radius: 12px;
@@ -212,16 +177,13 @@
       background: rgba(255, 255, 255, 0.12);
       color: #fff; font-size: 1.15rem; cursor: pointer;
     }
-
     .nav-menu {
       display: none; width: 100%; flex-direction: column; list-style: none;
-      padding: 0.6rem 0.5rem 0.4rem; gap: 0.1rem;
-      margin-top: 0.5rem;
+      padding: 0.6rem 0.5rem 0.4rem; gap: 0.1rem; margin-top: 0.5rem;
       background: rgba(8, 31, 51, 0.98);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.14); border-radius: 14px;
     }
     .nav-menu.open { display: flex; }
     .nav-menu a {
@@ -239,8 +201,7 @@
       .nav-menu {
         display: flex; flex-direction: row; align-items: center;
         width: auto; padding: 0; gap: 0.15rem;
-        margin-top: 0;
-        background: transparent; border: none; border-radius: 0;
+        margin-top: 0; background: transparent; border: none; border-radius: 0;
       }
       .nav-menu a { min-height: auto; padding: 0.5rem 0.72rem; font-size: 0.87rem; }
       .nav-menu .nav-cta { margin-top: 0; margin-left: 0.4rem; }
@@ -248,13 +209,16 @@
 
     /* ============================================================
        SPA PAGE SWITCHING
+       Every section is display:none until JS marks it active.
+       The HOME page carries the "active" class in the markup, so
+       content is guaranteed even if JavaScript never runs.
        ============================================================ */
     .page { display: none; }
-    .page.active { display: block; animation: pageIn 0.55s cubic-bezier(0.22, 1, 0.36, 1) both; }
-    @keyframes pageIn { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
+    .page.active { display: block; animation: pageIn 0.45s ease; }
+    @keyframes pageIn { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
 
     /* ============================================================
-       FLOATING 3D SHAPES & DOTS
+       FLOATING SHAPES & DOTS (decorative, CSS-only)
        ============================================================ */
     .float-shape { position: absolute; pointer-events: none; z-index: 0; }
     .f-dot {
@@ -274,7 +238,6 @@
       position: absolute; inset: 0;
       border: 1.5px solid rgba(255, 255, 255, 0.5);
       background: linear-gradient(135deg, rgba(0, 168, 181, 0.22), rgba(10, 75, 122, 0.22));
-      backdrop-filter: blur(4px);
       display: flex; align-items: center; justify-content: center;
       color: rgba(255, 255, 255, 0.85); font-size: 1.6rem;
     }
@@ -284,12 +247,8 @@
     .cube-f4 { transform: rotateY(-90deg) translateZ(55px); }
     .cube-f5 { transform: rotateX(90deg) translateZ(55px); }
     .cube-f6 { transform: rotateX(-90deg) translateZ(55px); }
-    @keyframes spinCube {
-      from { transform: rotateX(0deg) rotateY(0deg); }
-      to { transform: rotateX(360deg) rotateY(360deg); }
-    }
+    @keyframes spinCube { from { transform: rotateX(0deg) rotateY(0deg); } to { transform: rotateX(360deg) rotateY(360deg); } }
 
-    /* Rotating rings / crosses */
     .spin-ring { animation: spinSlow 14s linear infinite; transform-origin: center; }
     @keyframes spinSlow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
     .spin-svg { animation: spinSlow3d 18s ease-in-out infinite; transform-origin: center; }
@@ -311,9 +270,8 @@
         radial-gradient(ellipse 55% 55% at 88% 82%, rgba(243, 156, 18, 0.22), transparent 55%),
         linear-gradient(140deg, #081f33 0%, #0a4b7a 52%, #0d5f98 100%);
       overflow: hidden;
-      padding: 7rem 0 5rem;
+      padding: 8rem 0 5rem;
     }
-    /* Dynamic angled sections via clip-path */
     .hero::after {
       content: '';
       position: absolute; left: 0; right: 0; bottom: -1px; height: 110px;
@@ -322,13 +280,13 @@
       z-index: 1;
     }
     .hero-inner { position: relative; z-index: 2; display: grid; grid-template-columns: 1fr; gap: 3rem; align-items: center; }
-
     .hero h1 { color: #fff; font-size: 2.15rem; line-height: 1.16; margin-bottom: 1.1rem; }
     .hero h1 .grad-text { display: block; }
     .hero-sub { color: rgba(255, 255, 255, 0.88); font-size: 1.02rem; max-width: 560px; margin-bottom: 1.9rem; }
     .hero-actions { display: flex; flex-wrap: wrap; gap: 0.9rem; margin-bottom: 2.4rem; }
+    .btn-outline-light { border: 2px solid rgba(255, 255, 255, 0.85); color: #fff; background: transparent; }
+    .btn-outline-light:hover { background: rgba(255, 255, 255, 0.14); transform: translateY(-3px); }
 
-    /* Stats row */
     .hero-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.9rem; max-width: 540px; }
     .stat-card {
       text-align: center; padding: 1.1rem 0.8rem;
@@ -343,312 +301,263 @@
     .stat-card strong { display: block; font-size: 1.5rem; color: #7ce7ef; }
     .stat-card span { font-size: 0.78rem; color: rgba(255, 255, 255, 0.85); }
 
-    /* Hero illustration column */
     .hero-visual { position: relative; display: flex; justify-content: center; }
     .hero-visual .scene3d { position: absolute; top: -20px; right: 4%; }
-    .hero-visual .float-shape { position: absolute; z-index: 3; }
 
     /* ============================================================
-       HOME - SERVICES (7 glass cards)
+       HOME - SERVICES
        ============================================================ */
-    .services-section { position: relative; }
     .services-grid { display: grid; grid-template-columns: 1fr; gap: 1.4rem; }
     .service-card {
-      padding: 1.8rem 1.6rem; position: relative; overflow: hidden;
-      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
-      transform-style: preserve-3d;
+      padding: 1.6rem 1.5rem;
+      display: flex; gap: 1.1rem; align-items: flex-start;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    .service-card::before {
-      content: '';
-      position: absolute; inset: 0; z-index: -1;
-      background: linear-gradient(135deg, rgba(0, 168, 181, 0.08), rgba(243, 156, 18, 0.06));
-      opacity: 0; transition: opacity 0.35s ease;
-    }
-    .service-card:hover::before { opacity: 1; }
-    .service-card:hover { box-shadow: var(--shadow-lg); }
-    .service-icon {
-      width: 58px; height: 58px; border-radius: 14px;
+    .service-card:hover { transform: translateY(-6px); box-shadow: 0 22px 46px rgba(10, 75, 122, 0.18); }
+    .s-icon {
+      flex-shrink: 0; width: 54px; height: 54px; border-radius: 14px;
       display: flex; align-items: center; justify-content: center;
-      background: linear-gradient(135deg, rgba(0, 168, 181, 0.18), rgba(10, 75, 122, 0.14));
-      color: var(--primary); font-size: 1.4rem;
-      margin-bottom: 1rem;
-      box-shadow: inset 0 0 0 1px rgba(0, 168, 181, 0.25);
+      font-size: 1.3rem; color: #fff;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      box-shadow: 0 8px 20px rgba(0, 168, 181, 0.3);
+      transition: transform 0.3s ease;
     }
-    .service-card h3 { font-size: 1.05rem; color: var(--primary); margin-bottom: 0.45rem; }
-    .service-card p { font-size: 0.9rem; color: var(--text-muted); }
+    .service-card:hover .s-icon { transform: rotateY(360deg); }
+    .service-card h3 { font-size: 1.05rem; color: var(--primary); margin-bottom: 0.35rem; }
+    .service-card p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; }
 
     /* ============================================================
        HOME - WHY CHOOSE US
        ============================================================ */
-    .why-section { position: relative; background: linear-gradient(135deg, var(--primary) 0%, #0d5f98 60%, var(--secondary-dark) 130%); clip-path: polygon(0 4%, 100% 0, 100% 96%, 0 100%); padding: 7rem 0; }
-    .why-inner { position: relative; z-index: 2; }
-    .why-section .section-head h2 { color: #fff; }
-    .why-section .section-head p { color: rgba(255, 255, 255, 0.85); }
-    .why-list { display: grid; grid-template-columns: 1fr; gap: 1rem; max-width: 640px; margin: 0 auto; }
+    .why-grid { display: grid; grid-template-columns: 1fr; gap: 1.4rem; }
     .why-item {
-      display: flex; align-items: center; gap: 1.1rem;
-      padding: 1.1rem 1.3rem;
-      background: rgba(255, 255, 255, 0.09);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      border-radius: 14px;
-      color: #fff; font-weight: 600; font-size: 0.98rem;
+      padding: 1.5rem 1.4rem;
+      display: flex; gap: 1.1rem; align-items: center;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    .why-item:hover { transform: translateX(10px); box-shadow: 0 14px 34px rgba(0, 0, 0, 0.25); }
-    .why-item .w-icon {
-      width: 46px; height: 46px; flex-shrink: 0; border-radius: 12px;
+    .why-item:hover { transform: translateY(-5px); box-shadow: 0 22px 46px rgba(10, 75, 122, 0.18); }
+    .w-icon {
+      flex-shrink: 0; width: 52px; height: 52px; border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; color: #fff;
       background: linear-gradient(135deg, var(--gold), #e67e22);
-      color: #fff; font-size: 1.1rem;
-      box-shadow: 0 8px 20px rgba(243, 156, 18, 0.4);
-      animation: floatY 5s ease-in-out infinite;
+      box-shadow: 0 8px 20px rgba(243, 156, 18, 0.35);
     }
-
-    /* CTA band */
-    .cta-band { text-align: center; padding: 2.5rem 1.25rem; max-width: 760px; margin: 0 auto; position: relative; }
-    .cta-band h2 { font-size: 1.9rem; color: var(--primary); margin-bottom: 0.7rem; }
-    .cta-band p { color: var(--text-muted); margin-bottom: 1.8rem; }
+    .why-item h3 { font-size: 1rem; color: var(--primary); margin-bottom: 0.25rem; }
+    .why-item p { font-size: 0.87rem; color: var(--text-muted); }
 
     /* ============================================================
-       PAGE 2: ABOUT
+       HOME - CTA
        ============================================================ */
-    .about-grid { display: grid; grid-template-columns: 1fr; gap: 2.5rem; align-items: center; }
-    .about-story p { color: var(--text-muted); margin-bottom: 0.9rem; }
-    .about-story h2 { font-size: 1.9rem; color: var(--primary); margin-bottom: 0.6rem; }
-
-    .mv-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin: 3rem 0; }
-    .mv-block { padding: 1.9rem 1.7rem; position: relative; border-top: 4px solid var(--gold); }
-    .mv-block::before {
-      content: '\201C';
-      position: absolute; top: -0.4rem; right: 1.4rem;
-      font-size: 5rem; line-height: 1; color: var(--gold); opacity: 0.25;
-      font-family: Georgia, serif;
+    .cta-section { padding: 4.5rem 0; }
+    .cta-box {
+      position: relative; overflow: hidden;
+      padding: 3rem 1.5rem; text-align: center;
+      background:
+        radial-gradient(ellipse 60% 80% at 20% 10%, rgba(0, 168, 181, 0.25), transparent 60%),
+        radial-gradient(ellipse 60% 80% at 85% 90%, rgba(243, 156, 18, 0.2), transparent 60%),
+        linear-gradient(135deg, #0a4b7a, #081f33);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 22px;
     }
-    .mv-block h3 { display: flex; align-items: center; gap: 0.6rem; color: var(--primary); font-size: 1.2rem; margin-bottom: 0.6rem; }
-    .mv-block h3 i { color: var(--gold); }
-    .mv-block p { color: var(--text-muted); font-style: italic; }
-
-    .team-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.4rem; }
-    .team-card { padding: 1.7rem 1.3rem; text-align: center; transition: transform 0.35s ease, box-shadow 0.35s ease; }
-    .team-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
-    .team-card img {
-      width: 92px; height: 92px; border-radius: 50%;
-      margin: 0 auto 1rem;
-      border: 3px solid rgba(0, 168, 181, 0.4);
-      box-shadow: 0 10px 26px rgba(10, 75, 122, 0.25);
-    }
-    .team-card h4 { color: var(--primary); font-size: 1.02rem; }
-    .team-card .role { color: var(--gold); font-weight: 800; font-size: 0.8rem; letter-spacing: 0.05em; text-transform: uppercase; margin: 0.15rem 0 0.45rem; }
-    .team-card p { font-size: 0.85rem; color: var(--text-muted); }
+    .cta-box h2 { color: #fff; font-size: 1.9rem; margin-bottom: 0.8rem; }
+    .cta-box p { color: rgba(255, 255, 255, 0.85); max-width: 560px; margin: 0 auto 1.9rem; }
 
     /* ============================================================
-       PAGE 3: BILLING SERVICES
+       INNER PAGE HERO
        ============================================================ */
     .page-hero {
-      position: relative;
-      padding: 8.5rem 0 3.5rem;
-      background: linear-gradient(140deg, #081f33, #0a4b7a 60%, #0d5f98);
-      clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%);
-      overflow: hidden;
+      position: relative; overflow: hidden;
+      padding: 9rem 0 3.5rem;
+      background:
+        radial-gradient(ellipse 60% 80% at 10% 0%, rgba(0, 168, 181, 0.25), transparent 55%),
+        radial-gradient(ellipse 50% 70% at 95% 90%, rgba(243, 156, 18, 0.16), transparent 55%),
+        linear-gradient(140deg, #081f33 0%, #0a4b7a 55%, #0d5f98 100%);
     }
-    .page-hero h1 { color: #fff; font-size: 2.1rem; margin-bottom: 0.8rem; }
-    .page-hero p { color: rgba(255, 255, 255, 0.85); max-width: 620px; }
-
-    .check-grid { display: grid; grid-template-columns: 1fr; gap: 0.9rem; }
-    .check-item {
-      display: flex; align-items: flex-start; gap: 0.85rem;
-      padding: 1rem 1.15rem;
-      background: rgba(255, 255, 255, 0.6);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border: 1px solid var(--glass-border);
-      border-radius: 14px;
-      box-shadow: 0 8px 24px rgba(10, 75, 122, 0.08);
-      font-weight: 600; font-size: 0.95rem;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .check-item:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
-    .check-item i { color: var(--secondary); margin-top: 0.25rem; }
-
-    .benefit-row { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
-    .benefit-badge {
-      display: flex; align-items: center; gap: 0.7rem;
-      padding: 1.15rem 1.2rem;
-      background: linear-gradient(135deg, rgba(243, 156, 18, 0.16), rgba(243, 156, 18, 0.06));
-      border: 1px solid rgba(243, 156, 18, 0.45);
-      backdrop-filter: blur(14px);
-      border-radius: 14px;
-      font-weight: 800; color: #8a5a05; font-size: 0.92rem;
-      box-shadow: 0 0 26px rgba(243, 156, 18, 0.18);
-    }
-    .benefit-badge i { color: var(--gold); font-size: 1.25rem; }
+    .page-hero h1 { color: #fff; font-size: 2.1rem; line-height: 1.18; margin-bottom: 0.8rem; }
+    .page-hero p { color: rgba(255, 255, 255, 0.85); font-size: 1.02rem; max-width: 640px; }
 
     /* ============================================================
-       PAGE 4: CREDENTIALING (timeline)
+       ABOUT
        ============================================================ */
-    .timeline { position: relative; max-width: 780px; margin: 0 auto; padding-left: 2.2rem; }
+    .about-grid { display: grid; grid-template-columns: 1fr; gap: 2.5rem; align-items: start; }
+    .about-text h2 { color: var(--primary); font-size: 1.7rem; margin-bottom: 1rem; }
+    .about-text p { color: var(--text-muted); line-height: 1.75; margin-bottom: 1rem; }
+    .mv-grid { display: grid; grid-template-columns: 1fr; gap: 1.4rem; }
+    .mv-block { padding: 1.8rem 1.6rem; border-left: 4px solid var(--gold); }
+    .mv-block h3 { color: var(--primary); font-size: 1.2rem; margin-bottom: 0.6rem; display: flex; align-items: center; gap: 0.55rem; }
+    .mv-block h3 i { color: var(--gold); }
+    .mv-block p { color: var(--text-muted); font-style: italic; line-height: 1.65; }
+    .team-grid { display: grid; grid-template-columns: 1fr; gap: 1.4rem; }
+    .team-card { padding: 1.8rem 1.4rem; text-align: center; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .team-card:hover { transform: translateY(-6px); box-shadow: 0 22px 46px rgba(10, 75, 122, 0.18); }
+    .team-card img {
+      width: 92px; height: 92px; border-radius: 50%;
+      margin: 0 auto 0.9rem;
+      border: 3px solid var(--secondary);
+      box-shadow: 0 8px 22px rgba(0, 168, 181, 0.35);
+    }
+    .team-card h4 { color: var(--primary); font-size: 1.05rem; }
+    .team-card .role { color: var(--gold); font-size: 0.8rem; font-weight: 700; margin: 0.3rem 0 0.5rem; }
+    .team-card p { color: var(--text-muted); font-size: 0.85rem; }
+
+    /* ============================================================
+       BILLING
+       ============================================================ */
+    .check-grid { display: grid; grid-template-columns: 1fr; gap: 0.9rem 2rem; }
+    .check-item {
+      display: flex; align-items: center; gap: 0.7rem;
+      padding: 0.95rem 1.1rem;
+      font-size: 0.95rem; font-weight: 600; color: var(--primary);
+      background: rgba(255, 255, 255, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      border-radius: 12px;
+    }
+    .check-item i { color: var(--secondary); font-size: 1.05rem; }
+    .benefit-row { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+    .benefit-badge {
+      display: flex; align-items: center; justify-content: center; gap: 0.6rem;
+      padding: 1.1rem 1rem; text-align: center;
+      font-weight: 800; color: var(--primary);
+      background: linear-gradient(135deg, rgba(243, 156, 18, 0.16), rgba(0, 168, 181, 0.14));
+      border: 1px solid rgba(243, 156, 18, 0.35);
+      border-radius: 14px;
+      box-shadow: 0 6px 18px rgba(243, 156, 18, 0.18);
+      font-size: 0.95rem;
+    }
+    .benefit-badge i { color: var(--gold); font-size: 1.15rem; }
+
+    /* ============================================================
+       CREDENTIALING - TIMELINE
+       ============================================================ */
+    .timeline { position: relative; display: grid; gap: 1.2rem; }
     .timeline::before {
       content: '';
-      position: absolute; left: 14px; top: 6px; bottom: 6px; width: 3px;
+      position: absolute; left: 26px; top: 0; bottom: 0; width: 3px;
       background: linear-gradient(180deg, var(--secondary), var(--primary), var(--gold));
-      border-radius: 4px;
-      animation: linePulse 3s ease-in-out infinite;
+      border-radius: 3px;
     }
-    @keyframes linePulse { 0%, 100% { opacity: 0.7; } 50% { opacity: 1; } }
-    .timeline-item { position: relative; margin-bottom: 1.3rem; }
+    .timeline-item { position: relative; padding-left: 4.2rem; }
     .timeline-item::before {
       content: '';
-      position: absolute; left: -2.2rem; top: 1.35rem;
-      width: 14px; height: 14px; border-radius: 50%;
-      background: var(--secondary);
-      border: 3px solid #fff;
-      box-shadow: 0 0 0 3px rgba(0, 168, 181, 0.35), 0 0 18px rgba(0, 168, 181, 0.6);
-      transform: translateX(-50%);
+      position: absolute; left: 14px; top: 22px; width: 27px; height: 27px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--secondary), var(--primary));
+      border: 4px solid #fff;
+      box-shadow: 0 4px 14px rgba(0, 168, 181, 0.45);
+      z-index: 1;
     }
-    .timeline-card { padding: 1.15rem 1.35rem; display: flex; align-items: center; gap: 1rem; transition: transform 0.3s ease, box-shadow 0.3s ease; }
-    .timeline-card:hover { transform: translateX(8px); box-shadow: var(--shadow-lg); }
-    .timeline-card .t-icon {
-      width: 44px; height: 44px; flex-shrink: 0; border-radius: 12px;
+    .timeline-card { padding: 1.3rem 1.4rem; display: flex; gap: 1rem; align-items: flex-start; transition: transform 0.3s ease; }
+    .timeline-card:hover { transform: translateX(6px); }
+    .t-icon {
+      flex-shrink: 0; width: 46px; height: 46px; border-radius: 12px;
       display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; color: #fff;
       background: linear-gradient(135deg, var(--primary), var(--secondary));
-      color: #fff; font-size: 1.05rem;
     }
-    .timeline-card h3 { font-size: 1rem; color: var(--primary); }
-    .timeline-card p { font-size: 0.85rem; color: var(--text-muted); }
+    .timeline-card h3 { font-size: 1rem; color: var(--primary); margin-bottom: 0.3rem; }
+    .timeline-card p { font-size: 0.86rem; color: var(--text-muted); }
 
     /* ============================================================
-       PAGE 5: CODING
+       CODING
        ============================================================ */
     .coding-grid { display: grid; grid-template-columns: 1fr; gap: 1.4rem; }
-    .coding-card { padding: 1.8rem 1.5rem; text-align: center; transition: transform 0.35s ease, box-shadow 0.35s ease; transform-style: preserve-3d; }
-    .coding-card:hover { transform: translateY(-8px) rotateX(4deg); box-shadow: var(--shadow-lg); }
-    .coding-card .c-icon {
-      width: 62px; height: 62px; margin: 0 auto 1rem; border-radius: 16px;
+    .coding-card { padding: 1.7rem 1.5rem; text-align: center; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .coding-card:hover { transform: translateY(-6px); box-shadow: 0 22px 46px rgba(10, 75, 122, 0.18); }
+    .c-icon {
+      width: 58px; height: 58px; border-radius: 50%;
+      margin: 0 auto 1rem;
       display: flex; align-items: center; justify-content: center;
-      background: linear-gradient(135deg, var(--secondary), var(--primary));
-      color: #fff; font-size: 1.5rem;
-      box-shadow: 0 12px 28px rgba(0, 168, 181, 0.35);
+      font-size: 1.35rem; color: #fff;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      box-shadow: 0 10px 24px rgba(0, 168, 181, 0.35);
     }
     .coding-card h3 { font-size: 1.02rem; color: var(--primary); margin-bottom: 0.4rem; }
-    .coding-card p { font-size: 0.88rem; color: var(--text-muted); }
-    .coding-benefits { text-align: center; max-width: 720px; margin: 0 auto; padding: 1.9rem 1.6rem; }
-    .coding-benefits h3 { color: var(--primary); margin-bottom: 0.6rem; }
-    .coding-benefits p { color: var(--text-muted); }
+    .coding-card p { font-size: 0.86rem; color: var(--text-muted); }
+    .coding-benefits { padding: 2rem 1.8rem; }
+    .coding-benefits h3 { color: var(--primary); font-size: 1.3rem; margin-bottom: 0.7rem; }
+    .coding-benefits p { color: var(--text-muted); line-height: 1.7; }
 
     /* ============================================================
-       PAGE 6: PROCESS & AUDIT FORM
+       PROCESS - STEPS + AUDIT FORM
        ============================================================ */
-    .process-list { max-width: 720px; margin: 0 auto; position: relative; }
-    .process-item { position: relative; padding: 0 0 1.7rem 3.4rem; }
-    .process-item::before {
-      content: '';
-      position: absolute; left: 18px; top: 6px; bottom: -6px; width: 3px;
-      background: linear-gradient(180deg, var(--secondary), var(--primary));
-      border-radius: 3px;
-      animation: linePulse 3s ease-in-out infinite;
-    }
-    .process-item:last-child::before { display: none; }
+    .process-list { display: grid; gap: 1.2rem; }
+    .process-item { position: relative; display: flex; gap: 1.2rem; align-items: flex-start; }
     .process-num {
-      position: absolute; left: 0; top: 0;
-      width: 40px; height: 40px; border-radius: 50%;
+      flex-shrink: 0; width: 52px; height: 52px; border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      color: #fff; font-weight: 800; font-size: 1rem;
-      box-shadow: 0 0 0 5px rgba(0, 168, 181, 0.15), 0 8px 20px rgba(10, 75, 122, 0.3);
+      font-size: 1.15rem; font-weight: 800; color: #fff;
+      background: linear-gradient(135deg, var(--secondary), var(--primary));
+      box-shadow: 0 8px 22px rgba(0, 168, 181, 0.4);
     }
-    .process-card { padding: 1.25rem 1.4rem; transition: transform 0.3s ease, box-shadow 0.3s ease; }
-    .process-card:hover { transform: translateX(8px); box-shadow: var(--shadow-lg); }
-    .process-card h3 { font-size: 1.02rem; color: var(--primary); }
-    .process-card p { font-size: 0.88rem; color: var(--text-muted); }
+    .process-card { flex: 1; padding: 1.3rem 1.4rem; transition: transform 0.3s ease; }
+    .process-card:hover { transform: translateY(-4px); }
+    .process-card h3 { font-size: 1.02rem; color: var(--primary); margin-bottom: 0.35rem; }
+    .process-card p { font-size: 0.87rem; color: var(--text-muted); }
 
-    /* Audit form */
-    .audit-form { max-width: 860px; margin: 0 auto; padding: 2.2rem 1.6rem; position: relative; overflow: hidden; }
-    .audit-form h2 { color: var(--primary); font-size: 1.6rem; margin-bottom: 0.4rem; }
-    .audit-form > p { color: var(--text-muted); margin-bottom: 1.8rem; }
-    .form-section-title {
-      display: flex; align-items: center; gap: 0.6rem;
-      font-size: 0.85rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;
-      color: var(--secondary-dark);
-      margin: 1.6rem 0 1.1rem; padding-bottom: 0.5rem;
-      border-bottom: 2px dashed rgba(0, 168, 181, 0.3);
-    }
-    .form-section-title i { color: var(--gold); }
-    .form-row { display: grid; grid-template-columns: 1fr; gap: 0 1rem; }
-    .consent { display: flex; align-items: flex-start; gap: 0.6rem; font-size: 0.88rem; color: var(--text-muted); margin: 1.2rem 0; }
-    .consent input { margin-top: 0.3rem; width: 17px; height: 17px; accent-color: var(--secondary); }
+    .audit-form { padding: 2rem 1.6rem; margin-top: 1rem; }
 
     /* ============================================================
-       PAGE 7: BLOG
+       BLOG
        ============================================================ */
-    .blog-topics { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem; margin-bottom: 2.4rem; }
+    .blog-topics { display: flex; flex-wrap: wrap; gap: 0.7rem; justify-content: center; margin-bottom: 2.4rem; }
     .blog-topic {
-      font-size: 0.82rem; font-weight: 700; color: var(--primary);
+      display: inline-flex; align-items: center; gap: 0.45rem;
+      padding: 0.5rem 1rem; border-radius: 999px;
+      font-size: 0.8rem; font-weight: 700; color: var(--primary);
       background: rgba(255, 255, 255, 0.6);
-      backdrop-filter: blur(10px);
       border: 1px solid rgba(10, 75, 122, 0.15);
-      padding: 0.45rem 1.1rem; border-radius: 999px;
     }
-    .blog-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
-    .blog-card { overflow: hidden; padding: 0; transition: transform 0.35s ease, box-shadow 0.35s ease; transform-style: preserve-3d; }
-    .blog-card:hover { box-shadow: var(--shadow-lg); }
+    .blog-topic i { color: var(--gold); }
+    .blog-grid { display: grid; grid-template-columns: 1fr; gap: 1.4rem; }
+    .blog-card { overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .blog-card:hover { transform: translateY(-6px); box-shadow: 0 22px 46px rgba(10, 75, 122, 0.18); }
     .blog-thumb {
-      height: 170px; display: flex; align-items: center; justify-content: center;
-      color: rgba(255, 255, 255, 0.95); font-size: 2.6rem;
-      position: relative; overflow: hidden;
-    }
-    .blog-thumb::after {
-      content: '';
-      position: absolute; inset: 0;
-      background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.25), transparent 45%);
+      height: 150px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.6rem; color: #fff;
     }
     .thumb-1 { background: linear-gradient(135deg, #0a4b7a, #00a8b5); }
-    .thumb-2 { background: linear-gradient(135deg, #f39c12, #e67e22); }
-    .thumb-3 { background: linear-gradient(135deg, #0d5f98, #0a4b7a); }
-    .thumb-4 { background: linear-gradient(135deg, #00a8b5, #0d5f98); }
-    .thumb-5 { background: linear-gradient(135deg, #e67e22, #f39c12); }
-    .thumb-6 { background: linear-gradient(135deg, #0a4b7a, #f39c12); }
-    .blog-body { padding: 1.4rem 1.5rem 1.6rem; }
-    .blog-meta { display: flex; gap: 1rem; font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.6rem; }
-    .blog-body h3 { font-size: 1.05rem; color: var(--primary); margin-bottom: 0.6rem; line-height: 1.4; }
-    .blog-body p { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 0.9rem; }
-    .read-more { font-weight: 800; font-size: 0.88rem; color: var(--secondary-dark); display: inline-flex; align-items: center; gap: 0.4rem; }
+    .thumb-2 { background: linear-gradient(135deg, #007f8a, #0a4b7a); }
+    .thumb-3 { background: linear-gradient(135deg, #0d5f98, #f39c12); }
+    .thumb-4 { background: linear-gradient(135deg, #081f33, #0a4b7a); }
+    .thumb-5 { background: linear-gradient(135deg, #00a8b5, #f39c12); }
+    .thumb-6 { background: linear-gradient(135deg, #0a4b7a, #e67e22); }
+    .blog-body { padding: 1.4rem 1.4rem 1.6rem; }
+    .blog-meta { display: flex; flex-wrap: wrap; gap: 0.9rem; font-size: 0.76rem; color: var(--text-muted); margin-bottom: 0.6rem; }
+    .blog-meta i { color: var(--gold); margin-right: 0.3rem; }
+    .blog-body h3 { font-size: 1.05rem; color: var(--primary); line-height: 1.4; margin-bottom: 0.5rem; }
+    .blog-body p { font-size: 0.87rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 0.9rem; }
+    .read-more { font-size: 0.85rem; font-weight: 700; color: var(--secondary-dark); }
     .read-more:hover { color: var(--gold); }
 
     /* ============================================================
-       PAGE 8: CONTACT
+       CONTACT
        ============================================================ */
     .contact-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; }
-    .contact-info-grid { display: grid; grid-template-columns: 1fr; gap: 1.1rem; }
-    .contact-box { padding: 1.4rem 1.4rem; display: flex; align-items: center; gap: 1rem; transition: transform 0.3s ease, box-shadow 0.3s ease; }
-    .contact-box:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
-    .contact-box .c-icon {
-      width: 52px; height: 52px; flex-shrink: 0; border-radius: 14px;
-      display: flex; align-items: center; justify-content: center;
-      background: linear-gradient(135deg, var(--secondary), var(--primary));
-      color: #fff; font-size: 1.2rem;
-      box-shadow: 0 10px 24px rgba(0, 168, 181, 0.35);
-      animation: floatY 5s ease-in-out infinite;
-    }
-    .contact-box strong { display: block; color: var(--primary); font-size: 0.98rem; }
-    .contact-box span { color: var(--text-muted); font-size: 0.88rem; }
+    .contact-info-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; align-content: start; }
+    .contact-box { padding: 1.3rem 1.4rem; display: flex; gap: 1rem; align-items: center; transition: transform 0.3s ease; }
+    .contact-box:hover { transform: translateY(-4px); }
+    .contact-box .c-icon { margin: 0; width: 48px; height: 48px; font-size: 1.1rem; }
+    .contact-box strong { display: block; color: var(--primary); font-size: 0.92rem; }
+    .contact-box span { color: var(--text-muted); font-size: 0.85rem; }
 
     /* ============================================================
        FOOTER
        ============================================================ */
-    .site-footer { background: linear-gradient(135deg, #081f33, #0a4b7a); color: rgba(255, 255, 255, 0.8); padding: 3.5rem 0 calc(2rem + env(safe-area-inset-bottom)); margin-top: 3rem; }
-    .footer-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; margin-bottom: 2.2rem; }
-    .site-footer h4 { color: #fff; font-size: 1.02rem; margin-bottom: 1rem; }
-    .site-footer .brand { color: #fff; margin-bottom: 0.8rem; }
-    .site-footer p { font-size: 0.9rem; }
-    .footer-links { list-style: none; }
-    .footer-links li { margin-bottom: 0.55rem; }
-    .footer-links a { color: rgba(255, 255, 255, 0.8); font-size: 0.9rem; }
-    .footer-links a:hover { color: var(--gold); }
-    .footer-contact li { display: flex; gap: 0.7rem; align-items: center; margin-bottom: 0.7rem; font-size: 0.9rem; }
+    .site-footer {
+      margin-top: 3rem;
+      background: linear-gradient(160deg, #081f33, #0a4b7a);
+      color: #fff; padding: 3.2rem 0 1.6rem;
+    }
+    .footer-grid { display: grid; grid-template-columns: 1fr; gap: 2.2rem; }
+    .footer-grid h4 { font-size: 1rem; margin-bottom: 0.9rem; color: var(--gold); }
+    .footer-links li { margin-bottom: 0.6rem; }
+    .footer-links a { color: rgba(255, 255, 255, 0.78); font-size: 0.9rem; }
+    .footer-links a:hover { color: #fff; }
+    .footer-contact li { display: flex; gap: 0.7rem; align-items: center; font-size: 0.9rem; }
     .footer-contact i { color: var(--gold); width: 18px; text-align: center; }
-    .footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.14); padding-top: 1.4rem; text-align: center; font-size: 0.85rem; color: rgba(255, 255, 255, 0.6); }
+    .footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.14); padding-top: 1.4rem; margin-top: 2.4rem; text-align: center; font-size: 0.85rem; color: rgba(255, 255, 255, 0.6); }
 
     /* Back to top */
     #backToTop {
@@ -657,24 +566,18 @@
       border: none; cursor: pointer; font-size: 1rem;
       background: linear-gradient(135deg, var(--primary), var(--secondary));
       color: #fff; box-shadow: 0 12px 30px rgba(10, 75, 122, 0.4);
-      opacity: 0; pointer-events: none; transition: opacity 0.3s ease, transform 0.3s ease;
+      display: none;
     }
-    #backToTop.show { opacity: 1; pointer-events: auto; }
-    #backToTop:hover { transform: translateY(-4px); }
+    #backToTop.show { display: inline-flex; align-items: center; justify-content: center; }
 
     /* ============================================================
-       REVEAL ON SCROLL + RESPONSIVE
+       RESPONSIVE
        ============================================================ */
-    /* Reveal animations only apply when JS is running (html.js).
-       Without JS every element stays fully visible. */
-    html.js .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
-    html.js .reveal.visible { opacity: 1; transform: translateY(0); }
-
     @media (min-width: 640px) {
       .form-row { grid-template-columns: 1fr 1fr; }
-      .team-grid { grid-template-columns: repeat(4, 1fr); }
-      .benefit-row { grid-template-columns: repeat(4, 1fr); }
-      .contact-info-grid { grid-template-columns: repeat(3, 1fr); }
+      .team-grid { grid-template-columns: repeat(2, 1fr); }
+      .benefit-row { grid-template-columns: repeat(2, 1fr); }
+      .contact-info-grid { grid-template-columns: repeat(2, 1fr); }
     }
     @media (min-width: 768px) {
       .services-grid { grid-template-columns: repeat(2, 1fr); }
@@ -682,40 +585,68 @@
       .blog-grid { grid-template-columns: repeat(2, 1fr); }
       .coding-grid { grid-template-columns: repeat(3, 1fr); }
       .mv-grid { grid-template-columns: 1fr 1fr; }
+      .why-grid { grid-template-columns: repeat(2, 1fr); }
       .hero h1 { font-size: 2.9rem; }
       .hero-inner { grid-template-columns: 1.1fr 0.9fr; }
-      .hero-stats { grid-template-columns: repeat(3, 1fr); }
       .contact-grid { grid-template-columns: 1fr 1fr; }
       .footer-grid { grid-template-columns: repeat(3, 1fr); }
+      .about-grid { grid-template-columns: 1fr 1fr; }
     }
     @media (min-width: 1024px) {
       .services-grid { grid-template-columns: repeat(3, 1fr); }
       .blog-grid { grid-template-columns: repeat(3, 1fr); }
+      .team-grid { grid-template-columns: repeat(4, 1fr); }
+      .benefit-row { grid-template-columns: repeat(4, 1fr); }
+      .why-grid { grid-template-columns: repeat(3, 1fr); }
     }
-
-    /* Small phones */
     @media (max-width: 420px) {
       .hero h1 { font-size: 1.75rem; }
       .hero-stats { grid-template-columns: 1fr; }
-      .stat-card { display: flex; align-items: center; justify-content: space-between; padding: 0.85rem 1.1rem; }
-      .stat-card strong { font-size: 1.15rem; }
     }
 
-    /* Reduced motion */
+    /* ============================================================
+       MOBILE PHONE OPTIMIZATIONS
+       ============================================================ */
+    @media (max-width: 640px) {
+      /* 16px inputs prevent iOS Safari from auto-zooming on focus */
+      .form-control { font-size: 16px; }
+      /* Hide decorative floating shapes so content stays clean and never overlaps */
+      .float-shape, .f-dot { display: none; }
+      .hero-visual .scene3d { display: none; }
+      .hero-stats { grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
+      .stat-card { padding: 0.8rem 0.4rem; }
+      .stat-card strong { font-size: 1.1rem; }
+      .stat-card span { font-size: 0.68rem; }
+      .blog-thumb { height: 120px; font-size: 2rem; }
+      .btn { padding: 0.8rem 1.3rem; font-size: 0.9rem; }
+      .section-pad { padding: 3rem 0; }
+      .timeline::before { left: 20px; }
+      .timeline-item { padding-left: 3.4rem; }
+      .timeline-item::before { left: 9px; width: 23px; height: 23px; }
+    }
+    @media (max-width: 768px) {
+      .hero { padding: 6.5rem 0 4rem; }
+      .page-hero { padding: 7.5rem 0 2.5rem; }
+      .hero-inner { gap: 2.2rem; }
+      .section-head h2 { font-size: 1.55rem; }
+      .section-head p { font-size: 0.9rem; }
+      .cta-box { padding: 2.4rem 1.2rem; }
+      .cta-box h2 { font-size: 1.5rem; }
+      .audit-form { padding: 1.5rem 1.1rem; }
+      .form-section-title { font-size: 0.88rem; }
+    }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
-      .cube3d, .spin-ring, .spin-svg, .btn-glow, .f-dot, .w-icon { animation: none !important; }
+      .cube3d, .spin-ring, .spin-svg, .btn-glow, .f-dot, .w-icon, .s-icon { animation: none !important; }
       .page.active { animation: none; }
-      html.js .reveal { opacity: 1; transform: none; transition: none; }
       * { transition-duration: 0.01ms !important; }
     }
   </style>
 </head>
-
 <body>
 
   <!-- ============================================================
-       NAVBAR (transparent -> solid glass on scroll)
+       NAVBAR (solid dark glass)
        ============================================================ -->
   <header class="navbar" id="navbar">
     <div class="navbar-inner">
@@ -737,7 +668,7 @@
         <li><a href="#/process" data-route="process">Process &amp; Audit</a></li>
         <li><a href="#/blog" data-route="blog">Blog</a></li>
         <li><a href="#/contact" data-route="contact">Contact</a></li>
-        <li class="nav-cta"><a href="#/process" class="btn btn-glow btn-sm" style="padding:0.5rem 1.2rem;font-size:0.85rem;"><i class="fa-solid fa-stethoscope"></i> Free RCM Audit</a></li>
+        <li class="nav-cta"><a href="#/process" class="btn btn-glow" style="padding:0.5rem 1.2rem;font-size:0.85rem;"><i class="fa-solid fa-stethoscope"></i> Free RCM Audit</a></li>
       </ul>
     </div>
   </header>
@@ -751,7 +682,6 @@
 
       <!-- HERO -->
       <div class="hero">
-        <!-- 3D rotating cube background element -->
         <div class="float-shape" style="top:14%;left:6%;opacity:0.5;">
           <div class="scene3d"><div class="cube3d">
             <div class="cube-face cube-f1"><i class="fa-solid fa-plus"></i></div>
@@ -763,7 +693,6 @@
           </div></div>
         </div>
 
-        <!-- Floating dots & shapes -->
         <div class="f-dot" style="width:14px;height:14px;background:rgba(0,168,181,0.55);top:22%;right:8%;"></div>
         <div class="f-dot" style="width:9px;height:9px;background:rgba(243,156,18,0.7);top:60%;left:4%;animation-delay:1.2s;"></div>
         <div class="f-dot" style="width:12px;height:12px;background:rgba(255,255,255,0.4);top:78%;right:20%;animation-delay:2s;"></div>
@@ -778,194 +707,188 @@
             <p class="hero-sub">
               At Hima Tech Health Solutions, we help healthcare providers maximize revenue, reduce claim denials,
               and simplify administrative tasks. Our experienced team provides reliable Medical Billing, Credentialing,
-              Medical Coding, and Revenue Cycle Management (RCM) services so you can focus on delivering exceptional
-              patient care.
+              Medical Coding, and Revenue Cycle Management (RCM) services so you can focus on delivering exceptional patient care.
             </p>
             <div class="hero-actions">
               <a href="#/process" class="btn btn-glow"><i class="fa-solid fa-stethoscope"></i> Book a Free Consultation</a>
-              <a href="#/billing" class="btn btn-outline-light"><i class="fa-solid fa-arrow-right"></i> Explore Services</a>
+              <a href="#/contact" class="btn btn-outline-light"><i class="fa-solid fa-envelope"></i> Contact Us</a>
             </div>
 
-            <!-- Stats with count-up -->
+            <!-- Stats row (static final values in markup, JS counts up) -->
             <div class="hero-stats">
               <div class="stat-card">
-                <strong><span class="counter" data-target="500" data-suffix="+">0</span></strong>
+                <strong class="counter" data-target="500" data-suffix="+">500+</strong>
                 <span>Providers Served</span>
               </div>
               <div class="stat-card">
-                <strong><span class="counter" data-target="50" data-suffix="M+">0</span></strong>
+                <strong class="counter" data-target="50" data-suffix="M+">50M+</strong>
                 <span>Claims Processed</span>
               </div>
               <div class="stat-card">
-                <strong><span class="counter" data-target="98" data-suffix="%">0</span></strong>
+                <strong class="counter" data-target="98" data-suffix="%">98%</strong>
                 <span>Success Rate</span>
               </div>
             </div>
           </div>
 
-          <!-- Right: 3D isometric SVG illustration -->
+          <!-- Right: 3D isometric SVG illustration (stethoscope + shield + rising graph) -->
           <div class="hero-visual">
-            <div class="float-shape" style="top:-14px;left:0;">
-              <i class="fa-solid fa-shield-heart" style="font-size:2rem;color:rgba(255,255,255,0.85);filter:drop-shadow(0 8px 18px rgba(0,0,0,0.35));animation:floatY 5s ease-in-out infinite;"></i>
-            </div>
-            <div class="float-shape" style="bottom:10px;right:0;">
-              <i class="fa-solid fa-coins" style="font-size:1.7rem;color:var(--gold);filter:drop-shadow(0 8px 18px rgba(0,0,0,0.35));animation:floatY 6s ease-in-out infinite 1s;"></i>
-            </div>
-
-            <!-- Isometric medical billing illustration -->
-            <svg viewBox="0 0 480 430" width="100%" max-width="480" style="max-width:480px;" role="img" aria-label="Isometric illustration of a medical shield, stethoscope and rising financial graph">
+            <svg viewBox="0 0 460 380" width="100%" style="max-width:440px;" role="img" aria-label="Stethoscope, medical shield and rising revenue graph illustration">
               <defs>
                 <linearGradient id="shGrad" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0" stop-color="#1a6ba8"/>
+                  <stop offset="0" stop-color="#7ce7ef"/>
                   <stop offset="1" stop-color="#0a4b7a"/>
                 </linearGradient>
-                <linearGradient id="goldGrad" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0" stop-color="#f7c15c"/>
-                  <stop offset="1" stop-color="#e67e22"/>
-                </linearGradient>
-                <linearGradient id="tealGrad" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0" stop-color="#00a8b5"/>
-                  <stop offset="1" stop-color="#008f9b"/>
+                <linearGradient id="graphGrad" x1="0" y1="1" x2="0" y2="0">
+                  <stop offset="0" stop-color="#f39c12" stop-opacity="0.35"/>
+                  <stop offset="1" stop-color="#f39c12" stop-opacity="0.02"/>
                 </linearGradient>
               </defs>
-
-              <!-- Glow -->
-              <ellipse cx="240" cy="380" rx="150" ry="22" fill="#081f33" opacity="0.35"/>
-
               <!-- Rising graph -->
-              <path d="M60 300 L150 250 L215 190 L300 130 L420 70" fill="none" stroke="#00a8b5" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M60 300 L150 250 L215 190 L300 130 L420 70 L420 300 Z" fill="url(#tealGrad)" opacity="0.18"/>
-              <circle cx="420" cy="70" r="10" fill="#f39c12"/>
-              <rect x="52" y="292" width="380" height="8" rx="4" fill="#1a6ba8" opacity="0.55"/>
-
-              <!-- Grid bars behind graph -->
-              <g stroke="#7ce7ef" stroke-width="2" opacity="0.28">
-                <line x1="60" y1="250" x2="430" y2="250"/>
-                <line x1="60" y1="200" x2="430" y2="200"/>
-                <line x1="60" y1="150" x2="430" y2="150"/>
-                <line x1="60" y1="100" x2="430" y2="100"/>
+              <path d="M40 300 L130 230 L210 250 L300 150 L380 110 L380 300 Z" fill="url(#graphGrad)"/>
+              <path d="M40 300 L130 230 L210 250 L300 150 L380 110" fill="none" stroke="#f39c12" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="380" cy="110" r="8" fill="#f39c12"/>
+              <!-- Arrow up -->
+              <path d="M368 78 l18 -12 -4 20" fill="none" stroke="#f39c12" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+              <!-- Medical shield with cross -->
+              <g transform="translate(60 40)">
+                <path d="M70 0 L140 30 V120 C140 170 115 195 70 215 C25 195 0 170 0 120 V30 Z" fill="url(#shGrad)" opacity="0.95"/>
+                <path d="M70 14 L126 38 V120 C126 160 107 181 70 198 C33 181 14 160 14 120 V38 Z" fill="#fff" opacity="0.92"/>
+                <path d="M70 62 v44 M48 84 h44" stroke="#0a4b7a" stroke-width="9" stroke-linecap="round"/>
               </g>
-
-              <!-- Isometric shield base -->
-              <path d="M180 150 L300 180 V270 C300 320 270 350 240 362 C210 350 180 320 180 270 Z" fill="url(#shGrad)" stroke="#7ce7ef" stroke-width="2" opacity="0.95"/>
-              <!-- Isometric top face -->
-              <path d="M180 150 L240 122 L300 180 L240 208 Z" fill="#1a6ba8" stroke="#7ce7ef" stroke-width="2" opacity="0.9"/>
-
-              <!-- Medical cross on the shield -->
-              <g transform="translate(240 262)">
-                <rect x="-20" y="-56" width="40" height="112" rx="9" fill="#fff"/>
-                <rect x="-56" y="-20" width="112" height="40" rx="9" fill="#fff"/>
-                <rect x="-14" y="-50" width="28" height="100" rx="6" fill="#00a8b5" opacity="0.85"/>
-                <rect x="-50" y="-14" width="100" height="28" rx="6" fill="#00a8b5" opacity="0.85"/>
+              <!-- Stethoscope -->
+              <g transform="translate(230 40)" opacity="0.95">
+                <path d="M30 200 C30 130 100 130 100 80" fill="none" stroke="#00a8b5" stroke-width="7" stroke-linecap="round"/>
+                <path d="M30 200 C30 260 170 260 170 200" fill="none" stroke="#00a8b5" stroke-width="7" stroke-linecap="round"/>
+                <path d="M100 80 V60" stroke="#00a8b5" stroke-width="7" stroke-linecap="round"/>
+                <circle cx="100" cy="56" r="12" fill="#f39c12"/>
+                <rect x="8" y="192" width="34" height="18" rx="9" fill="#0a4b7a"/>
+                <rect x="158" y="192" width="34" height="18" rx="9" fill="#0a4b7a"/>
               </g>
-
-              <!-- Gold check on shield -->
-              <circle cx="240" cy="250" r="14" fill="url(#goldGrad)"/>
-              <path d="M233 250 L238 255 L248 244" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-
-              <!-- Stethoscope (right side) -->
-              <g>
-                <path d="M392 96 C438 100 446 138 420 168 C400 190 358 194 346 222" fill="none" stroke="#0a4b7a" stroke-width="11" stroke-linecap="round"/>
-                <path d="M392 96 C438 100 446 138 420 168 C400 190 358 194 346 222" fill="none" stroke="#7ce7ef" stroke-width="2.5" stroke-linecap="round" opacity="0.7"/>
-                <circle cx="342" cy="242" r="17" fill="#0a4b7a"/>
-                <circle cx="342" cy="242" r="7" fill="#00a8b5"/>
-              </g>
-
-              <!-- Floating coins -->
-              <g>
-                <circle cx="105" cy="180" r="18" fill="url(#goldGrad)"/>
-                <circle cx="105" cy="180" r="13" fill="none" stroke="#fff" stroke-width="2" opacity="0.6"/>
-                <circle cx="140" cy="210" r="14" fill="#f7c15c"/>
-                <circle cx="140" cy="210" r="10" fill="none" stroke="#fff" stroke-width="2" opacity="0.6"/>
-                <text x="105" y="187" text-anchor="middle" font-family="Arial,sans-serif" font-weight="bold" font-size="15" fill="#fff">$</text>
-              </g>
-
-              <!-- Small sparkles -->
-              <g fill="#7ce7ef">
-                <path d="M78 90 l3 8 8 3 -8 3 -3 8 -3 -8 -8 -3 8 -3 z"/>
-                <path d="M430 300 l2.4 6 6 2.4 -6 2.4 -2.4 6 -2.4 -6 -6 -2.4 6 -2.4 z" fill="#f39c12"/>
-              </g>
+              <!-- Sparkles -->
+              <path d="M330 270 l3 8 8 3 -8 3 -3 8 -3 -8 -8 -3 8 -3 z" fill="#f7c15c"/>
+              <path d="M60 320 l2 6 6 2 -6 2 -2 6 -2 -6 -6 -2 6 -2 z" fill="#7ce7ef"/>
+              <path d="M250 320 l2 6 6 2 -6 2 -2 6 -2 -6 -6 -2 6 -2 z" fill="#7ce7ef"/>
             </svg>
           </div>
         </div>
       </div>
 
-      <!-- OUR SERVICES (7 glass cards) -->
-      <div class="container section-pad services-section">
-        <div class="section-head reveal">
+      <!-- OUR SERVICES -->
+      <div class="container section-pad" id="services">
+        <div class="section-head">
           <span class="kicker"><i class="fa-solid fa-briefcase-medical"></i> What We Do</span>
           <h2>Our <span class="grad-text">Services</span></h2>
-          <p>Seven core services that cover your entire revenue cycle.</p>
+          <p>End-to-end revenue cycle management, delivered by experienced RCM professionals.</p>
         </div>
 
         <div class="services-grid">
-          <div class="glass service-card tilt reveal">
-            <div class="service-icon"><i class="fa-solid fa-arrows-rotate"></i></div>
-            <h3>Medical Billing &amp; Revenue Cycle Management</h3>
-            <p>End-to-end billing from charge capture to payment posting, engineered for maximum collections.</p>
+          <div class="glass service-card">
+            <div class="s-icon"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+            <div>
+              <h3>Medical Billing &amp; Revenue Cycle Management</h3>
+              <p>Complete revenue cycle management from charge capture to final payment.</p>
+            </div>
           </div>
-          <div class="glass service-card tilt reveal">
-            <div class="service-icon"><i class="fa-solid fa-id-badge"></i></div>
-            <h3>Provider Credentialing &amp; Enrollment</h3>
-            <p>Payer enrollments, CAQH, PECOS and re-credentialing handled on your behalf.</p>
+          <div class="glass service-card">
+            <div class="s-icon"><i class="fa-solid fa-id-badge"></i></div>
+            <div>
+              <h3>Provider Credentialing &amp; Enrollment</h3>
+              <p>CAQH, PECOS, commercial payers and hospital privileging handled end-to-end.</p>
+            </div>
           </div>
-          <div class="glass service-card tilt reveal">
-            <div class="service-icon"><i class="fa-solid fa-code"></i></div>
-            <h3>Medical Coding</h3>
-            <p>Accurate ICD-10, CPT and HCPCS coding by certified coders.</p>
+          <div class="glass service-card">
+            <div class="s-icon"><i class="fa-solid fa-code"></i></div>
+            <div>
+              <h3>Medical Coding</h3>
+              <p>Certified coders delivering compliant, payer-ready ICD-10, CPT and HCPCS codes.</p>
+            </div>
           </div>
-          <div class="glass service-card tilt reveal">
-            <div class="service-icon"><i class="fa-solid fa-user-check"></i></div>
-            <h3>Insurance Verification</h3>
-            <p>Real-time eligibility and benefits verification before every visit.</p>
+          <div class="glass service-card">
+            <div class="s-icon"><i class="fa-solid fa-circle-check"></i></div>
+            <div>
+              <h3>Insurance Verification</h3>
+              <p>Eligibility and benefits checks before every visit to stop denials at the source.</p>
+            </div>
           </div>
-          <div class="glass service-card tilt reveal">
-            <div class="service-icon"><i class="fa-solid fa-hand-holding-dollar"></i></div>
-            <h3>AR Follow-Up</h3>
-            <p>Relentless follow-up on aging accounts to recover every dollar owed.</p>
+          <div class="glass service-card">
+            <div class="s-icon"><i class="fa-solid fa-clock"></i></div>
+            <div>
+              <h3>AR Follow-Up</h3>
+              <p>Disciplined daily follow-up on every aging dollar until it gets paid.</p>
+            </div>
           </div>
-          <div class="glass service-card tilt reveal">
-            <div class="service-icon"><i class="fa-solid fa-file-invoice-dollar"></i></div>
-            <h3>Payment Posting</h3>
-            <p>Accurate ERA/EOB posting with real-time reconciliation and reporting.</p>
+          <div class="glass service-card">
+            <div class="s-icon"><i class="fa-solid fa-money-bill-transfer"></i></div>
+            <div>
+              <h3>Payment Posting</h3>
+              <p>Accurate ERA/EOB posting and reconciliation you can audit anytime.</p>
+            </div>
           </div>
-          <div class="glass service-card tilt reveal">
-            <div class="service-icon"><i class="fa-solid fa-ban"></i></div>
-            <h3>Denial Management</h3>
-            <p>Root-cause analysis, appeals and prevention to keep denials at historic lows.</p>
+          <div class="glass service-card">
+            <div class="s-icon"><i class="fa-solid fa-shield-halved"></i></div>
+            <div>
+              <h3>Denial Management</h3>
+              <p>Root-cause denial analysis and aggressive appeals that recover lost revenue.</p>
+            </div>
           </div>
         </div>
       </div>
 
       <!-- WHY CHOOSE US -->
-      <div class="why-section">
-        <div class="f-dot" style="width:10px;height:10px;background:rgba(243,156,18,0.6);top:18%;left:10%;"></div>
-        <div class="f-dot" style="width:14px;height:14px;background:rgba(0,168,181,0.5);bottom:20%;right:8%;animation-delay:1.4s;"></div>
-        <div class="container why-inner">
-          <div class="section-head reveal">
-            <span class="kicker" style="background:rgba(243,156,18,0.15);border-color:rgba(243,156,18,0.4);color:#f7c15c;"><i class="fa-solid fa-star"></i> Why Choose Us?</span>
-            <h2>Healthcare Revenue Experts <span style="color:#f7c15c;">on Your Side</span></h2>
-            <p>We combine deep RCM expertise with modern technology to protect your practice's revenue.</p>
-          </div>
+      <div class="container section-pad" style="padding-top:0.5rem;">
+        <div class="section-head">
+          <span class="kicker"><i class="fa-solid fa-medal"></i> Why Us</span>
+          <h2>Why Choose <span class="grad-text">Us?</span></h2>
+        </div>
 
-          <div class="why-list">
-            <div class="why-item reveal"><span class="w-icon"><i class="fa-solid fa-user-tie"></i></span> Experienced RCM professionals</div>
-            <div class="why-item reveal"><span class="w-icon"><i class="fa-solid fa-shield-halved"></i></span> HIPAA-compliant processes</div>
-            <div class="why-item reveal"><span class="w-icon"><i class="fa-solid fa-paper-plane"></i></span> Accurate and timely claim submission</div>
-            <div class="why-item reveal"><span class="w-icon"><i class="fa-solid fa-rocket"></i></span> Reduced denials and faster reimbursements</div>
-            <div class="why-item reveal"><span class="w-icon"><i class="fa-solid fa-headset"></i></span> Dedicated client support</div>
+        <div class="why-grid">
+          <div class="glass why-item">
+            <div class="w-icon"><i class="fa-solid fa-user-tie"></i></div>
+            <div>
+              <h3>Experienced RCM Professionals</h3>
+              <p>A seasoned team that has managed billing for every major specialty.</p>
+            </div>
+          </div>
+          <div class="glass why-item">
+            <div class="w-icon"><i class="fa-solid fa-lock"></i></div>
+            <div>
+              <h3>HIPAA-Compliant Processes</h3>
+              <p>Your patient data is protected with strict, audit-proof security.</p>
+            </div>
+          </div>
+          <div class="glass why-item">
+            <div class="w-icon"><i class="fa-solid fa-paper-plane"></i></div>
+            <div>
+              <h3>Accurate &amp; Timely Claim Submission</h3>
+              <p>Scrubbed and submitted electronically within 24-48 hours of service.</p>
+            </div>
+          </div>
+          <div class="glass why-item">
+            <div class="w-icon"><i class="fa-solid fa-chart-line"></i></div>
+            <div>
+              <h3>Reduced Denials, Faster Reimbursements</h3>
+              <p>Proven workflows that cut denials and accelerate your cash flow.</p>
+            </div>
+          </div>
+          <div class="glass why-item">
+            <div class="w-icon"><i class="fa-solid fa-headset"></i></div>
+            <div>
+              <h3>Dedicated Client Support</h3>
+              <p>A single point of contact who knows your practice and answers fast.</p>
+            </div>
           </div>
         </div>
       </div>
 
       <!-- CTA -->
-      <div class="container section-pad">
-        <div class="glass cta-band tilt reveal">
-          <div class="f-dot" style="width:10px;height:10px;background:rgba(0,168,181,0.5);top:20%;left:12%;"></div>
-          <div class="f-dot" style="width:8px;height:8px;background:rgba(243,156,18,0.6);bottom:22%;right:10%;animation-delay:1.8s;"></div>
-          <h2>Ready to Boost Your <span class="grad-text">Practice Revenue?</span></h2>
-          <p>Talk to a billing expert today and discover how much revenue your practice is leaving on the table.</p>
-          <a href="#/process" class="btn btn-glow" style="font-size:1.05rem;padding:1rem 2.2rem;"><i class="fa-solid fa-calendar-check"></i> Book a Free Consultation</a>
+      <div class="cta-section">
+        <div class="container">
+          <div class="cta-box">
+            <h2>Ready to Boost Your <span class="grad-text">Practice Revenue?</span></h2>
+            <p>Book a free consultation today and discover how we can improve your practice's financial performance.</p>
+            <a href="#/process" class="btn btn-glow"><i class="fa-solid fa-stethoscope"></i> Book a Free Consultation</a>
+          </div>
         </div>
       </div>
     </section>
@@ -974,131 +897,81 @@
          PAGE 2: ABOUT US
          ============================================================ -->
     <section class="page" id="page-about">
-
       <div class="page-hero">
-        <div class="f-dot" style="width:12px;height:12px;background:rgba(0,168,181,0.6);top:26%;right:12%;"></div>
-        <div class="f-dot" style="width:9px;height:9px;background:rgba(243,156,18,0.7);top:60%;left:6%;animation-delay:1.5s;"></div>
-        <div class="container" style="display:grid;grid-template-columns:1fr;gap:2rem;align-items:center;">
-          <div>
-            <h1>About <span class="grad-text">Hima Tech Health Solutions</span></h1>
-            <p>Meet the team that treats your revenue cycle like patient care.</p>
-          </div>
-          <svg viewBox="0 0 480 260" width="100%" style="max-width:480px;justify-self:end;" role="img" aria-label="3D illustration of a connected healthcare network">
-            <defs>
-              <linearGradient id="nodeGrad" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stop-color="#00a8b5"/>
-                <stop offset="1" stop-color="#0a4b7a"/>
-              </linearGradient>
-            </defs>
-            <g stroke="#7ce7ef" stroke-width="2.5" opacity="0.75">
-              <line x1="80" y1="130" x2="180" y2="80"/>
-              <line x1="180" y1="80" x2="300" y2="130"/>
-              <line x1="300" y1="130" x2="240" y2="200"/>
-              <line x1="80" y1="130" x2="240" y2="200"/>
-              <line x1="180" y1="80" x2="420" y2="60"/>
-              <line x1="420" y1="60" x2="300" y2="130"/>
-              <line x1="80" y1="130" x2="150" y2="200"/>
-              <line x1="150" y1="200" x2="240" y2="200"/>
-            </g>
-            <g>
-              <circle cx="80" cy="130" r="16" fill="url(#nodeGrad)"/>
-              <circle cx="180" cy="80" r="16" fill="url(#nodeGrad)"/>
-              <circle cx="300" cy="130" r="16" fill="url(#nodeGrad)"/>
-              <circle cx="240" cy="200" r="16" fill="url(#nodeGrad)"/>
-              <circle cx="420" cy="60" r="16" fill="#f39c12"/>
-              <circle cx="150" cy="200" r="13" fill="#f39c12" opacity="0.85"/>
-            </g>
-            <g fill="#fff" font-family="Arial,sans-serif" font-weight="bold" font-size="13" text-anchor="middle">
-              <text x="80" y="135">P</text>
-              <text x="180" y="85">C</text>
-              <text x="300" y="135">R</text>
-              <text x="240" y="205">B</text>
-              <text x="420" y="65">+</text>
-              <text x="150" y="205">$</text>
-            </g>
-            <g>
-              <circle cx="80" cy="130" r="24" fill="none" stroke="#00a8b5" stroke-width="1.5" opacity="0.5">
-                <animate attributeName="r" values="20;30;20" dur="3s" repeatCount="indefinite"/>
-                <animate attributeName="opacity" values="0.5;0.1;0.5" dur="3s" repeatCount="indefinite"/>
-              </circle>
-              <circle cx="420" cy="60" r="24" fill="none" stroke="#f39c12" stroke-width="1.5" opacity="0.5">
-                <animate attributeName="r" values="20;32;20" dur="3.5s" repeatCount="indefinite"/>
-                <animate attributeName="opacity" values="0.5;0.1;0.5" dur="3.5s" repeatCount="indefinite"/>
-              </circle>
-            </g>
-          </svg>
+        <div class="f-dot" style="width:11px;height:11px;background:rgba(243,156,18,0.7);top:24%;left:9%;"></div>
+        <div class="f-dot" style="width:13px;height:13px;background:rgba(0,168,181,0.55);bottom:26%;right:10%;animation-delay:1.3s;"></div>
+        <div class="container">
+          <h1>About <span class="grad-text">Hima Tech Health Solutions</span></h1>
+          <p>A team of revenue cycle experts helping providers get paid faster, with zero compromises on accuracy or compliance.</p>
         </div>
       </div>
 
-      <div class="container section-pad" style="padding-top:3.5rem;">
-        <!-- Story -->
+      <div class="container section-pad">
         <div class="about-grid">
-          <div class="glass about-story tilt reveal" style="padding:2rem;">
+          <div class="about-text">
             <h2>Our <span class="grad-text">Story</span></h2>
             <p>
-              Hima Tech Health Solutions was founded by healthcare revenue cycle veterans who saw the same problem
-              everywhere: brilliant clinicians losing hard-earned revenue to messy billing. We started as a small
-              remote-first team in 2020, taking on the toughest claims for a handful of specialty practices.
+              Hima Tech Health Solutions is a healthcare revenue cycle management company dedicated to supporting
+              physicians, clinics, hospitals, and healthcare organizations across Pakistan.
             </p>
             <p>
-              Today we partner with 500+ providers across the country — multi-specialty groups, hospitals, and
-              solo practices alike. We have never outsourced our work offshore, and we never will. Every claim is
-              worked by a dedicated, US-based specialist who knows your payers, your codes and your patients.
-            </p>
-            <p>
-              Our philosophy is simple: transparency, accuracy and relentless follow-up. If we wouldn't trust the
-              process with our own practice, we won't ask you to.
+              Our goal is to simplify medical billing and credentialing while improving collections and reducing
+              administrative burden. We work as an extension of your practice, providing accurate, transparent,
+              and reliable services that help your organization grow.
             </p>
           </div>
-        </div>
 
-        <!-- Mission & Vision -->
-        <div class="mv-grid">
-          <div class="glass mv-block tilt reveal">
-            <h3><i class="fa-solid fa-bullseye"></i> Our Mission</h3>
-            <p>
-              "To simplify healthcare revenue management so providers can focus entirely on delivering exceptional
-              patient care — with zero compromise on accuracy, compliance or speed."
-            </p>
-          </div>
-          <div class="glass mv-block tilt reveal">
-            <h3><i class="fa-solid fa-eye"></i> Our Vision</h3>
-            <p>
-              "A healthcare system where every rendered service is paid correctly, the first time — and no provider
-              loses a single dollar to preventable denials."
-            </p>
+          <div>
+            <div class="section-head" style="text-align:left;margin-bottom:1.4rem;">
+              <span class="kicker"><i class="fa-solid fa-compass"></i> Purpose</span>
+            </div>
+            <div class="mv-grid">
+              <div class="glass mv-block">
+                <h3><i class="fa-solid fa-bullseye"></i> Our Mission</h3>
+                <p>
+                  "To deliver efficient, accurate, and cost-effective healthcare revenue solutions that allow providers
+                  to focus on patient care."
+                </p>
+              </div>
+              <div class="glass mv-block">
+                <h3><i class="fa-solid fa-eye"></i> Our Vision</h3>
+                <p>
+                  "To become a trusted global partner for medical billing and credentialing services."
+                </p>
+              </div>
+            </div>
           </div>
         </div>
 
         <!-- Team -->
-        <div class="section-head reveal" style="margin-top:3rem;">
+        <div class="section-head" style="margin-top:3.5rem;">
           <span class="kicker"><i class="fa-solid fa-users"></i> Leadership</span>
           <h2>Meet the <span class="grad-text">Team</span></h2>
           <p>A remote-first crew of RCM, coding and credentialing specialists.</p>
         </div>
 
         <div class="team-grid">
-          <div class="glass team-card tilt reveal">
-            <img src="https://ui-avatars.com/api/?name=Hima+Patel&background=0a4b7a&color=fff&size=128" alt="Hima Patel - Chief Executive Officer">
-            <h4>Hima Patel</h4>
+          <div class="glass team-card">
+            <img src="assets/images/team-hima.svg" alt="Hima Khan - Chief Executive Officer">
+            <h4>Hima Khan</h4>
             <p class="role">Chief Executive Officer</p>
             <p>Founder with 15 years in hospital revenue management.</p>
           </div>
-          <div class="glass team-card tilt reveal">
-            <img src="https://ui-avatars.com/api/?name=Marcus+Cole&background=00a8b5&color=fff&size=128" alt="Marcus Cole - Head of RCM">
-            <h4>Marcus Cole</h4>
+          <div class="glass team-card">
+            <img src="assets/images/team-marcus.svg" alt="Bilal Ahmed - Head of RCM">
+            <h4>Bilal Ahmed</h4>
             <p class="role">Head of RCM</p>
             <p>Builds the claim workflows behind our 98% success rate.</p>
           </div>
-          <div class="glass team-card tilt reveal">
-            <img src="https://ui-avatars.com/api/?name=Alicia+Turner&background=073a5e&color=fff&size=128" alt="Alicia Turner - Senior Medical Coder">
-            <h4>Alicia Turner</h4>
+          <div class="glass team-card">
+            <img src="assets/images/team-alicia.svg" alt="Ayesha Siddiqui - Senior Medical Coder">
+            <h4>Ayesha Siddiqui</h4>
             <p class="role">Senior Medical Coder</p>
             <p>CPC-certified coding lead across 20+ specialties.</p>
           </div>
-          <div class="glass team-card tilt reveal">
-            <img src="https://ui-avatars.com/api/?name=David+Kim&background=f39c12&color=fff&size=128" alt="David Kim - Credentialing Specialist">
-            <h4>David Kim</h4>
+          <div class="glass team-card">
+            <img src="assets/images/team-david.svg" alt="Usman Tariq - Credentialing Specialist">
+            <h4>Usman Tariq</h4>
             <p class="role">Credentialing Specialist</p>
             <p>Keeps payer enrollments and CAQH profiles audit-ready.</p>
           </div>
@@ -1111,8 +984,8 @@
          ============================================================ -->
     <section class="page" id="page-billing">
       <div class="page-hero">
-        <div class="f-dot" style="width:11px;height:11px;background:rgba(243,156,18,0.7);top:24%;left:9%;"></div>
-        <div class="f-dot" style="width:13px;height:13px;background:rgba(0,168,181,0.55);bottom:26%;right:10%;animation-delay:1.3s;"></div>
+        <div class="f-dot" style="width:11px;height:11px;background:rgba(243,156,18,0.7);top:26%;left:8%;"></div>
+        <div class="f-dot" style="width:13px;height:13px;background:rgba(0,168,181,0.55);bottom:26%;right:9%;animation-delay:1.4s;"></div>
         <div class="container">
           <h1>Complete <span class="grad-text">Medical Billing Solutions</span></h1>
           <p>We manage every stage of your billing process.</p>
@@ -1120,34 +993,34 @@
       </div>
 
       <div class="container section-pad">
-        <div class="section-head reveal">
+        <div class="section-head">
           <span class="kicker"><i class="fa-solid fa-list-check"></i> Services Include</span>
           <h2>Every Step of Your <span class="grad-text">Billing Cycle</span></h2>
         </div>
 
         <div class="check-grid">
-          <div class="check-item reveal"><i class="fa-solid fa-circle-check"></i> Charge Capture &amp; Claim Submission</div>
-          <div class="check-item reveal"><i class="fa-solid fa-circle-check"></i> ERA / EOB Processing &amp; Reconciliation</div>
-          <div class="check-item reveal"><i class="fa-solid fa-circle-check"></i> Patient Statement Generation &amp; Billing</div>
-          <div class="check-item reveal"><i class="fa-solid fa-circle-check"></i> Payment Posting &amp; Denial Tracking</div>
-          <div class="check-item reveal"><i class="fa-solid fa-circle-check"></i> Insurance Eligibility &amp; Benefits Verification</div>
-          <div class="check-item reveal"><i class="fa-solid fa-circle-check"></i> Claim Scrubbing &amp; Error Resolution</div>
-          <div class="check-item reveal"><i class="fa-solid fa-circle-check"></i> Secondary &amp; COB (Coordination of Benefits) Billing</div>
-          <div class="check-item reveal"><i class="fa-solid fa-circle-check"></i> Patient Collections &amp; Payment Plans</div>
-          <div class="check-item reveal"><i class="fa-solid fa-circle-check"></i> Monthly Reporting &amp; Revenue Analytics</div>
-          <div class="check-item reveal"><i class="fa-solid fa-circle-check"></i> Prior Authorization Support</div>
+          <div class="check-item"><i class="fa-solid fa-circle-check"></i> Patient Demographics Entry</div>
+          <div class="check-item"><i class="fa-solid fa-circle-check"></i> Insurance Eligibility Verification</div>
+          <div class="check-item"><i class="fa-solid fa-circle-check"></i> Charge Entry</div>
+          <div class="check-item"><i class="fa-solid fa-circle-check"></i> Medical Claim Submission</div>
+          <div class="check-item"><i class="fa-solid fa-circle-check"></i> Payment Posting</div>
+          <div class="check-item"><i class="fa-solid fa-circle-check"></i> Denial Management</div>
+          <div class="check-item"><i class="fa-solid fa-circle-check"></i> Appeals &amp; Resubmissions</div>
+          <div class="check-item"><i class="fa-solid fa-circle-check"></i> Accounts Receivable Follow-Up</div>
+          <div class="check-item"><i class="fa-solid fa-circle-check"></i> Patient Billing Support</div>
+          <div class="check-item"><i class="fa-solid fa-circle-check"></i> Monthly Financial Reports</div>
         </div>
 
-        <div class="section-head reveal" style="margin-top:3.5rem;">
+        <div class="section-head" style="margin-top:3.5rem;">
           <span class="kicker" style="background:rgba(243,156,18,0.12);border-color:rgba(243,156,18,0.35);color:#a86a06;"><i class="fa-solid fa-medal"></i> Benefits</span>
           <h2>What You <span class="grad-text">Gain</span></h2>
         </div>
 
         <div class="benefit-row">
-          <div class="benefit-badge reveal"><i class="fa-solid fa-shield-halved"></i> Reduced Denials</div>
-          <div class="benefit-badge reveal"><i class="fa-solid fa-bolt"></i> Faster Payments</div>
-          <div class="benefit-badge reveal"><i class="fa-solid fa-coins"></i> Higher Collections</div>
-          <div class="benefit-badge reveal"><i class="fa-solid fa-certificate"></i> Full Compliance</div>
+          <div class="benefit-badge"><i class="fa-solid fa-bolt"></i> Faster Reimbursements</div>
+          <div class="benefit-badge"><i class="fa-solid fa-coins"></i> Higher Collection Rates</div>
+          <div class="benefit-badge"><i class="fa-solid fa-circle-check"></i> Reduced Billing Errors</div>
+          <div class="benefit-badge"><i class="fa-solid fa-chart-line"></i> Improved Cash Flow</div>
         </div>
       </div>
     </section>
@@ -1159,106 +1032,78 @@
       <div class="page-hero">
         <div class="f-dot" style="width:12px;height:12px;background:rgba(0,168,181,0.6);top:28%;right:8%;"></div>
         <div class="f-dot" style="width:9px;height:9px;background:rgba(243,156,18,0.7);bottom:28%;left:5%;animation-delay:1.6s;"></div>
-        <div class="container" style="display:grid;grid-template-columns:1fr;gap:2rem;align-items:center;">
-          <div>
-            <h1>Credentialing <span class="grad-text">Made Simple</span></h1>
-            <p>We handle every payer enrollment and credential so you never miss a contract deadline.</p>
-          </div>
-          <!-- 3D shield + checkmark + puzzle SVG -->
-          <svg viewBox="0 0 420 300" width="100%" style="max-width:420px;justify-self:end;" role="img" aria-label="Shield with checkmark and puzzle pieces">
-            <defs>
-              <linearGradient id="pzGrad1" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stop-color="#00a8b5"/>
-                <stop offset="1" stop-color="#0a4b7a"/>
-              </linearGradient>
-            </defs>
-            <g transform="translate(140 30)">
-              <path d="M70 0 L140 30 V120 C140 170 115 195 70 215 C25 195 0 170 0 120 V30 Z" fill="url(#pzGrad1)" opacity="0.95"/>
-              <path d="M70 14 L126 38 V120 C126 160 107 181 70 198 C33 181 14 160 14 120 V38 Z" fill="#fff" opacity="0.92"/>
-              <path d="M34 84 h14 l8-16 12 34 9-18 h19" fill="none" stroke="#00a8b5" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-            </g>
-            <!-- Puzzle pieces -->
-            <g>
-              <rect x="250" y="60" width="70" height="62" rx="10" fill="#f39c12" opacity="0.95"/>
-              <circle cx="285" cy="60" r="10" fill="#f39c12"/>
-              <rect x="250" y="132" width="70" height="62" rx="10" fill="#00a8b5" opacity="0.95"/>
-              <circle cx="285" cy="194" r="10" fill="#00a8b5"/>
-              <rect x="330" y="96" width="70" height="62" rx="10" fill="#0a4b7a" opacity="0.95"/>
-              <circle cx="365" cy="96" r="10" fill="#0a4b7a"/>
-            </g>
-            <!-- Sparkles -->
-            <path d="M210 230 l3 8 8 3 -8 3 -3 8 -3 -8 -8 -3 8 -3 z" fill="#f7c15c"/>
-            <path d="M96 40 l2 6 6 2 -6 2 -2 6 -2 -6 -6 -2 6 -2 z" fill="#7ce7ef"/>
-          </svg>
+        <div class="container">
+          <h1>Credentialing <span class="grad-text">Made Simple</span></h1>
+          <p>We help healthcare providers become credentialed with Medicare, Medicaid, and commercial insurance companies quickly and efficiently.</p>
         </div>
       </div>
 
       <div class="container section-pad">
-        <div class="section-head reveal">
+        <div class="section-head">
           <span class="kicker"><i class="fa-solid fa-route"></i> Our Services</span>
           <h2>The Credentialing <span class="grad-text">Journey</span></h2>
-          <p>Ten steps we complete on your behalf — tracked, verified and audit-ready.</p>
+          <p>Ten steps we complete on your behalf - tracked, verified and audit-ready.</p>
         </div>
 
         <div class="timeline">
-          <div class="timeline-item reveal">
-            <div class="glass timeline-card tilt">
+          <div class="timeline-item">
+            <div class="glass timeline-card">
               <div class="t-icon"><i class="fa-solid fa-id-card"></i></div>
               <div><h3>Provider Credentialing</h3><p>Complete primary source verification and payer applications.</p></div>
             </div>
           </div>
-          <div class="timeline-item reveal">
-            <div class="glass timeline-card tilt">
+          <div class="timeline-item">
+            <div class="glass timeline-card">
               <div class="t-icon"><i class="fa-solid fa-folder-open"></i></div>
-              <div><h3>CAQH ProView Management</h3><p>We keep your CAQH profile updated, attested and audit-ready.</p></div>
+              <div><h3>CAQH Profile Management</h3><p>Your CAQH ProView profile kept updated, attested and audit-ready.</p></div>
             </div>
           </div>
-          <div class="timeline-item reveal">
-            <div class="glass timeline-card tilt">
+          <div class="timeline-item">
+            <div class="glass timeline-card">
               <div class="t-icon"><i class="fa-solid fa-shield-halved"></i></div>
               <div><h3>PECOS Enrollment</h3><p>Medicare PECOS enrollment and revalidation handled end-to-end.</p></div>
             </div>
           </div>
-          <div class="timeline-item reveal">
-            <div class="glass timeline-card tilt">
+          <div class="timeline-item">
+            <div class="glass timeline-card">
               <div class="t-icon"><i class="fa-solid fa-medkit"></i></div>
-              <div><h3>Medicare / Medicaid Enrollment</h3><p>Federal and state enrollment with accurate documentation.</p></div>
+              <div><h3>Medicare Enrollment</h3><p>Federal Medicare enrollment with accurate documentation.</p></div>
             </div>
           </div>
-          <div class="timeline-item reveal">
-            <div class="glass timeline-card tilt">
+          <div class="timeline-item">
+            <div class="glass timeline-card">
               <div class="t-icon"><i class="fa-solid fa-building-shield"></i></div>
-              <div><h3>Commercial Payer Enrollment</h3><p>Network enrollment with Aetna, BCBS, United, Cigna and more.</p></div>
+              <div><h3>Medicaid Enrollment</h3><p>State Medicaid enrollment, tracked and verified.</p></div>
             </div>
           </div>
-          <div class="timeline-item reveal">
-            <div class="glass timeline-card tilt">
+          <div class="timeline-item">
+            <div class="glass timeline-card">
+              <div class="t-icon"><i class="fa-solid fa-building-columns"></i></div>
+              <div><h3>Commercial Insurance Enrollment</h3><p>Network enrollment with State Life, Jubilee, EFU, Adamjee and more.</p></div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="glass timeline-card">
+              <div class="t-icon"><i class="fa-solid fa-hashtag"></i></div>
+              <div><h3>NPI Registration</h3><p>NPI application, verification and data maintenance.</p></div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="glass timeline-card">
               <div class="t-icon"><i class="fa-solid fa-rotate"></i></div>
-              <div><h3>Re-Credentialing &amp; Renewals</h3><p>Automatic renewal tracking so contracts never lapse.</p></div>
+              <div><h3>Revalidation</h3><p>Timely revalidation so contracts and enrollments never lapse.</p></div>
             </div>
           </div>
-          <div class="timeline-item reveal">
-            <div class="glass timeline-card tilt">
-              <div class="t-icon"><i class="fa-solid fa-certificate"></i></div>
-              <div><h3>License Verification</h3><p>State medical licenses, DEA and specialty board checks.</p></div>
-            </div>
-          </div>
-          <div class="timeline-item reveal">
-            <div class="glass timeline-card tilt">
-              <div class="t-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
-              <div><h3>Sanction &amp; Exclusion Monitoring</h3><p>OIG, SAM and state exclusion screening, refreshed monthly.</p></div>
-            </div>
-          </div>
-          <div class="timeline-item reveal">
-            <div class="glass timeline-card tilt">
+          <div class="timeline-item">
+            <div class="glass timeline-card">
               <div class="t-icon"><i class="fa-solid fa-hospital"></i></div>
-              <div><h3>Hospital Privileging Support</h3><p>Privilege applications and committee-ready packets.</p></div>
+              <div><h3>Group Practice Enrollment</h3><p>Clinic and group practice payer enrollments, handled together.</p></div>
             </div>
           </div>
-          <div class="timeline-item reveal">
-            <div class="glass timeline-card tilt">
-              <div class="t-icon"><i class="fa-solid fa-handshake"></i></div>
-              <div><h3>Contract &amp; Payer Negotiations</h3><p>Fee schedule analysis and negotiation support.</p></div>
+          <div class="timeline-item">
+            <div class="glass timeline-card">
+              <div class="t-icon"><i class="fa-solid fa-database"></i></div>
+              <div><h3>Provider Data Maintenance</h3><p>Continuous profile and data updates to keep you active.</p></div>
             </div>
           </div>
         </div>
@@ -1272,92 +1117,54 @@
       <div class="page-hero">
         <div class="f-dot" style="width:10px;height:10px;background:rgba(0,168,181,0.6);top:24%;right:10%;"></div>
         <div class="f-dot" style="width:12px;height:12px;background:rgba(243,156,18,0.6);bottom:26%;left:7%;animation-delay:1.2s;"></div>
-        <div class="container" style="display:grid;grid-template-columns:1fr;gap:2rem;align-items:center;">
-          <div>
-            <h1>Accurate <span class="grad-text">Medical Coding Services</span></h1>
-            <p>Certified coders, compliant output, maximum reimbursement.</p>
-          </div>
-          <!-- 3D magnifying glass over documents SVG -->
-          <svg viewBox="0 0 400 280" width="100%" style="max-width:400px;justify-self:end;" role="img" aria-label="Magnifying glass over medical documents">
-            <defs>
-              <linearGradient id="mgGlass" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stop-color="#7ce7ef" stop-opacity="0.9"/>
-                <stop offset="1" stop-color="#00a8b5" stop-opacity="0.35"/>
-              </linearGradient>
-            </defs>
-            <!-- Documents -->
-            <g transform="rotate(-6 120 180)">
-              <rect x="60" y="130" width="140" height="110" rx="8" fill="#fff" stroke="#0a4b7a" stroke-width="3"/>
-              <rect x="76" y="150" width="90" height="8" rx="4" fill="#00a8b5"/>
-              <rect x="76" y="168" width="108" height="6" rx="3" fill="#0a4b7a" opacity="0.35"/>
-              <rect x="76" y="182" width="96" height="6" rx="3" fill="#0a4b7a" opacity="0.3"/>
-              <rect x="76" y="196" width="70" height="6" rx="3" fill="#0a4b7a" opacity="0.25"/>
-              <rect x="76" y="214" width="40" height="10" rx="4" fill="#f39c12"/>
-            </g>
-            <g transform="rotate(4 220 150)">
-              <rect x="180" y="100" width="140" height="110" rx="8" fill="#eef6fb" stroke="#00a8b5" stroke-width="3"/>
-              <rect x="196" y="120" width="90" height="8" rx="4" fill="#0a4b7a"/>
-              <rect x="196" y="138" width="108" height="6" rx="3" fill="#0a4b7a" opacity="0.35"/>
-              <rect x="196" y="152" width="96" height="6" rx="3" fill="#0a4b7a" opacity="0.3"/>
-              <rect x="196" y="184" width="44" height="10" rx="4" fill="#00a8b5"/>
-            </g>
-            <!-- Magnifying glass -->
-            <circle cx="200" cy="150" r="66" fill="url(#mgGlass)" stroke="#0a4b7a" stroke-width="7"/>
-            <circle cx="200" cy="150" r="66" fill="none" stroke="#fff" stroke-width="2" opacity="0.5"/>
-            <circle cx="200" cy="150" r="40" fill="#fff" opacity="0.18"/>
-            <line x1="250" y1="200" x2="300" y2="250" stroke="#0a4b7a" stroke-width="13" stroke-linecap="round"/>
-            <line x1="250" y1="200" x2="300" y2="250" stroke="#f39c12" stroke-width="5" stroke-linecap="round"/>
-            <path d="M182 150 h12 l6-12 10 26 7-14 h13" fill="none" stroke="#00a8b5" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
+        <div class="container">
+          <h1>Accurate <span class="grad-text">Medical Coding Services</span></h1>
+          <p>Accurate coding is essential for proper reimbursement and compliance.</p>
         </div>
       </div>
 
       <div class="container section-pad">
-        <div class="section-head reveal">
+        <div class="section-head">
           <span class="kicker"><i class="fa-solid fa-code"></i> Coding Services</span>
           <h2>Precision Coding for <span class="grad-text">Every Specialty</span></h2>
         </div>
 
         <div class="coding-grid">
-          <div class="glass coding-card tilt reveal">
+          <div class="glass coding-card">
             <div class="c-icon"><i class="fa-solid fa-book-medical"></i></div>
-            <h3>ICD-10-CM Coding</h3>
+            <h3>ICD-10 Coding</h3>
             <p>Diagnosis coding with full specificity and compliance.</p>
           </div>
-          <div class="glass coding-card tilt reveal">
+          <div class="glass coding-card">
             <div class="c-icon"><i class="fa-solid fa-list"></i></div>
-            <h3>CPT &amp; HCPCS Coding</h3>
-            <p>Procedure and supply coding aligned with payer rules.</p>
+            <h3>CPT Coding</h3>
+            <p>Procedure coding aligned with payer rules.</p>
           </div>
-          <div class="glass coding-card tilt reveal">
-            <div class="c-icon"><i class="fa-solid fa-clipboard-check"></i></div>
-            <h3>E/M Coding</h3>
-            <p>Evaluation &amp; management levels coded to the letter.</p>
+          <div class="glass coding-card">
+            <div class="c-icon"><i class="fa-solid fa-tags"></i></div>
+            <h3>HCPCS Coding</h3>
+            <p>Supply and equipment coding done right.</p>
           </div>
-          <div class="glass coding-card tilt reveal">
-            <div class="c-icon"><i class="fa-solid fa-syringe"></i></div>
-            <h3>Surgical Coding</h3>
-            <p>Complex operative note coding by surgical specialists.</p>
-          </div>
-          <div class="glass coding-card tilt reveal">
+          <div class="glass coding-card">
             <div class="c-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
-            <h3>Coding Audits &amp; Compliance</h3>
+            <h3>Coding Audits</h3>
             <p>Prospective and retrospective audits that protect revenue.</p>
           </div>
-          <div class="glass coding-card tilt reveal">
-            <div class="c-icon"><i class="fa-solid fa-rotate-left"></i></div>
-            <h3>Denial-Driven Re-Reviews</h3>
-            <p>Re-code denied claims to maximize appeal success.</p>
+          <div class="glass coding-card">
+            <div class="c-icon"><i class="fa-solid fa-file-lines"></i></div>
+            <h3>Documentation Review</h3>
+            <p>Chart review that strengthens code support and compliance.</p>
+          </div>
+          <div class="glass coding-card">
+            <div class="c-icon"><i class="fa-solid fa-shield-halved"></i></div>
+            <h3>Coding Compliance Support</h3>
+            <p>Guidance that keeps your coding practice audit-safe.</p>
           </div>
         </div>
 
-        <div class="glass coding-benefits tilt reveal" style="margin-top:3rem;">
-          <h3>Why Accurate Coding <span class="grad-text">Matters</span></h3>
-          <p>
-            Accurate medical coding is the difference between paid and denied — and between compliant and at risk.
-            Our certified coders deliver defensible, payer-ready codes that boost collections, speed up payment,
-            and keep your practice safe in an audit. You get every dollar you earned, without the compliance risk.
-          </p>
+        <div class="glass coding-benefits" style="margin-top:3rem;">
+          <h3>Coding <span class="grad-text">Benefits</span></h3>
+          <p>Benefits include improved claim acceptance, fewer denials, and optimized reimbursement.</p>
         </div>
       </div>
     </section>
@@ -1376,70 +1183,70 @@
       </div>
 
       <div class="container section-pad" style="padding-top:3.5rem;">
-        <!-- 6-step timeline -->
+        <!-- 6-step process -->
         <div class="process-list">
-          <div class="process-item reveal">
+          <div class="process-item">
             <div class="process-num">1</div>
-            <div class="glass process-card tilt">
-              <h3>Free RCM Audit</h3>
-              <p>We analyze your claims, denials and AR to find every leak in your revenue cycle.</p>
+            <div class="glass process-card">
+              <h3>Free Consultation</h3>
+              <p>Free consultation to understand your practice.</p>
             </div>
           </div>
-          <div class="process-item reveal">
+          <div class="process-item">
             <div class="process-num">2</div>
-            <div class="glass process-card tilt">
-              <h3>Customized Strategy</h3>
-              <p>You get a clear, itemized plan with projected recovery numbers — no surprises.</p>
+            <div class="glass process-card">
+              <h3>Secure Onboarding</h3>
+              <p>Secure onboarding and document collection.</p>
             </div>
           </div>
-          <div class="process-item reveal">
+          <div class="process-item">
             <div class="process-num">3</div>
-            <div class="glass process-card tilt">
-              <h3>Onboarding &amp; Transition</h3>
-              <p>Seamless handoff from your current system with zero claim interruption.</p>
+            <div class="glass process-card">
+              <h3>System Setup</h3>
+              <p>System setup and workflow integration.</p>
             </div>
           </div>
-          <div class="process-item reveal">
+          <div class="process-item">
             <div class="process-num">4</div>
-            <div class="glass process-card tilt">
-              <h3>Claim Submission</h3>
-              <p>Scrubbed, coded and submitted electronically within 24–48 hours of service.</p>
+            <div class="glass process-card">
+              <h3>Daily Billing</h3>
+              <p>Daily billing and claim submission.</p>
             </div>
           </div>
-          <div class="process-item reveal">
+          <div class="process-item">
             <div class="process-num">5</div>
-            <div class="glass process-card tilt">
-              <h3>Payment Posting &amp; Follow-Up</h3>
-              <p>ERA/EOB posting with daily AR follow-up on every aging dollar.</p>
+            <div class="glass process-card">
+              <h3>Payment Posting &amp; AR Follow-Up</h3>
+              <p>Payment posting and AR follow-up.</p>
             </div>
           </div>
-          <div class="process-item reveal">
+          <div class="process-item">
             <div class="process-num">6</div>
-            <div class="glass process-card tilt">
-              <h3>Reporting &amp; Optimization</h3>
-              <p>Monthly scorecards and strategy reviews to keep improving collection rates.</p>
+            <div class="glass process-card">
+              <h3>Monthly Reporting</h3>
+              <p>Monthly reports with ongoing support.</p>
             </div>
           </div>
         </div>
 
         <!-- Free RCM Audit form -->
-        <div class="section-head reveal" style="margin-top:3.5rem;">
-          <span class="kicker"><i class="fa-solid fa-file-invoice"></i> No Cost · No Obligation</span>
-          <h2>Request Your <span class="grad-text">FREE RCM Audit</span></h2>
-          <p>Tell us about your practice and our team will deliver a full revenue analysis.</p>
+        <div class="section-head" style="margin-top:3.5rem;">
+          <span class="kicker"><i class="fa-solid fa-file-invoice"></i> No Cost - No Obligation</span>
+          <h2>Get a FREE <span class="grad-text">Revenue Cycle Management (RCM) Audit</span></h2>
+          <p>Discover hidden revenue opportunities, reduce claim denials, and improve your practice's cash flow.
+          Complete the form below, and one of our RCM specialists will contact you within 24 hours.</p>
         </div>
 
-        <form class="glass audit-form tilt" id="auditForm" novalidate>
-          <!-- PRACTICE INFORMATION -->
-          <h2 class="form-section-title" style="border:none;margin-top:0;"><i class="fa-solid fa-hospital"></i> PRACTICE INFORMATION</h2>
+        <form class="glass audit-form" id="auditForm" novalidate>
+          <h3 class="form-section-title" style="margin-top:0;"><i class="fa-solid fa-hospital"></i> PRACTICE INFORMATION</h3>
           <div class="form-row">
             <div class="form-group">
               <label for="practiceName">Practice Name *</label>
-              <input type="text" class="form-control" id="practiceName" placeholder="e.g., Lakeside Family Medicine" required>
+              <input type="text" class="form-control" id="practiceName" placeholder="e.g., Shifa Family Clinic" required>
             </div>
             <div class="form-group">
               <label for="providerName">Provider Name *</label>
-              <input type="text" class="form-control" id="providerName" placeholder="e.g., Dr. Sarah Reynolds" required>
+              <input type="text" class="form-control" id="providerName" placeholder="e.g., Dr. Ahmed Raza" required>
             </div>
             <div class="form-group">
               <label for="specialty">Specialty *</label>
@@ -1451,7 +1258,7 @@
             </div>
             <div class="form-group">
               <label for="cityState">City &amp; State *</label>
-              <input type="text" class="form-control" id="cityState" placeholder="e.g., Austin, TX" required>
+              <input type="text" class="form-control" id="cityState" placeholder="e.g., Lahore, Punjab" required>
             </div>
             <div class="form-group">
               <label for="website">Website (Optional)</label>
@@ -1459,7 +1266,6 @@
             </div>
           </div>
 
-          <!-- CONTACT INFORMATION -->
           <h3 class="form-section-title"><i class="fa-solid fa-address-book"></i> CONTACT INFORMATION</h3>
           <div class="form-row">
             <div class="form-group">
@@ -1472,18 +1278,17 @@
             </div>
             <div class="form-group">
               <label for="email">Email Address *</label>
-              <input type="email" class="form-control" id="email" placeholder="you@practice.com" required>
+              <input type="email" class="form-control" id="email" placeholder="you@clinic.pk" required>
             </div>
             <div class="form-group">
               <label for="phone">Phone Number *</label>
-              <input type="tel" class="form-control" id="phone" placeholder="+1 555 000 0000" required>
+              <input type="tel" class="form-control" id="phone" placeholder="+92 300 1234567" required>
             </div>
           </div>
 
-          <!-- CURRENT BILLING INFORMATION -->
           <h3 class="form-section-title"><i class="fa-solid fa-file-invoice-dollar"></i> CURRENT BILLING INFORMATION</h3>
           <div class="form-group">
-            <label>Do you bill in-house or outsource?</label>
+            <label>Do you bill in-house or outsource your billing?</label>
             <div class="radio-group">
               <label><input type="radio" name="billingMethod" value="In-house"> In-house</label>
               <label><input type="radio" name="billingMethod" value="Outsourced"> Outsourced</label>
@@ -1504,10 +1309,9 @@
             </div>
           </div>
 
-          <!-- CHALLENGES -->
           <h3 class="form-section-title"><i class="fa-solid fa-triangle-exclamation"></i> CHALLENGES</h3>
-          <p class="form-hint" style="margin-bottom:0.8rem;">Select all that apply:</p>
-          <div class="check-group" id="challengeGroup">
+          <p class="form-hint" style="margin-bottom:0.8rem;">Challenges You're Facing (Select all that apply):</p>
+          <div class="check-group">
             <label><input type="checkbox" name="challenges" value="High Claim Denials"> High Claim Denials</label>
             <label><input type="checkbox" name="challenges" value="Slow Insurance Payments"> Slow Insurance Payments</label>
             <label><input type="checkbox" name="challenges" value="Low Collections"> Low Collections</label>
@@ -1521,18 +1325,18 @@
 
           <div class="form-group" style="margin-top:1.2rem;">
             <label for="comments">Additional Comments</label>
-            <textarea class="form-control" id="comments" rows="4" placeholder="Anything else we should know about your practice..."></textarea>
+            <textarea class="form-control" id="comments" rows="4" placeholder="(Tell us about your biggest billing or revenue cycle challenge.)"></textarea>
           </div>
 
           <label class="consent">
             <input type="checkbox" id="consent" required>
-            <span>I agree to be contacted by Hima Tech Health Solutions regarding this audit request. I understand my information is kept confidential and HIPAA-compliant.</span>
+            <span>I agree to be contacted by Hima Tech Health Solutions regarding my FREE RCM Audit.</span>
           </label>
 
           <button type="submit" class="btn btn-glow btn-block" id="auditBtn" style="padding:1.05rem;font-size:1.05rem;">
             <i class="fa-solid fa-file-signature"></i> Request My FREE RCM Audit
           </button>
-          <div id="auditAlert"></div>
+          <div class="alert" id="auditAlert" role="status"></div>
         </form>
       </div>
     </section>
@@ -1546,21 +1350,77 @@
         <div class="f-dot" style="width:9px;height:9px;background:rgba(243,156,18,0.7);bottom:26%;left:6%;animation-delay:1.5s;"></div>
         <div class="container">
           <h1>Latest Healthcare <span class="grad-text">Revenue Insights</span></h1>
-          <p>Practical advice on billing, coding, credentialing and revenue cycle management.</p>
+          <p>Stay informed with articles about:</p>
         </div>
       </div>
 
       <div class="container section-pad">
-        <div class="blog-topics reveal">
+        <div class="blog-topics">
           <span class="blog-topic"><i class="fa-solid fa-tag"></i> Medical Billing Tips</span>
           <span class="blog-topic"><i class="fa-solid fa-tag"></i> Credentialing Updates</span>
-          <span class="blog-topic"><i class="fa-solid fa-tag"></i> Medical Coding</span>
-          <span class="blog-topic"><i class="fa-solid fa-tag"></i> RCM Strategy</span>
-          <span class="blog-topic"><i class="fa-solid fa-tag"></i> Denial Management</span>
-          <span class="blog-topic"><i class="fa-solid fa-tag"></i> Telehealth Billing</span>
+          <span class="blog-topic"><i class="fa-solid fa-tag"></i> Medicare &amp; Medicaid News</span>
+          <span class="blog-topic"><i class="fa-solid fa-tag"></i> Revenue Cycle Management</span>
+          <span class="blog-topic"><i class="fa-solid fa-tag"></i> Insurance Billing Best Practices</span>
+          <span class="blog-topic"><i class="fa-solid fa-tag"></i> Practice Growth Strategies</span>
         </div>
 
-        <div class="blog-grid" id="blogGrid"><!-- Blog cards rendered via GET /api/blog --></div>
+        <!-- Static cards (visible even without JS; /api/blog may refresh them) -->
+        <div class="blog-grid" id="blogGrid">
+          <article class="glass blog-card">
+            <div class="blog-thumb thumb-1"><i class="fa-solid fa-ban"></i></div>
+            <div class="blog-body">
+              <div class="blog-meta"><span><i class="fa-solid fa-calendar"></i> January 12, 2026</span><span><i class="fa-solid fa-folder"></i> Denial Management</span></div>
+              <h3>5 Denial Management Strategies That Actually Work</h3>
+              <p>Stop writing off denials. These five root-cause strategies recover revenue most practices leave behind.</p>
+              <a href="#/blog" class="read-more">Read More <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </article>
+          <article class="glass blog-card">
+            <div class="blog-thumb thumb-2"><i class="fa-solid fa-id-badge"></i></div>
+            <div class="blog-body">
+              <div class="blog-meta"><span><i class="fa-solid fa-calendar"></i> February 3, 2026</span><span><i class="fa-solid fa-folder"></i> Credentialing</span></div>
+              <h3>CAQH Updates Every Provider Must Know in 2026</h3>
+              <p>New attestation windows and data standards are coming. Stay ahead of credentialing deadlines.</p>
+              <a href="#/blog" class="read-more">Read More <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </article>
+          <article class="glass blog-card">
+            <div class="blog-thumb thumb-3"><i class="fa-solid fa-book-medical"></i></div>
+            <div class="blog-body">
+              <div class="blog-meta"><span><i class="fa-solid fa-calendar"></i> February 21, 2026</span><span><i class="fa-solid fa-folder"></i> Medical Coding</span></div>
+              <h3>ICD-10 Coding Pitfalls: Avoiding Compliance Risk</h3>
+              <p>Six common coding mistakes that trigger audits - and how certified coders avoid them.</p>
+              <a href="#/blog" class="read-more">Read More <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </article>
+          <article class="glass blog-card">
+            <div class="blog-thumb thumb-4"><i class="fa-solid fa-robot"></i></div>
+            <div class="blog-body">
+              <div class="blog-meta"><span><i class="fa-solid fa-calendar"></i> March 10, 2026</span><span><i class="fa-solid fa-folder"></i> RCM Strategy</span></div>
+              <h3>How RCM Automation Boosts Collections by 30%</h3>
+              <p>From claim scrubbing to AR follow-up, automation accelerates cash flow without losing accuracy.</p>
+              <a href="#/blog" class="read-more">Read More <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </article>
+          <article class="glass blog-card">
+            <div class="blog-thumb thumb-5"><i class="fa-solid fa-video"></i></div>
+            <div class="blog-body">
+              <div class="blog-meta"><span><i class="fa-solid fa-calendar"></i> April 2, 2026</span><span><i class="fa-solid fa-folder"></i> Telehealth Billing</span></div>
+              <h3>Telehealth Billing Rules: A 2026 Refresher</h3>
+              <p>Modifiers, place of service and payer quirks - the telehealth billing guide your team needs.</p>
+              <a href="#/blog" class="read-more">Read More <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </article>
+          <article class="glass blog-card">
+            <div class="blog-thumb thumb-6"><i class="fa-solid fa-clock"></i></div>
+            <div class="blog-body">
+              <div class="blog-meta"><span><i class="fa-solid fa-calendar"></i> April 24, 2026</span><span><i class="fa-solid fa-folder"></i> Medical Billing Tips</span></div>
+              <h3>AR Follow-Up: Why Speed Matters for Reimbursement</h3>
+              <p>Every day of aging costs you real money. Here is how disciplined follow-up timelines win.</p>
+              <a href="#/blog" class="read-more">Read More <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -1573,48 +1433,42 @@
         <div class="f-dot" style="width:13px;height:13px;background:rgba(243,156,18,0.6);bottom:26%;right:8%;animation-delay:1.3s;"></div>
         <div class="container">
           <h1>Let's Grow Your Practice <span class="grad-text">Together</span></h1>
-          <p>Looking for a reliable medical billing and credentialing partner? Get in touch — we respond within one business day.</p>
+          <p>Looking for a reliable medical billing and credentialing partner? Get in touch with Hima Tech Healthcare Solutions today.</p>
         </div>
       </div>
 
       <div class="container section-pad" style="padding-top:3.5rem;">
         <div class="contact-grid">
-          <!-- Contact info -->
           <div class="contact-info-grid">
-            <div class="glass contact-box tilt reveal">
+            <div class="glass contact-box">
               <div class="c-icon"><i class="fa-solid fa-envelope"></i></div>
-              <div><strong>Email Us</strong><span>support@himatechhealth.com</span></div>
+              <div><strong>Email</strong><span>info@himatechhealthsolutions.com</span></div>
             </div>
-            <div class="glass contact-box tilt reveal">
+            <div class="glass contact-box">
               <div class="c-icon"><i class="fa-solid fa-phone"></i></div>
-              <div><strong>Call Us</strong><span>+1 800 555 0199</span></div>
+              <div><strong>Phone</strong><span>+92 3455337780</span></div>
             </div>
-            <div class="glass contact-box tilt reveal">
+            <div class="glass contact-box">
               <div class="c-icon"><i class="fa-solid fa-clock"></i></div>
-              <div><strong>Working Hours</strong><span>Mon–Sat · 8:00 AM – 8:00 PM (EST)</span></div>
-            </div>
-            <div class="glass contact-box tilt reveal">
-              <div class="c-icon"><i class="fa-solid fa-location-dot"></i></div>
-              <div><strong>Office</strong><span>123 Health Blvd, New York, NY 10001</span></div>
+              <div><strong>Business Hours</strong><span>Monday - Friday, 9:00 AM - 6:00 PM</span></div>
             </div>
           </div>
 
-          <!-- Contact form -->
-          <div class="glass tilt reveal" style="padding:1.9rem 1.6rem;">
-            <h2 style="color:var(--primary);font-size:1.45rem;margin-bottom:0.4rem;">Send Us a Message</h2>
-            <p style="color:var(--text-muted);font-size:0.92rem;margin-bottom:1.5rem;">We typically reply within one business day.</p>
+          <div class="glass" style="padding:1.9rem 1.6rem;">
+            <h2 style="color:var(--primary);font-size:1.45rem;margin-bottom:0.4rem;">Request a Free Consultation</h2>
+            <p style="color:var(--text-muted);font-size:0.92rem;margin-bottom:1.5rem;">Fill out our contact form and one of our specialists will contact you within one business day.</p>
             <form id="contactForm" novalidate>
               <div class="form-group">
                 <label for="cName">Full Name *</label>
-                <input type="text" class="form-control" id="cName" placeholder="Jane Doe" required>
+                <input type="text" class="form-control" id="cName" placeholder="Ayesha Khan" required>
               </div>
               <div class="form-group">
                 <label for="cEmail">Email Address *</label>
-                <input type="email" class="form-control" id="cEmail" placeholder="you@practice.com" required>
+                <input type="email" class="form-control" id="cEmail" placeholder="you@clinic.pk" required>
               </div>
               <div class="form-group">
                 <label for="cPhone">Phone Number *</label>
-                <input type="tel" class="form-control" id="cPhone" placeholder="+1 555 000 0000" required>
+                <input type="tel" class="form-control" id="cPhone" placeholder="+92 300 1234567" required>
               </div>
               <div class="form-group">
                 <label for="cMessage">Message *</label>
@@ -1623,7 +1477,7 @@
               <button type="submit" class="btn btn-primary btn-block" id="cBtn">
                 <i class="fa-solid fa-paper-plane"></i> Send Message
               </button>
-              <div id="cAlert"></div>
+              <div class="alert" id="cAlert" role="status"></div>
             </form>
           </div>
         </div>
@@ -1643,7 +1497,7 @@
             <img src="assets/images/logo.svg" alt="Hima Tech Health Solutions logo" class="brand-logo" width="38" height="38">
             Hima Tech <span class="gold">Health Solutions</span>
           </a>
-          <p style="color:rgba(255,255,255,0.7);">Trusted medical billing, credentialing and RCM services for healthcare providers nationwide. HIPAA compliant. ISO 27001 aligned.</p>
+          <p style="color:rgba(255,255,255,0.7);margin-top:0.8rem;">Trusted medical billing, credentialing and RCM services for healthcare providers nationwide. HIPAA compliant. ISO 27001 aligned.</p>
         </div>
         <div>
           <h4>Services</h4>
@@ -1660,13 +1514,13 @@
             <li><a href="#/about">About Us</a></li>
             <li><a href="#/blog">Blog</a></li>
             <li><a href="#/contact">Contact</a></li>
-            <li><i class="fa-solid fa-envelope"></i> support@himatechhealth.com</li>
-            <li><i class="fa-solid fa-phone"></i> +1 800 555 0199</li>
+            <li><i class="fa-solid fa-envelope"></i> info@himatechhealthsolutions.com</li>
+            <li><i class="fa-solid fa-phone"></i> +92 3455337780</li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; <span id="year"></span> Hima Tech Health Solutions. All rights reserved. Demo application — not for real billing.</p>
+        <p>&copy; <span id="year"></span> Hima Tech Health Solutions. All rights reserved. Demo application - not for real billing.</p>
       </div>
     </div>
   </footer>
@@ -1675,90 +1529,65 @@
   <button id="backToTop" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
 
   <!-- ============================================================
-       JAVASCRIPT (Vanilla ES6)
+       JAVASCRIPT (Vanilla ES6 - every feature is optional and
+       failure-safe: the page works fully even if JS never runs)
        ============================================================ -->
   <script>
     'use strict';
 
-    // Mark JS as active so CSS animations can apply safely
-    // (content stays fully visible if JS ever fails to run)
-    document.documentElement.classList.add('js');
-
     /* ============================================================
        1. SPA ROUTER (hash-based page switching)
        ============================================================ */
-    const routes = ['home', 'about', 'billing', 'credentialing', 'coding', 'process', 'blog', 'contact'];
+    var routes = ['home', 'about', 'billing', 'credentialing', 'coding', 'process', 'blog', 'contact'];
 
-    const pageTitles = {
-      home: 'Hima Tech Health Solutions | Medical Billing & Credentialing',
-      about: 'About Us | Hima Tech Health Solutions',
-      billing: 'Medical Billing Services | Hima Tech Health Solutions',
-      credentialing: 'Credentialing & Enrollment | Hima Tech Health Solutions',
-      coding: 'Medical Coding Services | Hima Tech Health Solutions',
-      process: 'Our Process & Free RCM Audit | Hima Tech Health Solutions',
-      blog: 'Blog | Hima Tech Health Solutions',
-      contact: 'Contact Us | Hima Tech Health Solutions'
-    };
-
-    // Read the current route from the URL hash, defaulting to "home"
     function getRoute() {
-      const hash = window.location.hash.replace(/^#\/?/, '').toLowerCase();
-      return routes.includes(hash) ? hash : 'home';
+      var hash = window.location.hash.replace(/^#\/?/, '').toLowerCase();
+      return routes.indexOf(hash) !== -1 ? hash : 'home';
     }
 
-    // Render the active page + nav highlight
     function renderPage() {
-      const route = getRoute();
-
-      document.querySelectorAll('.page').forEach((page) => {
-        const isActive = page.id === 'page-' + route;
-        page.classList.toggle('active', isActive);
-        if (isActive) {
-          window.scrollTo({ top: 0, behavior: 'auto' });
-          document.title = pageTitles[route] || 'Hima Tech Health Solutions';
-        }
-      });
-
-      document.querySelectorAll('.nav-menu a[data-route]').forEach((link) => {
-        link.classList.toggle('active', link.dataset.route === route);
-      });
-
-      // Home page uses the dark transparent navbar, others use light
-      document.body.classList.toggle('dark-hero', route === 'home');
-
+      var route = getRoute();
+      var pages = document.querySelectorAll('.page');
+      for (var i = 0; i < pages.length; i++) {
+        var isActive = pages[i].id === 'page-' + route;
+        if (isActive) pages[i].classList.add('active');
+        else pages[i].classList.remove('active');
+      }
+      var links = document.querySelectorAll('.nav-menu a[data-route]');
+      for (var j = 0; j < links.length; j++) {
+        if (links[j].getAttribute('data-route') === route) links[j].classList.add('active');
+        else links[j].classList.remove('active');
+      }
+      if (route === 'home') {
+        window.scrollTo(0, 0);
+      }
       closeMobileMenu();
-
-      // Reveal above-the-fold content of the newly shown page
-      onViewportCheck();
-
-      // Load blog content when visiting the blog page
-      if (route === 'blog') loadBlog();
     }
 
     window.addEventListener('hashchange', renderPage);
-
     if (!window.location.hash) {
-      history.replaceState(null, '', '#/home');
+      window.history.replaceState(null, '', '#/home');
     }
     renderPage();
 
     /* ============================================================
-       2. NAVBAR: transparent -> solid on scroll
+       2. NAVBAR: shadow on scroll
        ============================================================ */
-    const navbar = document.getElementById('navbar');
+    var navbar = document.getElementById('navbar');
+    var backToTop = document.getElementById('backToTop');
     function onScroll() {
-      const y = window.scrollY;
-      navbar.classList.toggle('scrolled', y > 40);
-      document.body.classList.toggle('nav-solid', y > 40);
-      backToTop.classList.toggle('show', y > 400);
+      var scrolled = window.scrollY > 40;
+      navbar.classList.toggle('scrolled', scrolled);
+      backToTop.classList.toggle('show', window.scrollY > 400);
     }
     window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
 
     /* ============================================================
        3. MOBILE MENU
        ============================================================ */
-    const navToggle = document.getElementById('navToggle');
-    const navMenu = document.getElementById('navMenu');
+    var navToggle = document.getElementById('navToggle');
+    var navMenu = document.getElementById('navMenu');
 
     function closeMobileMenu() {
       navMenu.classList.remove('open');
@@ -1766,314 +1595,229 @@
       navToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
     }
 
-    navToggle.addEventListener('click', () => {
-      const isOpen = navMenu.classList.toggle('open');
+    navToggle.addEventListener('click', function () {
+      var isOpen = navMenu.classList.toggle('open');
       navToggle.setAttribute('aria-expanded', String(isOpen));
       navToggle.innerHTML = isOpen
         ? '<i class="fa-solid fa-xmark"></i>'
         : '<i class="fa-solid fa-bars"></i>';
     });
 
-    document.querySelectorAll('.nav-menu a').forEach((link) => {
-      link.addEventListener('click', closeMobileMenu);
-    });
+    var navLinks = document.querySelectorAll('.nav-menu a');
+    for (var l = 0; l < navLinks.length; l++) {
+      navLinks[l].addEventListener('click', closeMobileMenu);
+    }
 
     /* ============================================================
        4. BACK TO TOP
        ============================================================ */
-    const backToTop = document.getElementById('backToTop');
-    backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    backToTop.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
 
     /* ============================================================
-       5. API HELPER (relative paths - works with Express backend)
+       5. COUNT-UP STATS (values are already in the markup, so
+       this is only a visual enhancement - never a requirement)
        ============================================================ */
-    async function api(path, options) {
-      const opts = Object.assign({
-        headers: { 'Content-Type': 'application/json' }
-      }, options);
-      const response = await fetch(path, opts);
-      return response.json();
+    function animateCounter(el) {
+      var target = parseInt(el.getAttribute('data-target'), 10) || 0;
+      var suffix = el.getAttribute('data-suffix') || '';
+      var duration = 1600;
+      var start = null;
+      function tick(now) {
+        if (!start) start = now;
+        var progress = Math.min((now - start) / duration, 1);
+        var eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.floor(eased * target).toLocaleString('en-US') + suffix;
+        if (progress < 1) {
+          window.requestAnimationFrame(tick);
+        } else {
+          el.textContent = target.toLocaleString('en-US') + suffix;
+        }
+      }
+      window.requestAnimationFrame(tick);
     }
 
-    function setAlert(id, type, message) {
-      const box = document.getElementById(id);
-      box.className = 'alert alert-' + type;
+    function maybeStartCounters() {
+      var counters = document.querySelectorAll('.counter:not(.counted)');
+      for (var i = 0; i < counters.length; i++) {
+        var rect = counters[i].getBoundingClientRect();
+        if (rect.top < window.innerHeight * 0.95 && rect.bottom > 0) {
+          counters[i].classList.add('counted');
+          animateCounter(counters[i]);
+        }
+      }
+    }
+    window.addEventListener('scroll', maybeStartCounters, { passive: true });
+    document.addEventListener('DOMContentLoaded', maybeStartCounters);
+    setTimeout(maybeStartCounters, 500);
+
+    /* ============================================================
+       6. 3D TILT EFFECT (hover only - decorative)
+       ============================================================ */
+    if (window.matchMedia && window.matchMedia('(hover: hover)').matches) {
+      var tiltCards = document.querySelectorAll('.tilt');
+      for (var t = 0; t < tiltCards.length; t++) {
+        (function (card) {
+          card.addEventListener('mousemove', function (e) {
+            var rect = card.getBoundingClientRect();
+            var x = (e.clientX - rect.left) / rect.width - 0.5;
+            var y = (e.clientY - rect.top) / rect.height - 0.5;
+            card.style.transform = 'perspective(900px) rotateY(' + (x * 6) + 'deg) rotateX(' + (-y * 6) + 'deg) translateY(-4px)';
+          });
+          card.addEventListener('mouseleave', function () {
+            card.style.transform = '';
+          });
+        })(tiltCards[t]);
+      }
+    }
+
+    /* ============================================================
+       7. API HELPER + FORMS
+       ============================================================ */
+    function api(path, options) {
+      var opts = Object.assign({
+        headers: { 'Content-Type': 'application/json' }
+      }, options);
+      return fetch(path, opts).then(function (r) { return r.json(); });
+    }
+
+    function showAlert(id, type, message) {
+      var box = document.getElementById(id);
+      box.className = 'alert alert-' + type + ' show';
       box.innerHTML = (type === 'success'
         ? '<i class="fa-solid fa-circle-check"></i>'
         : '<i class="fa-solid fa-circle-exclamation"></i>') + '<div>' + message + '</div>';
     }
 
     function clearAlert(id) {
-      const box = document.getElementById(id);
-      if (box) box.innerHTML = '';
+      var box = document.getElementById(id);
+      box.className = 'alert';
+      box.innerHTML = '';
     }
 
-    /* ============================================================
-       6. COUNT-UP STATS (IntersectionObserver)
-       ============================================================ */
-    function animateCounter(el) {
-      const target = parseInt(el.dataset.target, 10);
-      const suffix = el.dataset.suffix || '';
-      const duration = 1800;
-      const start = performance.now();
-      function tick(now) {
-        const progress = Math.min((now - start) / duration, 1);
-        const eased = 1 - Math.pow(1 - progress, 3);
-        el.textContent = Math.floor(eased * target).toLocaleString('en-US') + suffix;
-        if (progress < 1) requestAnimationFrame(tick);
-        else el.textContent = target.toLocaleString('en-US') + suffix;
-      }
-      requestAnimationFrame(tick);
-    }
-
-    /* ============================================================
-       7. REVEAL ON SCROLL (fade-up) - universal scroll-driven version
-       ============================================================ */
-    // Pure scroll-driven reveal: works in EVERY browser, no dependency on
-    // IntersectionObserver. Elements become visible as soon as they enter
-    // the viewport during scrolling.
-    function maybeStartCounters() {
-      const viewportBottom = window.innerHeight * 0.95;
-      document.querySelectorAll('.counter:not(.counted)').forEach((el) => {
-        const rect = el.getBoundingClientRect();
-        if (rect.top < viewportBottom && rect.bottom > 0) {
-          el.classList.add('counted');
-          animateCounter(el);
-        }
-      });
-    }
-
-    function updateReveals() {
-      const viewportBottom = window.innerHeight * 0.92;
-      document.querySelectorAll('.reveal:not(.visible)').forEach((el) => {
-        const rect = el.getBoundingClientRect();
-        if (rect.top < viewportBottom && rect.bottom > 0) {
-          el.classList.add('visible');
-        }
-      });
-    }
-
-    function onViewportCheck() {
-      updateReveals();
-      maybeStartCounters();
-    }
-    window.addEventListener('scroll', onViewportCheck, { passive: true });
-    window.addEventListener('resize', onViewportCheck);
-    document.addEventListener('DOMContentLoaded', onViewportCheck);
-    window.addEventListener('load', onViewportCheck);
-    setTimeout(onViewportCheck, 150);
-    setTimeout(onViewportCheck, 600);
-
-    /* ============================================================
-       8. 3D TILT EFFECT (vanilla JS mousemove)
-       ============================================================ */
-    // Only apply tilt on devices that support fine pointers
-    if (window.matchMedia('(hover: hover)').matches) {
-      document.querySelectorAll('.tilt').forEach((card) => {
-        card.addEventListener('mousemove', (e) => {
-          const rect = card.getBoundingClientRect();
-          const x = (e.clientX - rect.left) / rect.width - 0.5;
-          const y = (e.clientY - rect.top) / rect.height - 0.5;
-          card.style.transform = 'perspective(900px) rotateY(' + (x * 7) + 'deg) rotateX(' + (-y * 7) + 'deg) translateY(-4px)';
-        });
-        card.addEventListener('mouseleave', () => {
-          card.style.transform = '';
-        });
-      });
-    }
-
-    /* ============================================================
-       9. BLOG (GET /api/blog)
-       ============================================================ */
-    // Fallback posts used if the API is unavailable
-    const fallbackPosts = [
-      { title: '5 Denial Management Strategies That Actually Work', date: 'January 12, 2026', category: 'Denial Management', icon: 'fa-ban', thumb: 'thumb-1', excerpt: 'Stop writing off denials. These five root-cause strategies recover revenue most practices leave behind.' },
-      { title: 'CAQH Updates Every Provider Must Know in 2026', date: 'February 3, 2026', category: 'Credentialing', icon: 'fa-id-badge', thumb: 'thumb-2', excerpt: 'New attestation windows and data standards are coming. Stay ahead of credentialing deadlines.' },
-      { title: 'ICD-10 Coding Pitfalls: Avoiding Compliance Risk', date: 'February 21, 2026', category: 'Medical Coding', icon: 'fa-book-medical', thumb: 'thumb-3', excerpt: 'Six common coding mistakes that trigger audits — and how certified coders avoid them.' },
-      { title: 'How RCM Automation Boosts Collections by 30%', date: 'March 10, 2026', category: 'RCM Strategy', icon: 'fa-robot', thumb: 'thumb-4', excerpt: 'From claim scrubbing to AR follow-up, automation accelerates cash flow without losing accuracy.' },
-      { title: 'Telehealth Billing Rules: A 2026 Refresher', date: 'April 2, 2026', category: 'Telehealth Billing', icon: 'fa-video', thumb: 'thumb-5', excerpt: 'Modifiers, place of service and payer quirks — the telehealth billing guide your team needs.' },
-      { title: 'AR Follow-Up: Why Speed Matters for Reimbursement', date: 'April 24, 2026', category: 'Medical Billing Tips', icon: 'fa-clock', thumb: 'thumb-6', excerpt: 'Every day of aging costs you real money. Here is how disciplined follow-up timelines win.' }
-    ];
-
-    let blogLoaded = false;
-
-    function renderBlogPosts(posts) {
-      const grid = document.getElementById('blogGrid');
-      grid.innerHTML = posts.map((post) => {
-        return '<article class="glass blog-card tilt reveal">' +
-          '<div class="blog-thumb ' + post.thumb + '"><i class="fa-solid ' + post.icon + '"></i></div>' +
-          '<div class="blog-body">' +
-          '<div class="blog-meta"><span><i class="fa-solid fa-calendar"></i> ' + post.date + '</span><span><i class="fa-solid fa-folder"></i> ' + post.category + '</span></div>' +
-          '<h3>' + post.title + '</h3>' +
-          '<p>' + post.excerpt + '</p>' +
-          '<a href="#/blog" class="read-more">Read More <i class="fa-solid fa-arrow-right"></i></a>' +
-          '</div></article>';
-      }).join('');
-      // Reveal the newly rendered cards via the scroll-driven checker
-      onViewportCheck();
-    }
-
-    async function loadBlog() {
-      if (blogLoaded) return;
-      try {
-        const data = await api('/api/blog');
-        if (data && Array.isArray(data.posts) && data.posts.length) {
-          renderBlogPosts(data.posts);
-        } else {
-          renderBlogPosts(fallbackPosts);
-        }
-      } catch (err) {
-        console.warn('Blog API unavailable, using fallback posts:', err);
-        renderBlogPosts(fallbackPosts);
-      }
-      blogLoaded = true;
-    }
-
-    /* ============================================================
-       10. CONTACT FORM (POST /api/contact)
-       ============================================================ */
-    document.getElementById('contactForm').addEventListener('submit', async (event) => {
+    /* 7a. CONTACT FORM (POST /api/contact) */
+    document.getElementById('contactForm').addEventListener('submit', function (event) {
       event.preventDefault();
-
-      const name = document.getElementById('cName').value.trim();
-      const email = document.getElementById('cEmail').value.trim();
-      const phone = document.getElementById('cPhone').value.trim();
-      const message = document.getElementById('cMessage').value.trim();
+      var name = document.getElementById('cName').value.trim();
+      var email = document.getElementById('cEmail').value.trim();
+      var phone = document.getElementById('cPhone').value.trim();
+      var message = document.getElementById('cMessage').value.trim();
       clearAlert('cAlert');
 
       if (!name || !email || !phone || !message) {
-        setAlert('cAlert', 'error', 'Please fill in all fields to send your message.');
+        showAlert('cAlert', 'error', 'Please fill in all fields to send your message.');
         return;
       }
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        setAlert('cAlert', 'error', 'Please enter a valid email address.');
+        showAlert('cAlert', 'error', 'Please enter a valid email address.');
         return;
       }
 
-      const btn = document.getElementById('cBtn');
+      var btn = document.getElementById('cBtn');
       btn.disabled = true;
       btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
 
-      try {
-        const data = await api('/api/contact', {
-          method: 'POST',
-          body: JSON.stringify({ name, email, phone, message })
-        });
-
+      api('/api/contact', {
+        method: 'POST',
+        body: JSON.stringify({ name: name, email: email, phone: phone, message: message })
+      }).then(function (data) {
         if (!data.success) {
-          setAlert('cAlert', 'error', data.error || 'Message could not be sent. Please try again.');
+          showAlert('cAlert', 'error', data.error || 'Message could not be sent. Please try again.');
           return;
         }
-
-        setAlert('cAlert', 'success', 'Thank you, <strong>' + name + '</strong>! Your message has been received. We will reply within one business day.');
+        showAlert('cAlert', 'success', 'Thank you, <strong>' + name + '</strong>! Your message has been received. We will reply within one business day.');
         document.getElementById('contactForm').reset();
-      } catch (err) {
-        console.error('Contact form failed:', err);
-        setAlert('cAlert', 'error', 'Network error. Please make sure the server is running.');
-      } finally {
+      }).catch(function () {
+        showAlert('cAlert', 'error', 'Network error. Please make sure the server is running.');
+      }).finally(function () {
         btn.disabled = false;
         btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Send Message';
-      }
+      });
     });
 
-    /* ============================================================
-       11. FREE RCM AUDIT FORM (POST /api/audit)
-       ============================================================ */
-    document.getElementById('auditForm').addEventListener('submit', async (event) => {
+    /* 7b. FREE RCM AUDIT FORM (POST /api/audit) */
+    document.getElementById('auditForm').addEventListener('submit', function (event) {
       event.preventDefault();
 
-      // PRACTICE INFORMATION
-      const practiceName = document.getElementById('practiceName').value.trim();
-      const providerName = document.getElementById('providerName').value.trim();
-      const specialty = document.getElementById('specialty').value.trim();
-      const numProviders = document.getElementById('numProviders').value.trim();
-      const cityState = document.getElementById('cityState').value.trim();
-      const website = document.getElementById('website').value.trim();
-
-      // CONTACT INFORMATION
-      const fullName = document.getElementById('fullName').value.trim();
-      const jobTitle = document.getElementById('jobTitle').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const phone = document.getElementById('phone').value.trim();
-
-      // CURRENT BILLING INFORMATION
-      const billingMethod = document.querySelector('input[name="billingMethod"]:checked');
-      const currentCompany = document.getElementById('currentCompany').value.trim();
-      const emrSoftware = document.getElementById('emrSoftware').value.trim();
-      const monthlyVolume = document.getElementById('monthlyVolume').value.trim();
-
-      // CHALLENGES
-      const challenges = Array.from(document.querySelectorAll('input[name="challenges"]:checked')).map((cb) => cb.value);
-
-      const comments = document.getElementById('comments').value.trim();
-      const consent = document.getElementById('consent').checked;
+      var practice = {
+        practiceName: document.getElementById('practiceName').value.trim(),
+        providerName: document.getElementById('providerName').value.trim(),
+        specialty: document.getElementById('specialty').value.trim(),
+        numProviders: Number(document.getElementById('numProviders').value) || 0,
+        cityState: document.getElementById('cityState').value.trim(),
+        website: document.getElementById('website').value.trim()
+      };
+      var contact = {
+        fullName: document.getElementById('fullName').value.trim(),
+        jobTitle: document.getElementById('jobTitle').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        phone: document.getElementById('phone').value.trim()
+      };
+      var billingMethodEl = document.querySelector('input[name="billingMethod"]:checked');
+      var billing = {
+        billingMethod: billingMethodEl ? billingMethodEl.value : '',
+        currentCompany: document.getElementById('currentCompany').value.trim(),
+        emrSoftware: document.getElementById('emrSoftware').value.trim(),
+        monthlyVolume: document.getElementById('monthlyVolume').value.trim()
+      };
+      var challenges = Array.prototype.map.call(
+        document.querySelectorAll('input[name="challenges"]:checked'),
+        function (cb) { return cb.value; }
+      );
+      var comments = document.getElementById('comments').value.trim();
+      var consent = document.getElementById('consent').checked;
 
       clearAlert('auditAlert');
 
-      // Validation
-      if (!practiceName || !providerName || !specialty || !numProviders || !cityState ||
-          !fullName || !jobTitle || !email || !phone || !billingMethod) {
-        setAlert('auditAlert', 'error', 'Please fill in all required fields (marked with *).');
+      if (!practice.practiceName || !practice.providerName || !practice.specialty ||
+          !practice.numProviders || !practice.cityState || !contact.fullName ||
+          !contact.jobTitle || !contact.email || !contact.phone || !billing.billingMethod) {
+        showAlert('auditAlert', 'error', 'Please fill in all required fields (marked with *).');
         return;
       }
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        setAlert('auditAlert', 'error', 'Please enter a valid email address.');
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contact.email)) {
+        showAlert('auditAlert', 'error', 'Please enter a valid email address.');
         return;
       }
       if (!consent) {
-        setAlert('auditAlert', 'error', 'Please agree to be contacted before submitting.');
+        showAlert('auditAlert', 'error', 'Please agree to be contacted before submitting.');
         return;
       }
 
-      const btn = document.getElementById('auditBtn');
+      var btn = document.getElementById('auditBtn');
       btn.disabled = true;
       btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Submitting...';
 
-      const payload = {
-        practice: {
-          practiceName, providerName, specialty,
-          numProviders: Number(numProviders) || 0,
-          cityState, website
-        },
-        contact: { fullName, jobTitle, email, phone },
-        billing: {
-          billingMethod: billingMethod.value,
-          currentCompany, emrSoftware, monthlyVolume
-        },
-        challenges,
-        comments,
-        consent: true
-      };
-
-      try {
-        const data = await api('/api/audit', {
-          method: 'POST',
-          body: JSON.stringify(payload)
-        });
-
+      api('/api/audit', {
+        method: 'POST',
+        body: JSON.stringify({
+          practice: practice,
+          contact: contact,
+          billing: billing,
+          challenges: challenges,
+          comments: comments,
+          consent: consent
+        })
+      }).then(function (data) {
         if (!data.success) {
-          setAlert('auditAlert', 'error', data.error || 'Request could not be submitted. Please try again.');
+          showAlert('auditAlert', 'error', data.error || 'Request could not be submitted. Please try again.');
           return;
         }
-
-        setAlert('auditAlert', 'success', 'Thank you, <strong>' + fullName + '</strong>! Your FREE RCM Audit request has been received. Our team will contact you within one business day.');
+        showAlert('auditAlert', 'success', 'Thank you, <strong>' + contact.fullName + '</strong>! Your FREE RCM Audit request has been received. Our team will contact you within one business day.');
         document.getElementById('auditForm').reset();
-      } catch (err) {
-        console.error('Audit form failed:', err);
-        setAlert('auditAlert', 'error', 'Network error. Please make sure the server is running.');
-      } finally {
+      }).catch(function () {
+        showAlert('auditAlert', 'error', 'Network error. Please make sure the server is running.');
+      }).finally(function () {
         btn.disabled = false;
         btn.innerHTML = '<i class="fa-solid fa-file-signature"></i> Request My FREE RCM Audit';
-      }
+      });
     });
 
     /* ============================================================
-       12. FOOTER YEAR
+       8. FOOTER YEAR
        ============================================================ */
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Run scroll handler once to set the initial navbar state
-    onScroll();
   </script>
 </body>
 </html>
