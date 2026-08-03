@@ -11,3 +11,7 @@ server.err.log
 # OS noise
 Thumbs.db
 .DS_Store
+cloudflared.log
+cloudflared.err.log
+server.log
+server.err.log
