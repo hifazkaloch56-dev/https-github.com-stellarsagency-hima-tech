@@ -1728,6 +1728,9 @@
 
       closeMobileMenu();
 
+      // Reveal above-the-fold content of the newly shown page
+      onViewportCheck();
+
       // Load blog content when visiting the blog page
       if (route === 'blog') loadBlog();
     }
@@ -1823,45 +1826,43 @@
       requestAnimationFrame(tick);
     }
 
-    const counterObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          animateCounter(entry.target);
-          counterObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.4 });
-
-    document.querySelectorAll('.counter').forEach((el) => counterObserver.observe(el));
-
     /* ============================================================
-       7. REVEAL ON SCROLL (fade-up)
+       7. REVEAL ON SCROLL (fade-up) - universal scroll-driven version
        ============================================================ */
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12 });
-
-    document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
-
-    // Safety net: reveal every element already inside the viewport so content
-    // is never left invisible even if the observer fires late or is unsupported.
-    function revealAboveTheFold() {
-      document.querySelectorAll('.reveal:not(.visible)').forEach((el) => {
+    // Pure scroll-driven reveal: works in EVERY browser, no dependency on
+    // IntersectionObserver. Elements become visible as soon as they enter
+    // the viewport during scrolling.
+    function maybeStartCounters() {
+      const viewportBottom = window.innerHeight * 0.95;
+      document.querySelectorAll('.counter:not(.counted)').forEach((el) => {
         const rect = el.getBoundingClientRect();
-        if (rect.top < window.innerHeight * 0.95 && rect.bottom > 0) {
-          el.classList.add('visible');
-          revealObserver.unobserve(el);
+        if (rect.top < viewportBottom && rect.bottom > 0) {
+          el.classList.add('counted');
+          animateCounter(el);
         }
       });
     }
-    document.addEventListener('DOMContentLoaded', revealAboveTheFold);
-    window.addEventListener('load', revealAboveTheFold);
-    setTimeout(revealAboveTheFold, 800);
+
+    function updateReveals() {
+      const viewportBottom = window.innerHeight * 0.92;
+      document.querySelectorAll('.reveal:not(.visible)').forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < viewportBottom && rect.bottom > 0) {
+          el.classList.add('visible');
+        }
+      });
+    }
+
+    function onViewportCheck() {
+      updateReveals();
+      maybeStartCounters();
+    }
+    window.addEventListener('scroll', onViewportCheck, { passive: true });
+    window.addEventListener('resize', onViewportCheck);
+    document.addEventListener('DOMContentLoaded', onViewportCheck);
+    window.addEventListener('load', onViewportCheck);
+    setTimeout(onViewportCheck, 150);
+    setTimeout(onViewportCheck, 600);
 
     /* ============================================================
        8. 3D TILT EFFECT (vanilla JS mousemove)
@@ -1908,8 +1909,8 @@
           '<a href="#/blog" class="read-more">Read More <i class="fa-solid fa-arrow-right"></i></a>' +
           '</div></article>';
       }).join('');
-      // Observe the newly added reveal elements
-      document.querySelectorAll('#blogGrid .reveal').forEach((el) => revealObserver.observe(el));
+      // Reveal the newly rendered cards via the scroll-driven checker
+      onViewportCheck();
     }
 
     async function loadBlog() {
