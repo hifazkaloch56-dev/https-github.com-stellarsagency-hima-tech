@@ -183,15 +183,17 @@
     .navbar {
       position: fixed; top: 0; left: 0; right: 0; z-index: 200;
       padding-top: env(safe-area-inset-top);
-      transition: background 0.35s ease, box-shadow 0.35s ease, backdrop-filter 0.35s ease;
-      background: transparent;
-    }
-    .navbar.scrolled {
-      background: rgba(255, 255, 255, 0.8);
+      background: linear-gradient(135deg, rgba(10, 75, 122, 0.94), rgba(8, 31, 51, 0.97));
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(10, 75, 122, 0.1);
-      box-shadow: 0 8px 30px rgba(10, 75, 122, 0.12);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+      box-shadow: 0 8px 30px rgba(8, 31, 51, 0.35);
+      transition: box-shadow 0.35s ease, background 0.35s ease, border-color 0.35s ease;
+    }
+    .navbar.scrolled {
+      background: linear-gradient(135deg, rgba(10, 75, 122, 0.98), rgba(8, 31, 51, 1));
+      box-shadow: 0 12px 36px rgba(8, 31, 51, 0.5);
+      border-bottom-color: rgba(243, 156, 18, 0.4);
     }
     .navbar-inner {
       display: flex; align-items: center; justify-content: space-between;
@@ -199,32 +201,37 @@
       max-width: 1280px; margin: 0 auto;
       padding: 0.85rem 1.25rem;
     }
-    .brand { display: flex; align-items: center; gap: 0.6rem; font-size: 1.22rem; font-weight: 800; color: var(--primary); }
-    .brand-logo { width: 38px; height: 38px; filter: drop-shadow(0 4px 10px rgba(10, 75, 122, 0.3)); }
+    .brand { display: flex; align-items: center; gap: 0.6rem; font-size: 1.22rem; font-weight: 800; color: #fff; }
+    .brand-logo { width: 38px; height: 38px; filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.35)); }
     .brand .gold { color: var(--gold); }
-    body.dark-hero:not(.nav-solid) .brand, body.dark-hero:not(.nav-solid) .brand .gold { color: #fff; }
 
     .nav-toggle {
       display: inline-flex; align-items: center; justify-content: center;
       width: 44px; height: 44px; border-radius: 12px;
-      border: 1px solid rgba(10, 75, 122, 0.2);
-      background: rgba(255, 255, 255, 0.75);
-      color: var(--primary); font-size: 1.15rem; cursor: pointer;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      background: rgba(255, 255, 255, 0.12);
+      color: #fff; font-size: 1.15rem; cursor: pointer;
     }
-    body.dark-hero:not(.nav-solid) .nav-toggle { background: rgba(255, 255, 255, 0.12); color: #fff; border-color: rgba(255, 255, 255, 0.35); }
 
-    .nav-menu { display: none; width: 100%; flex-direction: column; list-style: none; padding: 0.6rem 0 0.4rem; gap: 0.1rem; }
+    .nav-menu {
+      display: none; width: 100%; flex-direction: column; list-style: none;
+      padding: 0.6rem 0.5rem 0.4rem; gap: 0.1rem;
+      margin-top: 0.5rem;
+      background: rgba(8, 31, 51, 0.98);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 14px;
+    }
     .nav-menu.open { display: flex; }
     .nav-menu a {
       display: flex; align-items: center; min-height: 44px;
       padding: 0.6rem 0.85rem; border-radius: 10px;
-      font-size: 0.94rem; font-weight: 600; color: var(--text);
+      font-size: 0.94rem; font-weight: 600; color: rgba(255, 255, 255, 0.92);
       transition: background 0.2s ease, color 0.2s ease;
     }
-    .nav-menu a:hover { background: rgba(0, 168, 181, 0.12); color: var(--secondary-dark); }
-    .nav-menu a.active { background: linear-gradient(135deg, rgba(0, 168, 181, 0.16), rgba(10, 75, 122, 0.12)); color: var(--primary); font-weight: 800; }
-    body.dark-hero:not(.nav-solid) .nav-menu a { color: #fff; }
-    body.dark-hero:not(.nav-solid) .nav-menu a.active { background: rgba(255, 255, 255, 0.14); color: #fff; }
+    .nav-menu a:hover { background: rgba(255, 255, 255, 0.14); color: #fff; }
+    .nav-menu a.active { background: linear-gradient(135deg, rgba(0, 168, 181, 0.35), rgba(243, 156, 18, 0.28)); color: #fff; font-weight: 800; }
     .nav-menu .nav-cta { margin-top: 0.5rem; }
 
     @media (min-width: 992px) {
@@ -232,6 +239,8 @@
       .nav-menu {
         display: flex; flex-direction: row; align-items: center;
         width: auto; padding: 0; gap: 0.15rem;
+        margin-top: 0;
+        background: transparent; border: none; border-radius: 0;
       }
       .nav-menu a { min-height: auto; padding: 0.5rem 0.72rem; font-size: 0.87rem; }
       .nav-menu .nav-cta { margin-top: 0; margin-left: 0.4rem; }
@@ -656,8 +665,10 @@
     /* ============================================================
        REVEAL ON SCROLL + RESPONSIVE
        ============================================================ */
-    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
+    /* Reveal animations only apply when JS is running (html.js).
+       Without JS every element stays fully visible. */
+    html.js .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    html.js .reveal.visible { opacity: 1; transform: translateY(0); }
 
     @media (min-width: 640px) {
       .form-row { grid-template-columns: 1fr 1fr; }
@@ -695,7 +706,7 @@
       html { scroll-behavior: auto; }
       .cube3d, .spin-ring, .spin-svg, .btn-glow, .f-dot, .w-icon { animation: none !important; }
       .page.active { animation: none; }
-      .reveal { opacity: 1; transform: none; transition: none; }
+      html.js .reveal { opacity: 1; transform: none; transition: none; }
       * { transition-duration: 0.01ms !important; }
     }
   </style>
@@ -1669,6 +1680,10 @@
   <script>
     'use strict';
 
+    // Mark JS as active so CSS animations can apply safely
+    // (content stays fully visible if JS ever fails to run)
+    document.documentElement.classList.add('js');
+
     /* ============================================================
        1. SPA ROUTER (hash-based page switching)
        ============================================================ */
@@ -1832,6 +1847,21 @@
     }, { threshold: 0.12 });
 
     document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
+
+    // Safety net: reveal every element already inside the viewport so content
+    // is never left invisible even if the observer fires late or is unsupported.
+    function revealAboveTheFold() {
+      document.querySelectorAll('.reveal:not(.visible)').forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight * 0.95 && rect.bottom > 0) {
+          el.classList.add('visible');
+          revealObserver.unobserve(el);
+        }
+      });
+    }
+    document.addEventListener('DOMContentLoaded', revealAboveTheFold);
+    window.addEventListener('load', revealAboveTheFold);
+    setTimeout(revealAboveTheFold, 800);
 
     /* ============================================================
        8. 3D TILT EFFECT (vanilla JS mousemove)
