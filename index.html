@@ -652,16 +652,106 @@
       /* Hide decorative floating shapes so content stays clean and never overlaps */
       .float-shape, .f-dot { display: none; }
       .hero-visual .scene3d { display: none; }
-      .hero-stats { grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
-      .stat-card { padding: 0.8rem 0.4rem; }
-      .stat-card strong { font-size: 1.1rem; }
-      .stat-card span { font-size: 0.68rem; }
-      .blog-thumb { height: 120px; font-size: 2rem; }
-      .btn { padding: 0.8rem 1.3rem; font-size: 0.9rem; }
+
+      /* Section spacing and headings */
       .section-pad { padding: 3rem 1.25rem; }
-      .timeline::before { left: 20px; }
-      .timeline-item { padding-left: 3.4rem; }
-      .timeline-item::before { left: 9px; width: 23px; height: 23px; }
+      .section-head { margin-bottom: 2rem; }
+      .section-head h2 { font-size: 1.4rem; }
+      .section-head p { font-size: 0.85rem; }
+
+      /* Hero */
+      .hero h1 { font-size: 1.75rem; margin-bottom: 0.9rem; }
+      .hero-sub { font-size: 0.92rem; margin-bottom: 1.5rem; }
+      .hero-actions { gap: 0.7rem; margin-bottom: 1.9rem; }
+      .hero-stats { grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
+      .stat-card { padding: 0.7rem 0.35rem; }
+      .stat-card strong { font-size: 1.05rem; }
+      .stat-card span { font-size: 0.65rem; }
+
+      /* Inner page heroes */
+      .page-hero h1 { font-size: 1.6rem; }
+      .page-hero p { font-size: 0.9rem; }
+
+      /* Grids: tighter gaps */
+      .services-grid, .why-grid, .coding-grid, .blog-grid, .team-grid, .mv-grid, .process-list { gap: 0.9rem; }
+
+      /* Service cards (home) */
+      .service-card { padding: 1.05rem 1rem; gap: 0.85rem; }
+      .s-icon { width: 44px; height: 44px; font-size: 1.1rem; border-radius: 12px; }
+      .service-card h3 { font-size: 0.95rem; }
+      .service-card p { font-size: 0.84rem; }
+
+      /* Why choose us (home) */
+      .why-item { padding: 1.05rem 1rem; gap: 0.85rem; }
+      .w-icon { width: 42px; height: 42px; font-size: 1rem; }
+      .why-item h3 { font-size: 0.95rem; }
+      .why-item p { font-size: 0.83rem; }
+
+      /* Credentialing timeline */
+      .timeline { gap: 0.9rem; }
+      .timeline::before { left: 18px; }
+      .timeline-item { padding-left: 3.1rem; }
+      .timeline-item::before { left: 9px; width: 20px; height: 20px; }
+      .timeline-card { padding: 1rem 0.9rem; gap: 0.8rem; }
+      .t-icon { width: 38px; height: 38px; font-size: 0.95rem; border-radius: 10px; }
+      .timeline-card h3 { font-size: 0.93rem; }
+      .timeline-card p { font-size: 0.82rem; }
+
+      /* Process steps */
+      .process-item { gap: 0.9rem; }
+      .process-num { width: 44px; height: 44px; font-size: 1rem; }
+      .process-card { padding: 1.05rem 1rem; }
+      .process-card h3 { font-size: 0.95rem; }
+      .process-card p { font-size: 0.84rem; }
+
+      /* Billing checks + benefit badges */
+      .check-grid { gap: 0.7rem 1rem; }
+      .check-item { padding: 0.8rem 0.9rem; gap: 0.6rem; font-size: 0.88rem; }
+      .benefit-row { gap: 0.7rem; }
+      .benefit-badge { padding: 0.85rem 0.7rem; gap: 0.5rem; font-size: 0.85rem; }
+      .benefit-badge i { font-size: 1rem; }
+
+      /* Coding cards + benefits */
+      .coding-card { padding: 1.3rem 1rem; }
+      .c-icon { width: 48px; height: 48px; font-size: 1.1rem; }
+      .coding-card h3 { font-size: 0.95rem; }
+      .coding-card p { font-size: 0.83rem; }
+      .coding-benefits { padding: 1.4rem 1.2rem; }
+      .coding-benefits h3 { font-size: 1.1rem; }
+      .coding-benefits p { font-size: 0.88rem; }
+
+      /* Blog */
+      .blog-topics { gap: 0.5rem; margin-bottom: 1.8rem; }
+      .blog-topic { padding: 0.4rem 0.85rem; font-size: 0.76rem; }
+      .blog-thumb { height: 110px; font-size: 1.8rem; }
+      .blog-body { padding: 1.05rem 1.05rem 1.25rem; }
+      .blog-body h3 { font-size: 0.98rem; }
+      .blog-body p { font-size: 0.84rem; }
+
+      /* Contact */
+      .contact-grid { gap: 1.4rem; }
+      .contact-box { padding: 1.05rem 1rem; gap: 0.8rem; }
+      .contact-box .c-icon { width: 42px; height: 42px; font-size: 1rem; }
+      .contact-box strong { font-size: 0.88rem; }
+      .contact-box span { font-size: 0.82rem; }
+
+      /* Team (about) */
+      .team-card { padding: 1.4rem 1rem; }
+      .team-card h4 { font-size: 1rem; }
+      .team-card p { font-size: 0.82rem; }
+
+      /* Buttons, CTA, forms */
+      .btn { padding: 0.72rem 1.15rem; font-size: 0.86rem; }
+      .cta-box { padding: 2rem 1rem; }
+      .cta-box h2 { font-size: 1.3rem; }
+      .cta-box p { font-size: 0.9rem; }
+      .audit-form { padding: 1.25rem 1rem; }
+      .form-section-title { font-size: 0.82rem; margin: 1.2rem 0 0.7rem; }
+      .radio-group, .check-group { gap: 0.7rem; }
+
+      /* Footer */
+      .site-footer { padding: 2.4rem 0 1.2rem; }
+      .footer-grid { gap: 1.6rem; }
     }
     @media (max-width: 768px) {
       .hero { padding: 6.5rem 0 4rem; }
