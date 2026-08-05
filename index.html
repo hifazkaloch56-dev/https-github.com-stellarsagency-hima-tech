@@ -1873,10 +1873,15 @@
       }
       var scrollTarget = (route === 'audit') ? document.getElementById('auditForm') :
                          (route === 'contact') ? document.getElementById('contactForm') : null;
+      var htmlEl = document.documentElement;
       if (scrollTarget) {
+        htmlEl.style.scrollBehavior = 'smooth';
         scrollTarget.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        window.setTimeout(function () { htmlEl.style.scrollBehavior = ''; }, 700);
       } else {
+        htmlEl.style.scrollBehavior = 'auto';
         window.scrollTo(0, 0);
+        htmlEl.style.scrollBehavior = '';
       }
       closeMobileMenu();
     }
