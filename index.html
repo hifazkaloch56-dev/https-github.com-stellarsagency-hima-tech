@@ -834,9 +834,10 @@
         <li><a href="#/credentialing" data-route="credentialing">Credentialing</a></li>
         <li><a href="#/coding" data-route="coding">Medical Coding</a></li>
         <li><a href="#/process" data-route="process">Process</a></li>
+        <li><a href="#/audit" data-route="audit">Audit</a></li>
         <li><a href="#/blog" data-route="blog">Blog</a></li>
         <li><a href="#/contact" data-route="contact">Contact</a></li>
-        <li class="nav-cta"><a href="#/contact" class="btn btn-glow" style="padding:0.5rem 1.2rem;font-size:0.85rem;"><i class="fa-solid fa-stethoscope"></i> Free RCM Audit</a></li>
+        <li class="nav-cta"><a href="#/audit" class="btn btn-glow" style="padding:0.5rem 1.2rem;font-size:0.85rem;"><i class="fa-solid fa-stethoscope"></i> Free RCM Audit</a></li>
       </ul>
     </div>
   </header>
@@ -884,7 +885,7 @@
               full HIPAA compliance.
             </p>
             <div class="hero-actions">
-              <a href="#/contact" class="btn btn-glow"><i class="fa-solid fa-stethoscope"></i> Book a Free RCM Audit</a>
+              <a href="#/audit" class="btn btn-glow"><i class="fa-solid fa-stethoscope"></i> Book a Free RCM Audit</a>
               <a href="#/contact" class="btn btn-outline-light"><i class="fa-solid fa-envelope"></i> Contact Us</a>
             </div>
 
@@ -1062,7 +1063,7 @@
           <div class="cta-box">
             <h2>Ready to Boost Your <span class="grad-text">Practice Revenue?</span></h2>
             <p>Book a free consultation today and discover how we can improve your practice's financial performance.</p>
-            <a href="#/contact" class="btn btn-glow"><i class="fa-solid fa-stethoscope"></i> Book a Free RCM Audit</a>
+            <a href="#/audit" class="btn btn-glow"><i class="fa-solid fa-stethoscope"></i> Book a Free RCM Audit</a>
           </div>
         </div>
       </div>
@@ -1424,6 +1425,124 @@
     </section>
 
     <!-- ============================================================
+         PAGE 6B: FREE RCM AUDIT
+         ============================================================ -->
+    <section class="page" id="page-audit">
+      <div class="page-hero">
+        <div class="f-dot" style="width:11px;height:11px;background:rgba(243,156,18,0.7);top:26%;left:8%;"></div>
+        <div class="f-dot" style="width:13px;height:13px;background:rgba(0,168,181,0.55);bottom:26%;right:9%;animation-delay:1.4s;"></div>
+        <div class="container">
+          <h1>Get a FREE <span class="grad-text">Revenue Cycle Management (RCM) Audit</span></h1>
+          <p>Discover hidden revenue opportunities, reduce claim denials, and improve your practice's cash flow. Complete the form below, and one of our RCM specialists will contact you within 24 hours.</p>
+        </div>
+      </div>
+
+      <div class="container section-pad">
+        <form class="glass audit-form" id="auditForm" novalidate>
+          <h3 class="form-section-title" style="margin-top:0;"><i class="fa-solid fa-hospital"></i> PRACTICE INFORMATION</h3>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="practiceName">Practice Name *</label>
+              <input type="text" class="form-control" id="practiceName" placeholder="e.g., Shifa Family Clinic" required>
+            </div>
+            <div class="form-group">
+              <label for="providerName">Provider Name *</label>
+              <input type="text" class="form-control" id="providerName" placeholder="e.g., Dr. Ahmed Raza" required>
+            </div>
+            <div class="form-group">
+              <label for="specialty">Specialty *</label>
+              <input type="text" class="form-control" id="specialty" placeholder="e.g., Cardiology" required>
+            </div>
+            <div class="form-group">
+              <label for="numProviders">Number of Providers *</label>
+              <input type="number" class="form-control" id="numProviders" placeholder="e.g., 4" min="1" required>
+            </div>
+            <div class="form-group">
+              <label for="cityState">City &amp; State *</label>
+              <input type="text" class="form-control" id="cityState" placeholder="e.g., Lahore, Punjab" required>
+            </div>
+            <div class="form-group">
+              <label for="website">Website (Optional)</label>
+              <input type="url" class="form-control" id="website" placeholder="https://yoursite.com">
+            </div>
+          </div>
+
+          <h3 class="form-section-title"><i class="fa-solid fa-address-book"></i> CONTACT INFORMATION</h3>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fullName">Full Name *</label>
+              <input type="text" class="form-control" id="fullName" placeholder="Your full name" required>
+            </div>
+            <div class="form-group">
+              <label for="jobTitle">Job Title *</label>
+              <input type="text" class="form-control" id="jobTitle" placeholder="e.g., Practice Manager" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address *</label>
+              <input type="email" class="form-control" id="email" placeholder="you@clinic.pk" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number *</label>
+              <input type="tel" class="form-control" id="phone" placeholder="+92 300 1234567" required>
+            </div>
+          </div>
+
+          <h3 class="form-section-title"><i class="fa-solid fa-file-invoice-dollar"></i> CURRENT BILLING INFORMATION</h3>
+          <div class="form-group">
+            <label>Do you bill in-house or outsource your billing?</label>
+            <div class="radio-group">
+              <label><input type="radio" name="billingMethod" value="In-house"> In-house</label>
+              <label><input type="radio" name="billingMethod" value="Outsourced"> Outsourced</label>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="currentCompany">Current Billing Company (Optional)</label>
+              <input type="text" class="form-control" id="currentCompany" placeholder="Name of current vendor, if any">
+            </div>
+            <div class="form-group">
+              <label for="emrSoftware">Practice Management / EMR Software</label>
+              <input type="text" class="form-control" id="emrSoftware" placeholder="e.g., Epic, eClinicalWorks, Kareo">
+            </div>
+            <div class="form-group">
+              <label for="monthlyVolume">Approximate Monthly Claim Volume</label>
+              <input type="text" class="form-control" id="monthlyVolume" placeholder="e.g., 600-800 claims/month">
+            </div>
+          </div>
+
+          <h3 class="form-section-title"><i class="fa-solid fa-triangle-exclamation"></i> CHALLENGES</h3>
+          <p class="form-hint" style="margin-bottom:0.8rem;">Challenges You're Facing (Select all that apply):</p>
+          <div class="check-group">
+            <label><input type="checkbox" name="challenges" value="High Claim Denials"> High Claim Denials</label>
+            <label><input type="checkbox" name="challenges" value="Slow Insurance Payments"> Slow Insurance Payments</label>
+            <label><input type="checkbox" name="challenges" value="Low Collections"> Low Collections</label>
+            <label><input type="checkbox" name="challenges" value="Credentialing Delays"> Credentialing Delays</label>
+            <label><input type="checkbox" name="challenges" value="Aging Accounts Receivable"> Aging Accounts Receivable</label>
+            <label><input type="checkbox" name="challenges" value="Frequent Claim Rejections"> Frequent Claim Rejections</label>
+            <label><input type="checkbox" name="challenges" value="Coding Issues"> Coding Issues</label>
+            <label><input type="checkbox" name="challenges" value="Staff Shortage"> Staff Shortage</label>
+            <label><input type="checkbox" name="challenges" value="Other"> Other</label>
+          </div>
+
+          <div class="form-group" style="margin-top:1.2rem;">
+            <label for="comments">Additional Comments</label>
+            <textarea class="form-control" id="comments" rows="4" placeholder="(Tell us about your biggest billing or revenue cycle challenge.)"></textarea>
+          </div>
+
+          <label class="consent">
+            <input type="checkbox" id="consent" required>
+            <span>I agree to be contacted by Hima Tech Health Solutions regarding my FREE RCM Audit.</span>
+          </label>
+
+          <button type="submit" class="btn btn-glow btn-block" id="auditBtn" style="padding:1.05rem;font-size:1.05rem;">
+            <i class="fa-solid fa-file-signature"></i> Request My FREE RCM Audit
+          </button>
+          <div class="alert" id="auditAlert" role="status"></div>
+        </form>
+      </div>
+    </section>
+
+    <!-- ============================================================
          PAGE 7: BLOG
          ============================================================ -->
     <section class="page" id="page-blog">
@@ -1537,7 +1656,7 @@
           </div>
 
           <div class="glass" style="padding:1.9rem 1.6rem;">
-            <h2 style="color:var(--primary);font-size:1.45rem;margin-bottom:0.4rem;">Request a Free RCM Audit</h2>
+            <h2 style="color:var(--primary);font-size:1.45rem;margin-bottom:0.4rem;">Request a Free Consultation</h2>
             <p style="color:var(--text-muted);font-size:0.92rem;margin-bottom:1.5rem;">Fill out our contact form and one of our specialists will contact you within one business day.</p>
             <form id="contactForm" novalidate>
               <div class="form-group">
@@ -1587,7 +1706,7 @@
             <li><a href="#/billing">Medical Billing</a></li>
             <li><a href="#/credentialing">Credentialing</a></li>
             <li><a href="#/coding">Medical Coding</a></li>
-            <li><a href="#/contact">Free RCM Audit</a></li>
+            <li><a href="#/audit">Free RCM Audit</a></li>
           </ul>
         </div>
         <div>
@@ -1620,7 +1739,7 @@
     /* ============================================================
        1. SPA ROUTER (hash-based page switching)
        ============================================================ */
-    var routes = ['home', 'about', 'billing', 'credentialing', 'coding', 'process', 'blog', 'contact'];
+    var routes = ['home', 'about', 'billing', 'credentialing', 'coding', 'process', 'audit', 'blog', 'contact'];
 
     function getRoute() {
       var hash = window.location.hash.replace(/^#\/?/, '').toLowerCase();
@@ -1807,6 +1926,84 @@
       }).finally(function () {
         btn.disabled = false;
         btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Send Message';
+      });
+    });
+
+    /* 7b. FREE RCM AUDIT FORM (POST /api/audit) */
+    document.getElementById('auditForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      var practice = {
+        practiceName: document.getElementById('practiceName').value.trim(),
+        providerName: document.getElementById('providerName').value.trim(),
+        specialty: document.getElementById('specialty').value.trim(),
+        numProviders: Number(document.getElementById('numProviders').value) || 0,
+        cityState: document.getElementById('cityState').value.trim(),
+        website: document.getElementById('website').value.trim()
+      };
+      var contact = {
+        fullName: document.getElementById('fullName').value.trim(),
+        jobTitle: document.getElementById('jobTitle').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        phone: document.getElementById('phone').value.trim()
+      };
+      var billingMethodEl = document.querySelector('input[name="billingMethod"]:checked');
+      var billing = {
+        billingMethod: billingMethodEl ? billingMethodEl.value : '',
+        currentCompany: document.getElementById('currentCompany').value.trim(),
+        emrSoftware: document.getElementById('emrSoftware').value.trim(),
+        monthlyVolume: document.getElementById('monthlyVolume').value.trim()
+      };
+      var challenges = Array.prototype.map.call(
+        document.querySelectorAll('input[name="challenges"]:checked'),
+        function (cb) { return cb.value; }
+      );
+      var comments = document.getElementById('comments').value.trim();
+      var consent = document.getElementById('consent').checked;
+
+      clearAlert('auditAlert');
+
+      if (!practice.practiceName || !practice.providerName || !practice.specialty ||
+          !practice.numProviders || !practice.cityState || !contact.fullName ||
+          !contact.jobTitle || !contact.email || !contact.phone || !billing.billingMethod) {
+        showAlert('auditAlert', 'error', 'Please fill in all required fields (marked with *).');
+        return;
+      }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contact.email)) {
+        showAlert('auditAlert', 'error', 'Please enter a valid email address.');
+        return;
+      }
+      if (!consent) {
+        showAlert('auditAlert', 'error', 'Please agree to be contacted before submitting.');
+        return;
+      }
+
+      var btn = document.getElementById('auditBtn');
+      btn.disabled = true;
+      btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Submitting...';
+
+      api('/api/audit', {
+        method: 'POST',
+        body: JSON.stringify({
+          practice: practice,
+          contact: contact,
+          billing: billing,
+          challenges: challenges,
+          comments: comments,
+          consent: consent
+        })
+      }).then(function (data) {
+        if (!data.success) {
+          showAlert('auditAlert', 'error', data.error || 'Request could not be submitted. Please try again.');
+          return;
+        }
+        showAlert('auditAlert', 'success', 'Thank you, <strong>' + contact.fullName + '</strong>! Your FREE RCM Audit request has been received. Our team will contact you within one business day.');
+        document.getElementById('auditForm').reset();
+      }).catch(function () {
+        showAlert('auditAlert', 'error', 'Network error. Please make sure the server is running.');
+      }).finally(function () {
+        btn.disabled = false;
+        btn.innerHTML = '<i class="fa-solid fa-file-signature"></i> Request My FREE RCM Audit';
       });
     });
 
