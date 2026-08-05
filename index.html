@@ -627,9 +627,20 @@
       transition: transform 0.2s ease, background 0.2s ease;
     }
     .footer-social a:hover { background: var(--primary-light); transform: translateY(-3px); }
-    .legal-block p { line-height: 1.8; margin-bottom: 0.9rem; color: rgba(255, 255, 255, 0.85); }
-    .legal-block h3 { font-size: 1.05rem; margin: 1.4rem 0 0.5rem; color: var(--secondary); }
-    .legal-updated { font-size: 0.82rem; color: var(--gold) !important; letter-spacing: 0.02em; }
+    .legal-doc {
+      background: #ffffff;
+      border: 1px solid rgba(10, 75, 122, 0.12);
+      border-radius: 18px;
+      box-shadow: 0 18px 44px rgba(10, 75, 122, 0.14);
+      padding: 2.6rem 2.2rem;
+      max-width: 860px; margin: 0 auto;
+    }
+    .legal-doc h2 { font-size: 1.55rem; color: var(--primary); margin-bottom: 0.3rem; }
+    .legal-doc .legal-updated { font-size: 0.82rem; color: var(--gold); letter-spacing: 0.03em; margin-bottom: 1.1rem; }
+    .legal-doc h3 { font-size: 1.06rem; color: var(--secondary-dark); margin: 1.6rem 0 0.5rem; }
+    .legal-doc p { color: #3d5168; line-height: 1.78; margin-bottom: 0.85rem; }
+    .legal-doc a { color: var(--primary-light); font-weight: 600; }
+    @media (max-width: 560px) { .legal-doc { padding: 1.7rem 1.3rem; } }
     .footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.14); padding-top: 1.4rem; margin-top: 2.4rem; text-align: center; font-size: 0.85rem; color: rgba(255, 255, 255, 0.6); }
 
     /* Back to top */
@@ -1698,85 +1709,101 @@
       </div>
     </section>
 
-    <!-- ============================================================
+<!-- ============================================================
          LEGAL PAGES (Privacy / Terms / HIPAA)
          ============================================================ -->
-    <section class="page" id="page-legal">
+    <section class="page" id="page-privacy">
       <div class="page-hero">
         <div class="container">
-          <h1 id="legalTitle">Privacy Policy</h1>
-          <p>How we handle information and the terms that apply to our services.</p>
+          <h1>Privacy Policy</h1>
+          <p>How we collect, use and protect your information.</p>
         </div>
       </div>
       <div class="container section-pad">
-        <div class="page-copy" style="max-width:820px;margin:0 auto;padding:1.8rem 1.6rem;">
+        <div class="legal-doc">
+          <h2>Privacy <span class="grad-text">Policy</span></h2>
+          <p class="legal-updated">Last updated: August 5, 2026</p>
+          <p>Hima Tech Health Solutions ("Hima Tech", "we", "our", or "us") is committed to protecting the privacy and confidentiality of the information we handle. This Privacy Policy explains what information we collect, how we use it, and the choices you have about your information when you visit our website or engage our medical billing, credentialing, medical coding and revenue cycle management (RCM) services.</p>
+          <h3>Information We Collect</h3>
+          <p>We collect only the information necessary to provide our services and respond to your inquiries. This includes information you provide directly through our website forms, such as your name, email address, phone number, practice details, and information about your billing operations, as well as technical information such as browser type and pages visited when you browse our site.</p>
+          <h3>How We Use Your Information</h3>
+          <p>We use your information to respond to inquiries, provide and improve our services, communicate with you about your account and our offerings, process your free RCM audit requests, and comply with legal obligations. We do not sell your personal information to any third party.</p>
+          <h3>Data Security</h3>
+          <p>We maintain administrative, physical and technical safeguards designed to protect your information against unauthorized access, use, alteration and disclosure, including encryption, access controls and staff training. While no method of transmission over the internet is completely secure, we work diligently to protect your data.</p>
+          <h3>Sharing and Disclosure</h3>
+          <p>We share your information only with service providers who help us operate our business, when required by law, or with your consent. All service providers are bound by confidentiality obligations and are permitted to use your information only to perform services on our behalf.</p>
+          <h3>Your Rights</h3>
+          <p>You have the right to request access to, correction of, or deletion of the personal information we hold about you, and to ask us about how your data is processed. To exercise these rights, contact us using the details below.</p>
+          <h3>Updates to This Policy</h3>
+          <p>We may update this Privacy Policy from time to time. The revised version will be posted on this page with a new "Last updated" date, and continued use of our website after changes take effect constitutes acceptance of the revised policy.</p>
+          <h3>Contact Us</h3>
+          <p>If you have questions about this Privacy Policy or your information, email us at <a href="mailto:info@himatechhealthsolutions.com">info@himatechhealthsolutions.com</a> or call <a href="tel:+923455337780">+92 3455337780</a>.</p>
+        </div>
+      </div>
+    </section>
 
-          <div class="legal-block" id="legal-privacy">
-            <h2>Privacy <span class="grad-text">Policy</span></h2>
-            <p class="legal-updated">Last updated: August 5, 2026</p>
-            <p>Hima Tech Health Solutions ("Hima Tech", "we", "our", or "us") is committed to protecting the privacy and confidentiality of the information we handle. This Privacy Policy explains what information we collect, how we use it, and the choices you have about your information when you visit our website or engage our medical billing, credentialing, medical coding and revenue cycle management (RCM) services.</p>
-            <h3>Information We Collect</h3>
-            <p>We collect only the information necessary to provide our services and respond to your inquiries. This includes information you provide directly through our website forms, such as your name, email address, phone number, practice details, and information about your billing operations, as well as technical information such as browser type and pages visited when you browse our site.</p>
-            <h3>How We Use Your Information</h3>
-            <p>We use your information to respond to inquiries, provide and improve our services, communicate with you about your account and our offerings, process your free RCM audit requests, and comply with legal obligations. We do not sell your personal information to any third party.</p>
-            <h3>Data Security</h3>
-            <p>We maintain administrative, physical and technical safeguards designed to protect your information against unauthorized access, use, alteration and disclosure, including encryption, access controls and staff training. While no method of transmission over the internet is completely secure, we work diligently to protect your data.</p>
-            <h3>Sharing and Disclosure</h3>
-            <p>We share your information only with service providers who help us operate our business, when required by law, or with your consent. All service providers are bound by confidentiality obligations and are permitted to use your information only to perform services on our behalf.</p>
-            <h3>Your Rights</h3>
-            <p>You have the right to request access to, correction of, or deletion of the personal information we hold about you, and to ask us about how your data is processed. To exercise these rights, contact us using the details below.</p>
-            <h3>Updates to This Policy</h3>
-            <p>We may update this Privacy Policy from time to time. The revised version will be posted on this page with a new "Last updated" date, and continued use of our website after changes take effect constitutes acceptance of the revised policy.</p>
-            <h3>Contact Us</h3>
-            <p>If you have questions about this Privacy Policy or your information, email us at <a href="mailto:info@himatechhealthsolutions.com">info@himatechhealthsolutions.com</a> or call <a href="tel:+923455337780">+92 3455337780</a>.</p>
-          </div>
+    <section class="page" id="page-terms">
+      <div class="page-hero">
+        <div class="container">
+          <h1>Terms &amp; Conditions</h1>
+          <p>The terms that apply when you use our website and services.</p>
+        </div>
+      </div>
+      <div class="container section-pad">
+        <div class="legal-doc">
+          <h2>Terms <span class="grad-text">&amp; Conditions</span></h2>
+          <p class="legal-updated">Last updated: August 5, 2026</p>
+          <p>These Terms and Conditions ("Terms") govern your use of the Hima Tech Health Solutions website and the information, materials and services available on it. By accessing or using our website, you agree to be bound by these Terms.</p>
+          <h3>Acceptance of Terms</h3>
+          <p>By using this website, you confirm that you have read, understood and agree to these Terms. If you do not agree with any part of these Terms, please do not use our website or services.</p>
+          <h3>Our Services</h3>
+          <p>Hima Tech provides medical billing, provider credentialing, medical coding and revenue cycle management services to healthcare providers. Descriptions of services on this website are for general information only and do not constitute a contractual offer. Specific terms of service are set out in the agreements we sign with each client.</p>
+          <h3>Use of the Website</h3>
+          <p>You agree to use this website lawfully and not to attempt to gain unauthorized access, disrupt the site, or interfere with its operation. Submitting false or misleading information through our forms is prohibited.</p>
+          <h3>Intellectual Property</h3>
+          <p>All content on this website, including text, graphics, logos, and design, is the property of Hima Tech Health Solutions or its licensors and is protected by applicable copyright and trademark laws. You may not reproduce, distribute or modify it without our prior written consent.</p>
+          <h3>No Professional Advice</h3>
+          <p>Information on this website is provided for general informational purposes only and does not constitute medical, legal, billing or financial advice. You should consult qualified professionals regarding your specific situation.</p>
+          <h3>Limitation of Liability</h3>
+          <p>To the fullest extent permitted by law, Hima Tech Health Solutions shall not be liable for any direct, indirect, incidental, consequential or special damages arising from your use of, or inability to use, this website. This website is provided "as is" without warranties of any kind.</p>
+          <h3>Third-Party Links</h3>
+          <p>Our website may contain links to third-party websites, such as LinkedIn, Facebook and WhatsApp. We are not responsible for the content or privacy practices of those websites, and links do not imply endorsement.</p>
+          <h3>Changes to These Terms</h3>
+          <p>We may revise these Terms at any time. The revised Terms will take effect when posted on this page, and continued use of the website means you accept the updated Terms.</p>
+          <h3>Governing Law</h3>
+          <p>These Terms are governed by the laws applicable in the jurisdiction where Hima Tech Health Solutions operates, without regard to conflict of law principles.</p>
+          <h3>Contact Us</h3>
+          <p>Questions about these Terms can be directed to <a href="mailto:info@himatechhealthsolutions.com">info@himatechhealthsolutions.com</a> or <a href="tel:+923455337780">+92 3455337780</a>.</p>
+        </div>
+      </div>
+    </section>
 
-          <div class="legal-block" id="legal-terms">
-            <h2>Terms <span class="grad-text">&amp; Conditions</span></h2>
-            <p class="legal-updated">Last updated: August 5, 2026</p>
-            <p>These Terms and Conditions ("Terms") govern your use of the Hima Tech Health Solutions website and the information, materials and services available on it. By accessing or using our website, you agree to be bound by these Terms.</p>
-            <h3>Acceptance of Terms</h3>
-            <p>By using this website, you confirm that you have read, understood and agree to these Terms. If you do not agree with any part of these Terms, please do not use our website or services.</p>
-            <h3>Our Services</h3>
-            <p>Hima Tech provides medical billing, provider credentialing, medical coding and revenue cycle management services to healthcare providers. Descriptions of services on this website are for general information only and do not constitute a contractual offer. Specific terms of service are set out in the agreements we sign with each client.</p>
-            <h3>Use of the Website</h3>
-            <p>You agree to use this website lawfully and not to attempt to gain unauthorized access, disrupt the site, or interfere with its operation. Submitting false or misleading information through our forms is prohibited.</p>
-            <h3>Intellectual Property</h3>
-            <p>All content on this website, including text, graphics, logos, and design, is the property of Hima Tech Health Solutions or its licensors and is protected by applicable copyright and trademark laws. You may not reproduce, distribute or modify it without our prior written consent.</p>
-            <h3>No Professional Advice</h3>
-            <p>Information on this website is provided for general informational purposes only and does not constitute medical, legal, billing or financial advice. You should consult qualified professionals regarding your specific situation.</p>
-            <h3>Limitation of Liability</h3>
-            <p>To the fullest extent permitted by law, Hima Tech Health Solutions shall not be liable for any direct, indirect, incidental, consequential or special damages arising from your use of, or inability to use, this website. This website is provided "as is" without warranties of any kind.</p>
-            <h3>Third-Party Links</h3>
-            <p>Our website may contain links to third-party websites, such as LinkedIn, Facebook and WhatsApp. We are not responsible for the content or privacy practices of those websites, and links do not imply endorsement.</p>
-            <h3>Changes to These Terms</h3>
-            <p>We may revise these Terms at any time. The revised Terms will take effect when posted on this page, and continued use of the website means you accept the updated Terms.</p>
-            <h3>Governing Law</h3>
-            <p>These Terms are governed by the laws applicable in the jurisdiction where Hima Tech Health Solutions operates, without regard to conflict of law principles.</p>
-            <h3>Contact Us</h3>
-            <p>Questions about these Terms can be directed to <a href="mailto:info@himatechhealthsolutions.com">info@himatechhealthsolutions.com</a> or <a href="tel:+923455337780">+92 3455337780</a>.</p>
-          </div>
-
-          <div class="legal-block" id="legal-hipaa">
-            <h2>HIPAA <span class="grad-text">Notice</span></h2>
-            <p class="legal-updated">Last updated: August 5, 2026</p>
-            <p>Hima Tech Health Solutions respects the privacy of Protected Health Information (PHI) and complies with the Health Insurance Portability and Accountability Act of 1996 (HIPAA) and its implementing regulations, as applicable to our role as a business associate of healthcare providers.</p>
-            <h3>Our Commitment</h3>
-            <p>We are committed to protecting PHI that we receive, create, maintain or transmit on behalf of our clients. We will not use or disclose PHI except as permitted by HIPAA, our business associate agreements with clients, or as required by law.</p>
-            <h3>How We Use and Disclose PHI</h3>
-            <p>We use PHI only to perform services on behalf of our clients, including claims submission, payment posting, coding, credentialing, eligibility verification and denial management. We may disclose PHI to subcontractors who agree to the same restrictions, and we will disclose PHI where required by law, such as for government investigations or court orders.</p>
-            <h3>Security Safeguards</h3>
-            <p>We implement administrative, physical and technical safeguards to ensure the confidentiality, integrity and availability of PHI, including encrypted transmissions, role-based access controls, secure storage, audit logging and ongoing workforce training on HIPAA requirements.</p>
-            <h3>Breach Notification</h3>
-            <p>In the event of an impermissible use or disclosure of unsecured PHI, we will notify the affected client without unreasonable delay, consistent with HIPAA's breach notification requirements, so that our clients can meet their own notification obligations.</p>
-            <h3>Your HIPAA Rights</h3>
-            <p>If you are a patient of one of our clients, your HIPAA rights, including the rights to access, amend, and receive an accounting of disclosures of your health information, are administered by your healthcare provider. Please contact your provider directly to exercise those rights.</p>
-            <h3>Complaints</h3>
-            <p>You may file a complaint with us or with the U.S. Department of Health and Human Services Office for Civil Rights if you believe your privacy rights have been violated. We will not retaliate against anyone who files a complaint in good faith.</p>
-            <h3>Contact Us</h3>
-            <p>For questions about this HIPAA Notice, contact our Privacy Officer at <a href="mailto:info@himatechhealthsolutions.com">info@himatechhealthsolutions.com</a> or <a href="tel:+923455337780">+92 3455337780</a>.</p>
-          </div>
-
+    <section class="page" id="page-hipaa">
+      <div class="page-hero">
+        <div class="container">
+          <h1>HIPAA Notice</h1>
+          <p>How we protect your protected health information (PHI).</p>
+        </div>
+      </div>
+      <div class="container section-pad">
+        <div class="legal-doc">
+          <h2>HIPAA <span class="grad-text">Notice</span></h2>
+          <p class="legal-updated">Last updated: August 5, 2026</p>
+          <p>Hima Tech Health Solutions respects the privacy of Protected Health Information (PHI) and complies with the Health Insurance Portability and Accountability Act of 1996 (HIPAA) and its implementing regulations, as applicable to our role as a business associate of healthcare providers.</p>
+          <h3>Our Commitment</h3>
+          <p>We are committed to protecting PHI that we receive, create, maintain or transmit on behalf of our clients. We will not use or disclose PHI except as permitted by HIPAA, our business associate agreements with clients, or as required by law.</p>
+          <h3>How We Use and Disclose PHI</h3>
+          <p>We use PHI only to perform services on behalf of our clients, including claims submission, payment posting, coding, credentialing, eligibility verification and denial management. We may disclose PHI to subcontractors who agree to the same restrictions, and we will disclose PHI where required by law, such as for government investigations or court orders.</p>
+          <h3>Security Safeguards</h3>
+          <p>We implement administrative, physical and technical safeguards to ensure the confidentiality, integrity and availability of PHI, including encrypted transmissions, role-based access controls, secure storage, audit logging and ongoing workforce training on HIPAA requirements.</p>
+          <h3>Breach Notification</h3>
+          <p>In the event of an impermissible use or disclosure of unsecured PHI, we will notify the affected client without unreasonable delay, consistent with HIPAA's breach notification requirements, so that our clients can meet their own notification obligations.</p>
+          <h3>Your HIPAA Rights</h3>
+          <p>If you are a patient of one of our clients, your HIPAA rights, including the rights to access, amend, and receive an accounting of disclosures of your health information, are administered by your healthcare provider. Please contact your provider directly to exercise those rights.</p>
+          <h3>Complaints</h3>
+          <p>You may file a complaint with us or with the U.S. Department of Health and Human Services Office for Civil Rights if you believe your privacy rights have been violated. We will not retaliate against anyone who files a complaint in good faith.</p>
+          <h3>Contact Us</h3>
+          <p>For questions about this HIPAA Notice, contact our Privacy Officer at <a href="mailto:info@himatechhealthsolutions.com">info@himatechhealthsolutions.com</a> or <a href="tel:+923455337780">+92 3455337780</a>.</p>
         </div>
       </div>
     </section>
@@ -1852,8 +1879,7 @@
 
     function renderPage() {
       var route = getRoute();
-      var legalMap = { 'privacy': 'legal', 'terms': 'legal', 'hipaa': 'legal' };
-      var pageId = 'page-' + (legalMap[route] || route);
+      var pageId = 'page-' + route;
       var pages = document.querySelectorAll('.page');
       for (var i = 0; i < pages.length; i++) {
         var isActive = pages[i].id === pageId;
@@ -1864,14 +1890,6 @@
       for (var j = 0; j < links.length; j++) {
         if (links[j].getAttribute('data-route') === route) links[j].classList.add('active');
         else links[j].classList.remove('active');
-      }
-            var legalRoutes = ['privacy', 'terms', 'hipaa'];
-      var legalTitles = { 'privacy': 'Privacy Policy', 'terms': 'Terms & Conditions', 'hipaa': 'HIPAA Notice' };
-      var legalTitle = document.getElementById('legalTitle');
-      if (legalTitle && legalTitles[route]) legalTitle.textContent = legalTitles[route];
-      var legalBlocks = document.querySelectorAll('.legal-block');
-      for (var k = 0; k < legalBlocks.length; k++) {
-        legalBlocks[k].style.display = (legalRoutes.indexOf(route) !== -1 && legalBlocks[k].id === 'legal-' + route) ? 'block' : 'none';
       }
       var scrollTarget = (route === 'audit') ? document.getElementById('auditForm') :
                          (route === 'contact') ? document.getElementById('contactForm') : null;
