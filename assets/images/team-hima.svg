@@ -8,5 +8,5 @@
   <circle cx="64" cy="64" r="62" fill="url(#bg)"/>
   <circle cx="64" cy="52" r="24" fill="#ffffff" opacity="0.92"/>
   <path d="M64 92 a30 26 0 1 0 0 0" fill="none" stroke="#ffffff" stroke-width="14" opacity="0.92"/>
-  <text x="64" y="61" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="26" font-weight="700" fill="#0a4b7a">HK</text>
+  <text x="64" y="61" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="26" font-weight="700" fill="#0a4b7a">MH</text>
 </svg>
