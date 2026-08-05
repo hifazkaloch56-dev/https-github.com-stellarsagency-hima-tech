@@ -1852,9 +1852,11 @@
 
     function renderPage() {
       var route = getRoute();
+      var legalMap = { 'privacy': 'legal', 'terms': 'legal', 'hipaa': 'legal' };
+      var pageId = 'page-' + (legalMap[route] || route);
       var pages = document.querySelectorAll('.page');
       for (var i = 0; i < pages.length; i++) {
-        var isActive = pages[i].id === 'page-' + route;
+        var isActive = pages[i].id === pageId;
         if (isActive) pages[i].classList.add('active');
         else pages[i].classList.remove('active');
       }
