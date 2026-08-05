@@ -1687,9 +1687,7 @@
         if (links[j].getAttribute('data-route') === route) links[j].classList.add('active');
         else links[j].classList.remove('active');
       }
-      if (route === 'home') {
-        window.scrollTo(0, 0);
-      }
+      window.scrollTo(0, 0);
       closeMobileMenu();
     }
 
