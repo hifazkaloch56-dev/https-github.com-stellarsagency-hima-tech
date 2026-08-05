@@ -556,6 +556,7 @@
     .process-card p { font-size: 0.87rem; color: var(--text-muted); }
 
     .audit-form { padding: 2rem 1.6rem; margin-top: 1rem; }
+    #auditForm, #contactForm { scroll-margin-top: 84px; }
 
     /* ============================================================
        BLOG
@@ -1759,7 +1760,13 @@
         if (links[j].getAttribute('data-route') === route) links[j].classList.add('active');
         else links[j].classList.remove('active');
       }
-      window.scrollTo(0, 0);
+      var scrollTarget = (route === 'audit') ? document.getElementById('auditForm') :
+                         (route === 'contact') ? document.getElementById('contactForm') : null;
+      if (scrollTarget) {
+        scrollTarget.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+        window.scrollTo(0, 0);
+      }
       closeMobileMenu();
     }
 
