@@ -188,15 +188,20 @@
       flex-wrap: wrap; gap: 0.5rem;
       max-width: 1280px; margin: 0 auto; padding: 0.85rem 1.25rem;
     }
-    .brand { display: flex; align-items: center; }
+    .brand { display: flex; align-items: center; gap: 0.7rem; }
+    .brand-text { font-size: 1.05rem; font-weight: 800; color: #fff; letter-spacing: 0.02em; line-height: 1.1; }
+    .brand-text .gold { color: var(--gold); }
     .brand-mark {
       display: inline-flex; align-items: center;
-      background: #ffffff;
+      background: rgba(255, 255, 255, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.35);
       border-radius: 14px;
-      padding: 8px 14px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+      padding: 7px 13px;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.25);
     }
-    .brand-logo { height: 44px; width: auto; display: block; }
+    .brand-logo { height: 40px; width: auto; display: block; }
     .brand .gold { color: var(--gold); }
     .nav-toggle {
       display: inline-flex; align-items: center; justify-content: center;
@@ -860,6 +865,7 @@
     <div class="navbar-inner">
       <a href="#/home" class="brand">
         <span class="brand-mark"><img src="assets/images/logo-trim.png" alt="HIMA TECH RCM logo" class="brand-logo"></span>
+        <span class="brand-text">HIMA TECH <span class="gold">RCM</span></span>
       </a>
 
       <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
@@ -1834,6 +1840,7 @@
         <div>
           <a href="#/home" class="brand">
             <span class="brand-mark"><img src="assets/images/logo-trim.png" alt="HIMA TECH RCM logo" class="brand-logo"></span>
+            <span class="brand-text">HIMA TECH <span class="gold">RCM</span></span>
           </a>
           <p style="color:rgba(255,255,255,0.7);margin-top:0.8rem;">Trusted medical billing, credentialing and RCM services for healthcare providers nationwide. HIPAA compliant. ISO 27001 aligned.</p>
           <div class="footer-social">
