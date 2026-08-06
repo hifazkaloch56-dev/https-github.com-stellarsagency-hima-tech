@@ -1913,8 +1913,7 @@
         if (links[j].getAttribute('data-route') === route) links[j].classList.add('active');
         else links[j].classList.remove('active');
       }
-      var scrollTarget = (route === 'audit') ? document.getElementById('auditForm') :
-                         (route === 'contact') ? document.getElementById('contactForm') : null;
+      var scrollTarget = (route === 'audit') ? document.getElementById('auditForm') : null;
       var htmlEl = document.documentElement;
       if (scrollTarget) {
         htmlEl.style.scrollBehavior = 'smooth';
