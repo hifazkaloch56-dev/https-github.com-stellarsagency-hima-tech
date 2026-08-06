@@ -192,11 +192,9 @@
     .brand { display: flex; align-items: center; gap: 0.7rem; }
     .brand-text { font-size: 1.05rem; font-weight: 800; color: #fff; letter-spacing: 0.02em; line-height: 1.1; }
     .brand-text .gold { color: var(--gold); }
-    .brand-logo { height: 44px; width: auto; display: block; filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.35)); }
+    .brand-logo { height: 60px; width: auto; display: block; filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.35)); }
     .brand:hover .brand-logo { transform: scale(1.04); }
-    .brand-logo, .brand-text { transition: transform 0.3s ease; }
-    .brand-text { transform-origin: left center; }
-    .brand:hover .brand-text { transform: translateX(3px); }
+    .brand-logo { transition: transform 0.3s ease; }
     .brand .gold { color: var(--gold); }
     .nav-toggle {
       display: inline-flex; align-items: center; justify-content: center;
@@ -712,7 +710,7 @@
       /* Compact navbar so brand + hamburger always fit narrow screens */
       .navbar-inner { position: relative; padding: 0.7rem 0.9rem; gap: 0.4rem; }
       .brand { position: absolute; left: 50%; transform: translateX(-50%); width: max-content; }
-      .brand-logo { height: 46px; width: auto; }
+      .brand-logo { height: 52px; width: auto; }
       /* Hide decorative floating shapes so content stays clean and never overlaps */
       .float-shape, .f-dot { display: none; }
       .hero-visual .scene3d { display: none; }
@@ -859,7 +857,6 @@
     <div class="navbar-inner">
       <a href="#/home" class="brand">
         <img src="assets/images/logo-trim-light.png" alt="HIMA TECH RCM logo" class="brand-logo">
-        <span class="brand-text">HIMA TECH <span class="gold">RCM</span></span>
       </a>
 
       <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
@@ -1834,7 +1831,6 @@
         <div>
           <a href="#/home" class="brand">
             <img src="assets/images/logo-trim-light.png" alt="HIMA TECH RCM logo" class="brand-logo">
-            <span class="brand-text">HIMA TECH <span class="gold">RCM</span></span>
           </a>
           <p style="color:rgba(255,255,255,0.7);margin-top:0.8rem;">Trusted medical billing, credentialing and RCM services for healthcare providers nationwide. HIPAA compliant. ISO 27001 aligned.</p>
           <div class="footer-social">
