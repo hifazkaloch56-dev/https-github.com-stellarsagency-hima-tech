@@ -1,6 +1,6 @@
-/**
+﻿/**
  * ============================================================
- *  Hima Tech Health Solutions - Backend API Server
+ *  HIMA TECH RCM - Backend API Server
  *  Node.js + Express
  *  Open-source. All code, comments, and messages in English.
  * ============================================================
@@ -201,7 +201,7 @@ app.use((err, req, res, next) => {
    ------------------------------------------------------------ */
 app.listen(PORT, () => {
   console.log('============================================');
-  console.log(`  Hima Tech Health Solutions API running on port ${PORT}`);
+  console.log(`  HIMA TECH RCM API running on port ${PORT}`);
   console.log(`  Open http://localhost:${PORT} in your browser`);
   console.log('============================================');
 });
