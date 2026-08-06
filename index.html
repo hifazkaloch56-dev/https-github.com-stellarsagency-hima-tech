@@ -625,7 +625,18 @@
       color: #fff; padding: 3.2rem 0 1.6rem;
     }
     .footer-grid { display: grid; grid-template-columns: 1fr; gap: 2.2rem; }
-    .footer-grid h4 { font-size: 1rem; margin-bottom: 0.9rem; color: var(--gold); }
+    .footer-grid h4 {
+      font-size: 0.88rem; margin-bottom: 1rem;
+      color: rgba(255, 255, 255, 0.92);
+      text-transform: uppercase; letter-spacing: 0.14em;
+      font-weight: 700;
+      position: relative;
+    }
+    .footer-grid h4::after {
+      content: ""; display: block; width: 26px; height: 2px;
+      background: linear-gradient(90deg, #ad2b52, var(--gold));
+      margin-top: 6px; border-radius: 2px;
+    }
     .footer-links li { margin-bottom: 0.6rem; }
     .footer-links a { color: rgba(255, 255, 255, 0.78); font-size: 0.9rem; }
     .footer-links a:hover { color: #fff; }
