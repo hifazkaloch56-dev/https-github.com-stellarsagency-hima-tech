@@ -192,7 +192,7 @@
     .brand { display: flex; align-items: center; gap: 0.7rem; }
     .brand-text { font-size: 1.05rem; font-weight: 800; color: #fff; letter-spacing: 0.02em; line-height: 1.1; }
     .brand-text .gold { color: var(--gold); }
-    .brand-logo { height: 60px; width: auto; display: block; filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.35)); }
+    .brand-logo { height: 60px; width: auto; display: block; filter: drop-shadow(0 0 7px rgba(255, 255, 255, 0.45)) drop-shadow(0 2px 8px rgba(0, 0, 0, 0.45)); }
     .brand:hover .brand-logo { transform: scale(1.04); }
     .brand-logo { transition: transform 0.3s ease; }
     .brand .gold { color: var(--gold); }
@@ -1914,17 +1914,10 @@
         if (links[j].getAttribute('data-route') === route) links[j].classList.add('active');
         else links[j].classList.remove('active');
       }
-      var scrollTarget = (route === 'audit') ? document.getElementById('auditForm') : null;
       var htmlEl = document.documentElement;
-      if (scrollTarget) {
-        htmlEl.style.scrollBehavior = 'smooth';
-        scrollTarget.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        window.setTimeout(function () { htmlEl.style.scrollBehavior = ''; }, 700);
-      } else {
-        htmlEl.style.scrollBehavior = 'auto';
-        window.scrollTo(0, 0);
-        htmlEl.style.scrollBehavior = '';
-      }
+      htmlEl.style.scrollBehavior = 'auto';
+      window.scrollTo(0, 0);
+      htmlEl.style.scrollBehavior = '';
       closeMobileMenu();
     }
 
