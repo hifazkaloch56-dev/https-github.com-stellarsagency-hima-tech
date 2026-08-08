@@ -18,3 +18,4 @@ server.err.log
 
 # Local deploy backup (keep out of the repo)
 deploy-backup/
+.vercel

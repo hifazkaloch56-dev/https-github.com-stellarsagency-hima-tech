@@ -16,6 +16,7 @@
 // Load environment variables from a .env file if present (e.g. PORT=5000)
 require('dotenv').config();
 
+const path = require('path');
 const express = require('express');
 const cors = require('cors');
 
@@ -36,6 +37,7 @@ app.use(cors());
 
 // Serve the static frontend (index.html) from this directory
 app.use(express.static(__dirname));
+app.use(express.static(path.join(__dirname, 'public')));
 
 /* ------------------------------------------------------------
    MOCK BLOG DATABASE
@@ -186,6 +188,11 @@ app.use('/api', (req, res) => {
   });
 });
 
+// Fallback: serve index.html for any other GET request (SPA/client routing)
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html'));
+});
+
 // Global error handler - catches any unexpected server errors
 // eslint-disable-next-line no-unused-vars
 app.use((err, req, res, next) => {
@@ -197,11 +204,22 @@ app.use((err, req, res, next) => {
 });
 
 /* ------------------------------------------------------------
-   START THE SERVER
+   VERCEL / SERVERLESS SUPPORT
+   Export the app so Vercel can run it as a Serverless Function.
    ------------------------------------------------------------ */
-app.listen(PORT, () => {
-  console.log('============================================');
-  console.log(`  HIMA TECH RCM API running on port ${PORT}`);
-  console.log(`  Open http://localhost:${PORT} in your browser`);
-  console.log('============================================');
-});
+
+// Export for Vercel serverless deployments
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = app;
+}
+
+// Only start the HTTP server when run directly (node server.js),
+// not when imported as a Vercel serverless function.
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log('============================================');
+    console.log(`  HIMA TECH RCM API running on port ${PORT}`);
+    console.log(`  Open http://localhost:${PORT} in your browser`);
+    console.log('============================================');
+  });
+}
