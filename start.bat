@@ -1,4 +1,4 @@
-﻿@echo off
+@echo off
 title HIMA TECH RCM Server
 cd /d "%~dp0"
 set NODE_EXE=%LOCALAPPDATA%\Programs\nodejs\node.exe
