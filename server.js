@@ -2,7 +2,6 @@
  * ============================================================
  *  HIMA TECH RCM - Backend API Server
  *  Node.js + Express
- *  Open-source. All code, comments, and messages in English.
  * ============================================================
  *
  *  Run with:   node server.js
@@ -40,9 +39,9 @@ app.use(express.static(__dirname));
 app.use(express.static(path.join(__dirname, 'public')));
 
 /* ------------------------------------------------------------
-   MOCK BLOG DATABASE
-   Six dummy posts matching the shape expected by the frontend
-   (title, date, category, icon, thumb, excerpt).
+   BLOG DATA
+   Six sample posts shipped with the site (title, date, category,
+   icon, thumb, excerpt).
    ------------------------------------------------------------ */
 
 const posts = [

@@ -1,7 +1,7 @@
 {
-  "name": "medibill-pro",
+  "name": "hima-tech",
   "version": "1.0.0",
-  "description": "MediBill Pro - Open-source medical billing web application (Express API + vanilla HTML/CSS/JS frontend)",
+  "description": "HIMA TECH RCM - Medical billing web application (Express API + vanilla HTML/CSS/JS frontend)",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
@@ -9,8 +9,7 @@
   "keywords": [
     "medical-billing",
     "healthcare",
-    "express",
-    "open-source"
+    "express"
   ],
   "license": "MIT",
   "dependencies": {
