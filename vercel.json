@@ -27,6 +27,10 @@
       "dest": "server.js"
     },
     {
+  "src": "/sitemap\\.xml",
+  "dest": "server.js"
+},
+    {
       "src": "/assets/(.*)",
       "dest": "/assets/$1"
     },
