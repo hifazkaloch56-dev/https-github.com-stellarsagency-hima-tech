@@ -174,6 +174,14 @@ app.post('/api/audit', (req, res) => {
 app.get('/api/blog', (req, res) => {
   res.status(200).json({ posts });
 });
+app.get('/robots.txt', (req, res) => {
+  res.type('text/plain');
+  res.send(
+    'User-agent: *\n' +
+    'Allow: /\n\n' +
+    'Sitemap: https://himatechrcm.com/sitemap.xml\n'
+  );
+});
 
 /* ------------------------------------------------------------
    ERROR HANDLING
