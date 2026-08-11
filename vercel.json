@@ -23,12 +23,12 @@
       "dest": "server.js"
     },
     {
-      "src": "/assets/(.*)",
-      "dest": "/assets/$1"
+      "src": "/robots\\.txt",
+      "dest": "server.js"
     },
     {
-      "src": "/robots\\.txt",
-      "dest": "/robots.txt"
+      "src": "/assets/(.*)",
+      "dest": "/assets/$1"
     },
     {
       "src": "/(.*)",
