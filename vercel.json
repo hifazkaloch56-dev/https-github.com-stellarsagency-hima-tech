@@ -14,6 +14,7 @@
   "routes": [
     { "src": "/api/(.*)", "dest": "server.js" },
     { "src": "/assets/(.*)", "dest": "/assets/$1" },
+    { "src": "/robots.txt", "dest": "/robots.txt" },
     { "src": "/(.*)", "dest": "/index.html" }
   ]
 }
