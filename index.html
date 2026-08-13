@@ -1912,8 +1912,9 @@
     var routes = ['home', 'about', 'billing', 'credentialing', 'coding', 'process', 'audit', 'blog', 'contact', 'privacy', 'terms', 'hipaa'];
 
     function getRoute() {
-      var hash = window.location.hash.replace(/^#\/?/, '').toLowerCase();
-      return routes.indexOf(hash) !== -1 ? hash : 'home';
+  var path = window.location.pathname.replace(/^\/+/, '').toLowerCase();
+  return routes.indexOf(path) !== -1 ? path : 'home';
+}
     }
 
     function renderPage() {
