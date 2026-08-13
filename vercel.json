@@ -27,9 +27,9 @@
       "dest": "server.js"
     },
     {
-  "src": "/sitemap\\.xml",
-  "dest": "server.js"
-},
+      "src": "/sitemap\\.xml",
+      "dest": "server.js"
+    },
     {
       "src": "/assets/(.*)",
       "dest": "/assets/$1"
@@ -38,8 +38,5 @@
       "src": "/(.*)",
       "dest": "/index.html"
     }
-  ],
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
