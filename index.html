@@ -1912,7 +1912,7 @@
     var routes = ['home', 'about', 'billing', 'credentialing', 'coding', 'process', 'audit', 'blog', 'contact', 'privacy', 'terms', 'hipaa'];
 
     function getRoute() {
-  var path = window.location.pathname.replace(/^\/+/, '').toLowerCase();
+  var path = window.location.hash.slice(1).toLowerCase();
   return routes.indexOf(path) !== -1 ? path : 'home';
 }
     }
@@ -1930,6 +1930,7 @@ document.addEventListener('click', function(e) {
     renderPage();
   }
 });
+      
       window.addEventListener('popstate', renderPage);
       var pages = document.querySelectorAll('.page');
       for (var i = 0; i < pages.length; i++) {
