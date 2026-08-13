@@ -1912,12 +1912,10 @@
     var routes = ['home', 'about', 'billing', 'credentialing', 'coding', 'process', 'audit', 'blog', 'contact', 'privacy', 'terms', 'hipaa'];
 
     function getRoute() {
-      ar path = window.location.pathname.replace(/^\/+/, '').toLowerCase();
+     var path = window.location.pathname.replace(/^\/+/, '').toLowerCase();
   return routes.indexOf(path) !== -1 ? path : 'home';
 }
-    }
-
-    function renderPage() {
+  function renderPage() {
       var route = getRoute();
       var pageId = 'page-' + route;
       // Link click ko pakdo
