@@ -1691,31 +1691,62 @@
     <!-- ============================================================
          PAGE 8: CONTACT US
          ============================================================ -->
-    <div class="contact-info-grid">
-  <div class="glass contact-box">
-    <div class="c-icon"><i class="fa-solid fa-envelope"></i></div>
-    <div>
-      <strong>Email</strong>
-      <a href="mailto:info@himatechrcm.com">info@himatechrcm.com</a>
-    </div>
-  </div>
+       <section class="page" id="page-contact">
+      <div class="page-hero">
+        <div class="f-dot" style="width:11px;height:11px;background:rgba(0,168,181,0.6);top:24%;left:9%;"></div>
+        <div class="f-dot" style="width:13px;height:13px;background:rgba(243,156,18,0.6);bottom:26%;right:8%;animation-delay:1.3s;"></div>
+        <div class="container">
+          <h1>Let's Grow Your Practice <span class="grad-text">Together</span></h1>
+          <p>Looking for a reliable medical billing and credentialing partner? Get in touch with Hima Tech Healthcare Solutions today.</p>
+        </div>
+      </div>
 
-  <div class="glass contact-box">
-    <div class="c-icon"><i class="fa-solid fa-phone"></i></div>
-    <div>
-      <strong>Phone</strong>
-      <a href="tel:+18706962158">+1 870 696 2158</a>
-    </div>
-  </div>
+      <div class="container section-pad" style="padding-top:3.5rem;">
+        <div class="contact-grid">
+          <div class="contact-info-grid">
+            <div class="glass contact-box">
+              <div class="c-icon"><i class="fa-solid fa-envelope"></i></div>
+              <div><strong>Email</strong><span>info@himatechrcm.com</span></div>
+            </div>
+            <div class="glass contact-box">
+              <div class="c-icon"><i class="fa-solid fa-phone"></i></div>
+              <div><strong>Phone</strong><span>+1 870 696 2158</span></div>
+            </div>
+            <div class="glass contact-box">
+              <div class="c-icon"><i class="fa-solid fa-clock"></i></div>
+              <div><strong>Business Hours</strong><span>Monday - Friday, 9:00 AM - 6:00 PM</span></div>
+            </div>
+          </div>
 
-  <div class="glass contact-box">
-    <div class="c-icon"><i class="fa-solid fa-clock"></i></div>
-    <div>
-      <strong>Business Hours</strong>
-      <span>Monday - Friday, 9:00 AM - 6:00 PM</span>
-    </div>
-  </div>
-</div>
+          <div class="glass" style="padding:1.9rem 1.6rem;">
+            <h2 style="color:var(--primary);font-size:1.45rem;margin-bottom:0.4rem;">Request a Free Consultation</h2>
+            <p style="color:var(--text-muted);font-size:0.92rem;margin-bottom:1.5rem;">Fill out our contact form and one of our specialists will contact you within one business day.</p>
+            <form id="contactForm" novalidate>
+              <div class="form-group">
+                <label for="cName">Full Name *</label>
+                <input type="text" class="form-control" id="cName" placeholder="Ayesha Khan" required>
+              </div>
+              <div class="form-group">
+                <label for="cEmail">Email Address *</label>
+                <input type="email" class="form-control" id="cEmail" placeholder="you@clinic.pk" required>
+              </div>
+              <div class="form-group">
+                <label for="cPhone">Phone Number *</label>
+                <input type="tel" class="form-control" id="cPhone" placeholder="+92 300 1234567" required>
+              </div>
+              <div class="form-group">
+                <label for="cMessage">Message *</label>
+                <textarea class="form-control" id="cMessage" rows="5" placeholder="How can we help your practice?" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary btn-block" id="cBtn">
+                <i class="fa-solid fa-paper-plane"></i> Send Message
+              </button>
+              <div class="alert" id="cAlert" role="status"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
 
 <!-- ============================================================
          LEGAL PAGES (Privacy / Terms / HIPAA)
