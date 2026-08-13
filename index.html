@@ -1912,7 +1912,7 @@
     var routes = ['home', 'about', 'billing', 'credentialing', 'coding', 'process', 'audit', 'blog', 'contact', 'privacy', 'terms', 'hipaa'];
 
     function getRoute() {
-  var path = window.location.hash.slice(1).toLowerCase();
+      ar path = window.location.pathname.replace(/^\/+/, '').toLowerCase();
   return routes.indexOf(path) !== -1 ? path : 'home';
 }
     }
