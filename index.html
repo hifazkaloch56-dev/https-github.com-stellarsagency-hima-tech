@@ -1920,6 +1920,17 @@
     function renderPage() {
       var route = getRoute();
       var pageId = 'page-' + route;
+      // Link click ko pakdo
+document.addEventListener('click', function(e) {
+  var link = e.target.closest('a[data-route]');
+  if(link) {
+    e.preventDefault();
+    var route = link.getAttribute('data-route');
+    window.history.pushState(null, null, '/' + route);
+    renderPage();
+  }
+});
+      window.addEventListener('popstate', renderPage);
       var pages = document.querySelectorAll('.page');
       for (var i = 0; i < pages.length; i++) {
         var isActive = pages[i].id === pageId;
