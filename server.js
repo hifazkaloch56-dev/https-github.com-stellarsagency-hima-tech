@@ -1,48 +1,48 @@
-﻿/**
- * ============================================================
- *  HIMA TECH RCM - Backend API Server
- *  Node.js + Express
- * ============================================================
- *
- *  Run with:   node server.js
- *  Health:     GET  /api/health
- *  Contact:    POST /api/contact   -> { success: true }
- *  Audit:      POST /api/audit     -> { success: true }
- *  Blog:       GET  /api/blog      -> { posts: [...] }
- * ============================================================
+/**
+ * HIMA TECH RCM - Backend API Server
+ * Node.js + Express + Nodemailer
  */
 
-// Load environment variables from a .env file if present (e.g. PORT=5000)
 require('dotenv').config();
 
 const path = require('path');
 const express = require('express');
 const cors = require('cors');
+const nodemailer = require('nodemailer');
 
 const app = express();
 
-// Server port - reads PORT from environment variables, falls back to 5000
 const PORT = process.env.PORT || 5000;
 
 /* ------------------------------------------------------------
    MIDDLEWARE
-   ------------------------------------------------------------ */
+------------------------------------------------------------ */
 
-// Parse incoming JSON request bodies
 app.use(express.json());
-
-// Enable CORS for all origins (adjust in production)
 app.use(cors());
 
-// Serve the static frontend (index.html) from this directory
 app.use(express.static(__dirname));
 app.use(express.static(path.join(__dirname, 'public')));
 
 /* ------------------------------------------------------------
+   EMAIL CONFIGURATION
+------------------------------------------------------------ */
+
+const transporter = nodemailer.createTransport({
+  host: process.env.SMTP_HOST,
+  port: Number(process.env.SMTP_PORT || 587),
+  secure: String(process.env.SMTP_SECURE).toLowerCase() === 'true',
+  auth: {
+    user: process.env.SMTP_USER,
+    pass: process.env.SMTP_PASS
+  }
+});
+
+const COMPANY_EMAIL = process.env.COMPANY_EMAIL || 'info@himatechrcm.com';
+
+/* ------------------------------------------------------------
    BLOG DATA
-   Six sample posts shipped with the site (title, date, category,
-   icon, thumb, excerpt).
-   ------------------------------------------------------------ */
+------------------------------------------------------------ */
 
 const posts = [
   {
@@ -96,13 +96,9 @@ const posts = [
 ];
 
 /* ------------------------------------------------------------
-   API ROUTES
-   ------------------------------------------------------------ */
+   HEALTH
+------------------------------------------------------------ */
 
-/**
- * GET /api/health
- * Simple health check to confirm the API is running.
- */
 app.get('/api/health', (req, res) => {
   res.status(200).json({
     status: 'OK',
@@ -110,70 +106,198 @@ app.get('/api/health', (req, res) => {
   });
 });
 
-/**
- * POST /api/contact
- * Accepts JSON { name, email, phone, message } from the Contact
- * page form, logs the data, and returns success.
- */
-app.post('/api/contact', (req, res) => {
-  const { name, email, phone, message } = req.body || {};
+/* ------------------------------------------------------------
+   CONTACT FORM
+------------------------------------------------------------ */
 
-  if (!name || !email || !phone || !message) {
-    return res.status(400).json({
+app.post('/api/contact', async (req, res) => {
+  try {
+    const { name, email, phone, message } = req.body || {};
+
+    if (!name || !email || !phone || !message) {
+      return res.status(400).json({
+        success: false,
+        error: 'All fields (name, email, phone, message) are required.'
+      });
+    }
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      return res.status(400).json({
+        success: false,
+        error: 'Please enter a valid email address.'
+      });
+    }
+
+    await transporter.sendMail({
+      from: `"Hima Tech RCM Website" <${process.env.SMTP_USER}>`,
+      to: COMPANY_EMAIL,
+      replyTo: email,
+      subject: `New Contact Form Message - ${name}`,
+      text:
+`NEW CONTACT FORM MESSAGE
+
+Name: ${name}
+Email: ${email}
+Phone: ${phone}
+
+Message:
+${message}
+`,
+      html: `
+        <h2>New Contact Form Message</h2>
+
+        <p><strong>Name:</strong> ${escapeHtml(name)}</p>
+        <p><strong>Email:</strong> ${escapeHtml(email)}</p>
+        <p><strong>Phone:</strong> ${escapeHtml(phone)}</p>
+
+        <h3>Message</h3>
+        <p>${escapeHtml(message).replace(/\n/g, '<br>')}</p>
+      `
+    });
+
+    console.log('[contact] Email sent successfully to ' + COMPANY_EMAIL);
+
+    return res.status(200).json({
+      success: true
+    });
+
+  } catch (error) {
+    console.error('[contact] Email error:', error);
+
+    return res.status(500).json({
       success: false,
-      error: 'All fields (name, email, phone, message) are required.'
+      error: 'Message could not be sent. Please try again later.'
     });
   }
-
-  console.log('[contact] New message received:');
-  console.log('  Name:    ' + name);
-  console.log('  Email:   ' + email);
-  console.log('  Phone:   ' + phone);
-  console.log('  Message: ' + message);
-
-  return res.status(200).json({ success: true });
 });
 
-/**
- * POST /api/audit
- * Accepts the full Free RCM Audit request payload, logs every
- * field, and returns success.
- */
-app.post('/api/audit', (req, res) => {
-  const body = req.body || {};
+/* ------------------------------------------------------------
+   FREE RCM AUDIT FORM
+------------------------------------------------------------ */
 
-  // Basic validation of the required top-level sections
-  if (!body.practice || !body.contact || !body.billing || !body.consent) {
-    return res.status(400).json({
+app.post('/api/audit', async (req, res) => {
+  try {
+    const body = req.body || {};
+
+    if (!body.practice || !body.contact || !body.billing || !body.consent) {
+      return res.status(400).json({
+        success: false,
+        error: 'Incomplete audit request. Practice, contact, billing and consent are required.'
+      });
+    }
+
+    const practice = body.practice;
+    const contact = body.contact;
+    const billing = body.billing;
+    const challenges = body.challenges || [];
+    const comments = body.comments || '';
+
+    if (!contact.email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contact.email)) {
+      return res.status(400).json({
+        success: false,
+        error: 'Please enter a valid email address.'
+      });
+    }
+
+    await transporter.sendMail({
+      from: `"Hima Tech RCM Website" <${process.env.SMTP_USER}>`,
+      to: COMPANY_EMAIL,
+      replyTo: contact.email,
+      subject: `FREE RCM Audit Request - ${practice.practiceName || 'New Practice'}`,
+
+      text:
+`NEW FREE RCM AUDIT REQUEST
+
+PRACTICE INFORMATION
+Practice Name: ${practice.practiceName || ''}
+Provider Name: ${practice.providerName || ''}
+Specialty: ${practice.specialty || ''}
+Number of Providers: ${practice.numProviders || ''}
+City/State: ${practice.cityState || ''}
+Website: ${practice.website || ''}
+
+CONTACT INFORMATION
+Full Name: ${contact.fullName || ''}
+Job Title: ${contact.jobTitle || ''}
+Email: ${contact.email || ''}
+Phone: ${contact.phone || ''}
+
+CURRENT BILLING INFORMATION
+Billing Method: ${billing.billingMethod || ''}
+Current Company: ${billing.currentCompany || ''}
+EMR Software: ${billing.emrSoftware || ''}
+Monthly Volume: ${billing.monthlyVolume || ''}
+
+CHALLENGES
+${challenges.length ? challenges.join(', ') : 'None selected'}
+
+COMMENTS
+${comments || 'None'}
+
+Consent: ${Boolean(body.consent)}
+`,
+
+      html: `
+        <h2>FREE RCM Audit Request</h2>
+
+        <h3>Practice Information</h3>
+        <p><strong>Practice Name:</strong> ${escapeHtml(practice.practiceName || '')}</p>
+        <p><strong>Provider Name:</strong> ${escapeHtml(practice.providerName || '')}</p>
+        <p><strong>Specialty:</strong> ${escapeHtml(practice.specialty || '')}</p>
+        <p><strong>Number of Providers:</strong> ${escapeHtml(String(practice.numProviders || ''))}</p>
+        <p><strong>City/State:</strong> ${escapeHtml(practice.cityState || '')}</p>
+        <p><strong>Website:</strong> ${escapeHtml(practice.website || '')}</p>
+
+        <h3>Contact Information</h3>
+        <p><strong>Full Name:</strong> ${escapeHtml(contact.fullName || '')}</p>
+        <p><strong>Job Title:</strong> ${escapeHtml(contact.jobTitle || '')}</p>
+        <p><strong>Email:</strong> ${escapeHtml(contact.email || '')}</p>
+        <p><strong>Phone:</strong> ${escapeHtml(contact.phone || '')}</p>
+
+        <h3>Current Billing Information</h3>
+        <p><strong>Billing Method:</strong> ${escapeHtml(billing.billingMethod || '')}</p>
+        <p><strong>Current Company:</strong> ${escapeHtml(billing.currentCompany || '')}</p>
+        <p><strong>EMR Software:</strong> ${escapeHtml(billing.emrSoftware || '')}</p>
+        <p><strong>Monthly Volume:</strong> ${escapeHtml(billing.monthlyVolume || '')}</p>
+
+        <h3>Challenges</h3>
+        <p>${escapeHtml(challenges.length ? challenges.join(', ') : 'None selected')}</p>
+
+        <h3>Comments</h3>
+        <p>${escapeHtml(comments || 'None').replace(/\n/g, '<br>')}</p>
+
+        <p><strong>Consent:</strong> Yes</p>
+      `
+    });
+
+    console.log('[audit] Audit email sent successfully to ' + COMPANY_EMAIL);
+
+    return res.status(200).json({
+      success: true
+    });
+
+  } catch (error) {
+    console.error('[audit] Email error:', error);
+
+    return res.status(500).json({
       success: false,
-      error: 'Incomplete audit request. Practice, contact, billing and consent are required.'
+      error: 'Audit request could not be sent. Please try again later.'
     });
   }
-
-  console.log('[audit] FREE RCM Audit request received:');
-  console.log('  --- PRACTICE INFORMATION ---');
-  console.log(JSON.stringify(body.practice, null, 2));
-  console.log('  --- CONTACT INFORMATION ---');
-  console.log(JSON.stringify(body.contact, null, 2));
-  console.log('  --- CURRENT BILLING INFORMATION ---');
-  console.log(JSON.stringify(body.billing, null, 2));
-  console.log('  --- CHALLENGES ---');
-  console.log(JSON.stringify(body.challenges || [], null, 2));
-  console.log('  --- COMMENTS ---');
-  console.log(body.comments || '(none)');
-  console.log('  --- CONSENT ---');
-  console.log('Consented: ' + Boolean(body.consent));
-
-  return res.status(200).json({ success: true });
 });
 
-/**
- * GET /api/blog
- * Returns the mock array of 6 blog posts.
- */
+/* ------------------------------------------------------------
+   BLOG
+------------------------------------------------------------ */
+
 app.get('/api/blog', (req, res) => {
   res.status(200).json({ posts });
 });
+
+/* ------------------------------------------------------------
+   ROBOTS
+------------------------------------------------------------ */
+
 app.get('/robots.txt', (req, res) => {
   res.type('text/plain');
   res.send(
@@ -182,21 +306,59 @@ app.get('/robots.txt', (req, res) => {
     'Sitemap: https://himatechrcm.com/sitemap.xml\n'
   );
 });
+
+/* ------------------------------------------------------------
+   SITEMAP
+------------------------------------------------------------ */
+
 app.get('/sitemap.xml', (req, res) => {
   res.type('application/xml');
+
   res.send(`<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.himatechrcm.com/</loc>
+    <loc>https://himatechrcm.com/</loc>
+  </url>
+  <url>
+    <loc>https://himatechrcm.com/about</loc>
+  </url>
+  <url>
+    <loc>https://himatechrcm.com/billing</loc>
+  </url>
+  <url>
+    <loc>https://himatechrcm.com/credentialing</loc>
+  </url>
+  <url>
+    <loc>https://himatechrcm.com/coding</loc>
+  </url>
+  <url>
+    <loc>https://himatechrcm.com/process</loc>
+  </url>
+  <url>
+    <loc>https://himatechrcm.com/audit</loc>
+  </url>
+  <url>
+    <loc>https://himatechrcm.com/blog</loc>
+  </url>
+  <url>
+    <loc>https://himatechrcm.com/contact</loc>
+  </url>
+  <url>
+    <loc>https://himatechrcm.com/privacy</loc>
+  </url>
+  <url>
+    <loc>https://himatechrcm.com/terms</loc>
+  </url>
+  <url>
+    <loc>https://himatechrcm.com/hipaa</loc>
   </url>
 </urlset>`);
 });
 
 /* ------------------------------------------------------------
-   ERROR HANDLING
-   ------------------------------------------------------------ */
+   API 404
+------------------------------------------------------------ */
 
-// 404 handler for unknown API routes
 app.use('/api', (req, res) => {
   res.status(404).json({
     success: false,
@@ -204,15 +366,21 @@ app.use('/api', (req, res) => {
   });
 });
 
-// Fallback: serve index.html for any other GET request (SPA/client routing)
+/* ------------------------------------------------------------
+   SPA FALLBACK
+------------------------------------------------------------ */
+
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-// Global error handler - catches any unexpected server errors
-// eslint-disable-next-line no-unused-vars
+/* ------------------------------------------------------------
+   ERROR HANDLER
+------------------------------------------------------------ */
+
 app.use((err, req, res, next) => {
   console.error('[error] Unhandled error:', err.message);
+
   res.status(500).json({
     success: false,
     error: 'Internal server error. Please try again later.'
@@ -220,17 +388,24 @@ app.use((err, req, res, next) => {
 });
 
 /* ------------------------------------------------------------
-   VERCEL / SERVERLESS SUPPORT
-   Export the app so Vercel can run it as a Serverless Function.
-   ------------------------------------------------------------ */
+   HTML ESCAPE HELPER
+------------------------------------------------------------ */
 
-// Export for Vercel serverless deployments
-if (typeof module !== 'undefined' && module.exports) {
-  module.exports = app;
+function escapeHtml(value) {
+  return String(value)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
 }
 
-// Only start the HTTP server when run directly (node server.js),
-// not when imported as a Vercel serverless function.
+/* ------------------------------------------------------------
+   VERCEL / LOCAL SERVER
+------------------------------------------------------------ */
+
+module.exports = app;
+
 if (require.main === module) {
   app.listen(PORT, () => {
     console.log('============================================');
