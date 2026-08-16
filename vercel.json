@@ -17,7 +17,7 @@
       "use": "@vercel/static"
     },
     {
-      "src": "blog/**",
+      "src": "blog/*.html",
       "use": "@vercel/static"
     },
     {
@@ -47,7 +47,7 @@
       "dest": "/blog.html"
     },
     {
-      "src": "/blog/(.*)",
+      "src": "/blog/(.*\\.html)",
       "dest": "/blog/$1"
     },
     {
