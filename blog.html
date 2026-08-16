@@ -1,1 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>Medical Billing & RCM Blog | Hima Tech RCM</title>
+
+  <meta name="description" content="Read expert insights, tips, and practical guides about medical billing, medical coding, credentialing, denial management, and revenue cycle management from Hima Tech RCM.">
+
+  <meta name="robots" content="index, follow">
+
+  <link rel="canonical" href="https://www.himatechrcm.com/blog.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Medical Billing & RCM Blog | Hima Tech RCM">
+  <meta property="og:description" content="Expert medical billing, coding, credentialing and RCM insights from Hima Tech RCM.">
+  <meta property="og:url" content="https://www.himatechrcm.com/blog.html">
+  <meta property="og:site_name" content="Hima Tech RCM">
+  <meta property="og:image" content="https://www.himatechrcm.com/assets/images/logo-trim.png">
+
+  <link rel="icon" type="image/png" href="/assets/images/favicon.png">
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    :root {
+      --primary: #0a4b7a;
+      --primary-light: #0d5f98;
+      --secondary: #00a8b5;
+      --gold: #f39c12;
+      --dark: #081f33;
+      --text: #22384d;
+      --text-muted: #5b7288;
+      --shadow: 0 12px 34px rgba(10, 75, 122, 0.12);
+      --radius: 16px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, Arial, sans-serif;
+      color: var(--text);
+      background: #f7fbfd;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(8, 31, 51, 0.97);
+      box-shadow: 0 4px 20px rgba(0,0,0,.12);
+    }
+
+    .navbar-inner {
+      max-width: 1200px;
+      margin: auto;
+      padding: 14px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand-logo {
+      height: 48px;
+      width: auto;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      list-style: none;
+    }
+
+    .nav-menu a {
+      color: white;
+      font-size: 14px;
+      font-weight: 600;
+      transition: .2s;
+    }
+
+    .nav-menu a:hover {
+      color: #00d4df;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 18px;
+      border-radius: 10px;
+      font-weight: 700;
+    }
+
+    .btn-audit {
+      background: var(--secondary);
+      color: white !important;
+    }
+
+    .blog-hero {
+      background:
+        linear-gradient(135deg, rgba(10,75,122,.97), rgba(0,168,181,.9));
+      color: white;
+      padding: 90px 20px;
+      text-align: center;
+    }
+
+    .blog-hero h1 {
+      font-size: clamp(38px, 6vw, 64px);
+      line-height: 1.1;
+      margin-bottom: 18px;
+    }
+
+    .blog-hero p {
+      max-width: 760px;
+      margin: auto;
+      font-size: 18px;
+      opacity: .95;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 22px;
+    }
+
+    .section {
+      padding: 70px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+      color: var(--dark);
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: var(--text-muted);
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .blog-card {
+      background: white;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid #e5eef3;
+      transition: transform .25s, box-shadow .25s;
+    }
+
+    .blog-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 40px rgba(10,75,122,.18);
+    }
+
+    .blog-image {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .blog-content {
+      padding: 25px;
+    }
+
+    .blog-date {
+      color: var(--secondary);
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .blog-content h3 {
+      color: var(--dark);
+      font-size: 21px;
+      line-height: 1.35;
+      margin-bottom: 12px;
+    }
+
+    .blog-content p {
+      color: var(--text-muted);
+      font-size: 15px;
+      margin-bottom: 18px;
+    }
+
+    .read-more {
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .read-more:hover {
+      color: var(--secondary);
+    }
+
+    footer {
+      background: var(--dark);
+      color: white;
+      padding: 45px 20px;
+      text-align: center;
+    }
+
+    footer p {
+      opacity: .8;
+      font-size: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .blog-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .nav-menu {
+        gap: 10px;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .navbar-inner {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .nav-menu {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .blog-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .blog-hero {
+        padding: 65px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="navbar">
+  <div class="navbar-inner">
+
+    <a href="/" class="brand">
+      <img
+        src="/assets/images/logo-trim-light.png"
+        alt="Hima Tech RCM"
+        class="brand-logo">
+    </a>
+
+    <nav>
+      <ul class="nav-menu">
+
+        <li><a href="/">Home</a></li>
+
+        <li><a href="/#page-about">About Us</a></li>
+
+        <li><a href="/#page-billing">Billing Services</a></li>
+
+        <li><a href="/#page-credentialing">Credentialing</a></li>
+
+        <li><a href="/#page-coding">Medical Coding</a></li>
+
+        <li><a href="/#page-process">Process</a></li>
+
+        <li><a href="/#page-audit">Audit</a></li>
+
+        <li><a href="/blog.html">Blog</a></li>
+
+        <li><a href="/#page-contact">Contact</a></li>
+
+        <li>
+          <a href="/#page-audit" class="btn btn-audit">
+            <i class="fa-solid fa-stethoscope"></i>
+            Free RCM Audit
+          </a>
+        </li>
+
+      </ul>
+    </nav>
+
+  </div>
+</header>
+
+
+<section class="blog-hero">
+
+  <div class="container">
+
+    <h1>Medical Billing & RCM Blog</h1>
+
+    <p>
+      Expert insights, practical strategies, and industry updates
+      to help healthcare providers improve billing, coding,
+      credentialing, and revenue cycle performance.
+    </p>
+
+  </div>
+
+</section>
+
+
+<main>
+
+  <section class="section">
+
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Latest Articles</h2>
+        <p>Practical insights for healthcare providers and medical practices.</p>
+      </div>
+
+
+      <div class="blog-grid">
+
+
+        <!-- ARTICLE 1 -->
+
+        <article class="blog-card">
+
+          <img
+            src="/assets/images/blog/denial-management.jpg"
+            alt="Denial management strategies for medical billing"
+            class="blog-image">
+
+          <div class="blog-content">
+
+            <div class="blog-date">
+              August 2026
+            </div>
+
+            <h3>
+              5 Denial Management Strategies That Actually Work
+            </h3>
+
+            <p>
+              Learn practical strategies healthcare practices can use
+              to reduce claim denials, improve collections, and protect
+              revenue.
+            </p>
+
+            <a
+              href="/blog/denial-management-strategies.html"
+              class="read-more">
+              Read Article →
+            </a>
+
+          </div>
+
+        </article>
+
+
+        <!-- ARTICLE 2 -->
+
+        <article class="blog-card">
+
+          <img
+            src="/assets/images/blog/medical-billing.jpg"
+            alt="Medical billing guide for healthcare providers"
+            class="blog-image">
+
+          <div class="blog-content">
+
+            <div class="blog-date">
+              August 2026
+            </div>
+
+            <h3>
+              Medical Billing Best Practices for Healthcare Providers
+            </h3>
+
+            <p>
+              Discover important billing practices that can help
+              medical practices improve clean claims and accelerate
+              reimbursement.
+            </p>
+
+            <a
+              href="/blog/medical-billing-best-practices.html"
+              class="read-more">
+              Read Article →
+            </a>
+
+          </div>
+
+        </article>
+
+
+        <!-- ARTICLE 3 -->
+
+        <article class="blog-card">
+
+          <img
+            src="/assets/images/blog/credentialing.jpg"
+            alt="Provider credentialing and enrollment"
+            class="blog-image">
+
+          <div class="blog-content">
+
+            <div class="blog-date">
+              August 2026
+            </div>
+
+            <h3>
+              Provider Credentialing: What Every Practice Should Know
+            </h3>
+
+            <p>
+              Understand the credentialing process and why accurate
+              provider enrollment matters for faster payer participation.
+            </p>
+
+            <a
+              href="/blog/provider-credentialing-guide.html"
+              class="read-more">
+              Read Article →
+            </a>
+
+          </div>
+
+        </article>
+
+
+        <!-- ARTICLE 4 -->
+
+        <article class="blog-card">
+
+          <img
+            src="/assets/images/blog/medical-coding.jpg"
+            alt="Medical coding accuracy"
+            class="blog-image">
+
+          <div class="blog-content">
+
+            <div class="blog-date">
+              August 2026
+            </div>
+
+            <h3>
+              Common Medical Coding Mistakes That Cause Claim Problems
+            </h3>
+
+            <p>
+              Learn how coding errors can affect reimbursement and
+              what practices can do to improve coding accuracy.
+            </p>
+
+            <a
+              href="/blog/common-medical-coding-mistakes.html"
+              class="read-more">
+              Read Article →
+            </a>
+
+          </div>
+
+        </article>
+
+
+        <!-- ARTICLE 5 -->
+
+        <article class="blog-card">
+
+          <img
+            src="/assets/images/blog/rcm.jpg"
+            alt="Revenue cycle management"
+            class="blog-image">
+
+          <div class="blog-content">
+
+            <div class="blog-date">
+              August 2026
+            </div>
+
+            <h3>
+              How Revenue Cycle Management Impacts Practice Revenue
+            </h3>
+
+            <p>
+              Explore the key stages of the revenue cycle and how
+              better processes can reduce revenue leakage.
+            </p>
+
+            <a
+              href="/blog/revenue-cycle-management-guide.html"
+              class="read-more">
+              Read Article →
+            </a>
+
+          </div>
+
+        </article>
+
+
+        <!-- ARTICLE 6 -->
+
+        <article class="blog-card">
+
+          <img
+            src="/assets/images/blog/claims.jpg"
+            alt="Medical claims processing"
+            class="blog-image">
+
+          <div class="blog-content">
+
+            <div class="blog-date">
+              August 2026
+            </div>
+
+            <h3>
+              How to Improve Your Medical Claims Submission Process
+            </h3>
+
+            <p>
+              Simple steps practices can take to improve claim
+              accuracy and reduce avoidable payment delays.
+            </p>
+
+            <a
+              href="/blog/claims-submission-best-practices.html"
+              class="read-more">
+              Read Article →
+            </a>
+
+          </div>
+
+        </article>
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <p>
+    © 2026 Hima Tech RCM. All Rights Reserved.
+  </p>
+
+  <p style="margin-top:8px;">
+    Medical Billing • Medical Coding • Credentialing • Revenue Cycle Management
+  </p>
+
+</footer>
+
+
+</body>
+</html>
