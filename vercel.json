@@ -17,8 +17,8 @@
       "use": "@vercel/static"
     },
     {
-  "src": "blog/**",
-  "use": "@vercel/static"
+      "src": "blog/**",
+      "use": "@vercel/static"
     },
     {
       "src": "assets/**",
@@ -45,6 +45,10 @@
     {
       "src": "/blog\\.html",
       "dest": "/blog.html"
+    },
+    {
+      "src": "/blog/(.*)",
+      "dest": "/blog/$1"
     },
     {
       "src": "/(.*)",
