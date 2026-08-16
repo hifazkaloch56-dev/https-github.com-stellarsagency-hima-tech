@@ -338,7 +338,10 @@ app.get('/sitemap.xml', (req, res) => {
     <loc>https://himatechrcm.com/audit</loc>
   </url>
   <url>
-    <loc>https://himatechrcm.com/blog</loc>
+    <loc>https://www.himatechrcm.com/blog.html</loc>
+  </url>
+    <url>
+    <loc>https://www.himatechrcm.com/blog/denial-management-strategies.html</loc>
   </url>
   <url>
     <loc>https://himatechrcm.com/contact</loc>
