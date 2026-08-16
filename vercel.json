@@ -17,6 +17,10 @@
       "use": "@vercel/static"
     },
     {
+  "src": "blog/**",
+  "use": "@vercel/static"
+    },
+    {
       "src": "assets/**",
       "use": "@vercel/static"
     }
