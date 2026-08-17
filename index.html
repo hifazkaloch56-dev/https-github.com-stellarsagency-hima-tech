@@ -912,7 +912,7 @@ body{background:#fff;color:#222;font-family:Arial,Helvetica,sans-serif}
        ============================================================ -->
   <header class="navbar" id="navbar">
     <div class="ht-mainnav">
-      <a href="/" data-route="home" class="ht-brand"><img src="assets/images/logo-trim.png" alt="HIMA TECH RCM logo" style="height:35px !important; width:auto !important; max-height:35px !important;"></a>
+      <a href="/" data-route="home" class="ht-brand"><img src="assets/images/logo-trim.png" alt="HIMA TECH RCM logo" style="height:45px !important; width:auto !important; max-height:45px !important;"></a>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
       <ul class="nav-menu" id="navMenu">
         <li><a href="/" data-route="home" class="active">Home</a></li>
@@ -1393,80 +1393,170 @@ body{background:#fff;color:#222;font-family:Arial,Helvetica,sans-serif}
     <!-- ============================================================
          PAGE 6B: FREE RCM AUDIT
          ============================================================ -->
-    <section class="page" id="page-audit">
-      <div class="page-hero">
-        <div class="f-dot" style="width:11px;height:11px;background:rgba(243,156,18,0.7);top:26%;left:8%;"></div>
-        <div class="f-dot" style="width:13px;height:13px;background:rgba(0,168,181,0.55);bottom:26%;right:9%;animation-delay:1.4s;"></div>
-        <div class="container">
-          <h1>Get a FREE <span class="grad-text">Revenue Cycle Management (RCM) Audit</span></h1>
-          <p>Discover hidden revenue opportunities, reduce claim denials, and improve your practice's cash flow. Complete the form below, and one of our RCM specialists will contact you within 24 hours.</p>
-        </div>
-      </div>
+    <form class="glass audit-form" id="auditForm" novalidate>
 
-     <div class="container section-pad">
-  <div class="glass" style="padding:1.9rem 1.6rem;">
+  <h3 class="form-section-title" style="margin-top:0;">
+    <i class="fa-solid fa-hospital"></i> PRACTICE INFORMATION
+  </h3>
 
-    <h2 style="color:var(--primary);font-size:1.45rem;margin-bottom:0.4rem;">
-      Contact Us
-    </h2>
+  <div class="form-row">
 
-    <p style="color:var(--text-muted);font-size:0.92rem;margin-bottom:1.5rem;">
-      Have questions about our medical billing, credentialing, or RCM services?
-      Fill out the form below and our team will contact you within one business day.
-    </p>
+    <div class="form-group">
+      <label for="practiceName">Practice Name *</label>
+      <input type="text" class="form-control" id="practiceName"
+             placeholder="e.g., California Family Clinic" required>
+    </div>
 
-    <form id="contactForm" novalidate>
+    <div class="form-group">
+      <label for="providerName">Provider Name *</label>
+      <input type="text" class="form-control" id="providerName"
+             placeholder="e.g., Dr. Smith" required>
+    </div>
 
-      <h3 class="form-section-title">
-        <i class="fa-solid fa-address-book"></i> CONTACT INFORMATION
-      </h3>
+    <div class="form-group">
+      <label for="specialty">Specialty *</label>
+      <input type="text" class="form-control" id="specialty"
+             placeholder="e.g., Cardiology" required>
+    </div>
 
-      <div class="form-row">
+    <div class="form-group">
+      <label for="numProviders">Number of Providers *</label>
+      <input type="number" class="form-control" id="numProviders"
+             placeholder="e.g., 4" min="1" required>
+    </div>
 
-        <div class="form-group">
-          <label for="cName">Full Name *</label>
-          <input type="text" class="form-control" id="cName"
-                 placeholder="Your full name" required>
-        </div>
+    <div class="form-group">
+      <label for="cityState">City &amp; State *</label>
+      <input type="text" class="form-control" id="cityState"
+             placeholder="e.g., Houston, TX" required>
+    </div>
 
-        <div class="form-group">
-          <label for="cEmail">Email Address *</label>
-          <input type="email" class="form-control" id="cEmail"
-                 placeholder="you@clinic.com" required>
-        </div>
-
-        <div class="form-group">
-          <label for="cPhone">Phone Number *</label>
-          <input type="tel" class="form-control" id="cPhone"
-                 placeholder="+1 870 696 2158" required>
-        </div>
-
-        <div class="form-group">
-          <label for="cSubject">Subject</label>
-          <input type="text" class="form-control" id="cSubject"
-                 placeholder="How can we help?">
-        </div>
-
-      </div>
-
-      <div class="form-group">
-        <label for="cMessage">Message *</label>
-        <textarea class="form-control" id="cMessage" rows="5"
-                  placeholder="Tell us how we can help your practice..."
-                  required></textarea>
-      </div>
-
-      <button type="submit" class="btn btn-primary btn-block" id="cBtn">
-        <i class="fa-solid fa-paper-plane"></i>
-        Send Message
-      </button>
-
-      <div class="alert" id="cAlert" role="status"></div>
-
-    </form>
+    <div class="form-group">
+      <label for="website">Website (Optional)</label>
+      <input type="url" class="form-control" id="website"
+             placeholder="https://yoursite.com">
+    </div>
 
   </div>
-</div>
+
+  <h3 class="form-section-title">
+    <i class="fa-solid fa-address-book"></i> CONTACT INFORMATION
+  </h3>
+
+  <div class="form-row">
+
+    <div class="form-group">
+      <label for="fullName">Full Name *</label>
+      <input type="text" class="form-control" id="fullName"
+             placeholder="Your full name" required>
+    </div>
+
+    <div class="form-group">
+      <label for="jobTitle">Job Title *</label>
+      <input type="text" class="form-control" id="jobTitle"
+             placeholder="e.g., Practice Manager" required>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email Address *</label>
+      <input type="email" class="form-control" id="email"
+             placeholder="you@clinic.com" required>
+    </div>
+
+    <div class="form-group">
+      <label for="phone">Phone Number *</label>
+      <input type="tel" class="form-control" id="phone"
+             placeholder="+1 870 696 2158" required>
+    </div>
+
+  </div>
+
+  <h3 class="form-section-title">
+    <i class="fa-solid fa-file-invoice-dollar"></i>
+    CURRENT BILLING INFORMATION
+  </h3>
+
+  <div class="form-group">
+    <label>Do you bill in-house or outsource your billing?</label>
+
+    <div class="radio-group">
+      <label>
+        <input type="radio" name="billingMethod" value="In-house">
+        In-house
+      </label>
+
+      <label>
+        <input type="radio" name="billingMethod" value="Outsourced">
+        Outsourced
+      </label>
+    </div>
+  </div>
+
+  <div class="form-row">
+
+    <div class="form-group">
+      <label for="currentCompany">Current Billing Company (Optional)</label>
+      <input type="text" class="form-control" id="currentCompany"
+             placeholder="Name of current vendor, if any">
+    </div>
+
+    <div class="form-group">
+      <label for="emrSoftware">Practice Management / EMR Software</label>
+      <input type="text" class="form-control" id="emrSoftware"
+             placeholder="e.g., Epic, eClinicalWorks, Kareo">
+    </div>
+
+    <div class="form-group">
+      <label for="monthlyVolume">Approximate Monthly Claim Volume</label>
+      <input type="text" class="form-control" id="monthlyVolume"
+             placeholder="e.g., 600-800 claims/month">
+    </div>
+
+  </div>
+
+  <h3 class="form-section-title">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    CHALLENGES
+  </h3>
+
+  <p class="form-hint" style="margin-bottom:0.8rem;">
+    Challenges You're Facing (Select all that apply):
+  </p>
+
+  <div class="check-group">
+    <label><input type="checkbox" name="challenges" value="High Claim Denials"> High Claim Denials</label>
+    <label><input type="checkbox" name="challenges" value="Slow Insurance Payments"> Slow Insurance Payments</label>
+    <label><input type="checkbox" name="challenges" value="Low Collections"> Low Collections</label>
+    <label><input type="checkbox" name="challenges" value="Credentialing Delays"> Credentialing Delays</label>
+    <label><input type="checkbox" name="challenges" value="Aging Accounts Receivable"> Aging Accounts Receivable</label>
+    <label><input type="checkbox" name="challenges" value="Frequent Claim Rejections"> Frequent Claim Rejections</label>
+    <label><input type="checkbox" name="challenges" value="Coding Issues"> Coding Issues</label>
+    <label><input type="checkbox" name="challenges" value="Staff Shortage"> Staff Shortage</label>
+    <label><input type="checkbox" name="challenges" value="Other"> Other</label>
+  </div>
+
+  <div class="form-group" style="margin-top:1.2rem;">
+    <label for="comments">Additional Comments</label>
+    <textarea class="form-control" id="comments" rows="4"
+      placeholder="Tell us about your biggest billing or revenue cycle challenge."></textarea>
+  </div>
+
+  <label class="consent">
+    <input type="checkbox" id="consent" required>
+    <span>I agree to be contacted by HIMA TECH RCM regarding my FREE RCM Audit.</span>
+  </label>
+
+  <button type="submit"
+          class="btn btn-glow btn-block"
+          id="auditBtn"
+          style="padding:1.05rem;font-size:1.05rem;">
+    <i class="fa-solid fa-file-signature"></i>
+    Request My FREE RCM Audit
+  </button>
+
+  <div class="alert" id="auditAlert" role="status"></div>
+
+</form>
     </section>
 
     <!-- ============================================================
@@ -2132,9 +2222,78 @@ body{background:#fff;color:#222;font-family:Arial,Helvetica,sans-serif}
       });
     }
 
-    /* Footer year */
+      /* Footer year */
     var year = document.getElementById('year');
     if (year) year.textContent = new Date().getFullYear();
+
+
+    /* HOME CONTACT FORM */
+    var homeContactBtn = document.getElementById('homeContactBtn');
+
+    if (homeContactBtn) {
+      homeContactBtn.addEventListener('click', function () {
+
+        var name = document.getElementById('homeContactName').value.trim();
+        var email = document.getElementById('homeContactEmail').value.trim();
+        var practice = document.getElementById('homeContactPractice').value.trim();
+        var phone = document.getElementById('homeContactPhone').value.trim();
+        var subject = document.getElementById('homeContactSubject').value.trim();
+        var message = document.getElementById('homeContactMessage').value.trim();
+
+        if (!name || !email || !message) {
+          alert('Please fill in Full Name, Email and Message.');
+          return;
+        }
+
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          alert('Please enter a valid email address.');
+          return;
+        }
+
+        homeContactBtn.disabled = true;
+        homeContactBtn.innerHTML =
+          '<i class="fa-solid fa-spinner fa-spin"></i> SENDING...';
+
+        api('/api/contact', {
+          method: 'POST',
+          body: JSON.stringify({
+            name: name,
+            email: email,
+            practice: practice,
+            phone: phone,
+            subject: subject,
+            message: message
+          })
+        })
+        .then(function (data) {
+
+          if (!data.success) {
+            alert(data.error || 'Message could not be sent. Please try again.');
+            return;
+          }
+
+          alert('Thank you! Your message has been sent successfully.');
+
+          document.getElementById('homeContactName').value = '';
+          document.getElementById('homeContactEmail').value = '';
+          document.getElementById('homeContactPractice').value = '';
+          document.getElementById('homeContactPhone').value = '';
+          document.getElementById('homeContactSubject').value = '';
+          document.getElementById('homeContactMessage').value = '';
+
+        })
+        .catch(function () {
+          alert('Network error. Please try again.');
+        })
+        .finally(function () {
+          homeContactBtn.disabled = false;
+          homeContactBtn.innerHTML =
+            '<i class="fa-solid fa-paper-plane"></i> SEND MESSAGE';
+        });
+
+      });
+    }
+
 
     /* Initial render */
     renderPage();
