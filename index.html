@@ -204,12 +204,14 @@
     .brand { display: flex; align-items: center; gap: 0.7rem; }
     .brand-text { font-size: 1.05rem; font-weight: 800; color: #fff; letter-spacing: 0.02em; line-height: 1.1; }
     .brand-text .gold { color: var(--gold); }
-   .brand-logo {
-    height: 40px;
-    width: auto;
+   .brand a .brand-logo,
+.brand-logo {
+    height: 35px !important;
+    width: auto !important;
+    max-height: 35px !important;
+    max-width: none !important;
+    object-fit: contain;
     display: block;
-    filter: drop-shadow(0 0 7px rgba(255, 255, 255, 0.45))
-            drop-shadow(0 2px 8px rgba(0, 0, 0, 0.45));
 }
 
 .brand:hover .brand-logo {
