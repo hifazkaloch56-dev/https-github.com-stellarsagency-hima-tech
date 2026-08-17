@@ -204,10 +204,25 @@
     .brand { display: flex; align-items: center; gap: 0.7rem; }
     .brand-text { font-size: 1.05rem; font-weight: 800; color: #fff; letter-spacing: 0.02em; line-height: 1.1; }
     .brand-text .gold { color: var(--gold); }
-    .brand-logo { height: 60px; width: auto; display: block; filter: drop-shadow(0 0 7px rgba(255, 255, 255, 0.45)) drop-shadow(0 2px 8px rgba(0, 0, 0, 0.45)); }
-    .brand:hover .brand-logo { transform: scale(1.04); }
-    .brand-logo { transition: transform 0.3s ease; }
-    .brand .gold { color: var(--gold); }
+    ..brand-logo {
+    height: 40px;
+    width: auto;
+    display: block;
+    filter: drop-shadow(0 0 7px rgba(255, 255, 255, 0.45))
+            drop-shadow(0 2px 8px rgba(0, 0, 0, 0.45));
+}
+
+.brand:hover .brand-logo {
+    transform: scale(1.04);
+}
+
+.brand-logo {
+    transition: transform 0.3s ease;
+}
+
+.brand .gold {
+    color: var(--gold);
+}
     .nav-toggle {
       display: inline-flex; align-items: center; justify-content: center;
       width: 44px; height: 44px; border-radius: 12px;
