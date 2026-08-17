@@ -996,17 +996,28 @@ body{background:#fff;color:#222;font-family:Arial,Helvetica,sans-serif}
       <div class="ht-service-card"><div class="ht-icon">＄</div><h3>AR Follow-Up</h3><p>Aggressive follow-up to reduce aging AR and denials.</p><a href="/billing" data-route="billing">Learn More &nbsp; →</a></div>
     </div>
     <div class="ht-audit-mini">
-      <div class="ht-audit-title"><h2>Get Your Free RCM Audit</h2><p>Find where your practice may be losing revenue.</p></div>
-      <div class="ht-mini-form">
-        <input placeholder="Full Name*"><input placeholder="Email*">
-        <input placeholder="Practice Name*"><input placeholder="Phone Number*">
-        <select><option>Specialty*</option><option>Cardiology</option><option>Mental Health</option><option>Primary Care</option><option>Other</option></select>
-        <select><option>Monthly Claims Volume</option><option>Under 500</option><option>500–2,000</option><option>2,000+</option></select>
-      </div>
-      <a href="/audit" data-route="audit" class="ht-audit-btn">▣ &nbsp; GET FREE AUDIT</a>
-      <div class="ht-secure">♙ &nbsp; Your information is 100% secure and confidential.</div>
-    </div>
+  <div class="ht-audit-title">
+    <h2>Contact Us</h2>
+    <p>Have questions about our medical billing, credentialing, or RCM services? Get in touch with our team.</p>
   </div>
+
+  <div class="ht-mini-form">
+    <input type="text" id="homeContactName" placeholder="Full Name*">
+    <input type="email" id="homeContactEmail" placeholder="Email*">
+    <input type="text" id="homeContactPractice" placeholder="Practice / Company Name">
+    <input type="tel" id="homeContactPhone" placeholder="Phone Number">
+    <input type="text" id="homeContactSubject" placeholder="Subject">
+    <textarea id="homeContactMessage" placeholder="How can we help your practice?" rows="3" style="width:100%;"></textarea>
+  </div>
+
+  <button type="button" class="ht-audit-btn" id="homeContactBtn">
+    <i class="fa-solid fa-paper-plane"></i> SEND MESSAGE
+  </button>
+
+  <div class="ht-secure">
+    ♙ &nbsp; Your information is 100% secure and confidential.
+  </div>
+</div>
 
   <div class="container ht-why-wrap">
     <div class="ht-kicker">WHY CHOOSE US</div>
