@@ -1580,46 +1580,36 @@ body{background:#fff;color:#222;font-family:Arial,Helvetica,sans-serif}
       <!-- CONTACT INFORMATION -->
       <div class="contact-info-grid">
 
-        <!-- EMAIL -->
         <div class="glass contact-box">
           <div class="c-icon">
             <i class="fa-solid fa-envelope"></i>
           </div>
-
           <div>
             <strong>Email</strong>
-            <a
-              href="mailto:info@himatechrcm.com"
-              style="display:block;color:var(--text-muted);text-decoration:none;"
-            >
+            <a href="mailto:info@himatechrcm.com"
+               style="display:block;color:var(--text-muted);text-decoration:none;">
               info@himatechrcm.com
             </a>
           </div>
         </div>
 
-        <!-- PHONE -->
         <div class="glass contact-box">
           <div class="c-icon">
             <i class="fa-solid fa-phone"></i>
           </div>
-
           <div>
             <strong>Phone</strong>
-            <a
-              href="tel:+18706962158"
-              style="display:block;color:var(--text-muted);text-decoration:none;"
-            >
+            <a href="tel:+18706962158"
+               style="display:block;color:var(--text-muted);text-decoration:none;">
               +1 870 696 2158
             </a>
           </div>
         </div>
 
-        <!-- BUSINESS HOURS -->
         <div class="glass contact-box">
           <div class="c-icon">
             <i class="fa-solid fa-clock"></i>
           </div>
-
           <div>
             <strong>Business Hours</strong>
             <span>
@@ -1630,221 +1620,81 @@ body{background:#fff;color:#222;font-family:Arial,Helvetica,sans-serif}
 
       </div>
 
+      <!-- CLEAN CONTACT FORM -->
+      <div class="glass" style="padding:1.9rem 1.6rem;">
 
-   <!-- CONTACT INFORMATION -->
-    <h3 class="form-section-title">
-      <i class="fa-solid fa-address-book"></i> CONTACT INFORMATION
-    </h3>
+        <h2 style="color:var(--primary);font-size:1.45rem;margin-bottom:0.4rem;">
+          Request a Free Consultation
+        </h2>
 
-    <div class="form-row">
+        <p style="color:var(--text-muted);font-size:0.92rem;margin-bottom:1.5rem;">
+          Fill out our contact form and one of our specialists will contact you within one business day.
+        </p>
 
-      <div class="form-group">
-        <label for="fullName">Full Name *</label>
-        <input type="text" class="form-control" id="fullName"
-               placeholder="Your full name" required>
+        <form id="contactForm" novalidate>
+
+          <div class="form-group">
+            <label for="cName">Full Name *</label>
+            <input
+              type="text"
+              class="form-control"
+              id="cName"
+              placeholder="Your full name"
+              required
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="cEmail">Email Address *</label>
+            <input
+              type="email"
+              class="form-control"
+              id="cEmail"
+              placeholder="you@clinic.com"
+              required
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="cPhone">Phone Number *</label>
+            <input
+              type="tel"
+              class="form-control"
+              id="cPhone"
+              placeholder="+1 870 696 2158"
+              required
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="cMessage">Message *</label>
+            <textarea
+              class="form-control"
+              id="cMessage"
+              rows="5"
+              placeholder="How can we help your practice?"
+              required
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            class="btn btn-primary btn-block"
+            id="cBtn"
+          >
+            <i class="fa-solid fa-paper-plane"></i>
+            Send Message
+          </button>
+
+          <div
+            class="alert"
+            id="cAlert"
+            role="status"
+          ></div>
+
+        </form>
+
       </div>
-
-      <div class="form-group">
-        <label for="jobTitle">Job Title *</label>
-        <input type="text" class="form-control" id="jobTitle"
-               placeholder="e.g., Practice Manager" required>
-      </div>
-
-      <div class="form-group">
-        <label for="email">Email Address *</label>
-        <input type="email" class="form-control" id="email"
-               placeholder="you@clinic.com" required>
-      </div>
-
-      <div class="form-group">
-        <label for="phone">Phone Number *</label>
-        <input type="tel" class="form-control" id="phone"
-               placeholder="+1 870 696 2158" required>
-      </div>
-
-    </div>
-
-    <!-- CONTACT INFORMATION -->
-    <h3 class="form-section-title">
-      <i class="fa-solid fa-address-book"></i> CONTACT INFORMATION
-    </h3>
-
-    <div class="form-row">
-
-      <div class="form-group">
-        <label for="fullName">Full Name *</label>
-        <input type="text" class="form-control" id="fullName"
-               placeholder="Your full name" required>
-      </div>
-
-      <div class="form-group">
-        <label for="jobTitle">Job Title *</label>
-        <input type="text" class="form-control" id="jobTitle"
-               placeholder="e.g., Practice Manager" required>
-      </div>
-
-      <div class="form-group">
-        <label for="email">Email Address *</label>
-        <input type="email" class="form-control" id="email"
-               placeholder="you@clinic.com" required>
-      </div>
-
-      <div class="form-group">
-        <label for="phone">Phone Number *</label>
-        <input type="tel" class="form-control" id="phone"
-               placeholder="+1 870 696 2158" required>
-      </div>
-
-    </div>
-
-    <!-- BILLING INFORMATION -->
-    <h3 class="form-section-title">
-      <i class="fa-solid fa-file-invoice-dollar"></i>
-      CURRENT BILLING INFORMATION
-    </h3>
-
-    <div class="form-group">
-      <label>Do you bill in-house or outsource your billing?</label>
-
-      <div class="radio-group">
-        <label>
-          <input type="radio" name="billingMethod" value="In-house">
-          In-house
-        </label>
-
-        <label>
-          <input type="radio" name="billingMethod" value="Outsourced">
-          Outsourced
-        </label>
-      </div>
-    </div>
-
-    <div class="form-row">
-
-      <div class="form-group">
-        <label for="currentCompany">
-          Current Billing Company (Optional)
-        </label>
-        <input type="text" class="form-control" id="currentCompany"
-               placeholder="Name of current vendor, if any">
-      </div>
-
-      <div class="form-group">
-        <label for="emrSoftware">
-          Practice Management / EMR Software
-        </label>
-        <input type="text" class="form-control" id="emrSoftware"
-               placeholder="e.g., Epic, eClinicalWorks, Kareo">
-      </div>
-
-      <div class="form-group">
-        <label for="monthlyVolume">
-          Approximate Monthly Claim Volume
-        </label>
-        <input type="text" class="form-control" id="monthlyVolume"
-               placeholder="e.g., 600-800 claims/month">
-      </div>
-
-    </div>
-
-    <!-- CHALLENGES -->
-    <h3 class="form-section-title">
-      <i class="fa-solid fa-triangle-exclamation"></i>
-      CHALLENGES
-    </h3>
-
-    <p class="form-hint" style="margin-bottom:0.8rem;">
-      Challenges You're Facing (Select all that apply):
-    </p>
-
-    <div class="check-group">
-
-      <label>
-        <input type="checkbox" name="challenges"
-               value="High Claim Denials">
-        High Claim Denials
-      </label>
-
-      <label>
-        <input type="checkbox" name="challenges"
-               value="Slow Insurance Payments">
-        Slow Insurance Payments
-      </label>
-
-      <label>
-        <input type="checkbox" name="challenges"
-               value="Low Collections">
-        Low Collections
-      </label>
-
-      <label>
-        <input type="checkbox" name="challenges"
-               value="Credentialing Delays">
-        Credentialing Delays
-      </label>
-
-      <label>
-        <input type="checkbox" name="challenges"
-               value="Aging Accounts Receivable">
-        Aging Accounts Receivable
-      </label>
-
-      <label>
-        <input type="checkbox" name="challenges"
-               value="Frequent Claim Rejections">
-        Frequent Claim Rejections
-      </label>
-
-      <label>
-        <input type="checkbox" name="challenges"
-               value="Coding Issues">
-        Coding Issues
-      </label>
-
-      <label>
-        <input type="checkbox" name="challenges"
-               value="Staff Shortage">
-        Staff Shortage
-      </label>
-
-      <label>
-        <input type="checkbox" name="challenges"
-               value="Other">
-        Other
-      </label>
-
-    </div>
-
-    <!-- COMMENTS -->
-    <div class="form-group" style="margin-top:1.2rem;">
-      <label for="comments">Additional Comments</label>
-
-      <textarea class="form-control" id="comments" rows="4"
-        placeholder="Tell us about your biggest billing or revenue cycle challenge."></textarea>
-    </div>
-
-    <!-- CONSENT -->
-    <label class="consent">
-      <input type="checkbox" id="consent" required>
-      <span>
-        I agree to be contacted by HIMA TECH RCM regarding my FREE RCM Audit.
-      </span>
-    </label>
-
-    <!-- SUBMIT -->
-    <button type="submit"
-            class="btn btn-glow btn-block"
-            id="auditBtn"
-            style="padding:1.05rem;font-size:1.05rem;">
-      <i class="fa-solid fa-file-signature"></i>
-      Request My FREE RCM Audit
-    </button>
-
-    <div class="alert" id="auditAlert" role="status"></div>
-
-  </form>
-</div>
-    </div>
 
   </div>
 
