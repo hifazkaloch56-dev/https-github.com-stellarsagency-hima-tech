@@ -1002,6 +1002,31 @@
       .stat-card strong { font-size:0.95rem !important; }
       .stat-card span { font-size:0.58rem !important; }
     }
+    /* ===== MOBILE CTA OVERFLOW FIX ===== */
+@media (max-width: 768px) {
+
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden !important;
+  }
+
+  .cta,
+  .cta-button,
+  .primary-btn,
+  .btn {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .cta-section,
+  .hero,
+  section {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+}
   </style>
 
 </head>
