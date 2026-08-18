@@ -1034,7 +1034,7 @@ iframe {
       </button>
 
       <ul class="nav-menu" id="navMenu">
-     <li><a href="/home" data-route="home" class="active">Home</a></li>
+     <li><a href="/" data-route="home" class="active">Home</a></li>
 <li><a href="/about" data-route="about">About Us</a></li>
 <li><a href="/billing" data-route="billing">Billing Services</a></li>
 <li><a href="/credentialing" data-route="credentialing">Credentialing</a></li>
@@ -2199,18 +2199,23 @@ iframe {
     }
 
     /* One click handler only — prevents the repeated-listener bug. */
-    document.addEventListener('click', function (event) {
-      var link = event.target.closest('a[data-route]');
-      if (!link) return;
-      var route = link.getAttribute('data-route');
-      if (routes.indexOf(route) === -1) return;
-      event.preventDefault();
-      var target = route === 'home' ? '/' : '/' + route;
-      if (window.location.pathname !== target) {
-        window.history.pushState({}, '', target);
-      }
-      renderPage();
-    });
+   document.addEventListener('click', function (event) {
+  var link = event.target.closest('a[data-route]');
+  if (!link) return;
+
+  var route = link.getAttribute('data-route');
+  if (routes.indexOf(route) === -1) return;
+
+  event.preventDefault();
+
+  if (route === 'home') {
+    window.history.pushState({}, '', '/');
+  } else {
+    window.history.pushState({}, '', '/' + route);
+  }
+
+  renderPage();
+});
 
     window.addEventListener('popstate', renderPage);
 
