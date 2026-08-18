@@ -1002,22 +1002,24 @@
       .stat-card span { font-size:0.58rem !important; }
     }
   </style>
-<style>
-/* ===== HIMA TECH RCM - SOBER PREMIUM COLOR THEME ===== */
+  <style>
+/* ===== HIMA TECH RCM - BLUE + MAROON PREVIEW ===== */
 
 :root {
-  --preview-primary: #315A7D;
-  --preview-dark: #1E3448;
-  --preview-accent: #6F9DB8;
-  --preview-light: #F4F7F9;
-  --preview-text: #3E4C59;
-  --preview-border: #D9E2E8;
+  --preview-blue: #1769AA;
+  --preview-blue-dark: #0B3D62;
+  --preview-maroon: #8B2F45;
+  --preview-maroon-dark: #6F2336;
+  --preview-light-blue: #F3F8FC;
+  --preview-text: #263746;
+  --preview-border: #DCE7EF;
   --preview-white: #FFFFFF;
 }
 
 /* Main text */
 body {
   color: var(--preview-text) !important;
+  background: var(--preview-white) !important;
 }
 
 /* Headings */
@@ -1027,22 +1029,23 @@ h3,
 h4,
 h5,
 h6 {
-  color: var(--preview-dark) !important;
+  color: var(--preview-blue-dark) !important;
 }
 
 /* Links */
 a {
-  color: var(--preview-primary) !important;
+  color: var(--preview-blue) !important;
 }
 
-/* Buttons */
+/* Main buttons - BLUE */
 button,
 .btn,
 .cta,
 .cta-button,
 .primary-btn {
-  background-color: var(--preview-primary) !important;
-  border-color: var(--preview-primary) !important;
+  background-color: var(--preview-blue) !important;
+  border-color: var(--preview-blue) !important;
+  color: #FFFFFF !important;
 }
 
 /* Button hover */
@@ -1051,21 +1054,40 @@ button:hover,
 .cta:hover,
 .cta-button:hover,
 .primary-btn:hover {
-  background-color: var(--preview-dark) !important;
-  border-color: var(--preview-dark) !important;
+  background-color: var(--preview-blue-dark) !important;
+  border-color: var(--preview-blue-dark) !important;
+}
+
+/* Secondary / outline buttons - MAROON */
+.secondary-btn,
+.btn-secondary,
+.secondary,
+.outline-btn {
+  color: var(--preview-maroon) !important;
+  border-color: var(--preview-maroon) !important;
+  background-color: transparent !important;
+}
+
+/* Maroon hover */
+.secondary-btn:hover,
+.btn-secondary:hover,
+.secondary:hover,
+.outline-btn:hover {
+  background-color: var(--preview-maroon) !important;
+  color: #FFFFFF !important;
 }
 
 /* Light sections */
 .hero,
 .light-section,
 .cta-section {
-  background-color: var(--preview-light) !important;
+  background-color: var(--preview-light-blue) !important;
 }
 
-/* Accent elements */
+/* Accent / highlighted text */
 .accent,
 .highlight {
-  color: var(--preview-accent) !important;
+  color: var(--preview-maroon) !important;
 }
 
 /* Borders */
@@ -1077,32 +1099,24 @@ select {
 
 /* Footer */
 footer {
-  background-color: var(--preview-dark) !important;
+  background-color: var(--preview-blue-dark) !important;
 }
 
 /* Footer text */
 footer,
 footer p,
 footer a {
-  color: var(--preview-white) !important;
+  color: #FFFFFF !important;
 }
 
-/* Soft cards */
+/* Cards */
 .card,
 .service-card,
 .feature-card {
   border-color: var(--preview-border) !important;
 }
-
-/* Keep white text on buttons */
-button,
-.btn,
-.cta,
-.cta-button,
-.primary-btn {
-  color: #FFFFFF !important;
-}
 </style>
+
 </head>
 <body>
 
