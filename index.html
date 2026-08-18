@@ -1014,80 +1014,6 @@ iframe {
     box-sizing: border-box !important;
   }
 }
-    /* ===== SERVICES DROPDOWN ===== */
-
-.has-dropdown {
-  position: relative !important;
-}
-
-.has-dropdown > .services-link {
-  cursor: pointer !important;
-  display: flex !important;
-  align-items: center !important;
-  gap: 6px !important;
-}
-
-.dropdown-menu {
-  display: none !important;
-  position: absolute !important;
-  top: calc(100% + 4px) !important;
-  left: 0 !important;
-  min-width: 220px !important;
-  padding: 8px 0 !important;
-  margin: 0 !important;
-  list-style: none !important;
-  background: #fff !important;
-  border: 1px solid #e2e8f0 !important;
-  border-radius: 10px !important;
-  box-shadow: 0 10px 25px rgba(0,0,0,.12) !important;
-  z-index: 999999 !important;
-}
-
-.has-dropdown.open > .dropdown-menu {
-  display: block !important;
-}
-
-.dropdown-menu li {
-  display: block !important;
-  width: 100% !important;
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
-.dropdown-menu li a {
-  display: block !important;
-  width: 100% !important;
-  padding: 11px 18px !important;
-  box-sizing: border-box !important;
-  color: #263746 !important;
-  background: #fff !important;
-  white-space: nowrap !important;
-}
-
-.dropdown-menu li a:hover {
-  background: #f3f8fc !important;
-  color: #1769aa !important;
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-
-  .has-dropdown {
-    width: 100% !important;
-  }
-
-  .dropdown-menu {
-    position: static !important;
-    width: 100% !important;
-    min-width: 0 !important;
-    margin: 5px 0 !important;
-    box-shadow: none !important;
-  }
-
-  .has-dropdown.open > .dropdown-menu {
-    display: block !important;
-  }
-}
     
   </style>
 
@@ -1108,23 +1034,15 @@ iframe {
       </button>
 
       <ul class="nav-menu" id="navMenu">
-        <li><a href="/home" data-route="home" class="active">Home</a></li>
-        <li><a href="/about" data-route="about">About Us</a></li>
-      <li class="has-dropdown">
-  <a href="#" class="services-link">
-    Services <i class="fa-solid fa-chevron-down"></i>
-  </a>
-
-  <ul class="dropdown-menu">
-    <li><a href="/billing" data-route="billing">Billing Services</a></li>
-    <li><a href="/credentialing" data-route="credentialing">Credentialing</a></li>
-    <li><a href="/coding" data-route="coding">Medical Coding</a></li>
-  </ul>
-</li>
-        <li><a href="/process" data-route="process">Process</a></li>
-        <li><a href="/blog" data-route="blog">Blog</a></li>
-        <li><a href="/contact" data-route="contact">Contact</a></li>
-        <li class="nav-cta"><a href="/audit" data-route="audit" class="btn btn-glow" style="padding:0.5rem 1.2rem;font-size:0.85rem;"><i class="fa-solid fa-stethoscope"></i> Free RCM Audit</a></li>
+     <li><a href="/home" data-route="home" class="active">Home</a></li>
+<li><a href="/about" data-route="about">About Us</a></li>
+<li><a href="/billing" data-route="billing">Billing Services</a></li>
+<li><a href="/credentialing" data-route="credentialing">Credentialing</a></li>
+<li><a href="/coding" data-route="coding">Medical Coding</a></li>
+<li><a href="/process" data-route="process">Process</a></li>
+<li><a href="/blog" data-route="blog">Blog</a></li>
+<li><a href="/contact" data-route="contact">Contact</a></li>
+<li class="nav-cta"><a href="/audit" data-route="audit" class="btn btn-glow" style="padding:0.5rem 1.2rem;font-size:0.85rem;"><i class="fa-solid fa-stethoscope"></i> Free RCM Audit</a></li>
       </ul>
     </div>
   </header>
@@ -2523,7 +2441,6 @@ iframe {
           btn.disabled = false;
           btn.innerHTML = '<i class="fa-solid fa-file-signature"></i> Request My FREE RCM Audit';
         });
-      });
     }
 
     /* Footer year */
@@ -2532,25 +2449,7 @@ iframe {
 
     /* Initial render */
     renderPage();
-    document.addEventListener("DOMContentLoaded", function () {
-
-  const services = document.querySelector(".services-link");
-  const dropdown = document.querySelector(".has-dropdown");
-
-  if (!services || !dropdown) return;
-
-  services.addEventListener("click", function (e) {
-    e.preventDefault();
-    e.stopPropagation();
-
-    dropdown.classList.toggle("open");
-  });
-
-  document.addEventListener("click", function (e) {
-    if (!dropdown.contains(e.target)) {
-      dropdown.classList.remove("open");
-    }
-});
+   
   </script>
 </body>
 </html>
