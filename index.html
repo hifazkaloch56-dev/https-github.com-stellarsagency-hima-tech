@@ -1002,15 +1002,17 @@
       .stat-card span { font-size:0.58rem !important; }
     }
   </style>
-  <style>
-/* ===== COLOR PREVIEW ONLY ===== */
+<style>
+/* ===== HIMA TECH RCM - SOBER PREMIUM COLOR THEME ===== */
 
 :root {
-  --preview-primary: #0F766E;
-  --preview-dark: #134E4A;
-  --preview-accent: #2DD4BF;
-  --preview-light: #F0FDFA;
-  --preview-text: #1E293B;
+  --preview-primary: #315A7D;
+  --preview-dark: #1E3448;
+  --preview-accent: #6F9DB8;
+  --preview-light: #F4F7F9;
+  --preview-text: #3E4C59;
+  --preview-border: #D9E2E8;
+  --preview-white: #FFFFFF;
 }
 
 /* Main text */
@@ -1019,7 +1021,12 @@ body {
 }
 
 /* Headings */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: var(--preview-dark) !important;
 }
 
@@ -1048,22 +1055,52 @@ button:hover,
   border-color: var(--preview-dark) !important;
 }
 
-/* Light backgrounds */
+/* Light sections */
 .hero,
 .light-section,
 .cta-section {
   background-color: var(--preview-light) !important;
 }
 
-/* Accent */
+/* Accent elements */
 .accent,
 .highlight {
   color: var(--preview-accent) !important;
 }
 
+/* Borders */
+input,
+textarea,
+select {
+  border-color: var(--preview-border) !important;
+}
+
 /* Footer */
 footer {
   background-color: var(--preview-dark) !important;
+}
+
+/* Footer text */
+footer,
+footer p,
+footer a {
+  color: var(--preview-white) !important;
+}
+
+/* Soft cards */
+.card,
+.service-card,
+.feature-card {
+  border-color: var(--preview-border) !important;
+}
+
+/* Keep white text on buttons */
+button,
+.btn,
+.cta,
+.cta-button,
+.primary-btn {
+  color: #FFFFFF !important;
 }
 </style>
 </head>
