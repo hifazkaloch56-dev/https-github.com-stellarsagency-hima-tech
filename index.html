@@ -986,11 +986,18 @@
       <ul class="nav-menu" id="navMenu">
         <li><a href="/home" data-route="home" class="active">Home</a></li>
         <li><a href="/about" data-route="about">About Us</a></li>
-        <li><a href="/billing" data-route="billing">Billing Services</a></li>
-        <li><a href="/credentialing" data-route="credentialing">Credentialing</a></li>
-        <li><a href="/coding" data-route="coding">Medical Coding</a></li>
+      <li class="has-dropdown">
+  <a href="#" class="services-link">
+    Services <i class="fa-solid fa-chevron-down"></i>
+  </a>
+
+  <ul class="dropdown-menu">
+    <li><a href="/billing" data-route="billing">Billing Services</a></li>
+    <li><a href="/credentialing" data-route="credentialing">Credentialing</a></li>
+    <li><a href="/coding" data-route="coding">Medical Coding</a></li>
+  </ul>
+</li>
         <li><a href="/process" data-route="process">Process</a></li>
-        <li><a href="/audit" data-route="audit">Audit</a></li>
         <li><a href="/blog" data-route="blog">Blog</a></li>
         <li><a href="/contact" data-route="contact">Contact</a></li>
         <li class="nav-cta"><a href="/audit" data-route="audit" class="btn btn-glow" style="padding:0.5rem 1.2rem;font-size:0.85rem;"><i class="fa-solid fa-stethoscope"></i> Free RCM Audit</a></li>
