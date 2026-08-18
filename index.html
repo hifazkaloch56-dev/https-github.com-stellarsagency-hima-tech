@@ -238,25 +238,21 @@
       color: #fff; font-size: 1.15rem; cursor: pointer;
       box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
     }
-    .nav-menu {
-      display: none; width: 100%; flex-direction: column; list-style: none;
-      padding: 0.6rem 0.5rem 0.4rem; gap: 0.1rem; margin-top: 0.5rem;
-      background: rgba(8, 31, 51, 0.98);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.14); border-radius: 14px;
-    }
-    .nav-menu.open { display: flex; animation: menuIn 0.25s ease; }
-    @keyframes menuIn { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: translateY(0); } }
-    .nav-menu a {
-      display: flex; align-items: center; min-height: 44px;
-      padding: 0.6rem 0.85rem; border-radius: 10px;
-      font-size: 0.94rem; font-weight: 600; color: rgba(255, 255, 255, 0.92);
-      transition: background 0.2s ease, color 0.2s ease;
-    }
-    .nav-menu a:hover { background: rgba(255, 255, 255, 0.14); color: #fff; }
-    .nav-menu a.active { background: linear-gradient(135deg, rgba(0, 168, 181, 0.35), rgba(243, 156, 18, 0.28)); color: #fff; font-weight: 800; }
-    .nav-menu .nav-cta { margin-top: 0.5rem; }
+ .nav-menu {
+  display: none;
+  flex-direction: column;
+  width: 100%;
+  padding: 0.8rem;
+  margin-top: 0.5rem;
+  gap: 0.2rem;
+  background: rgba(8, 31, 51, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+}
+
+.nav-menu.open {
+  display: flex;
+}
 
     @media (min-width: 992px) {
       .nav-toggle { display: none; }
@@ -438,13 +434,13 @@
     /* ============================================================
        INNER PAGE HERO
        ============================================================ */
-    .page-hero {
-      position: relative; overflow: hidden;
-      padding: 9rem 0 3.5rem;
-      background:
-        radial-gradient(ellipse 60% 80% at 10% 0%, rgba(0, 168, 181, 0.25), transparent 55%),
-        radial-gradient(ellipse 50% 70% at 95% 90%, rgba(243, 156, 18, 0.16), transparent 55%),
-        linear-gradient(140deg, #081f33 0%, #0a4b7a 55%, #0d5f98 100%);
+   .page-hero {
+  position: relative; overflow: hidden;
+  padding: 5rem 0 3.5rem;
+  background:
+    radial-gradient(ellipse 60% 80% at 10% 0%, rgba(0, 168, 181, 0.25), transparent 55%),
+    radial-gradient(ellipse 50% 70% at 95% 90%, rgba(243, 156, 18, 0.16), transparent 55%),
+    linear-gradient(140deg, #081f33 0%, #0a4b7a 55%, #0d5f98 100%);
     }
     .page-hero h1 { color: #fff; font-size: 2.1rem; line-height: 1.18; margin-bottom: 0.8rem; }
     .page-hero p { color: rgba(255, 255, 255, 0.85); font-size: 1.02rem; max-width: 640px; }
