@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#8b1028">
+  <meta name="theme-color" content="#7A1F2B">
   <meta name="description" content="Hima Tech RCM provides expert medical billing, medical coding, credentialing, provider enrollment, and revenue cycle management (RCM) services for U.S. healthcare providers. Get a free RCM audit today.">
 
 <title>Medical Billing & RCM Services for U.S. Providers | Hima Tech RCM</title>
@@ -36,14 +36,14 @@
        ============================================================ */
 
     :root {
-      --primary: #0a4b7a;
-      --primary-light: #0d5f98;
-      --secondary: #00a8b5;
-      --secondary-dark: #007f8a;
-      --gold: #f39c12;
-      --dark: #081f33;
-      --text: #22384d;
-      --text-muted: #5b7288;
+      --primary: #7A1F2B;
+      --primary-light: #922B3E;
+      --secondary: #B65A6A;
+      --secondary-dark: #6B1724;
+      --gold: #B58A3A;
+      --dark: #111111;
+      --text: #252525;
+      --text-muted: #6B6B6B;
       --glass-border: rgba(255, 255, 255, 0.55);
       --shadow: 0 12px 34px rgba(10, 75, 122, 0.12);
       --radius: 16px;
@@ -101,7 +101,7 @@
     .btn-primary { background: linear-gradient(135deg, var(--primary), var(--primary-light)); color: #fff; box-shadow: 0 10px 26px rgba(10, 75, 122, 0.4); }
     .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 18px 38px rgba(10, 75, 122, 0.5); }
     .btn-glow {
-      background: linear-gradient(135deg, #ad2b52 0%, #6e1230 100%);
+      background: linear-gradient(135deg, #8E2438 0%, #5A1521 100%);
       color: #fff; box-shadow: 0 14px 34px rgba(151, 31, 64, 0.45);
       animation: glowPulse 2.4s ease-in-out infinite;
     }
@@ -204,32 +204,10 @@
     .brand { display: flex; align-items: center; gap: 0.7rem; }
     .brand-text { font-size: 1.05rem; font-weight: 800; color: #fff; letter-spacing: 0.02em; line-height: 1.1; }
     .brand-text .gold { color: var(--gold); }
-   .brand a .brand-logo,
-.brand-logo {
-    height: 35px !important;
-    width: auto !important;
-    max-height: 35px !important;
-    object-fit: contain;
-    display: block;
-    transition: transform 0.3s ease;
-}
-
-.brand:hover .brand-logo {
-    transform: scale(1.04);
-}
-
-.brand-logo {
-    height: 35px !important;
-    width: auto !important;
-    max-height: 35px !important;
-    object-fit: contain;
-    display: block;
-    transition: transform 0.3s ease;
-}
-
-.brand .gold {
-    color: var(--gold);
-}
+    .brand-logo { height: 60px; width: auto; display: block; filter: drop-shadow(0 0 7px rgba(255, 255, 255, 0.45)) drop-shadow(0 2px 8px rgba(0, 0, 0, 0.45)); }
+    .brand:hover .brand-logo { transform: scale(1.04); }
+    .brand-logo { transition: transform 0.3s ease; }
+    .brand .gold { color: var(--gold); }
     .nav-toggle {
       display: inline-flex; align-items: center; justify-content: center;
       width: 44px; height: 44px; border-radius: 12px;
@@ -238,25 +216,25 @@
       color: #fff; font-size: 1.15rem; cursor: pointer;
       box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
     }
- .nav-menu {
-  display: none;
-  flex-direction: column;
-  width: 100%;
-  padding: 0.8rem;
-  margin-top: 0.5rem;
-  gap: 0.2rem;
-  background: rgba(8, 31, 51, 0.96);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 12px;
-}
-
-.nav-menu.open {
-  display: flex !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-  position: relative !important;
-  z-index: 999 !important;
-}
+    .nav-menu {
+      display: none; width: 100%; flex-direction: column; list-style: none;
+      padding: 0.6rem 0.5rem 0.4rem; gap: 0.1rem; margin-top: 0.5rem;
+      background: rgba(8, 31, 51, 0.98);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.14); border-radius: 14px;
+    }
+    .nav-menu.open { display: flex; animation: menuIn 0.25s ease; }
+    @keyframes menuIn { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: translateY(0); } }
+    .nav-menu a {
+      display: flex; align-items: center; min-height: 44px;
+      padding: 0.6rem 0.85rem; border-radius: 10px;
+      font-size: 0.94rem; font-weight: 600; color: rgba(255, 255, 255, 0.92);
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+    .nav-menu a:hover { background: rgba(255, 255, 255, 0.14); color: #fff; }
+    .nav-menu a.active { background: linear-gradient(135deg, rgba(0, 168, 181, 0.35), rgba(243, 156, 18, 0.28)); color: #fff; font-weight: 800; }
+    .nav-menu .nav-cta { margin-top: 0.5rem; }
 
     @media (min-width: 992px) {
       .nav-toggle { display: none; }
@@ -332,7 +310,7 @@
       background:
         radial-gradient(ellipse 70% 60% at 15% 10%, rgba(0, 168, 181, 0.35), transparent 55%),
         radial-gradient(ellipse 55% 55% at 88% 82%, rgba(243, 156, 18, 0.22), transparent 55%),
-        linear-gradient(140deg, #081f33 0%, #0a4b7a 52%, #0d5f98 100%);
+        linear-gradient(140deg, #111111 0%, #7A1F2B 52%, #922B3E 100%);
       overflow: hidden;
       padding: 8rem 0 5rem;
     }
@@ -370,7 +348,7 @@
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .stat-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3); }
-    .stat-card strong { display: block; font-size: 1.5rem; color: #7ce7ef; }
+    .stat-card strong { display: block; font-size: 1.5rem; color: #E7B8C0; }
     .stat-card span { font-size: 0.78rem; color: rgba(255, 255, 255, 0.85); }
 
     .hero-visual { position: relative; display: flex; justify-content: center; }
@@ -428,7 +406,7 @@
       background:
         radial-gradient(ellipse 60% 80% at 20% 10%, rgba(0, 168, 181, 0.25), transparent 60%),
         radial-gradient(ellipse 60% 80% at 85% 90%, rgba(243, 156, 18, 0.2), transparent 60%),
-        linear-gradient(135deg, #0a4b7a, #081f33);
+        linear-gradient(135deg, #7A1F2B, #111111);
       border: 1px solid rgba(255, 255, 255, 0.14);
       border-radius: 22px;
     }
@@ -438,13 +416,13 @@
     /* ============================================================
        INNER PAGE HERO
        ============================================================ */
-   .page-hero {
-  position: relative; overflow: hidden;
-  padding: 5rem 0 3.5rem;
-  background:
-    radial-gradient(ellipse 60% 80% at 10% 0%, rgba(0, 168, 181, 0.25), transparent 55%),
-    radial-gradient(ellipse 50% 70% at 95% 90%, rgba(243, 156, 18, 0.16), transparent 55%),
-    linear-gradient(140deg, #081f33 0%, #0a4b7a 55%, #0d5f98 100%);
+    .page-hero {
+      position: relative; overflow: hidden;
+      padding: 9rem 0 3.5rem;
+      background:
+        radial-gradient(ellipse 60% 80% at 10% 0%, rgba(0, 168, 181, 0.25), transparent 55%),
+        radial-gradient(ellipse 50% 70% at 95% 90%, rgba(243, 156, 18, 0.16), transparent 55%),
+        linear-gradient(140deg, #111111 0%, #7A1F2B 55%, #922B3E 100%);
     }
     .page-hero h1 { color: #fff; font-size: 2.1rem; line-height: 1.18; margin-bottom: 0.8rem; }
     .page-hero p { color: rgba(255, 255, 255, 0.85); font-size: 1.02rem; max-width: 640px; }
@@ -550,33 +528,33 @@
     /* ============================================================
        SMALL ICON COLOR PALETTE - every icon gets its own colour
        ============================================================ */
-    .service-card:nth-child(1) .s-icon { background: linear-gradient(135deg, #0a4b7a, #00a8b5); box-shadow: 0 8px 20px rgba(0, 168, 181, 0.35); }
-    .service-card:nth-child(2) .s-icon { background: linear-gradient(135deg, #f39c12, #e67e22); box-shadow: 0 8px 20px rgba(243, 156, 18, 0.35); }
+    .service-card:nth-child(1) .s-icon { background: linear-gradient(135deg, #7A1F2B, #B65A6A); box-shadow: 0 8px 20px rgba(0, 168, 181, 0.35); }
+    .service-card:nth-child(2) .s-icon { background: linear-gradient(135deg, #B58A3A, #e67e22); box-shadow: 0 8px 20px rgba(243, 156, 18, 0.35); }
     .service-card:nth-child(3) .s-icon { background: linear-gradient(135deg, #1e8c45, #27ae60); box-shadow: 0 8px 20px rgba(39, 174, 96, 0.35); }
     .service-card:nth-child(4) .s-icon { background: linear-gradient(135deg, #6c3483, #9b59b6); box-shadow: 0 8px 20px rgba(155, 89, 182, 0.35); }
     .service-card:nth-child(5) .s-icon { background: linear-gradient(135deg, #c0392b, #e74c3c); box-shadow: 0 8px 20px rgba(231, 76, 60, 0.35); }
     .service-card:nth-child(6) .s-icon { background: linear-gradient(135deg, #0e8c7f, #1abc9c); box-shadow: 0 8px 20px rgba(26, 188, 156, 0.35); }
     .service-card:nth-child(7) .s-icon { background: linear-gradient(135deg, #2c3e50, #5d6d7e); box-shadow: 0 8px 20px rgba(93, 109, 126, 0.35); }
 
-    .why-item:nth-child(1) .w-icon { background: linear-gradient(135deg, #f39c12, #e67e22); }
-    .why-item:nth-child(2) .w-icon { background: linear-gradient(135deg, #0a4b7a, #00a8b5); }
+    .why-item:nth-child(1) .w-icon { background: linear-gradient(135deg, #B58A3A, #e67e22); }
+    .why-item:nth-child(2) .w-icon { background: linear-gradient(135deg, #7A1F2B, #B65A6A); }
     .why-item:nth-child(3) .w-icon { background: linear-gradient(135deg, #1e8c45, #27ae60); }
     .why-item:nth-child(4) .w-icon { background: linear-gradient(135deg, #6c3483, #9b59b6); }
     .why-item:nth-child(5) .w-icon { background: linear-gradient(135deg, #0e8c7f, #1abc9c); }
 
-    .timeline-item:nth-child(1) .t-icon { background: linear-gradient(135deg, #0a4b7a, #00a8b5); }
-    .timeline-item:nth-child(2) .t-icon { background: linear-gradient(135deg, #f39c12, #e67e22); }
+    .timeline-item:nth-child(1) .t-icon { background: linear-gradient(135deg, #7A1F2B, #B65A6A); }
+    .timeline-item:nth-child(2) .t-icon { background: linear-gradient(135deg, #B58A3A, #e67e22); }
     .timeline-item:nth-child(3) .t-icon { background: linear-gradient(135deg, #1e8c45, #27ae60); }
     .timeline-item:nth-child(4) .t-icon { background: linear-gradient(135deg, #6c3483, #9b59b6); }
     .timeline-item:nth-child(5) .t-icon { background: linear-gradient(135deg, #0e8c7f, #1abc9c); }
-    .timeline-item:nth-child(6) .t-icon { background: linear-gradient(135deg, #0a4b7a, #00a8b5); }
-    .timeline-item:nth-child(7) .t-icon { background: linear-gradient(135deg, #f39c12, #e67e22); }
+    .timeline-item:nth-child(6) .t-icon { background: linear-gradient(135deg, #7A1F2B, #B65A6A); }
+    .timeline-item:nth-child(7) .t-icon { background: linear-gradient(135deg, #B58A3A, #e67e22); }
     .timeline-item:nth-child(8) .t-icon { background: linear-gradient(135deg, #1e8c45, #27ae60); }
     .timeline-item:nth-child(9) .t-icon { background: linear-gradient(135deg, #6c3483, #9b59b6); }
     .timeline-item:nth-child(10) .t-icon { background: linear-gradient(135deg, #0e8c7f, #1abc9c); }
 
-    .coding-card:nth-child(1) .c-icon { background: linear-gradient(135deg, #0a4b7a, #00a8b5); box-shadow: 0 10px 24px rgba(0, 168, 181, 0.35); }
-    .coding-card:nth-child(2) .c-icon { background: linear-gradient(135deg, #f39c12, #e67e22); box-shadow: 0 10px 24px rgba(243, 156, 18, 0.35); }
+    .coding-card:nth-child(1) .c-icon { background: linear-gradient(135deg, #7A1F2B, #B65A6A); box-shadow: 0 10px 24px rgba(0, 168, 181, 0.35); }
+    .coding-card:nth-child(2) .c-icon { background: linear-gradient(135deg, #B58A3A, #e67e22); box-shadow: 0 10px 24px rgba(243, 156, 18, 0.35); }
     .coding-card:nth-child(3) .c-icon { background: linear-gradient(135deg, #1e8c45, #27ae60); box-shadow: 0 10px 24px rgba(39, 174, 96, 0.35); }
     .coding-card:nth-child(4) .c-icon { background: linear-gradient(135deg, #6c3483, #9b59b6); box-shadow: 0 10px 24px rgba(155, 89, 182, 0.35); }
     .coding-card:nth-child(5) .c-icon { background: linear-gradient(135deg, #c0392b, #e74c3c); box-shadow: 0 10px 24px rgba(231, 76, 60, 0.35); }
@@ -625,12 +603,12 @@
       display: flex; align-items: center; justify-content: center;
       font-size: 2.6rem; color: #fff;
     }
-    .thumb-1 { background: linear-gradient(135deg, #0a4b7a, #00a8b5); }
-    .thumb-2 { background: linear-gradient(135deg, #007f8a, #0a4b7a); }
-    .thumb-3 { background: linear-gradient(135deg, #0d5f98, #f39c12); }
-    .thumb-4 { background: linear-gradient(135deg, #081f33, #0a4b7a); }
-    .thumb-5 { background: linear-gradient(135deg, #00a8b5, #f39c12); }
-    .thumb-6 { background: linear-gradient(135deg, #0a4b7a, #e67e22); }
+    .thumb-1 { background: linear-gradient(135deg, #7A1F2B, #B65A6A); }
+    .thumb-2 { background: linear-gradient(135deg, #6B1724, #7A1F2B); }
+    .thumb-3 { background: linear-gradient(135deg, #922B3E, #B58A3A); }
+    .thumb-4 { background: linear-gradient(135deg, #111111, #7A1F2B); }
+    .thumb-5 { background: linear-gradient(135deg, #B65A6A, #B58A3A); }
+    .thumb-6 { background: linear-gradient(135deg, #7A1F2B, #e67e22); }
     .blog-body { padding: 1.4rem 1.4rem 1.6rem; }
     .blog-meta { display: flex; flex-wrap: wrap; gap: 0.9rem; font-size: 0.76rem; color: var(--text-muted); margin-bottom: 0.6rem; }
     .blog-meta i { color: var(--gold); margin-right: 0.3rem; }
@@ -655,7 +633,7 @@
        ============================================================ */
     .site-footer {
       margin-top: 3rem;
-      background: linear-gradient(160deg, #081f33, #0a4b7a);
+      background: linear-gradient(160deg, #111111, #7A1F2B);
       color: #fff; padding: 3.2rem 0 1.6rem;
     }
     .footer-grid { display: grid; grid-template-columns: 1fr; gap: 2.2rem; }
@@ -668,7 +646,7 @@
     }
     .footer-grid h4::after {
       content: ""; display: block; width: 26px; height: 2px;
-      background: linear-gradient(90deg, #ad2b52, var(--gold));
+      background: linear-gradient(90deg, #8E2438, var(--gold));
       margin-top: 6px; border-radius: 2px;
     }
     .footer-links li { margin-bottom: 0.6rem; }
@@ -892,105 +870,138 @@
       .page.active { animation: none; }
       * { transition-duration: 0.01ms !important; }
     }
-  
-/* ===== HIMA TECH SCREENSHOT-MATCHED BRAND LAYER ===== */
-:root{--primary:#8b1028;--primary-light:#a51f3a;--secondary:#8b1028;--secondary-dark:#731021;--gold:#8b1028;--dark:#111;--text:#242424;--text-muted:#666;--shadow:0 8px 24px rgba(0,0,0,.10);--radius:12px}
-body{background:#fff;color:#222;font-family:Arial,Helvetica,sans-serif}
-.navbar{position:fixed!important;top:36px!important;background:#fff!important;border:0!important;box-shadow:0 3px 16px rgba(0,0,0,.08)!important;backdrop-filter:none!important}
-.navbar-inner{display:none!important}.ht-mainnav{height:108px;max-width:1400px;margin:auto;padding:0 5.2%;display:flex;align-items:center;justify-content:space-between}.ht-brand img{width:265px;height:auto}.ht-mainnav .nav-menu{display:flex!important;align-items:center;gap:31px;width:auto;flex-direction:row;margin-left:auto}.ht-mainnav .nav-menu li{position:relative}.ht-mainnav .nav-menu a{color:#111!important;font-weight:500;font-size:17px;padding:13px 0;white-space:nowrap}.ht-mainnav .nav-menu a:hover,.ht-mainnav .nav-menu a.active{color:var(--primary)!important}.ht-mainnav .nav-menu a.active{border-bottom:2px solid var(--primary)}.ht-services-nav> a span{font-size:14px;margin-left:5px}.ht-dropdown{display:none;position:absolute;top:42px;left:-12px;background:#fff;border-radius:10px;padding:10px;box-shadow:0 10px 28px rgba(0,0,0,.14);min-width:190px}.ht-services-nav:hover .ht-dropdown{display:block}.ht-dropdown a{display:block!important;padding:10px 12px!important;border:0!important}.ht-nav-audit{background:var(--primary);color:#fff!important;padding:15px 23px!important;border-radius:7px!important;font-weight:700!important}.ht-nav-audit:hover{background:#6f0d20!important;color:#fff!important}
-.ht-topbar{position:absolute;top:0;left:0;right:0;height:36px;background:#080808;color:#fff;z-index:300;font-size:13px}.ht-topinner{max-width:1400px;margin:auto;padding:0 5.2%;height:36px;display:flex;align-items:center;justify-content:space-between}.ht-topinner .sep{opacity:.35;margin:0 13px}.ht-hero{margin-top:144px;min-height:410px;position:relative;overflow:hidden;background:linear-gradient(90deg,#fff 0%,#fff 51%,#f7f7f7 100%)}.ht-hero-grid{display:grid;grid-template-columns:53% 47%;min-height:410px;align-items:center}.ht-hero-copy{padding:40px 20px 34px 0;position:relative;z-index:2}.ht-eyebrow{font-size:17px;color:var(--primary);font-weight:700;margin-bottom:15px}.ht-hero-copy h1{font-size:54px;line-height:1.08;letter-spacing:-1.8px;color:#111;margin:0 0 14px;font-weight:800}.ht-hero-copy h1 span{color:var(--primary)}.ht-hero-copy p{font-size:17px;line-height:1.55;max-width:620px;color:#555;margin-bottom:20px}.ht-actions{display:flex;gap:18px;margin:18px 0 26px}.ht-btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 24px;border-radius:7px;font-size:15px;font-weight:700}.ht-btn-primary{background:var(--primary);color:#fff;box-shadow:0 7px 18px rgba(139,16,40,.22)}.ht-btn-outline{border:1.5px solid var(--primary);color:var(--primary);background:#fff}.ht-trust-row{display:flex;gap:28px}.ht-trust-row>div{display:flex;align-items:center;gap:10px;padding-right:22px;border-right:1px solid #ddd}.ht-trust-row>div:last-child{border:0}.ht-trust-row b{font-size:28px;color:var(--primary)}.ht-trust-row strong,.ht-trust-row small{display:block}.ht-trust-row strong{font-size:13px;color:#111}.ht-trust-row small{font-size:12px;color:#555;margin-top:4px}.ht-hero-visual{position:relative;height:410px;overflow:hidden}.ht-photo{position:absolute;right:-5%;top:0;width:100%;height:100%;background:linear-gradient(135deg,#f1f1f1,#ddd);overflow:hidden}.ht-photo:after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,255,255,.75),rgba(255,255,255,0) 30%)}.ht-photo-faux{position:absolute;inset:0;background:radial-gradient(circle at 65% 40%,#fff 0 7%,transparent 8%),linear-gradient(135deg,#f5f5f5,#dedede 60%,#cfcfcf);}.ht-laptop{position:absolute;width:310px;height:190px;right:85px;top:58px;transform:rotate(-2deg)}.ht-laptop .screen{height:165px;border:12px solid #202020;border-radius:8px;background:#f7f7f7;position:relative;box-shadow:0 10px 20px rgba(0,0,0,.18)}.ht-laptop .base{height:18px;width:350px;background:#bdbdbd;border-radius:3px 3px 20px 20px;transform:translateX(-20px)}.chart-bar{position:absolute;bottom:25px;width:22px;background:#8b1028}.chart-bar.a{height:48px;left:50px}.chart-bar.b{height:85px;left:85px}.chart-bar.c{height:62px;left:120px}.donut{position:absolute;right:40px;top:32px;width:70px;height:70px;border:18px solid #8b1028;border-right-color:#222;border-radius:50%}.ht-desk-card{position:absolute;width:250px;height:90px;right:240px;bottom:25px;background:#e9e9e9;transform:skew(-8deg);box-shadow:0 12px 20px rgba(0,0,0,.12)}.ht-hand{position:absolute;width:150px;height:70px;right:40px;bottom:28px;background:#b98870;border-radius:45% 50% 30% 30%;transform:rotate(-12deg);opacity:.8}.ht-stat-card{position:absolute;left:18px;width:225px;height:80px;background:#fff;border-radius:10px;box-shadow:0 8px 20px rgba(0,0,0,.15);display:grid;grid-template-columns:52px 1fr;grid-template-rows:1fr 1fr;align-items:center;padding:11px 14px;z-index:5}.ht-stat-card b{grid-row:1/3;width:43px;height:43px;border-radius:50%;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-size:20px}.ht-stat-card strong{font-size:27px;color:var(--primary);line-height:1}.ht-stat-card small{font-size:13px;color:#222}.ht-stat-card.c1{top:58px}.ht-stat-card.c2{top:148px}.ht-stat-card.c3{top:238px}.ht-metrics{background:linear-gradient(90deg,#27090f,#7d1227 48%,#160407);color:#fff}.ht-metrics-grid{height:88px;display:grid;grid-template-columns:repeat(5,1fr);align-items:center}.ht-metrics-grid>div{height:50px;display:grid;grid-template-columns:44px auto;grid-template-rows:1fr 1fr;align-items:center;padding-left:25px;border-right:1px solid rgba(255,255,255,.4)}.ht-metrics-grid>div:last-child{border:0}.ht-metrics-grid b{grid-row:1/3;font-size:31px}.ht-metrics-grid strong{font-size:23px}.ht-metrics-grid span{font-size:12px}.ht-services-wrap{position:relative;padding:25px 0 20px;display:grid;grid-template-columns:1fr 420px;gap:24px}.ht-services-head{grid-column:1/2}.ht-kicker{font-size:13px;color:var(--primary);font-weight:800;letter-spacing:.08em;margin-bottom:4px}.ht-services-head h2,.ht-why-wrap h2{font-size:27px;color:#111;margin-bottom:5px}.ht-services-head p{font-size:13px;color:#555}.ht-services-head p i{display:inline-block;width:25px;height:2px;background:var(--primary);vertical-align:middle;margin-right:8px}.ht-services-grid{grid-column:1/2;display:grid;grid-template-columns:repeat(5,1fr);gap:12px}.ht-service-card{background:#fff;border:1px solid #e8e8e8;border-radius:9px;min-height:178px;padding:14px;box-shadow:0 5px 14px rgba(0,0,0,.08)}.ht-service-card:hover{transform:translateY(-3px);box-shadow:0 10px 20px rgba(0,0,0,.12)}.ht-icon{width:38px;height:38px;border-radius:50%;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;margin-bottom:9px}.ht-service-card h3{font-size:14px;color:#111;margin-bottom:7px}.ht-service-card p{font-size:11.5px;line-height:1.45;color:#555;min-height:49px}.ht-service-card a{font-size:11.5px;color:var(--primary);font-weight:700}.ht-audit-mini{grid-column:2/3;grid-row:1/3;background:linear-gradient(150deg,#97132d,#710d20);border-radius:13px;padding:18px;color:#fff;box-shadow:0 9px 22px rgba(0,0,0,.16);align-self:start;margin-top:-10px}.ht-audit-title h2{font-size:24px;margin-bottom:5px}.ht-audit-title p{font-size:12px;margin-bottom:12px}.ht-mini-form{display:grid;grid-template-columns:1fr 1fr;gap:7px}.ht-mini-form input,.ht-mini-form select{height:34px;border:0;border-radius:4px;padding:0 10px;font-size:11px;background:#fff;color:#333}.ht-audit-btn{display:flex;align-items:center;justify-content:center;background:#080808;color:#fff;height:38px;border-radius:5px;margin-top:9px;font-size:12px;font-weight:700}.ht-secure{text-align:center;font-size:10px;margin-top:9px}.ht-why-wrap{padding:8px 0 32px;position:relative}.ht-why-wrap>h2{font-size:25px;line-height:1.08;margin-bottom:18px}.ht-why-grid{position:absolute;left:390px;right:0;top:22px;display:grid;grid-template-columns:repeat(4,1fr)}.ht-why-grid>div{display:flex;gap:10px;padding:0 16px;border-right:1px solid #ddd}.ht-why-grid>div:last-child{border:0}.ht-why-grid b{color:var(--primary);font-size:24px}.ht-why-grid strong,.ht-why-grid small{display:block}.ht-why-grid strong{font-size:13px;color:#222}.ht-why-grid small{font-size:11px;line-height:1.35;color:#666;margin-top:4px}.ht-final-cta{display:none}
-@media(max-width:1100px){.ht-mainnav .nav-menu{gap:18px}.ht-mainnav .nav-menu a{font-size:15px}.ht-brand img{width:225px}.ht-services-wrap{grid-template-columns:1fr}.ht-audit-mini{grid-column:1;grid-row:auto}.ht-services-grid{grid-column:1;grid-template-columns:repeat(3,1fr)}.ht-why-grid{position:static;margin-top:20px}.ht-why-wrap{padding-bottom:25px}}
-@media(max-width:800px){.navbar{top:36px!important}.ht-mainnav{height:78px;padding:0 18px}.ht-brand img{width:190px} .ht-mainnav .nav-toggle{display:inline-flex!important;background:var(--primary);border:0}.ht-hero{margin-top:114px}.ht-hero-grid{grid-template-columns:1fr}.ht-hero-copy{padding:35px 18px}.ht-hero-copy h1{font-size:40px}.ht-hero-visual{height:330px}.ht-photo{right:0}.ht-stat-card{left:12px;transform:scale(.9);transform-origin:left center}.ht-trust-row{flex-wrap:wrap;gap:12px}.ht-metrics-grid{height:auto;grid-template-columns:repeat(2,1fr);padding:12px 18px}.ht-metrics-grid>div{padding:8px 12px;border-right:0}.ht-services-wrap{padding:24px 18px}.ht-services-grid{grid-template-columns:1fr 1fr}.ht-why-wrap{padding:10px 18px 25px}.ht-why-grid{grid-template-columns:1fr 1fr;gap:18px}.ht-topinner{padding:0 18px;font-size:10px}}
-@media(max-width:520px){.ht-topinner>div:last-child{display:none}.ht-hero-copy h1{font-size:34px}.ht-actions{flex-direction:column}.ht-btn{width:100%}.ht-services-grid{grid-template-columns:1fr}.ht-audit-mini{margin-top:10px}.ht-why-grid{grid-template-columns:1fr}.ht-stat-card{width:190px;height:68px}.ht-stat-card strong{font-size:23px}.ht-stat-card small{font-size:11px}.ht-stat-card.c1{top:20px}.ht-stat-card.c2{top:95px}.ht-stat-card.c3{top:170px}}
-/* Fix inner pages so content stays below fixed header */
-.page {
-  padding-top: 0;
-}
 
-.page-hero {
-  padding-top: 50px;
-}
+    /* ============================================================
+       HIMA TECH RCM — BRAND REDESIGN OVERRIDES
+       Maroon + Black + White healthcare/corporate palette
+       ============================================================ */
+    body {
+      background:
+        radial-gradient(ellipse 65% 45% at 5% 0%, rgba(122,31,43,.08), transparent 60%),
+        radial-gradient(ellipse 55% 45% at 95% 15%, rgba(181,138,58,.07), transparent 60%),
+        linear-gradient(180deg,#fff 0%,#fbf8f9 48%,#f7f2f4 100%);
+    }
+    .navbar {
+      background:rgba(17,17,17,.96);
+      border-bottom:1px solid rgba(181,138,58,.28);
+      box-shadow:0 8px 30px rgba(17,17,17,.24);
+    }
+    .navbar.scrolled { border-bottom-color:rgba(181,138,58,.5); }
+    .nav-menu { background:rgba(17,17,17,.98); }
+    .nav-menu a:hover { background:rgba(122,31,43,.35); }
+    .nav-menu a.active { background:linear-gradient(135deg,rgba(122,31,43,.75),rgba(90,21,33,.72)); }
+    .nav-toggle { background:linear-gradient(135deg,#7A1F2B,#111); border-color:rgba(255,255,255,.25); }
+    .btn-primary,.btn-glow { background:linear-gradient(135deg,#8E2438,#5A1521); box-shadow:0 12px 28px rgba(122,31,43,.28); }
+    .btn-primary:hover,.btn-glow:hover { box-shadow:0 18px 38px rgba(122,31,43,.38); }
+    @keyframes glowPulse { 0%,100%{box-shadow:0 0 0 0 rgba(122,31,43,.32),0 12px 28px rgba(122,31,43,.28)} 50%{box-shadow:0 0 0 12px rgba(122,31,43,0),0 18px 38px rgba(122,31,43,.38)} }
+    .hero {
+      background:
+        radial-gradient(ellipse 70% 65% at 12% 10%,rgba(146,43,62,.55),transparent 58%),
+        radial-gradient(ellipse 55% 55% at 88% 82%,rgba(181,138,58,.18),transparent 55%),
+        linear-gradient(135deg,#111 0%,#3c1019 48%,#7A1F2B 100%);
+    }
+    .hero::before { background:radial-gradient(circle,rgba(182,90,106,.25),rgba(122,31,43,.12) 45%,transparent 70%); }
+    .stat-card strong { color:#F0C5CC; }
+    .section-head h2,.service-card h3,.why-item h3,.timeline-card h3,.coding-card h3,.process-card h3,.contact-box strong,.team-card h4,.about-text h2 { color:#7A1F2B; }
+    .section-head h2::after { background:linear-gradient(90deg,#7A1F2B,#B58A3A); }
+    .kicker { color:#7A1F2B; background:rgba(122,31,43,.07); border-color:rgba(122,31,43,.18); }
+    .grad-text { background:linear-gradient(92deg,#B65A6A 0%,#7A1F2B 58%,#B58A3A 100%); -webkit-background-clip:text; background-clip:text; }
+    .glass { background:rgba(255,255,255,.86); border-color:rgba(122,31,43,.10); box-shadow:0 12px 34px rgba(17,17,17,.07); }
+    .service-card:hover,.why-item:hover,.coding-card:hover,.blog-card:hover,.team-card:hover { box-shadow:0 22px 46px rgba(122,31,43,.14); }
+    .s-icon,.c-icon,.t-icon,.process-num { background:linear-gradient(135deg,#7A1F2B,#B65A6A); box-shadow:0 8px 20px rgba(122,31,43,.22); }
+    .w-icon { background:linear-gradient(135deg,#111,#7A1F2B); box-shadow:0 8px 20px rgba(17,17,17,.18); }
+    .service-card:nth-child(n) .s-icon,.why-item:nth-child(n) .w-icon,.timeline-item:nth-child(n) .t-icon,.coding-card:nth-child(n) .c-icon { background:linear-gradient(135deg,#7A1F2B,#B65A6A); box-shadow:0 8px 20px rgba(122,31,43,.22); }
+    .form-control { border-color:rgba(122,31,43,.16); }
+    .form-control:focus { border-color:#7A1F2B; box-shadow:0 0 0 4px rgba(122,31,43,.10),0 0 22px rgba(122,31,43,.12); }
+    .form-group label,.form-section-title { color:#7A1F2B; }
+    .radio-group input,.check-group input,.consent input { accent-color:#7A1F2B; }
+    .form-section-title i,.blog-meta i,.blog-topic i { color:#B58A3A; }
+    .timeline::before { background:linear-gradient(180deg,#7A1F2B,#B65A6A,#B58A3A); }
+    .timeline-item::before { background:#7A1F2B; box-shadow:0 4px 14px rgba(122,31,43,.28); }
+    .check-item { color:#7A1F2B; border-color:rgba(122,31,43,.10); }
+    .check-item i { color:#7A1F2B; }
+    .benefit-badge { color:#7A1F2B; background:linear-gradient(135deg,rgba(122,31,43,.07),rgba(181,138,58,.07)); border-color:rgba(122,31,43,.16); box-shadow:0 6px 18px rgba(122,31,43,.08); }
+    .benefit-badge i { color:#B58A3A; }
+    .cta-box { background:radial-gradient(ellipse 60% 80% at 20% 10%,rgba(182,90,106,.24),transparent 60%),radial-gradient(ellipse 60% 80% at 85% 90%,rgba(181,138,58,.14),transparent 60%),linear-gradient(135deg,#7A1F2B,#111); }
+    .page-hero { background:radial-gradient(ellipse 60% 80% at 10% 0%,rgba(146,43,62,.42),transparent 55%),radial-gradient(ellipse 50% 70% at 95% 90%,rgba(181,138,58,.12),transparent 55%),linear-gradient(140deg,#111 0%,#4A121D 55%,#7A1F2B 100%); }
+    .team-card img { border-color:#7A1F2B; box-shadow:0 8px 22px rgba(122,31,43,.22); }
+    .team-card .role { color:#9A3448; }
+    .blog-thumb,.thumb-1,.thumb-2,.thumb-3,.thumb-4,.thumb-5,.thumb-6 { background:linear-gradient(135deg,#111,#7A1F2B) !important; }
+    .read-more { color:#7A1F2B; }
+    .read-more:hover { color:#B58A3A; }
+    .site-footer { background:linear-gradient(160deg,#111,#3C1019 60%,#7A1F2B); }
+    .footer-grid h4::after { background:linear-gradient(90deg,#B58A3A,#7A1F2B); }
+    .footer-contact i { color:#D6B56A; }
+    .footer-social a:hover { background:#7A1F2B; }
+    #backToTop { background:linear-gradient(135deg,#7A1F2B,#111); box-shadow:0 12px 30px rgba(122,31,43,.28); }
+    .legal-doc { border-color:rgba(122,31,43,.10); box-shadow:0 18px 44px rgba(17,17,17,.08); }
+    .legal-doc h2 { color:#7A1F2B; }
+    .legal-doc .legal-updated { color:#9A3448; }
+    .legal-doc h3 { color:#7A1F2B; }
+    .legal-doc a { color:#7A1F2B; }
+    @media (min-width:992px){ .nav-menu a{font-size:.84rem}.nav-menu .nav-cta{margin-left:.55rem} }
+    @media (max-width:640px){ .hero h1{font-size:1.9rem}.section-head h2{font-size:1.5rem}.brand-logo{height:50px}.stat-card strong{font-size:1rem} }
 
-.page .section-pad {
-  position: relative;
-  z-index: 1;
-}
+    /* ============================================================
+       FINAL MOBILE + PAGE HERO FIXES
+       ============================================================ */
+    html, body { width:100%; max-width:100%; overflow-x:hidden; }
+    .page-hero { scroll-margin-top:70px; }
 
-/* Keep audit/contact form below navigation */
-#page-audit .section-pad,
-#page-contact .section-pad {
-  padding-top: 3.5rem;
-}
+    @media (max-width: 991px) {
+      .navbar { z-index: 9999; }
+      .navbar-inner { min-height:68px; }
+      .nav-toggle { position:relative; z-index:10001; flex:0 0 44px; }
+      .nav-menu {
+        position:absolute;
+        top:calc(100% + 4px);
+        left:12px; right:12px;
+        width:auto !important;
+        max-height:calc(100vh - 90px);
+        overflow-y:auto;
+        -webkit-overflow-scrolling:touch;
+        z-index:10000;
+      }
+      .nav-menu.open { display:flex !important; visibility:visible !important; opacity:1 !important; pointer-events:auto !important; }
+      .nav-menu:not(.open) { pointer-events:none; }
+      .nav-menu .nav-cta { width:100%; }
+      .nav-menu .nav-cta a { justify-content:center; width:100%; }
 
-@media (max-width: 800px) {
-  #page-audit .section-pad,
-  #page-contact .section-pad {
-    padding-top: 2.5rem;
-  }
-}
-/* FINAL NAV FIX */
+      /* Bring inner-page headings slightly higher */
+      .page-hero { padding-top:6.25rem !important; padding-bottom:2.25rem !important; }
+      .page-hero h1 { margin-top:0 !important; }
 
-.navbar {
-  position: relative !important;
-  top: 0 !important;
-  background: transparent !important;
-  box-shadow: none !important;
-}
+      .container { max-width:100%; }
+      .form-row, .contact-grid, .about-grid, .team-grid, .coding-grid, .blog-grid, .check-grid, .benefit-row, .why-grid, .services-grid, .mv-grid { min-width:0; }
+      .form-control, textarea, input, select, button { max-width:100%; }
+      .timeline-card, .process-card, .service-card, .why-item, .coding-card, .blog-card, .team-card, .contact-box, .audit-form, .legal-doc { min-width:0; }
+    }
 
-.page {
-  scroll-margin-top: 40px;
-}
+    @media (max-width: 640px) {
+      .navbar-inner { padding:0.55rem 0.75rem !important; min-height:64px; }
+      .brand { left:50%; }
+      .brand-logo { height:46px !important; max-width:210px; }
+      .nav-toggle { width:42px; height:42px; }
+      .nav-menu { left:8px; right:8px; top:calc(100% + 3px); }
+      .page-hero { padding-top:5.9rem !important; padding-bottom:2rem !important; }
+      .page-hero h1 { font-size:1.55rem !important; line-height:1.18 !important; }
+      .page-hero p { font-size:0.88rem !important; line-height:1.5; }
+      .section-pad { padding-left:1rem !important; padding-right:1rem !important; }
+      .hero { padding-top:5.7rem !important; }
+      .hero-stats { grid-template-columns:repeat(3,1fr) !important; }
+      .stat-card { min-width:0; }
+      .stat-card span { white-space:normal; }
+    }
 
-.page-hero {
-  padding-top: 50px !important;
-}
-
-/* FREE RCM AUDIT BUTTON */
-.ht-nav-audit {
-  color: #111 !important;
-  background: #fff !important;
-  border: 2px solid #000 !important;
-  border-radius: 8px !important;
-  padding: 0.55rem 0.9rem !important;
-  font-weight: 700 !important;
-}
-
-.ht-nav-audit:hover,
-.ht-nav-audit:focus,
-.ht-nav-audit:active {
-  color: #fff !important;
-  background: #000 !important;
-  border-color: #000 !important;
-}
-
-/* TOP BLACK BAR */
-.ht-topbar {
-  height: 28px !important;
-}
-
-.ht-topinner {
-  height: 28px !important;
-}
-
-/* MOBILE MENU */
-@media (max-width: 800px) {
-
-  .nav-toggle {
-    display: inline-flex !important;
-  }
-
-  .nav-menu {
-    display: none;
-  }
-
-  .nav-menu.open {
-    display: flex !important;
-  }
-
-  .page-hero {
-    padding-top: 35px !important;
-  }
-</style>
+    @media (max-width: 380px) {
+      .brand-logo { height:42px !important; max-width:185px; }
+      .nav-toggle { width:40px; height:40px; }
+      .page-hero h1 { font-size:1.42rem !important; }
+      .hero-stats { gap:0.35rem !important; }
+      .stat-card strong { font-size:0.95rem !important; }
+      .stat-card span { font-size:0.58rem !important; }
+    }
+  </style>
 </head>
 <body>
 
@@ -998,17 +1009,26 @@ body{background:#fff;color:#222;font-family:Arial,Helvetica,sans-serif}
        NAVBAR (solid dark glass)
        ============================================================ -->
   <header class="navbar" id="navbar">
-    <div class="ht-mainnav">
-      <a href="/" data-route="home" class="ht-brand"><img src="assets/images/logo-trim.png" alt="HIMA TECH RCM logo" style="height:45px !important; width:auto !important; max-height:45px !important;"></a>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+    <div class="navbar-inner">
+      <a href="/home" data-route="home" class="brand">
+        <img src="assets/images/logo-trim-light.png" alt="HIMA TECH RCM logo" class="brand-logo">
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
       <ul class="nav-menu" id="navMenu">
-        <li><a href="/" data-route="home" class="active">Home</a></li>
+        <li><a href="/home" data-route="home" class="active">Home</a></li>
         <li><a href="/about" data-route="about">About Us</a></li>
-        <li class="ht-services-nav"><a href="#services">Services <span>⌄</span></a><div class="ht-dropdown"><a href="/billing" data-route="billing">Medical Billing</a><a href="/credentialing" data-route="credentialing">Credentialing</a><a href="/coding" data-route="coding">Medical Coding</a></div></li>
+        <li><a href="/billing" data-route="billing">Billing Services</a></li>
+        <li><a href="/credentialing" data-route="credentialing">Credentialing</a></li>
+        <li><a href="/coding" data-route="coding">Medical Coding</a></li>
         <li><a href="/process" data-route="process">Process</a></li>
+        <li><a href="/audit" data-route="audit">Audit</a></li>
         <li><a href="/blog" data-route="blog">Blog</a></li>
         <li><a href="/contact" data-route="contact">Contact</a></li>
-        <li class="nav-cta"><a href="/audit" data-route="audit" class="ht-nav-audit">▣ &nbsp; FREE RCM AUDIT</a></li>
+        <li class="nav-cta"><a href="/audit" data-route="audit" class="btn btn-glow" style="padding:0.5rem 1.2rem;font-size:0.85rem;"><i class="fa-solid fa-stethoscope"></i> Free RCM Audit</a></li>
       </ul>
     </div>
   </header>
@@ -1019,105 +1039,227 @@ body{background:#fff;color:#222;font-family:Arial,Helvetica,sans-serif}
          PAGE 1: HOME
          ============================================================ -->
     <section class="page active" id="page-home">
-  <div class="ht-topbar">
-    <div class="ht-topinner">
-      <div><span>⌕</span> +1 (646) 897-2471 <span class="sep">|</span> ✉ info@himatechrcm.com</div>
-      <div>♙ HIPAA Compliant &amp; Secure</div>
-    </div>
-  </div>
 
-  <div class="ht-hero">
-    <div class="ht-hero-bg"></div>
-    <div class="container ht-hero-grid">
-      <div class="ht-hero-copy">
-        <div class="ht-eyebrow">TRUSTED RCM PARTNER FOR U.S. HEALTHCARE PROVIDERS</div>
-        <h1>Maximize Revenue.<br><span>Minimize Stress.</span></h1>
-        <p>End-to-end Revenue Cycle Management solutions that improve cash flow, reduce denials, and help your practice thrive.</p>
-        <div class="ht-actions">
-          <a href="/audit" data-route="audit" class="ht-btn ht-btn-primary">▣ &nbsp; BOOK FREE RCM AUDIT</a>
-          <a href="#services" class="ht-btn ht-btn-outline">OUR SERVICES &nbsp; →</a>
+      <!-- HERO -->
+      <div class="hero">
+        <div class="float-shape" style="top:14%;left:6%;opacity:0.5;">
+          <div class="scene3d"><div class="cube3d">
+            <div class="cube-face cube-f1"><i class="fa-solid fa-plus"></i></div>
+            <div class="cube-face cube-f2"><i class="fa-solid fa-plus"></i></div>
+            <div class="cube-face cube-f3"><i class="fa-solid fa-plus"></i></div>
+            <div class="cube-face cube-f4"><i class="fa-solid fa-plus"></i></div>
+            <div class="cube-face cube-f5"><i class="fa-solid fa-plus"></i></div>
+            <div class="cube-face cube-f6"><i class="fa-solid fa-plus"></i></div>
+          </div></div>
         </div>
-        <div class="ht-trust-row">
-          <div><b>♢</b><span><strong>HIPAA Compliant</strong><small>Secure &amp; Confidential</small></span></div>
-          <div><b>♧</b><span><strong>Expert Team</strong><small>RCM Specialists</small></span></div>
-          <div><b>◉</b><span><strong>Proven Results</strong><small>Better Collections</small></span></div>
-        </div>
-      </div>
-      <div class="ht-hero-visual">
-        <div class="ht-photo">
-          <div class="ht-photo-faux">
-            <div class="ht-laptop"><div class="screen"><div class="chart-bar a"></div><div class="chart-bar b"></div><div class="chart-bar c"></div><div class="donut"></div></div><div class="base"></div></div>
-            <div class="ht-desk-card"></div>
-            <div class="ht-hand"></div>
+
+        <div class="f-dot" style="width:14px;height:14px;background:rgba(0,168,181,0.55);top:22%;right:8%;"></div>
+        <div class="f-dot" style="width:9px;height:9px;background:rgba(243,156,18,0.7);top:60%;left:4%;animation-delay:1.2s;"></div>
+        <div class="f-dot" style="width:12px;height:12px;background:rgba(255,255,255,0.4);top:78%;right:20%;animation-delay:2s;"></div>
+        <svg class="float-shape spin-ring" style="top:10%;right:16%;width:70px;height:70px;opacity:0.5;" viewBox="0 0 100 100" fill="none" stroke="#E7B8C0" stroke-width="3">
+          <circle cx="50" cy="50" r="44" stroke-dasharray="30 14"/>
+        </svg>
+
+        <div class="container hero-inner">
+          <!-- Left: text -->
+          <div>
+            <h1><span class="grad-text">Revenue Cycle Management That Helps U.S. Healthcare Providers Thrive</span></h1>
+            <p class="hero-sub">
+              At HIMA TECH RCM, we partner with independent physicians, medical practices, medical
+              specialty clinics, urgent care centers, behavioral health providers, and healthcare organizations
+              across the United States to simplify Revenue Cycle Management.
+            </p>
+            <p class="hero-sub" style="margin-top:-1.2rem;">
+              From patient eligibility verification and medical coding to provider credentialing, claims management,
+              accounts receivable follow-up, and denial resolution, our experienced team helps practices improve
+              collections, reduce administrative burden, and strengthen financial performance while maintaining
+              full HIPAA compliance.
+            </p>
+            <div class="hero-actions">
+              <a href="/audit" data-route="audit" class="btn btn-glow"><i class="fa-solid fa-stethoscope"></i> Book a Free RCM Audit</a>
+              <a href="/contact" data-route="contact" class="btn btn-outline-light"><i class="fa-solid fa-envelope"></i> Contact Us</a>
+            </div>
+
+            <!-- Stats row (static final values in markup, JS counts up) -->
+            <div class="hero-stats">
+              <div class="stat-card">
+                <strong class="counter" data-target="500" data-suffix="+">500+</strong>
+                <span>Providers Supported</span>
+              </div>
+              <div class="stat-card">
+                <strong class="counter" data-target="50" data-suffix="M+">50M+</strong>
+                <span>Claims Processed</span>
+              </div>
+              <div class="stat-card">
+                <strong class="counter" data-target="98" data-suffix="%">98%</strong>
+                <span>Clean Claim Rate</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: 3D isometric SVG illustration (stethoscope + shield + rising graph) -->
+          <div class="hero-visual">
+            <svg viewBox="0 0 460 380" width="100%" style="max-width:440px;" role="img" aria-label="Stethoscope, medical shield and rising revenue graph illustration">
+              <defs>
+                <linearGradient id="shGrad" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#E7B8C0"/>
+                  <stop offset="1" stop-color="#7A1F2B"/>
+                </linearGradient>
+                <linearGradient id="graphGrad" x1="0" y1="1" x2="0" y2="0">
+                  <stop offset="0" stop-color="#B58A3A" stop-opacity="0.35"/>
+                  <stop offset="1" stop-color="#B58A3A" stop-opacity="0.02"/>
+                </linearGradient>
+              </defs>
+              <!-- Rising graph -->
+              <path d="M40 300 L130 230 L210 250 L300 150 L380 110 L380 300 Z" fill="url(#graphGrad)"/>
+              <path d="M40 300 L130 230 L210 250 L300 150 L380 110" fill="none" stroke="#B58A3A" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="380" cy="110" r="8" fill="#B58A3A"/>
+              <!-- Arrow up -->
+              <path d="M368 78 l18 -12 -4 20" fill="none" stroke="#B58A3A" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+              <!-- Medical shield with cross -->
+              <g transform="translate(60 40)">
+                <path d="M70 0 L140 30 V120 C140 170 115 195 70 215 C25 195 0 170 0 120 V30 Z" fill="url(#shGrad)" opacity="0.95"/>
+                <path d="M70 14 L126 38 V120 C126 160 107 181 70 198 C33 181 14 160 14 120 V38 Z" fill="#fff" opacity="0.92"/>
+                <path d="M70 62 v44 M48 84 h44" stroke="#7A1F2B" stroke-width="9" stroke-linecap="round"/>
+              </g>
+              <!-- Stethoscope -->
+              <g transform="translate(230 40)" opacity="0.95">
+                <path d="M30 200 C30 130 100 130 100 80" fill="none" stroke="#B65A6A" stroke-width="7" stroke-linecap="round"/>
+                <path d="M30 200 C30 260 170 260 170 200" fill="none" stroke="#B65A6A" stroke-width="7" stroke-linecap="round"/>
+                <path d="M100 80 V60" stroke="#B65A6A" stroke-width="7" stroke-linecap="round"/>
+                <circle cx="100" cy="56" r="12" fill="#B58A3A"/>
+                <rect x="8" y="192" width="34" height="18" rx="9" fill="#7A1F2B"/>
+                <rect x="158" y="192" width="34" height="18" rx="9" fill="#7A1F2B"/>
+              </g>
+              <!-- Sparkles -->
+              <path d="M330 270 l3 8 8 3 -8 3 -3 8 -3 -8 -8 -3 8 -3 z" fill="#D6B56A"/>
+              <path d="M60 320 l2 6 6 2 -6 2 -2 6 -2 -6 -6 -2 6 -2 z" fill="#E7B8C0"/>
+              <path d="M250 320 l2 6 6 2 -6 2 -2 6 -2 -6 -6 -2 6 -2 z" fill="#E7B8C0"/>
+            </svg>
           </div>
         </div>
-        <div class="ht-stat-card c1"><b>↗</b><strong>98%</strong><small>Clean Claim Rate</small></div>
-        <div class="ht-stat-card c2"><b>▤</b><strong>50M+</strong><small>Claims Processed</small></div>
-        <div class="ht-stat-card c3"><b>♧</b><strong>500+</strong><small>Providers Supported</small></div>
       </div>
-    </div>
-  </div>
 
-  <div class="ht-metrics">
-    <div class="container ht-metrics-grid">
-      <div><b>▱</b><strong>15+</strong><span>Years Experience</span></div>
-      <div><b>♧</b><strong>500+</strong><span>Happy Providers</span></div>
-      <div><b>♢</b><strong>98%</strong><span>Clean Claim Rate</span></div>
-      <div><b>＄</b><strong>99.2%</strong><span>Collection Rate</span></div>
-      <div><b>◷</b><strong>24/7</strong><span>Support</span></div>
-    </div>
-  </div>
+      <!-- OUR SERVICES -->
+      <div class="container section-pad" id="services">
+        <div class="section-head">
+          <span class="kicker"><i class="fa-solid fa-briefcase-medical"></i> What We Do</span>
+          <h2>Comprehensive <span class="grad-text">Revenue Cycle Solutions</span> for U.S. Healthcare Practices</h2>
+          <p>We provide end-to-end Medical Billing and Revenue Cycle Management services designed to meet the unique needs of physician practices, outpatient clinics, behavioural health providers, urgent care centres, multi-specialty groups, and healthcare organizations throughout the United States.</p>
+          <p style="font-weight:700;color:var(--primary);margin-top:0.5rem;">Our goal is simple: maximize reimbursements, minimize claim denials, and help your practice achieve long-term financial stability.</p>
+        </div>
 
-  <div class="container ht-services-wrap" id="services">
-    <div class="ht-services-head">
-      <div class="ht-kicker">OUR SERVICES</div>
-      <h2>Comprehensive RCM Solutions</h2>
-      <p><i></i> We handle the complexities of your revenue cycle so you can focus on what matters most – your patients.</p>
-    </div>
-    <div class="ht-services-grid">
-      <div class="ht-service-card"><div class="ht-icon">▤</div><h3>Medical Billing</h3><p>Accurate billing, timely claims submission, and faster payments.</p><a href="/billing" data-route="billing">Learn More &nbsp; →</a></div>
-      <div class="ht-service-card"><div class="ht-icon">♢</div><h3>Credentialing</h3><p>Provider credentialing and payer enrollment done right.</p><a href="/credentialing" data-route="credentialing">Learn More &nbsp; →</a></div>
-      <div class="ht-service-card"><div class="ht-icon">&lt;/&gt;</div><h3>Medical Coding</h3><p>ICD-10, CPT &amp; HCPCS coding with 99% accuracy.</p><a href="/coding" data-route="coding">Learn More &nbsp; →</a></div>
-      <div class="ht-service-card"><div class="ht-icon">●</div><h3>Insurance Verification</h3><p>Verify patient eligibility and benefits in real-time.</p><a href="/billing" data-route="billing">Learn More &nbsp; →</a></div>
-      <div class="ht-service-card"><div class="ht-icon">＄</div><h3>AR Follow-Up</h3><p>Aggressive follow-up to reduce aging AR and denials.</p><a href="/billing" data-route="billing">Learn More &nbsp; →</a></div>
-    </div>
-    <div class="ht-audit-mini">
-  <div class="ht-audit-title">
-    <h2>Contact Us</h2>
-    <p>Have questions about our medical billing, credentialing, or RCM services? Get in touch with our team.</p>
-  </div>
+        <div class="services-grid">
+          <div class="glass service-card">
+            <div class="s-icon"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+            <div>
+              <h3>Medical Billing &amp; Revenue Cycle Management</h3>
+              <p>Complete revenue cycle management from charge capture to final payment.</p>
+            </div>
+          </div>
+          <div class="glass service-card">
+            <div class="s-icon"><i class="fa-solid fa-id-badge"></i></div>
+            <div>
+              <h3>Provider Credentialing &amp; Enrollment</h3>
+              <p>CAQH, PECOS, commercial payers and hospital privileging handled end-to-end.</p>
+            </div>
+          </div>
+          <div class="glass service-card">
+            <div class="s-icon"><i class="fa-solid fa-code"></i></div>
+            <div>
+              <h3>Medical Coding</h3>
+              <p>Certified coders delivering compliant, payer-ready ICD-10, CPT and HCPCS codes.</p>
+            </div>
+          </div>
+          <div class="glass service-card">
+            <div class="s-icon"><i class="fa-solid fa-circle-check"></i></div>
+            <div>
+              <h3>Insurance Verification</h3>
+              <p>Eligibility and benefits checks before every visit to stop denials at the source.</p>
+            </div>
+          </div>
+          <div class="glass service-card">
+            <div class="s-icon"><i class="fa-solid fa-clock"></i></div>
+            <div>
+              <h3>AR Follow-Up</h3>
+              <p>Disciplined daily follow-up on every aging dollar until it gets paid.</p>
+            </div>
+          </div>
+          <div class="glass service-card">
+            <div class="s-icon"><i class="fa-solid fa-money-bill-transfer"></i></div>
+            <div>
+              <h3>Payment Posting</h3>
+              <p>Accurate ERA/EOB posting and reconciliation you can audit anytime.</p>
+            </div>
+          </div>
+          <div class="glass service-card">
+            <div class="s-icon"><i class="fa-solid fa-shield-halved"></i></div>
+            <div>
+              <h3>Denial Management</h3>
+              <p>Root-cause denial analysis and aggressive appeals that recover lost revenue.</p>
+            </div>
+          </div>
+        </div>
+      </div>
 
-  <div class="ht-mini-form">
-    <input type="text" id="homeContactName" placeholder="Full Name*">
-    <input type="email" id="homeContactEmail" placeholder="Email*">
-    <input type="text" id="homeContactPractice" placeholder="Practice / Company Name">
-    <input type="tel" id="homeContactPhone" placeholder="Phone Number">
-    <input type="text" id="homeContactSubject" placeholder="Subject">
-    <textarea id="homeContactMessage" placeholder="How can we help your practice?" rows="3" style="width:100%;"></textarea>
-  </div>
+      <!-- WHY CHOOSE US -->
+      <div class="container section-pad" style="padding-top:0.5rem;">
+        <div class="section-head">
+          <span class="kicker"><i class="fa-solid fa-medal"></i> Why Us</span>
+          <h2>Why Healthcare Providers Choose <span class="grad-text">HIMA TECH RCM</span></h2>
+        </div>
 
-  <button type="button" class="ht-audit-btn" id="homeContactBtn">
-    <i class="fa-solid fa-paper-plane"></i> SEND MESSAGE
-  </button>
+        <div class="why-grid">
+          <div class="glass why-item">
+            <div class="w-icon"><i class="fa-solid fa-user-tie"></i></div>
+            <div>
+              <h3>Revenue Cycle Experts You Can Trust</h3>
+              <p>Our experienced RCM professionals support independent physicians, specialty practices, outpatient clinics, and healthcare organizations with accurate, efficient, and compliant revenue cycle management solutions.</p>
+            </div>
+          </div>
+          <div class="glass why-item">
+            <div class="w-icon"><i class="fa-solid fa-lock"></i></div>
+            <div>
+              <h3>HIPAA-Compliant &amp; Secure Operations</h3>
+              <p>We follow strict HIPAA-compliant workflows and industry best practices to safeguard Protected Health Information (PHI), ensuring security, confidentiality, and regulatory compliance at every stage.</p>
+            </div>
+          </div>
+          <div class="glass why-item">
+            <div class="w-icon"><i class="fa-solid fa-paper-plane"></i></div>
+            <div>
+              <h3>Accurate Claims. Faster Reimbursements.</h3>
+              <p>Our team submits clean, payer-ready claims using proven quality control processes, helping improve first-pass acceptance rates and accelerate insurance reimbursements.</p>
+            </div>
+          </div>
+          <div class="glass why-item">
+            <div class="w-icon"><i class="fa-solid fa-chart-line"></i></div>
+            <div>
+              <h3>Reduced Denials &amp; Stronger Cash Flow</h3>
+              <p>Through proactive denial prevention, timely appeals, and dedicated Accounts Receivable follow-up, we help healthcare providers recover revenue and maintain a healthier cash flow.</p>
+            </div>
+          </div>
+          <div class="glass why-item">
+            <div class="w-icon"><i class="fa-solid fa-headset"></i></div>
+            <div>
+              <h3>Dedicated Support for Your Practice</h3>
+              <p>Every client is assigned a dedicated account manager who understands your specialty, provides regular performance updates, and works closely with your team to ensure exceptional service and measurable results.</p>
+            </div>
+          </div>
+        </div>
+      </div>
 
-  <div class="ht-secure">
-    ♙ &nbsp; Your information is 100% secure and confidential.
-  </div>
-</div>
+      <!-- CTA -->
+      <div class="cta-section">
+        <div class="container">
+          <div class="cta-box">
+            <h2>Ready to Boost Your <span class="grad-text">Practice Revenue?</span></h2>
+            <p>Book a free consultation today and discover how we can improve your practice's financial performance.</p>
+            <a href="/audit" data-route="audit" class="btn btn-glow"><i class="fa-solid fa-stethoscope"></i> Book a Free RCM Audit</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <div class="container ht-why-wrap">
-    <div class="ht-kicker">WHY CHOOSE US</div>
-    <h2>More Collections. Less Stress.<br>Better Outcomes.</h2>
-    <div class="ht-why-grid">
-      <div><b>♧</b><span><strong>Experienced Team</strong><small>15+ years of combined RCM experience.</small></span></div>
-      <div><b>▣</b><span><strong>Advanced Technology</strong><small>HIPAA-compliant tools for accuracy and efficiency.</small></span></div>
-      <div><b>▤</b><span><strong>Transparent Reporting</strong><small>Real-time reports and clear communication.</small></span></div>
-      <div><b>☎</b><span><strong>Dedicated Support</strong><small>24/7 support to keep your practice running smoothly.</small></span></div>
-    </div>
-  </div>
-
-  <div class="cta-section ht-final-cta"><div class="container"><div class="cta-box"><h2>Ready to Boost Your <span class="grad-text">Practice Revenue?</span></h2><p>Book a free consultation today and discover how we can improve your practice's financial performance.</p><a href="/audit" data-route="audit" class="btn btn-glow">Book a Free RCM Audit</a></div></div></div>
-</section>
     <!-- ============================================================
          PAGE 2: ABOUT US
          ============================================================ -->
@@ -1216,7 +1358,7 @@ body{background:#fff;color:#222;font-family:Arial,Helvetica,sans-serif}
   <div class="glass team-card">
     <img src="assets/Muhammad%20Shahid%20Credentialing.jpeg" alt="Muhammad Shahid - Provider Credentialing Head">
     <h4>Muhammad Shahid</h4>
-    <p class="role">Provider Credentialining Head</p>
+    <p class="role">Provider Credentialing Head</p>
   </div>
 
 </div>
@@ -1257,7 +1399,7 @@ body{background:#fff;color:#222;font-family:Arial,Helvetica,sans-serif}
         </div>
 
         <div class="section-head" style="margin-top:3.5rem;">
-          <span class="kicker" style="background:rgba(243,156,18,0.12);border-color:rgba(243,156,18,0.35);color:#a86a06;"><i class="fa-solid fa-medal"></i> Benefits</span>
+          <span class="kicker" style="background:rgba(243,156,18,0.12);border-color:rgba(243,156,18,0.35);color:#7A1F2B;"><i class="fa-solid fa-medal"></i> Benefits</span>
           <h2>What You <span class="grad-text">Gain</span></h2>
         </div>
 
@@ -1324,7 +1466,7 @@ body{background:#fff;color:#222;font-family:Arial,Helvetica,sans-serif}
           <div class="timeline-item">
             <div class="glass timeline-card">
               <div class="t-icon"><i class="fa-solid fa-building-columns"></i></div>
-              <div><h3>Commercial Insurance Enrollment</h3><p>Network enrollment with State Life, Jubilee, EFU, Adamjee and more.</p></div>
+              <div><h3>Commercial Insurance Enrollment</h3><p>Network enrollment with major U.S. commercial payers, Medicare, Medicaid, and regional health plans.</p></div>
             </div>
           </div>
           <div class="timeline-item">
@@ -1476,179 +1618,123 @@ body{background:#fff;color:#222;font-family:Arial,Helvetica,sans-serif}
       </div>
     </section>
 
-  
-  <!-- ============================================================
-     PAGE 6B: FREE RCM AUDIT
-     ============================================================ -->
-<section class="page" id="page-audit">
-  <div class="container section-pad">
+    <!-- ============================================================
+         PAGE 6B: FREE RCM AUDIT
+         ============================================================ -->
+    <section class="page" id="page-audit">
+      <div class="page-hero">
+        <div class="f-dot" style="width:11px;height:11px;background:rgba(243,156,18,0.7);top:26%;left:8%;"></div>
+        <div class="f-dot" style="width:13px;height:13px;background:rgba(0,168,181,0.55);bottom:26%;right:9%;animation-delay:1.4s;"></div>
+        <div class="container">
+          <h1>Get a FREE <span class="grad-text">Revenue Cycle Management (RCM) Audit</span></h1>
+          <p>Discover hidden revenue opportunities, reduce claim denials, and improve your practice's cash flow. Complete the form below, and one of our RCM specialists will contact you within 24 hours.</p>
+        </div>
+      </div>
 
-    <form class="glass audit-form" id="auditForm" novalidate>
+      <div class="container section-pad">
+        <form class="glass audit-form" id="auditForm" novalidate>
+          <h3 class="form-section-title" style="margin-top:0;"><i class="fa-solid fa-hospital"></i> PRACTICE INFORMATION</h3>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="practiceName">Practice Name *</label>
+              <input type="text" class="form-control" id="practiceName" placeholder="e.g., California Family Clinic" required>
+            </div>
+            <div class="form-group">
+              <label for="providerName">Provider Name *</label>
+              <input type="text" class="form-control" id="providerName" placeholder="e.g., Dr. Smith" required>
+            </div>
+            <div class="form-group">
+              <label for="specialty">Specialty *</label>
+              <input type="text" class="form-control" id="specialty" placeholder="e.g., Cardiology" required>
+            </div>
+            <div class="form-group">
+              <label for="numProviders">Number of Providers *</label>
+              <input type="number" class="form-control" id="numProviders" placeholder="e.g., 4" min="1" required>
+            </div>
+            <div class="form-group">
+              <label for="cityState">City &amp; State *</label>
+              <input type="text" class="form-control" id="cityState" placeholder="e.g., Houston, TX" required>
+            </div>
+            <div class="form-group">
+              <label for="website">Website (Optional)</label>
+              <input type="url" class="form-control" id="website" placeholder="https://yoursite.com">
+            </div>
+          </div>
 
-  <h3 class="form-section-title" style="margin-top:0;">
-    <i class="fa-solid fa-hospital"></i> PRACTICE INFORMATION
-  </h3>
+          <h3 class="form-section-title"><i class="fa-solid fa-address-book"></i> CONTACT INFORMATION</h3>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fullName">Full Name *</label>
+              <input type="text" class="form-control" id="fullName" placeholder="Your full name" required>
+            </div>
+            <div class="form-group">
+              <label for="jobTitle">Job Title *</label>
+              <input type="text" class="form-control" id="jobTitle" placeholder="e.g., Practice Manager" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address *</label>
+              <input type="email" class="form-control" id="email" placeholder="you@clinic.com" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number *</label>
+              <input type="tel" class="form-control" id="phone" placeholder="+12 345 1234567" required>
+            </div>
+          </div>
 
-  <div class="form-row">
+          <h3 class="form-section-title"><i class="fa-solid fa-file-invoice-dollar"></i> CURRENT BILLING INFORMATION</h3>
+          <div class="form-group">
+            <label>Do you bill in-house or outsource your billing?</label>
+            <div class="radio-group">
+              <label><input type="radio" name="billingMethod" value="In-house"> In-house</label>
+              <label><input type="radio" name="billingMethod" value="Outsourced"> Outsourced</label>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="currentCompany">Current Billing Company (Optional)</label>
+              <input type="text" class="form-control" id="currentCompany" placeholder="Name of current vendor, if any">
+            </div>
+            <div class="form-group">
+              <label for="emrSoftware">Practice Management / EMR Software</label>
+              <input type="text" class="form-control" id="emrSoftware" placeholder="e.g., Epic, eClinicalWorks, Kareo">
+            </div>
+            <div class="form-group">
+              <label for="monthlyVolume">Approximate Monthly Claim Volume</label>
+              <input type="text" class="form-control" id="monthlyVolume" placeholder="e.g., 600-800 claims/month">
+            </div>
+          </div>
 
-    <div class="form-group">
-      <label for="practiceName">Practice Name *</label>
-      <input type="text" class="form-control" id="practiceName"
-             placeholder="e.g., California Family Clinic" required>
-    </div>
+          <h3 class="form-section-title"><i class="fa-solid fa-triangle-exclamation"></i> CHALLENGES</h3>
+          <p class="form-hint" style="margin-bottom:0.8rem;">Challenges You're Facing (Select all that apply):</p>
+          <div class="check-group">
+            <label><input type="checkbox" name="challenges" value="High Claim Denials"> High Claim Denials</label>
+            <label><input type="checkbox" name="challenges" value="Slow Insurance Payments"> Slow Insurance Payments</label>
+            <label><input type="checkbox" name="challenges" value="Low Collections"> Low Collections</label>
+            <label><input type="checkbox" name="challenges" value="Credentialing Delays"> Credentialing Delays</label>
+            <label><input type="checkbox" name="challenges" value="Aging Accounts Receivable"> Aging Accounts Receivable</label>
+            <label><input type="checkbox" name="challenges" value="Frequent Claim Rejections"> Frequent Claim Rejections</label>
+            <label><input type="checkbox" name="challenges" value="Coding Issues"> Coding Issues</label>
+            <label><input type="checkbox" name="challenges" value="Staff Shortage"> Staff Shortage</label>
+            <label><input type="checkbox" name="challenges" value="Other"> Other</label>
+          </div>
 
-    <div class="form-group">
-      <label for="providerName">Provider Name *</label>
-      <input type="text" class="form-control" id="providerName"
-             placeholder="e.g., Dr. Smith" required>
-    </div>
+          <div class="form-group" style="margin-top:1.2rem;">
+            <label for="comments">Additional Comments</label>
+            <textarea class="form-control" id="comments" rows="4" placeholder="(Tell us about your biggest billing or revenue cycle challenge.)"></textarea>
+          </div>
 
-    <div class="form-group">
-      <label for="specialty">Specialty *</label>
-      <input type="text" class="form-control" id="specialty"
-             placeholder="e.g., Cardiology" required>
-    </div>
+          <label class="consent">
+            <input type="checkbox" id="consent" required>
+            <span>I agree to be contacted by HIMA TECH RCM regarding my FREE RCM Audit.</span>
+          </label>
 
-    <div class="form-group">
-      <label for="numProviders">Number of Providers *</label>
-      <input type="number" class="form-control" id="numProviders"
-             placeholder="e.g., 4" min="1" required>
-    </div>
-
-    <div class="form-group">
-      <label for="cityState">City &amp; State *</label>
-      <input type="text" class="form-control" id="cityState"
-             placeholder="e.g., Houston, TX" required>
-    </div>
-
-    <div class="form-group">
-      <label for="website">Website (Optional)</label>
-      <input type="url" class="form-control" id="website"
-             placeholder="https://yoursite.com">
-    </div>
-
-  </div>
-
-  <h3 class="form-section-title">
-    <i class="fa-solid fa-address-book"></i> CONTACT INFORMATION
-  </h3>
-
-  <div class="form-row">
-
-    <div class="form-group">
-      <label for="fullName">Full Name *</label>
-      <input type="text" class="form-control" id="fullName"
-             placeholder="Your full name" required>
-    </div>
-
-    <div class="form-group">
-      <label for="jobTitle">Job Title *</label>
-      <input type="text" class="form-control" id="jobTitle"
-             placeholder="e.g., Practice Manager" required>
-    </div>
-
-    <div class="form-group">
-      <label for="email">Email Address *</label>
-      <input type="email" class="form-control" id="email"
-             placeholder="you@clinic.com" required>
-    </div>
-
-    <div class="form-group">
-      <label for="phone">Phone Number *</label>
-      <input type="tel" class="form-control" id="phone"
-             placeholder="+1 870 696 2158" required>
-    </div>
-
-  </div>
-
-  <h3 class="form-section-title">
-    <i class="fa-solid fa-file-invoice-dollar"></i>
-    CURRENT BILLING INFORMATION
-  </h3>
-
-  <div class="form-group">
-    <label>Do you bill in-house or outsource your billing?</label>
-
-    <div class="radio-group">
-      <label>
-        <input type="radio" name="billingMethod" value="In-house">
-        In-house
-      </label>
-
-      <label>
-        <input type="radio" name="billingMethod" value="Outsourced">
-        Outsourced
-      </label>
-    </div>
-  </div>
-
-  <div class="form-row">
-
-    <div class="form-group">
-      <label for="currentCompany">Current Billing Company (Optional)</label>
-      <input type="text" class="form-control" id="currentCompany"
-             placeholder="Name of current vendor, if any">
-    </div>
-
-    <div class="form-group">
-      <label for="emrSoftware">Practice Management / EMR Software</label>
-      <input type="text" class="form-control" id="emrSoftware"
-             placeholder="e.g., Epic, eClinicalWorks, Kareo">
-    </div>
-
-    <div class="form-group">
-      <label for="monthlyVolume">Approximate Monthly Claim Volume</label>
-      <input type="text" class="form-control" id="monthlyVolume"
-             placeholder="e.g., 600-800 claims/month">
-    </div>
-
-  </div>
-
-  <h3 class="form-section-title">
-    <i class="fa-solid fa-triangle-exclamation"></i>
-    CHALLENGES
-  </h3>
-
-  <p class="form-hint" style="margin-bottom:0.8rem;">
-    Challenges You're Facing (Select all that apply):
-  </p>
-
-  <div class="check-group">
-    <label><input type="checkbox" name="challenges" value="High Claim Denials"> High Claim Denials</label>
-    <label><input type="checkbox" name="challenges" value="Slow Insurance Payments"> Slow Insurance Payments</label>
-    <label><input type="checkbox" name="challenges" value="Low Collections"> Low Collections</label>
-    <label><input type="checkbox" name="challenges" value="Credentialing Delays"> Credentialing Delays</label>
-    <label><input type="checkbox" name="challenges" value="Aging Accounts Receivable"> Aging Accounts Receivable</label>
-    <label><input type="checkbox" name="challenges" value="Frequent Claim Rejections"> Frequent Claim Rejections</label>
-    <label><input type="checkbox" name="challenges" value="Coding Issues"> Coding Issues</label>
-    <label><input type="checkbox" name="challenges" value="Staff Shortage"> Staff Shortage</label>
-    <label><input type="checkbox" name="challenges" value="Other"> Other</label>
-  </div>
-
-  <div class="form-group" style="margin-top:1.2rem;">
-    <label for="comments">Additional Comments</label>
-    <textarea class="form-control" id="comments" rows="4"
-      placeholder="Tell us about your biggest billing or revenue cycle challenge."></textarea>
-  </div>
-
-  <label class="consent">
-    <input type="checkbox" id="consent" required>
-    <span>I agree to be contacted by HIMA TECH RCM regarding my FREE RCM Audit.</span>
-  </label>
-
-  <button type="submit"
-          class="btn btn-glow btn-block"
-          id="auditBtn"
-          style="padding:1.05rem;font-size:1.05rem;">
-     <i class="fa-solid fa-file-signature"></i>
-    Request My FREE RCM Audit
-  </button>
-
-  <div class="alert" id="auditAlert" role="status"></div>
-
-    </form>
-  </div>
-</section>
+          <button type="submit" class="btn btn-glow btn-block" id="auditBtn" style="padding:1.05rem;font-size:1.05rem;">
+            <i class="fa-solid fa-file-signature"></i> Request My FREE RCM Audit
+          </button>
+          <div class="alert" id="auditAlert" role="status"></div>
+        </form>
+      </div>
+    </section>
 
     <!-- ============================================================
          PAGE 7: BLOG
@@ -1761,36 +1847,46 @@ body{background:#fff;color:#222;font-family:Arial,Helvetica,sans-serif}
       <!-- CONTACT INFORMATION -->
       <div class="contact-info-grid">
 
+        <!-- EMAIL -->
         <div class="glass contact-box">
           <div class="c-icon">
             <i class="fa-solid fa-envelope"></i>
           </div>
+
           <div>
             <strong>Email</strong>
-            <a href="mailto:info@himatechrcm.com"
-               style="display:block;color:var(--text-muted);text-decoration:none;">
+            <a
+              href="mailto:info@himatechrcm.com"
+              style="display:block;color:var(--text-muted);text-decoration:none;"
+            >
               info@himatechrcm.com
             </a>
           </div>
         </div>
 
+        <!-- PHONE -->
         <div class="glass contact-box">
           <div class="c-icon">
             <i class="fa-solid fa-phone"></i>
           </div>
+
           <div>
             <strong>Phone</strong>
-            <a href="tel:+18706962158"
-               style="display:block;color:var(--text-muted);text-decoration:none;">
+            <a
+              href="tel:+18706962158"
+              style="display:block;color:var(--text-muted);text-decoration:none;"
+            >
               +1 870 696 2158
             </a>
           </div>
         </div>
 
+        <!-- BUSINESS HOURS -->
         <div class="glass contact-box">
           <div class="c-icon">
             <i class="fa-solid fa-clock"></i>
           </div>
+
           <div>
             <strong>Business Hours</strong>
             <span>
@@ -1801,7 +1897,8 @@ body{background:#fff;color:#222;font-family:Arial,Helvetica,sans-serif}
 
       </div>
 
-      <!-- CLEAN CONTACT FORM -->
+
+      <!-- CONTACT FORM -->
       <div class="glass" style="padding:1.9rem 1.6rem;">
 
         <h2 style="color:var(--primary);font-size:1.45rem;margin-bottom:0.4rem;">
@@ -1814,41 +1911,49 @@ body{background:#fff;color:#222;font-family:Arial,Helvetica,sans-serif}
 
         <form id="contactForm" novalidate>
 
+          <!-- NAME -->
           <div class="form-group">
             <label for="cName">Full Name *</label>
+
             <input
               type="text"
               class="form-control"
               id="cName"
-              placeholder="Your full name"
+              placeholder="Ayesha Khan"
               required
             >
           </div>
 
+          <!-- EMAIL -->
           <div class="form-group">
             <label for="cEmail">Email Address *</label>
+
             <input
               type="email"
               class="form-control"
               id="cEmail"
-              placeholder="you@clinic.com"
+              placeholder="you@clinic.pk"
               required
             >
           </div>
 
+          <!-- PHONE -->
           <div class="form-group">
             <label for="cPhone">Phone Number *</label>
+
             <input
               type="tel"
               class="form-control"
               id="cPhone"
-              placeholder="+1 870 696 2158"
+              placeholder="+92 300 1234567"
               required
             >
           </div>
 
+          <!-- MESSAGE -->
           <div class="form-group">
             <label for="cMessage">Message *</label>
+
             <textarea
               class="form-control"
               id="cMessage"
@@ -1858,6 +1963,7 @@ body{background:#fff;color:#222;font-family:Arial,Helvetica,sans-serif}
             ></textarea>
           </div>
 
+          <!-- SUBMIT -->
           <button
             type="submit"
             class="btn btn-primary btn-block"
@@ -1867,6 +1973,7 @@ body{background:#fff;color:#222;font-family:Arial,Helvetica,sans-serif}
             Send Message
           </button>
 
+          <!-- FORM STATUS -->
           <div
             class="alert"
             id="cAlert"
@@ -1876,6 +1983,8 @@ body{background:#fff;color:#222;font-family:Arial,Helvetica,sans-serif}
         </form>
 
       </div>
+
+    </div>
 
   </div>
 
@@ -2105,12 +2214,20 @@ body{background:#fff;color:#222;font-family:Arial,Helvetica,sans-serif}
     var navToggle = document.getElementById('navToggle');
     var navMenu = document.getElementById('navMenu');
     if (navToggle && navMenu) {
-      navToggle.addEventListener('click', function () {
+      navToggle.addEventListener('click', function (event) {
+        event.stopPropagation();
         var isOpen = navMenu.classList.toggle('open');
         navToggle.setAttribute('aria-expanded', String(isOpen));
         navToggle.innerHTML = isOpen
           ? '<i class="fa-solid fa-xmark"></i>'
           : '<i class="fa-solid fa-bars"></i>';
+      });
+
+      document.addEventListener('click', function (event) {
+        if (window.innerWidth > 991) return;
+        if (!navMenu.classList.contains('open')) return;
+        if (navMenu.contains(event.target) || navToggle.contains(event.target)) return;
+        closeMobileMenu();
       });
     }
 
@@ -2313,78 +2430,9 @@ body{background:#fff;color:#222;font-family:Arial,Helvetica,sans-serif}
       });
     }
 
-      /* Footer year */
+    /* Footer year */
     var year = document.getElementById('year');
     if (year) year.textContent = new Date().getFullYear();
-
-
-    /* HOME CONTACT FORM */
-    var homeContactBtn = document.getElementById('homeContactBtn');
-
-    if (homeContactBtn) {
-      homeContactBtn.addEventListener('click', function () {
-
-        var name = document.getElementById('homeContactName').value.trim();
-        var email = document.getElementById('homeContactEmail').value.trim();
-        var practice = document.getElementById('homeContactPractice').value.trim();
-        var phone = document.getElementById('homeContactPhone').value.trim();
-        var subject = document.getElementById('homeContactSubject').value.trim();
-        var message = document.getElementById('homeContactMessage').value.trim();
-
-        if (!name || !email || !message) {
-          alert('Please fill in Full Name, Email and Message.');
-          return;
-        }
-
-        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-          alert('Please enter a valid email address.');
-          return;
-        }
-
-        homeContactBtn.disabled = true;
-        homeContactBtn.innerHTML =
-          '<i class="fa-solid fa-spinner fa-spin"></i> SENDING...';
-
-        api('/api/contact', {
-          method: 'POST',
-          body: JSON.stringify({
-            name: name,
-            email: email,
-            practice: practice,
-            phone: phone,
-            subject: subject,
-            message: message
-          })
-        })
-        .then(function (data) {
-
-          if (!data.success) {
-            alert(data.error || 'Message could not be sent. Please try again.');
-            return;
-          }
-
-          alert('Thank you! Your message has been sent successfully.');
-
-          document.getElementById('homeContactName').value = '';
-          document.getElementById('homeContactEmail').value = '';
-          document.getElementById('homeContactPractice').value = '';
-          document.getElementById('homeContactPhone').value = '';
-          document.getElementById('homeContactSubject').value = '';
-          document.getElementById('homeContactMessage').value = '';
-
-        })
-        .catch(function () {
-          alert('Network error. Please try again.');
-        })
-        .finally(function () {
-          homeContactBtn.disabled = false;
-          homeContactBtn.innerHTML =
-            '<i class="fa-solid fa-paper-plane"></i> SEND MESSAGE';
-        });
-
-      });
-    }
-
 
     /* Initial render */
     renderPage();
