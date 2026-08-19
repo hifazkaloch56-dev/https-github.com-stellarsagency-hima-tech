@@ -2362,91 +2362,23 @@ iframe {
           contactForm.reset();
         }).catch(function () {
           showAlert('cAlert', 'error', 'Network error. Please try again.');
-        }).finally(function () {
-          btn.disabled = false;
-          btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Send Message';
+                    }).finally(function () { 
+          btn.disabled = false; 
+          btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Send Message'; 
         });
       });
     }
 
-    /* Free RCM Audit form */
-    var auditForm = document.getElementById('auditForm');
-    if (auditForm) {
-      auditForm.addEventListener('submit', function (event) {
-        event.preventDefault();
+    /* Footer year */
+    var year = document.getElementById('year');
+    if (year) year.textContent = new Date().getFullYear();
 
-        var practice = {
-          practiceName: document.getElementById('practiceName').value.trim(),
-          providerName: document.getElementById('providerName').value.trim(),
-          specialty: document.getElementById('specialty').value.trim(),
-          numProviders: Number(document.getElementById('numProviders').value) || 0,
-          cityState: document.getElementById('cityState').value.trim(),
-          website: document.getElementById('website').value.trim()
-        };
-        var contact = {
-          fullName: document.getElementById('fullName').value.trim(),
-          jobTitle: document.getElementById('jobTitle').value.trim(),
-          email: document.getElementById('email').value.trim(),
-          phone: document.getElementById('phone').value.trim()
-        };
-        var billingMethodEl = document.querySelector('input[name="billingMethod"]:checked');
-        var billing = {
-          billingMethod: billingMethodEl ? billingMethodEl.value : '',
-          currentCompany: document.getElementById('currentCompany').value.trim(),
-          emrSoftware: document.getElementById('emrSoftware').value.trim(),
-          monthlyVolume: document.getElementById('monthlyVolume').value.trim()
-        };
-        var challenges = Array.prototype.map.call(
-          document.querySelectorAll('input[name="challenges"]:checked'),
-          function (cb) { return cb.value; }
-        );
-        var comments = document.getElementById('comments').value.trim();
-        var consent = document.getElementById('consent').checked;
-
-        clearAlert('auditAlert');
-        if (!practice.practiceName || !practice.providerName || !practice.specialty ||
-            !practice.numProviders || !practice.cityState || !contact.fullName ||
-            !contact.jobTitle || !contact.email || !contact.phone || !billing.billingMethod) {
-          showAlert('auditAlert', 'error', 'Please fill in all required fields (marked with *).');
-          return;
-        }
-        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contact.email)) {
-          showAlert('auditAlert', 'error', 'Please enter a valid email address.');
-          return;
-        }
-        if (!consent) {
-          showAlert('auditAlert', 'error', 'Please agree to be contacted before submitting.');
-          return;
-        }
-
-        var btn = document.getElementById('auditBtn');
-        btn.disabled = true;
-        btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Submitting...';
-
-        api('/api/audit', {
-          method: 'POST',
-          body: JSON.stringify({
-            practice: practice,
-            contact: contact,
-            billing: billing,
-            challenges: challenges,
-            comments: comments,
-            consent: consent
-          })
-        }).then(function (data) {
-          if (!data.success) {
-            showAlert('auditAlert', 'error', data.error || 'Request could not be submitted. Please try again.');
-            return;
-          }
-          showAlert('auditAlert', 'success', 'Thank you, <strong>' + contact.fullName + '</strong>! Your FREE RCM Audit request has been received. Our team will contact you within one business day.');
-          auditForm.reset();
-        }).catch(function () {
-          showAlert('auditAlert', 'error', 'Network error. Please try again.');
-        }).finally(function () {
-          btn.disabled = false;
-          btn.innerHTML = '<i class="fa-solid fa-file-signature"></i> Request My FREE RCM Audit';
-        });
-    }
+    /* Initial render */
+    renderPage();
+   
+  </script>
+</body>
+</html>
 
     /* Footer year */
     var year = document.getElementById('year');
