@@ -1728,33 +1728,27 @@ iframe {
     box-sizing: border-box !important;
   }
 }
-  @media (max-width: 768px) {
+ @media (max-width: 768px) {
   .hero {
-    width: 100%;
-    max-width: 100%;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
     overflow: hidden !important;
-
-    background-size: cover !important;
-    background-position: center center !important;
-    background-repeat: no-repeat !important;
   }
 
   .hero-inner {
-    width: 100%;
-    max-width: 100%;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    box-sizing: border-box;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
   }
 
-  .hero h1 {
-    font-size: 1.8rem;
-    line-height: 1.2;
-  }
-
-  .hero-sub {
-    font-size: 0.95rem;
-    max-width: 100%;
+  .hero img,
+  .hero svg {
+    max-width: 100% !important;
   }
 }
     
