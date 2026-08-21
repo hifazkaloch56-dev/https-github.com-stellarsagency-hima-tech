@@ -305,8 +305,8 @@
    ============================================================ */
 .hero {
   position: relative;
-  min-height: 100vh;
-  min-height: 100svh;
+  min-height: 85vh;
+  min-height: 85svh;
   display: flex;
   align-items: center;
 
@@ -370,7 +370,7 @@
 
 .hero h1 {
   color: #ffffff;
-  font-size: 2.10rem;
+  font-size: 1.8rem;
   line-height: 1.16;
   margin-bottom: 1.1rem;
 }
@@ -1747,6 +1747,12 @@ iframe {
   svg[viewBox="0 0 460 380"] {
     margin-top: 80 !important;
     margin-top: 0 !important;
+  }
+}
+    @media (max-width: 768px) {
+  .hero h1 {
+    font-size: 1.65rem !important;
+    line-height: 1.2;
   }
 }
     
