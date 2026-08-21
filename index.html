@@ -1792,7 +1792,16 @@ iframe {
   .hero .hero-actions {
     transform: translateY(-15px);
   }
-
+}
+      .hero-plus-cube {
+  top: 35% !important;
+  left: 45% !important;
+}
+      @media (max-width: 768px) {
+  .hero-plus-cube {
+    top: 42% !important;
+    left: 42% !important;
+  }
 }
   </style>
 
@@ -1835,7 +1844,7 @@ iframe {
 
       <!-- HERO -->
       <div class="hero">
-        <div class="float-shape" style="top:14%;left:45%;opacity:0.5;">
+        <div class="float-shape hero-plus-cube" style="top:14%;left:45%;opacity:0.5;">
           <div class="scene3d"><div class="cube3d">
             <div class="cube-face cube-f1"><i class="fa-solid fa-plus"></i></div>
             <div class="cube-face cube-f2"><i class="fa-solid fa-plus"></i></div>
